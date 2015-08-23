@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace LegendsRising\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

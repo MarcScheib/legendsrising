@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://lr.local',
 
     /*
     |--------------------------------------------------------------------------
@@ -140,9 +140,9 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        LegendsRising\Providers\AppServiceProvider::class,
+        LegendsRising\Providers\EventServiceProvider::class,
+        LegendsRising\Providers\RouteServiceProvider::class,
 
     ],
 
