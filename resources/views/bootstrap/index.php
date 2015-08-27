@@ -4,8 +4,8 @@
     <title>LegendsRising</title>
     <base href="/">
 
-    <link rel="stylesheet" href="styles/style.min.css">
-    <link rel="icon" href="path/to/favicon.png">
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="icon" href="favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
