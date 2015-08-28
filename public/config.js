@@ -1,4 +1,5 @@
 System.config({
+  "defaultJSExtensions": true,
   "transpiler": "babel",
   "babelOptions": {
     "optional": [
@@ -28,6 +29,7 @@ System.config({
     "aurelia-loader": "github:aurelia/loader@0.8.7",
     "aurelia-loader-default": "github:aurelia/loader-default@0.9.5",
     "aurelia-logging": "github:aurelia/logging@0.6.4",
+    "aurelia-logging-console": "github:aurelia/logging-console@0.6.2",
     "aurelia-metadata": "github:aurelia/metadata@0.7.3",
     "aurelia-path": "github:aurelia/path@0.8.1",
     "aurelia-route-recognizer": "github:aurelia/route-recognizer@0.6.2",
