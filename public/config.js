@@ -1,22 +1,20 @@
 System.config({
-  "defaultJSExtensions": true,
-  "transpiler": "babel",
-  "babelOptions": {
+  defaultJSExtensions: true,
+  transpiler: "babel",
+  babelOptions: {
     "optional": [
       "runtime",
       "es7.decorators",
       "es7.classProperties"
     ]
   },
-  "paths": {
+  paths: {
     "*": "assets/app/*.js",
-    "github:*": "jspm_packages/github/*.js",
-    "npm:*": "jspm_packages/npm/*.js"
-  }
-});
+    "github:*": "jspm_packages/github/*",
+    "npm:*": "jspm_packages/npm/*"
+  },
 
-System.config({
-  "map": {
+  map: {
     "aurelia-animator-css": "github:aurelia/animator-css@0.15.0",
     "aurelia-binding": "github:aurelia/binding@0.8.6",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.16.0",
@@ -40,12 +38,15 @@ System.config({
     "aurelia-templating-resources": "github:aurelia/templating-resources@0.14.0",
     "aurelia-templating-router": "github:aurelia/templating-router@0.15.0",
     "aurelia-validation": "github:aurelia/validation@0.2.8",
+    "babel": "npm:babel-core@5.8.23",
+    "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
     "clean-css": "npm:clean-css@3.4.1",
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.15",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "nprogress": "github:rstacruz/nprogress@0.1.6",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:aurelia/animator-css@0.15.0": {
       "aurelia-metadata": "github:aurelia/metadata@0.7.3",
@@ -201,6 +202,9 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
+    "github:rstacruz/nprogress@0.1.6": {
+      "css": "github:systemjs/plugin-css@0.1.15"
+    },
     "github:twbs/bootstrap@4.0.0-alpha": {
       "jquery": "github:components/jquery@2.1.4"
     },
@@ -212,6 +216,9 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
+    },
+    "npm:babel-runtime@5.8.20": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:buffer@3.4.3": {
       "base64-js": "npm:base64-js@0.0.8",
@@ -275,10 +282,8 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "stream": "github:jspm/nodelibs-stream@0.1.0",
       "stream-browserify": "npm:stream-browserify@1.0.0",
-      "string_decoder": "npm:string_decoder@0.10.31",
-      "util": "github:jspm/nodelibs-util@0.1.0"
+      "string_decoder": "npm:string_decoder@0.10.31"
     },
     "npm:source-map@0.4.4": {
       "amdefine": "npm:amdefine@1.0.0",
@@ -304,4 +309,3 @@ System.config({
     }
   }
 });
-

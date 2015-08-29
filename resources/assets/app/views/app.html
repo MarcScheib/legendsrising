@@ -1,0 +1,20 @@
+<template>
+    <require from="templates/elements/navigation-top"></require>
+    <require from="templates/elements/navigation-side"></require>
+    <require from="templates/elements/footer"></require>
+    <require from="utilities/loading-indicator"></require>
+
+    <header>
+        <navigation-top></navigation-top>
+    </header>
+
+    <main>
+        <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
+        <navigation-side id="sidebar" class="sidebar-nav ${inactive ? 'inactive' : ''}"></navigation-side>
+
+        <div class="container-fluid" id="content-container">
+            <router-view></router-view>
+        </div>
+    </main>
+    <footer></footer>
+</template>

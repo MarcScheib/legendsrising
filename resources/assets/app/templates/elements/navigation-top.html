@@ -1,0 +1,57 @@
+<template>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#top-navigation-items">
+                    <span class="sr-only">Show/hide Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">LegendsRising</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="top-navigation-items">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/users/register"><i class="fa fa-user fa-fw"></i> Register</a>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-sign-in fa-fw"></i> Sign In <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form method="post" action="" novalidate>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="username">Username</label>
+                                                <input type="text" id="username" name="username" placeholder="Username" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="password">Password</label>
+                                                <input type="password" id="password" name="password" placeholder="Username" class="form-control">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Remember me
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success btn-block">Sign In</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</template>
