@@ -45,9 +45,10 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.15",
     "fetch": "github:github/fetch@0.9.0",
-    "font-awesome": "npm:font-awesome@4.4.0",
+    "font-awesome": "github:FortAwesome/font-awesome@4.4.0",
     "nprogress": "github:rstacruz/nprogress@0.1.6",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
     "github:aurelia/animator-css@0.15.0": {
       "aurelia-metadata": "github:aurelia/metadata@0.7.3",
       "aurelia-templating": "github:aurelia/templating@0.14.4"
@@ -253,9 +254,6 @@ System.config({
     },
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
-    },
-    "npm:font-awesome@4.4.0": {
-      "css": "github:systemjs/plugin-css@0.1.15"
     },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"

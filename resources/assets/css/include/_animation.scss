@@ -1,0 +1,16 @@
+/* animate page transitions */
+section.au-enter-active {
+  animation: fadeIn 1s;
+}
+
+/* animation definitions */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+  }
+  100% {
+    opacity: 1;
+    transform: none
+  }
+}
