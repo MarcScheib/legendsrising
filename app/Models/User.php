@@ -1,6 +1,6 @@
 <?php
 
-namespace LegendsRising;
+namespace LegendsRising\Model;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

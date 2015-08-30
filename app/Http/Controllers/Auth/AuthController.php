@@ -2,7 +2,7 @@
 
 namespace LegendsRising\Http\Controllers\Auth;
 
-use LegendsRising\User;
+use LegendsRising\Model\User;
 use Validator;
 use LegendsRising\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
