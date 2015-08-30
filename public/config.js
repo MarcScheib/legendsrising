@@ -46,6 +46,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.15",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "github:FortAwesome/font-awesome@4.4.0",
+    "jquery": "github:components/jquery@2.1.4",
     "nprogress": "github:rstacruz/nprogress@0.1.6",
     "text": "github:systemjs/plugin-text@0.0.2",
     "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
