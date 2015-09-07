@@ -4,7 +4,7 @@ namespace LegendsRising\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use LegendsRising\News;
+use LegendsRising\Models\News;
 use LegendsRising\Http\Requests;
 use LegendsRising\Http\Controllers\Controller;
 
@@ -19,8 +19,7 @@ class NewsController extends Controller
     {
         $news = News::all();
 
-        //return $news;
-        return view('bootstrap.index');
+        return $news;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace LegendsRising\Model;
+namespace LegendsRising\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,0 +1,31 @@
+<template>
+    <section class="au-animate">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- ToDo: No news available
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        There are no news available currently.
+                    </div>
+                </div>-->
+                <div class="panel panel-default" repeat.for="item of news">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">${item.title}<br>
+                            <small>on
+                                <time>${item.created}</time>
+                            </small>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        ${item.text}
+                        <p align="right">
+                            posted by <a href="/profiles/view/${item.user_id}">${item.user.username}</a>
+                            -
+                            <a href="/news/view/${item.id}">${item.comment_count} Comments</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
