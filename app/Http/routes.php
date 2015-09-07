@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('bootstrap.index');
-});
-
-Route::get('/news', function () {
-    return "test";
-});
-
 Route::group(['prefix' => 'api'], function () {
     Route::resource('news', 'NewsController');
 });
+
+Route::get('/{slug}', function () {
+    return view('bootstrap.index');
+})->where('slug', '([A-z\d-\/_.]+)?');;

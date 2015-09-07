@@ -1,16 +1,17 @@
 import {inject} from 'aurelia-framework';
 import {NewsService} from 'services/news/news-service';
 
-//@inject(NewsService)
+@inject(NewsService)
 export class Index {
-    /**constructor(newsService) {
+    constructor(newsService) {
         this.newsService = newsService;
         this.news = [];
-    }**/
+    }
 
     activate() {
-        /**this.newsService.getRecent().then(response => {
-            this.news = response.content.news;
-        });**/
+        this.newsService.getRecent().then(data => {
+            console.log(data);
+            this.news = data.news;
+        });
     }
 }

@@ -35,6 +35,7 @@ gulp.task('build-html', function () {
 
 gulp.task('build-scss', function () {
   return gulp.src(paths.style)
+      .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(sass({
         outputStyle: 'nested'
       }))
@@ -44,6 +45,7 @@ gulp.task('build-scss', function () {
       ))
       .pipe(rename({suffix: '.min'}))
       .pipe(minifycss())
+      .pipe(sourcemaps.write({includeContent: true}))
       .pipe(gulp.dest(paths.output));
 });
 
