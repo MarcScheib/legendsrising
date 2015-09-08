@@ -68,7 +68,7 @@
             <li repeat.for="item of news" class="list-group-item">
               <h5 class="text-primary"><strong><a href="/news/view/${item.id}">${item.title}</a></strong></h5>
               <span class="list-group-item-text">
-                by ${item.user.username} on <time>${item.created}</time>
+                by ${item.user.username} on <time>${item.created_at}</time>
               </span>
             </li>
           </ul>

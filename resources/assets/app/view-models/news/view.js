@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {NewsService} from '../../services/news/news-service';
+import {NewsService} from 'services/news/news-service';
 
 @inject(NewsService)
 export class View {
@@ -8,8 +8,8 @@ export class View {
     }
 
     activate(params) {
-        this.newsService.get(params.id).then(response => {
-            this.news = response.content.news;
+        this.newsService.get(params.id).then(data => {
+            this.news = data;
         });
     }
 }

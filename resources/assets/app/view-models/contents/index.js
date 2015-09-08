@@ -10,8 +10,7 @@ export class Index {
 
     activate() {
         this.newsService.getRecent().then(data => {
-            console.log(data);
-            this.news = data.news;
+            this.news = data;
         });
     }
 }

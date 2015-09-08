@@ -17,9 +17,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-
-        return $news;
+        return News::all();
     }
 
     /**
@@ -51,7 +49,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        return News::find($id);
     }
 
     /**
