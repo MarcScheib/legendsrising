@@ -54,6 +54,20 @@
   font-size: 12px;
 }
 
+/** Validation **/
+.aurelia-validation-message {
+  display: inline;
+  margin-left: 5px;
+}
+
+.has-success label {
+  color: $state-success-text;
+}
+
+.has-warning label {
+  color: $state-warning-text;
+}
+
 /** colors **/
 .green {
   color: #69aa46!important;

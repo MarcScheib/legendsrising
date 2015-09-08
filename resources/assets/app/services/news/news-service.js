@@ -3,15 +3,15 @@ import {HttpClient} from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class NewsService {
-    constructor(http) {
-        this.http = http;
+    constructor(httpClient) {
+        this.httpClient = httpClient;
     }
 
     getRecent() {
-        return this.http.fetch('/api/news').then(response => response.json());
+        return this.httpClient.fetch('/api/news').then(response => response.json());
     }
 
     get(id) {
-        return this.http.fetch('/api/news/' + id).then(response => response.json());
+        return this.httpClient.fetch('/api/news/' + id).then(response => response.json());
     }
 }

@@ -1,0 +1,35 @@
+<template>
+  <section class="au-animate">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-block">
+          <h3 class="card-title">Registration</h3>
+
+          <form submit.delegate="register()" validate.bind="validation" novalidate>
+            <fieldset class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" value.bind="username" name="username"
+                     id="username" placeholder="Please enter a username...">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" value.bind="email" name="email" id="email"
+                     placeholder="Please enter an email address...">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" value.bind="password" name="password"
+                     id="password" placeholder="Please enter a password...">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="password_repeat">Repeat Password</label>
+              <input type="password" class="form-control" value.bind="password_repeat"
+                     name="password_repeat" id="password_repeat" placeholder="Please repeat your password...">
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
