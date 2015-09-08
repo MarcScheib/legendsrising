@@ -7,11 +7,11 @@
             <p class="card-text">There are no news available currently.</p>
         </div>-->
         <div class="card card-block" repeat.for="item of news">
-          <h3 class="card-title">${item.title}<br>
+          <h4 class="card-title">${item.title}<br>
             <small>on
               <time>${item.created_at}</time>
             </small>
-          </h3>
+          </h4>
           <p class="card-text">${item.text}</p>
 
           <p class="card-text text-right">

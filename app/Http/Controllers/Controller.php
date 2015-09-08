@@ -1,5 +1,4 @@
 <?php
-
 namespace LegendsRising\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;

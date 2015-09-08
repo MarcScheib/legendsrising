@@ -1,23 +1,18 @@
 <?php
-
 namespace LegendsRising\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use LegendsRising\Models\News;
 use LegendsRising\Http\Requests;
-use LegendsRising\Http\Controllers\Controller;
+use Log;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
     {
-        return News::all();
+        $news = News::with('user')->orderBy('created_at', 'desc')->get();
+
+        return $news;
     }
 
     /**
