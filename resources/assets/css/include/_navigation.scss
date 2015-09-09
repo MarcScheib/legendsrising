@@ -1,82 +1,54 @@
 .sidebar-nav {
-  flex: 0 0 250px;
-  z-index: 1020;
+  background-color: $navigation-bg-color;
+  border-right: 1px solid $navigation-border-color;
+  padding: 14px 22px;
 
-  nav {
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+  .nav-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-      li {
-        a {
-          border-top: 1px solid #e2e2e2;
-          display: block;
-          padding: 10px 20px;
-        }
+    li {
+      a {
+        color: $navigation-link-color;
+        display: block;
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
 
-        a:hover, a:focus, a:active {
-          background-color: #efefef;
-          outline: none;
-          text-decoration: none;
-        }
+      a:hover, a:focus, a:active {
+        background-color: $navigation-link-bg-color-hover;
+        color: $navigation-link-color-hover;
+        outline: none;
+        text-decoration: none;
       }
     }
+  }
+
+  .nav-separator {
+    margin: 8px 0;
+    border: 0;
+    border-bottom: 1px solid $navigation-separator-color;
   }
 
   .nav-item-icon {
     padding-right: 5px;
   }
 
-  .nav-item {
-    padding-left: 5px;
+  .nav-item-arrow.fa:before {
+    content: "\f105";
   }
 
-  .nav-item-arrow {
-    line-height: 20px;
-
-    &.fa:before {
-      content: "\f105";
-    }
-  }
-
-  .nav-item-menu {
+  .nav-sub-container {
     display: none;
-
-    li {
-      a {
-        padding-left: 30px;
-      }
-    }
   }
 
-  .nav-item-menu-open {
-    .nav-item-menu {
-      display: block;
-    }
-
-    .nav-item-arrow.fa:before {
-      content: "\f107";
-    }
-  }
-
-  nav ul li:hover .nav-item-menu {
-    background-color: #222;
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  .nav-container li:hover .nav-sub-container {
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
     display: block;
     left: 200px;
     margin-top: -41px;
     position: absolute;
     width: 150px;
-
-    a:first-of-type {
-      border-top: 0;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar-nav {
-    display: none;
   }
 }

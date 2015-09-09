@@ -1,79 +1,29 @@
-/** Navigation Header **/
 header {
+
 }
 
-/** Body **/
 main {
   display: flex;
   flex-flow: row;
   margin-top: 54px;
 }
 
+.sidebar-nav {
+  flex: 0 0 230px;
+  z-index: 1020;
+}
+
+@include media-breakpoint-down(lg) {
+  .sidebar-nav {
+    display: none;
+  }
+}
+
 #content-container {
-  background-color: #fefefe;
-  border-left: 1px solid #e2e2e2;
   min-height: 495px;
-  padding-top: 15px;
   flex: 1 1 auto;
 }
 
-/** footer **/
 footer {
-  background-color: #fff;
-  border-top: 1px solid #e2e2e2;
-  color: #000;
 
-  .row:first-of-type {
-    padding-top: 10px;
-  }
-
-  .row {
-    padding-bottom: 10px;
-  }
-
-  a {
-    color: #000;
-  }
-}
-
-/** social media **/
-#footer-social-media {
-  ul {
-    li {
-      display: inline-block;
-      margin: 0 5px;
-
-      a {
-        i {
-          border-radius: 20px;
-          color: #fff;
-          font-size: 25px;
-          height: 40px;
-          padding-top: 8px;
-          text-align: center;
-          width: 40px;
-        }
-
-        i:hover {
-          opacity: .7;
-        }
-      }
-    }
-  }
-}
-
-.fa-facebook {
-  background-color: #3b5998
-}
-
-.fa-linkedin {
-  background-color: #007bb6
-}
-
-.fa-twitter {
-  background-color: #00aced
-}
-
-.fa-google-plus {
-  background-color: #dd4b39
 }

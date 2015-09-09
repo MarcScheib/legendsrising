@@ -20,6 +20,12 @@
   margin-top: 50px;
 }
 
+/** Cards **/
+.card-default {
+  background-color: $brand-default-bg;
+  border-color: $brand-default-border;
+}
+
 /** Info Box **/
 .info-box {
   color: white;

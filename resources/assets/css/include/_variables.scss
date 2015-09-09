@@ -1,0 +1,36 @@
+/** font awesome overwrites **/
+$fa-font-path: "../../jspm_packages/github/FortAwesome/font-awesome@4.4.0/fonts";
+
+/** bootstrap v4.0 overwrites **/
+
+/** project specific **/
+// cards
+$brand-default-bg: #fff;
+$brand-default-border: #e5e5e5;
+
+// top navigation
+$top-navigation-bg-color: #fff;
+$top-navigation-border-color: #e8e8e8;
+
+// content
+$content-border-color: #e8e8e8;
+$page-bg-color: #f1f1f1;
+
+// footer
+$footer-border-color: #e8e8e8;
+$footer-bg-color: #fff;
+$footer-text-color: #000;
+$footer-link-color: #000;
+$footer-icon-text-color: #fff;
+$footer-icon-bg-color-facebook: #3b5998;
+$footer-icon-bg-color-linkedin: #007bb6;
+$footer-icon-bg-color-twitter: #00aced;
+$footer-icon-bg-color-google: #dd4b39;
+
+// side navigation
+$navigation-separator-color: #e2e2e2;
+$navigation-border-color: #e8e8e8;
+$navigation-bg-color: #fff;
+$navigation-link-color: #222;
+$navigation-link-color-hover: #fff;
+$navigation-link-bg-color-hover: #444;
