@@ -9,6 +9,14 @@
     padding: 0;
 
     li {
+      .nav-sub-container {
+        display: none;
+      }
+
+      &:hover .nav-sub-container {
+        display: block;
+      }
+
       a {
         color: $navigation-link-color;
         display: block;
@@ -40,15 +48,13 @@
   }
 
   .nav-sub-container {
-    display: none;
-  }
-
-  .nav-container li:hover .nav-sub-container {
-    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    display: block;
-    left: 200px;
+    background-color: $navigation-bg-color;
+    border: 1px solid $navigation-border-color;
+    box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, .1);
+    left: 207px;
     margin-top: -41px;
-    position: absolute;
-    width: 150px;
+    padding: 12px;
+    position: fixed;
+    width: 210px;
   }
 }
