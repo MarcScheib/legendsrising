@@ -11,6 +11,7 @@ export class Register {
         this.router = router;
         this.userService = userService;
         this.notification = notification;
+        // Todo: add debounce for AJAX calls
         this.validation = validation.on(this)
             .ensure('username')
                 .isNotEmpty()
@@ -18,8 +19,8 @@ export class Register {
                 .passes((newValue) => {
                 // Todo: Simplify this?
                     return new Promise( (accept, reject) => {
-                        this.userService.isUsernameExisting(newValue).then( response => {
-                                if (response.content.exists) {
+                        this.userService.isUsernameExisting(newValue).then(data => {
+                                if (data.length != 0) {
                                     reject('is already taken');
                                 } else {
                                     accept();
@@ -34,8 +35,8 @@ export class Register {
                 .passes((newValue) => {
                 // Todo: Simplify this?
                     return new Promise( (accept, reject) => {
-                        this.userService.isEmailExisting(newValue).then( response => {
-                                if (response.content.exists) {
+                        this.userService.isEmailExisting(newValue).then(data => {
+                                if (data.length != 0) {
                                     reject('is already taken');
                                 } else {
                                     accept();

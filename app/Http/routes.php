@@ -12,6 +12,9 @@
 */
 
 Route::group(['prefix' => 'api'], function () {
+    Route::get('user/emailexist/{email}', 'UserController@isEmailExisting');
+    Route::get('user/usernameexist/{username}', 'UserController@isUsernameExisting');
+
     Route::resource('news', 'NewsController');
 });
 
