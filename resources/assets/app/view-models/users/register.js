@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {Validation, ensure} from 'aurelia-validation';
+import {Validation} from 'aurelia-validation';
 
 import {UserService} from 'services/users/user-service';
 import {Notification} from 'services/notification';
@@ -47,7 +47,7 @@ export class Register {
                 })
             .ensure('password')
                 .isNotEmpty()
-                .hasMinLength(8)
+                .hasLengthBetween(8, 32)
                 .isStrongPassword()
             .ensure('password_repeat', (config) => {
                 config.computedFrom(['password'])
@@ -62,17 +62,17 @@ export class Register {
         this.validation.validate().then(
             () => {
                 let user = {
-                    username: this.username,
-                    email: this.email,
-                    password: this.password,
-                    password_repeat: this.password_repeat
+                    "username": this.username,
+                    "email": this.email,
+                    "password": this.password,
+                    "password_repeat": this.password_repeat
                 };
 
-                this.userService.register(user).then(response => {
-                    if (response.content.errors) {
-                        this.notification.danger(response.content.message);
+                this.userService.register(user).then(data => {
+                    if (!data.id) {
+                        this.notification.danger('You have got errors in your registration.');
                     } else {
-                        this.notification.success(response.content.message);
+                        this.notification.success('You have been registered successfully.');
                         this.router.navigate('/users/signin');
                     }
                 });

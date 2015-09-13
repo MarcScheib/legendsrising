@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class UserService {
@@ -8,6 +8,10 @@ export class UserService {
     }
 
     register(user) {
+        return this.httpClient.fetch('/api/user', {
+            method: 'post',
+            body: json(user)
+        }).then(response => response.json());
     }
 
     isUsernameExisting(username) {
