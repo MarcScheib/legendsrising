@@ -1,12 +1,11 @@
 <?php
 namespace LegendsRising\Http\Controllers;
 
-use Crypt;
+use Event;
 use Illuminate\Http\Request;
-use LegendsRising\Models\User;
+use LegendsRising\Events\User\UserRegistered;
 use LegendsRising\Http\Requests;
-use Log;
-use Input;
+use LegendsRising\Models\User;
 
 class UserController extends Controller
 {
@@ -36,8 +35,10 @@ class UserController extends Controller
         $user = new User;
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->password = Crypt::encrypt($request->password);
+        $user->password = $request->password;
         $user->save();
+
+        Event::fire(new UserRegistered($user));
 
         return $user;
     }

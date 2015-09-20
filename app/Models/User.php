@@ -1,19 +1,19 @@
 <?php
 namespace LegendsRising\Models;
 
-use Illuminate\Auth\Authenticatable;
+use Crypt;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends Model
 {
-    use Authenticatable, CanResetPassword;
-
     protected $table = 'users';
 
     protected $fillable = ['name', 'email', 'password'];
 
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password'];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Crypt::encrypt($value);
+    }
 }
