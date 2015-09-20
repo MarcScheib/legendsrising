@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'legends_rising_3'),
+            'database'  => env('DB_DATABASE', 'legendsrising'),
             'username'  => env('DB_USERNAME', 'lr'),
             'password'  => env('DB_PASSWORD', '7CS2AnCNKxqThQJz'),
             'charset'   => 'utf8',
