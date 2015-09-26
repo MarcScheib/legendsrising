@@ -1,14 +1,14 @@
 {
   "name": "LegendsRising",
   "version": "0.0.1",
-  "description": " LegendsRising, a Massively Multiplayer Online Role-Playing Game",
+  "description": "LegendsRising, a Massively Multiplayer Online Role-Playing Game",
   "keywords": [
     "legendsrising",
     "mmo"
   ],
   "homepage": "http://www.legendsrising.de",
   "private": true,
-  "author": "Marc Scheib <marc@legendsrising.de>",
+  "author": "Marc Scheib <marc.scheib@legendsrising.de>",
   "repository": {
     "type": "git",
     "url": "https://github.com/MarcScheib/legendsrising"
