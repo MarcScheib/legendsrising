@@ -11,9 +11,8 @@ export class Register {
         this.router = router;
         this.userService = userService;
         this.notification = notification;
-        // Todo: add debounce for AJAX calls
         this.validation = validation.on(this)
-            .ensure('username')
+            .ensure('username', (config) => { config.useDebounceTimeout(150) })
                 .isNotEmpty()
                 .hasLengthBetween(3, 25)
                 .passes((newValue) => {
@@ -29,7 +28,7 @@ export class Register {
                         )
                     })
                 })
-            .ensure('email')
+            .ensure('email', (config) => { config.useDebounceTimeout(150) })
                 .isNotEmpty()
                 .isEmail()
                 .passes((newValue) => {
