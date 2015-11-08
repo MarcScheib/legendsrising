@@ -2,10 +2,9 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <!-- ToDo: No news available
-        <div class="card card-block">
+        <div if.bind="news.length == 0" class="card card-default card-block">
             <p class="card-text">There are no news available currently.</p>
-        </div>-->
+        </div>
         <div class="card card-default card-block" repeat.for="item of news">
           <h4 class="card-title">${item.title}<br>
             <small>on

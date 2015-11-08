@@ -65,6 +65,10 @@
             <h5 class="list-group-item-heading">Recent News</h5>
           </div>
 
+          <div class="list-group-item" if.bind="news.length == 0">
+            <p class="list-group-item-text">There are no news available currently.</p>
+          </div>
+
           <a repeat.for="item of news" class="list-group-item" href="/news/view/${item.id}">
             <h6 class="list-group-item-heading"><strong>${item.title}</strong></h6>
 
