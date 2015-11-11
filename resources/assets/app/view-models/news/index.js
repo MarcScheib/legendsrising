@@ -3,14 +3,14 @@ import {NewsService} from 'services/news/news-service';
 
 @inject(NewsService)
 export class Index {
-    constructor(newsService) {
-        this.newsService = newsService;
-        this.news = [];
-    }
+  constructor(newsService) {
+    this.newsService = newsService;
+    this.news = [];
+  }
 
-    activate() {
-        this.newsService.getRecent().then(data => {
-            this.news = data;
-        });
-    }
+  activate() {
+    this.newsService.getRecent().then(data => {
+      this.news = data;
+    });
+  }
 }

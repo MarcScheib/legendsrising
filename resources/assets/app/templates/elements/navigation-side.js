@@ -1,9 +1,9 @@
 export class NavigationSide {
-    constructor() {
-        this.inactive = false;
-    }
+  constructor() {
+    this.inactive = false;
+  }
 
-    toggle() {
-        this.inactive = !this.inactive;
-    }
+  toggle() {
+    this.inactive = !this.inactive;
+  }
 }
