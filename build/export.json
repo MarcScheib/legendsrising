@@ -1,0 +1,10 @@
+{
+  "list": [
+    "public/config.js",
+    "public/favicon.ico",
+    "public/jspm_packages/system.js",
+    "public/jspm_packages/system-polyfills.js",
+    "public/jspm_packages/system-csp-production.js",
+    "public/jspm_packages/github/github/fetch@0.9.0.js",
+    "public/jspm_packages/github/github/fetch@0.9.0/fetch.js"
+  ]
