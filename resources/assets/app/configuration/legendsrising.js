@@ -18,7 +18,17 @@ export function configure(aurelia) {
     .router()
     .eventAggregator()
     .plugin('aurelia-validation')
-    .plugin('aurelia-animator-css');
+    .plugin('aurelia-animator-css')
+    .plugin('aurelia-configuration', config => {
+      config.setDirectory('assets/app/configuration');
+      config.setConfig('application.json');
+      config.setEnvironments({
+        development: ['lr.local'],
+        staging: ['staging.legendsrising.de'],
+        production: ['legendsrising.de']
+      });
+    });
+
 
   aurelia.start().then(a => a.setRoot('view-models/app', document.body));
 }
