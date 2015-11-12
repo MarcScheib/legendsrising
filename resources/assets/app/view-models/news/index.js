@@ -9,8 +9,7 @@ export class Index {
   }
 
   activate() {
-    this.newsService.getRecent().then(data => {
-      this.news = data;
-    });
+    return this.newsService.getRecent()
+      .then(news => this.news = news);
   }
 }

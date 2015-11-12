@@ -8,8 +8,7 @@ export class View {
   }
 
   activate(params) {
-    this.newsService.get(params.id).then(data => {
-      this.news = data;
-    });
+    return this.newsService.get(params.id)
+      .then(news => this.news = news);
   }
 }
