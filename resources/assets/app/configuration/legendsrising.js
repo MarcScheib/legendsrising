@@ -1,11 +1,12 @@
-import {ConventionalViewStrategy, LogManager} from 'aurelia-framework';
+import {ViewLocator, LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.debug);
 
-ConventionalViewStrategy.convertModuleIdToViewUrl = function(moduleId) {
-  let id = (moduleId.endsWith('.js')) ? moduleId.substring(0, moduleId.length - 3) : moduleId;
+ViewLocator.prototype.convertOriginToViewUrl = function(origin) {
+  let moduleId = origin.moduleId;
+  let id = (moduleId.endsWith('.js') || moduleId.endsWith('.ts')) ? moduleId.substring(0, moduleId.length - 3) : moduleId;
   return id.replace('view-models', 'views') + '.html';
 };
 
