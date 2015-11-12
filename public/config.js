@@ -18,6 +18,7 @@ System.config({
     "aurelia-animator-css": "github:aurelia/animator-css@0.18.0",
     "aurelia-binding": "github:aurelia/binding@0.11.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.19.0",
+    "aurelia-configuration": "github:vheissu/aurelia-configuration@1.0.3",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.12.0",
     "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.10.0",
     "aurelia-fetch-client": "github:aurelia/fetch-client@0.4.0",
@@ -98,8 +99,16 @@ System.config({
       "aurelia-pal": "github:aurelia/pal@0.3.0",
       "core-js": "npm:core-js@1.2.6"
     },
+    "github:aurelia/dependency-injection@0.9.2": {
+      "aurelia-logging": "github:aurelia/logging@0.6.4",
+      "aurelia-metadata": "github:aurelia/metadata@0.7.3",
+      "core-js": "npm:core-js@0.9.18"
+    },
     "github:aurelia/event-aggregator@0.10.0": {
       "aurelia-logging": "github:aurelia/logging@0.9.0"
+    },
+    "github:aurelia/event-aggregator@0.7.0": {
+      "aurelia-logging": "github:aurelia/logging@0.6.4"
     },
     "github:aurelia/event-aggregator@0.9.0": {
       "aurelia-logging": "github:aurelia/logging@0.8.0"
@@ -139,6 +148,10 @@ System.config({
       "aurelia-pal": "github:aurelia/pal@0.3.0",
       "core-js": "npm:core-js@1.2.6"
     },
+    "github:aurelia/http-client@0.10.3": {
+      "aurelia-path": "github:aurelia/path@0.8.1",
+      "core-js": "npm:core-js@0.9.18"
+    },
     "github:aurelia/http-client@0.12.0": {
       "aurelia-pal": "github:aurelia/pal@0.2.0",
       "aurelia-path": "github:aurelia/path@0.10.0",
@@ -164,6 +177,9 @@ System.config({
     "github:aurelia/metadata@0.10.0": {
       "aurelia-pal": "github:aurelia/pal@0.3.0",
       "core-js": "npm:core-js@1.2.6"
+    },
+    "github:aurelia/metadata@0.7.3": {
+      "core-js": "npm:core-js@0.9.18"
     },
     "github:aurelia/metadata@0.9.0": {
       "aurelia-pal": "github:aurelia/pal@0.2.0",
@@ -308,6 +324,12 @@ System.config({
     },
     "github:twbs/bootstrap@4.0.0-alpha": {
       "jquery": "github:components/jquery@2.1.4"
+    },
+    "github:vheissu/aurelia-configuration@1.0.3": {
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.2",
+      "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.7.0",
+      "aurelia-http-client": "github:aurelia/http-client@0.10.3",
+      "core-js": "npm:core-js@0.9.18"
     },
     "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",

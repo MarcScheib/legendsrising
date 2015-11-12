@@ -1,11 +1,16 @@
+import {inject} from 'aurelia-framework';
+import {Configure} from 'aurelia-configuration';
 import 'jquery';
 import 'twbs/bootstrap';
 
+@inject(Configure)
 export class App {
-  configureRouter(config, router) {
-    this.router = router;
+  constructor(configure) {
+    this.configure = configure;
+  }
 
-    config.title = 'LegendsRising';
+  configureRouter(config, router) {
+    config.title = this.configure.get('name');
     config.options.pushState = true;
     config.map([
       {route: ['/', 'contents', 'contents/index'], name: 'index', moduleId: 'view-models/contents/index', title: 'Welcome'},
@@ -15,5 +20,7 @@ export class App {
       {route: ['users/register'], moduleId: 'view-models/users/register', title: 'Registration'},
       {route: ['users/signin'], moduleId: 'view-models/users/signin', title: 'Sign In'}
     ]);
+
+    this.router = router;
   }
 }
