@@ -20,6 +20,10 @@ export class App {
       {route: ['users/register'], moduleId: 'view-models/users/register', title: 'Registration'},
       {route: ['users/signin'], moduleId: 'view-models/users/signin', title: 'Sign In'}
     ]);
+    config.mapUnknownRoutes(instruction => {
+      console.log(instruction);
+      return 'view-models/errors/error404';
+    });
 
     this.router = router;
   }
