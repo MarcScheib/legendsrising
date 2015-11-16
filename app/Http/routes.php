@@ -12,6 +12,8 @@
 */
 
 Route::group(['prefix' => 'api'], function () {
+    Route::post('auth/signin', 'AuthController@signIn');
+
     Route::get('user/emailexist/{email}', 'UserController@isEmailExisting');
     Route::get('user/usernameexist/{username}', 'UserController@isUsernameExisting');
 
