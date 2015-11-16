@@ -19,8 +19,8 @@
       </a>
     </li>
   </ul>
-  <hr class="nav-separator">
-  <ul class="nav-container">
+  <hr class="nav-separator" if.bind="isAuthenticated">
+  <ul class="nav-container" if.bind="isAuthenticated">
     <li>
       <a href="/news" class="nav-item-toggle">
         <span class="nav-item-icon fa fa-home fa-fw"></span>
