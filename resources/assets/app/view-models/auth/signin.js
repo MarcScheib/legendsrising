@@ -17,7 +17,8 @@ export class Signin {
   }
 
   signin() {
-    return this.auth.login(this.email, this.password)
+    let userInfo = { username: this.username, password: this.password };
+    return this.auth.login(userInfo)
       .then(response => this.notification.success('You signed in successfully.'))
       .catch(error => this.loginError = error.response);
   }
