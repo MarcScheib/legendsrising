@@ -29,7 +29,7 @@ export function configure(aurelia) {
         production: ['legendsrising.de']
       });
     })
-    .plugin('paulvanbladel/aurelia-auth', baseConfig => {
+    .plugin('aurelia-auth', baseConfig => {
       baseConfig.configure(authConfig);
     });
 

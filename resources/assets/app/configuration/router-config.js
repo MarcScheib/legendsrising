@@ -1,4 +1,4 @@
-import {AuthorizeStep} from 'paulvanbladel/aurelia-auth';
+import {AuthorizeStep} from 'aurelia-auth';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {Configure} from 'aurelia-configuration';
@@ -21,7 +21,7 @@ export default class {
         {route: ['news', 'news/index'], moduleId: 'view-models/news/index', title: 'News'},
         {route: ['news/view/:id'], moduleId: 'view-models/news/view', title: 'News'},
         {route: ['users/register'], moduleId: 'view-models/users/register', title: 'Registration'},
-        {route: ['users/signin'], moduleId: 'view-models/users/signin', title: 'Sign In'}
+        {route: ['auth/signin'], moduleId: 'view-models/auth/signin', title: 'Sign In'}
       ]);
       config.mapUnknownRoutes(instruction => {
         return 'view-models/errors/error404';

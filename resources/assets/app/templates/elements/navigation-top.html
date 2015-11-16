@@ -6,29 +6,35 @@
     <div class="collapse navbar-toggleable-xs" id="navigation-top-collapse">
       <a class="navbar-brand" href="/">LegendsRising</a>
       <ul class="nav navbar-nav pull-right">
-        <li class="nav-item">
+        <li class="nav-item" if.bind="!isAuthenticated">
           <a class="nav-link" href="/users/register">
             <i class="fa fa-user fa-fw"></i> Register
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" if.bind="!isAuthenticated">
           <a class="nav-link" href="#" data-toggle="dropdown">
             <i class="fa fa-sign-in fa-fw"></i> Sign In <b class="caret"></b>
           </a>
 
           <div class="dropdown-menu" style="padding: 15px; min-width: 250px; left: initial; right: 0;">
-            <form method="post" action="" novalidate>
+            <div class="alert alert-danger" if.bind="loginError">${loginError}</div>
+            <form method="post" action="" novalidate submit.delegate="signin()">
               <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username" class="form-control">
+                <input type="text" id="username" name="username" placeholder="Username" class="form-control" value.bind="username">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Username" class="form-control">
+                <input type="password" id="password" name="password" placeholder="Username" class="form-control" value.bind="password">
               </div>
               <button type="submit" class="btn btn-success btn-block">Sign In</button>
             </form>
           </div>
+        </li>
+        <li class="nav-item" if.bind="isAuthenticated">
+          <a class="nav-link" href="/auth/signout">
+            <i class="fa fa-user fa-fw"></i> Register
+          </a>
         </li>
       </ul>
     </div>

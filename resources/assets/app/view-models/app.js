@@ -1,20 +1,20 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import HttpClientConfig from 'paulvanbladel/aurelia-auth/app.httpClient.config';
+import {FetchConfig} from 'aurelia-auth';
 import AppRouterConfig from 'configuration/router-config';
 import 'jquery';
 import 'twbs/bootstrap';
 
-@inject(Router, HttpClientConfig, AppRouterConfig)
+@inject(Router, FetchConfig, AppRouterConfig)
 export class App {
-  constructor(router, httpClientConfig, appRouterConfig) {
+  constructor(router, fetchConfig, appRouterConfig) {
     this.router = router;
-    this.httpClientConfig = httpClientConfig;
+    this.fetchConfig = fetchConfig;
     this.appRouterConfig = appRouterConfig;
   }
 
   activate() {
-    this.httpClientConfig.configure();
+    this.fetchConfig.configure();
     this.appRouterConfig.configure();
   }
 }
