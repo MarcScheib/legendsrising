@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => LegendsRising\User::class,
+    'model' => LegendsRising\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------
