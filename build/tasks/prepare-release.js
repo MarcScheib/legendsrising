@@ -9,9 +9,9 @@ var args = require('../args');
 // utilizes the bump plugin to bump the
 // semver for the repo
 gulp.task('bump-version', function() {
-  return gulp.src(['./package.json'])
+  return gulp.src(['./package.json', './resources/assets/app/configuration/application.json'], {base: './'})
     .pipe(bump({type: args.bump})) //major|minor|patch|prerelease
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('.'));
 });
 
 // generates the CHANGELOG.md file based on commit
@@ -34,7 +34,7 @@ gulp.task('prepare-release', function(callback) {
     'build',
     'lint',
     'bump-version',
-    'doc',
+    //'doc',
     'changelog',
     callback
   );
