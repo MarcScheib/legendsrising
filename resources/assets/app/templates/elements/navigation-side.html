@@ -1,26 +1,26 @@
 <template>
   <ul class="nav-container">
     <li>
-      <a href="/news" class="nav-item-toggle" aria-expanded="false">
+      <a href="/news" class="nav-item-toggle">
         <span class="nav-item-icon fa fa-bars fa-fw"></span>
         <span>News</span>
       </a>
     </li>
     <li>
-      <a href="/pages/story" class="nav-item-toggle" aria-expanded="false">
+      <a href="/pages/story" class="nav-item-toggle">
         <span class="nav-item-icon fa fa-file-text-o fa-fw"></span>
         <span>Story</span>
       </a>
     </li>
     <li>
-      <a href="/pages/pricing" class="nav-item-toggle" aria-expanded="false">
+      <a href="/pages/pricing" class="nav-item-toggle">
         <span class="nav-item-icon fa fa-shopping-cart fa-fw"></span>
         <span>Pricing</span>
       </a>
     </li>
   </ul>
-  <hr class="nav-separator">
-  <ul class="nav-container">
+  <hr class="nav-separator" if.bind="isAuthenticated">
+  <ul class="nav-container" if.bind="isAuthenticated">
     <li>
       <a href="/news" class="nav-item-toggle">
         <span class="nav-item-icon fa fa-home fa-fw"></span>
