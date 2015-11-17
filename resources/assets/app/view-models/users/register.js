@@ -74,7 +74,7 @@ export class Register {
             this.notification.danger('You have got errors in your registration.');
           } else {
             this.notification.success('You have been registered successfully.');
-            this.router.navigate('/users/signin');
+            this.router.navigate('/auth/signin');
           }
         });
       },

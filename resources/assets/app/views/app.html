@@ -10,7 +10,7 @@
 
     <main>
         <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-        <navigation-side id="sidebar" class="sidebar-nav ${inactive ? 'inactive' : ''}"></navigation-side>
+        <navigation-side id="sidebar" class="sidebar-nav"></navigation-side>
 
         <div class="container-fluid" id="content-container">
             <router-view></router-view>
