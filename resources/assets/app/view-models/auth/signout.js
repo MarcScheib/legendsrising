@@ -13,7 +13,7 @@ export class Signout {
   }
 
   activate() {
-    this.auth.logout("/auth/signin")
+    return this.auth.logout()
       .then(response => this.notification.success("Signed out successfully"))
       .catch(err => this.notification.error("Error signing out"));
   }
