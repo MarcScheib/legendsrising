@@ -22,7 +22,7 @@ export class NavigationTop {
     let userInfo = { username: this.username, password: this.password };
     return this.auth.login(userInfo)
       .then(response => this.notification.success('You signed in successfully.'))
-      .catch(error => this.loginError = error.response);
+      .catch(error => this.loginError = 'Your sign in credentials are wrong.');
   }
 
   get isAuthenticated() {
