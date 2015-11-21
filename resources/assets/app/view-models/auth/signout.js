@@ -1,5 +1,4 @@
 import {inject} from 'aurelia-framework';
-import {noView} from 'aurelia-templating';
 import {AuthService} from 'aurelia-auth';
 import {Router} from 'aurelia-router';
 
@@ -16,9 +15,9 @@ export class Signout {
   activate() {
     return this.auth.logout()
       .then(response => {
-        this.notification.success("Signed out successfully");
+        this.notification.success('Signed out successfully');
         this.router.navigate('/auth/signin');
       })
-      .catch(err => this.notification.error("Error signing out"));
+      .catch(err => this.notification.error('Error signing out'));
   }
 }
