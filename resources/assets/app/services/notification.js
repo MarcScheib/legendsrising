@@ -6,4 +6,8 @@ export class Notification {
   danger(message) {
     console.log(message);
   }
+
+  error(message) {
+    console.log(message);
+  }
 }
