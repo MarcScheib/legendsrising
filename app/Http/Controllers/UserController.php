@@ -11,16 +11,16 @@ class UserController extends Controller
 {
     public function isEmailExisting($email)
     {
-        $user = User::where('email', $email)->get();
+        $user = User::where('email', $email)->first();
 
-        return $user;
+        return response()->json(['exists' => $user != null]);
     }
 
     public function isUsernameExisting($username)
     {
-        $user = User::where('username', $username)->get();
+        $user = User::where('username', $username)->first();
 
-        return $user;
+        return response()->json(['exists' => $user != null]);
     }
 
     public function store(Request $request)

@@ -18,10 +18,9 @@ export class Register {
       .isNotEmpty()
       .hasLengthBetween(3, 25)
       .passes((newValue) => {
-        // Todo: Simplify this?
         return new Promise((accept, reject) => {
           this.userService.isUsernameExisting(newValue).then(data => {
-            if (data.length !== 0) {
+            if (data.exists) {
               reject('is already taken');
             } else {
               accept();
@@ -35,10 +34,9 @@ export class Register {
       .isNotEmpty()
       .isEmail()
       .passes((newValue) => {
-        // Todo: Simplify this?
         return new Promise((accept, reject) => {
           this.userService.isEmailExisting(newValue).then(data => {
-            if (data.length !== 0) {
+            if (data.exists) {
               reject('is already taken');
             } else {
               accept();
