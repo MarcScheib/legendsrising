@@ -13,7 +13,7 @@ export default class {
   configure() {
     let appRouterConfig = config => {
       config.title = this.configuration.get('name');
-      //config.addPipelineStep('authorize', AuthorizeStep);
+      config.addPipelineStep('authorize', AuthorizeStep);
       config.options.pushState = true;
       config.map([
         {route: ['/', 'contents', 'contents/index'], name: 'index', moduleId: 'view-models/contents/index', title: 'Welcome'},
@@ -21,7 +21,8 @@ export default class {
         {route: ['news', 'news/index'], moduleId: 'view-models/news/index', title: 'News'},
         {route: ['news/view/:id'], moduleId: 'view-models/news/view', title: 'News'},
         {route: ['users/register'], moduleId: 'view-models/users/register', title: 'Registration'},
-        {route: ['auth/signin'], moduleId: 'view-models/auth/signin', title: 'Sign In'}
+        {route: ['auth/signin'], moduleId: 'view-models/auth/signin', title: 'Sign In'},
+        {route: ['auth/signout'], moduleId: 'view-models/auth/signout', title: 'Sign Out'}
       ]);
       config.mapUnknownRoutes(instruction => {
         return 'view-models/errors/error404';
