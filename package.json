@@ -1,6 +1,6 @@
 {
   "name": "LegendsRising",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "LegendsRising, a Massively Multiplayer Online Role-Playing Game",
   "keywords": [
     "legendsrising",
@@ -47,7 +47,7 @@
     "jasmine-core": "^2.1.3",
     "jshint-stylish": "^1.0.0",
     "jspm": "^0.16.11",
-    "karma": "^0.12.28",
+    "karma": "^0.13.15",
     "karma-babel-preprocessor": "^5.2.1",
     "karma-chrome-launcher": "^0.1.7",
     "karma-coverage": "douglasduteil/karma-coverage#next",

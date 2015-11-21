@@ -13,7 +13,7 @@ export default class {
   configure() {
     let appRouterConfig = config => {
       config.title = this.configuration.get('name');
-      //config.addPipelineStep('authorize', AuthorizeStep);
+      config.addPipelineStep('authorize', AuthorizeStep);
       config.options.pushState = true;
       config.map([
         {route: ['/', 'contents', 'contents/index'], name: 'index', moduleId: 'view-models/contents/index', title: 'Welcome'},
