@@ -2,7 +2,7 @@ module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '.',
 
 
     // frameworks to use
@@ -11,9 +11,9 @@ module.exports = function (config) {
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['resources/assets/**/*.js', 'resources/test/unit/**/*.js'],
+      loadFiles: ['resources/assets/app/**/*.js', 'resources/test/unit/**/*.js'],
       paths: {
-        '*': 'public/assets/app/*.js',
+        '*': '*.js',
         'github:*': 'public/jspm_packages/github/*.js',
         'npm:*': 'public/jspm_packages/npm/*.js'
       }
@@ -32,7 +32,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'resources/test/**/*.js': ['babel'],
-      'resources/assets/**/*.js': ['babel']
+      'resources/assets/app/**/*.js': ['babel']
     },
     'babelPreprocessor': {
       options: {

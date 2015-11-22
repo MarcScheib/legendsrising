@@ -1,6 +1,6 @@
 import {ViewLocator, LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
-import authConfig from 'configuration/auth-config';
+import authConfig from './auth-config';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.debug);

@@ -2,8 +2,8 @@ import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {Validation} from 'aurelia-validation';
 
-import {UserService} from 'services/users/user-service';
-import {Notification} from 'services/notification';
+import {UserService} from '../../services/users/user-service';
+import {Notification} from '../../services/notification';
 
 @inject(Router, Validation, UserService, Notification)
 export class Register {

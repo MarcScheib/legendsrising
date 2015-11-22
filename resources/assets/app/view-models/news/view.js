@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {NewsService} from 'services/news/news-service';
+import {NewsService} from '../../services/news/news-service';
 
 @inject(NewsService)
 export class View {
