@@ -2,7 +2,7 @@ module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '.',
+    basePath: '',
 
 
     // frameworks to use
@@ -11,7 +11,10 @@ module.exports = function (config) {
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['resources/assets/app/**/*.js', 'resources/test/unit/**/*.js'],
+      config: 'public/config.js',
+      packages: 'public/jspm_packages',
+      loadFiles: ['resources/test/unit/**/*.js'],
+      serveFiles: ['resources/assets/app/**/*.js'],
       paths: {
         '*': '*.js',
         'github:*': 'public/jspm_packages/github/*.js',
