@@ -18,6 +18,7 @@ install:
 before_script:
   - ./node_modules/.bin/jspm config registries.github.auth $GH_TOKEN
   - ./node_modules/.bin/jspm install
+  - chmod +x ./scripts/ci/build_and_test.sh
 
 script:
   - ./scripts/ci/build_and_test.sh
