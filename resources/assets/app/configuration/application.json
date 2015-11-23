@@ -1,6 +1,6 @@
 {
   "name": "LegendsRising",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "development": {
     "api": {
       "endpoint": "http://lr.local/api"

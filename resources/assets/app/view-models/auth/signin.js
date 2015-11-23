@@ -2,7 +2,7 @@ import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-auth';
 import {Router} from 'aurelia-router';
 
-import {Notification} from 'services/notification';
+import {Notification} from '../../services/notification';
 
 @inject(AuthService, Notification, Router)
 export class Signin {

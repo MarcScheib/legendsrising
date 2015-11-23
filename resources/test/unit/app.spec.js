@@ -1,22 +1,45 @@
-import {App} from '../../assets/app/view-models/app';
+import AppRouterConfig from '../../assets/app/configuration/router-config';
 
 class RouterStub {
+  options = {
+    pushState: false
+  };
+
   configure(handler) {
     handler(this);
+  }
+  addPipelineStep()
+  {
+
+  }
+  mapUnknownRoutes()
+  {
+
   }
   map(routes) {
     this.routes = routes;
   }
 }
 
+class Configure {
+  get(key) {
+    if (key === 'name')
+    {
+      return 'LegendsRising';
+    }
+  }
+}
+
 describe('the App module', () => {
-  var sut
-    , mockedRouter;
+  var sut;
+  var mockedRouter;
+  var mockedConfigure;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
-    sut = new App();
-    sut.configureRouter(mockedRouter, mockedRouter);
+    mockedConfigure = new Configure();
+    sut = new AppRouterConfig(mockedRouter, mockedConfigure);
+    sut.configure();
   });
 
   it('contains a router property', () => {

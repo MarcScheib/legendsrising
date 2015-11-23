@@ -1,7 +1,7 @@
 import {bindable, inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-auth';
 
-import {Notification} from 'services/notification';
+import {Notification} from '../../services/notification';
 
 @inject(AuthService, Notification)
 export class NavigationTop {
