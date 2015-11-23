@@ -1,3 +1,12 @@
+<a name"0.0.3"></a>
+### 0.0.3 (2015-11-23)
+
+
+#### Bug Fixes
+
+* **all:** add pipeline step to auto scroll to top ([6bace1f9](https://github.com/MarcScheib/legendsrising/commit/6bace1f9))
+
+
 ### 0.0.2 (2015-11-21)
 
 
