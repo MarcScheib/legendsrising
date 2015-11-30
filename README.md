@@ -10,24 +10,6 @@ LegendsRising can be found on the [LegendsRising website](http://www.legendsrisi
 
 First of all, clone the complete repository to your local machine.
 
-### Backend
-
-1. Ensure that [Composer](https://getcomposer.org/) is installed.
-2. From the project folder, execute the following command:
-
-  ```shell
-  composer install
-  ```
-3. Make sure to set up a database (preferable MySQL).
-4. Adjust the ```.env.example``` file to your needs and save it as ```.env```.
-5. Run the following command to set up the database:
-
-  ```shell
-  php artisan migrate
-  ```
-
-### Frontend
-
 To build the code, follow these steps.
 
 1. Ensure that [NodeJS](http://nodejs.org/) is installed. This provides the platform on which the build tooling runs.
@@ -62,17 +44,6 @@ To build the code, follow these steps.
 ## Running The Tests
 
 To run the unit tests, first ensure that you have followed the steps above in order to install all dependencies and successfully build the project. Once you have done that, proceed with the following steps.
-
-### Backend
-
-1. Ensure that [PHPUnit](https://phpunit.de/) is installed.
-2. Run the tests with the following command:
-
-  ```shell
-  phpunit
-  ```
-
-### Frontend
 
 1. Ensure that the [Karma](http://karma-runner.github.io/) CLI is installed. If you need to install it, use the following command:
 
