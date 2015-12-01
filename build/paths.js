@@ -1,7 +1,7 @@
-var path = require('path');
-
-var appRoot = 'resources/assets/';
-var outputRoot = 'public/assets/';
+var appRoot = 'src/';
+var outputRoot = 'dist/';
+var scssRoot = 'scss/';
+var cssRoot = 'style/';
 var exporSrvtRoot = 'export/';
 
 module.exports = {
@@ -9,10 +9,11 @@ module.exports = {
   source: appRoot + '**/*.js',
   json: appRoot + '**/*.json',
   html: appRoot + '**/*.html',
-  style: appRoot + '**/*.scss',
+  style: scssRoot + '**/*.scss',
   output: outputRoot,
+  cssOutput: cssRoot,
   exportSrv: exporSrvtRoot,
   doc:'./doc',
-  e2eSpecsSrc: 'resources/test/e2e/src/*.js',
-  e2eSpecsDist: 'resources/test/e2e/dist/'
+  e2eSpecsSrc: 'test/e2e/src/*.js',
+  e2eSpecsDist: 'test/e2e/dist/'
 };

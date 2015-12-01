@@ -1,4 +1,4 @@
-import AppRouterConfig from '../../assets/app/configuration/router-config';
+import AppRouterConfig from '../../src/configuration/router-config';
 
 class RouterStub {
   options = {

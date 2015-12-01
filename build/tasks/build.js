@@ -55,7 +55,7 @@ gulp.task('build-scss', function () {
       .pipe(rename({suffix: '.min'}))
       .pipe(minifycss())
       .pipe(sourcemaps.write({includeContent: true}))
-      .pipe(gulp.dest(paths.output));
+      .pipe(gulp.dest(paths.cssOutput));
 });
 
 // this task calls the clean task (located

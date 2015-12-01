@@ -1,5 +1,7 @@
 import {ViewLocator, LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
+import {HttpClient} from 'aurelia-fetch-client';
+import {Configure} from 'aurelia-configuration';
 import authConfig from './auth-config';
 
 LogManager.addAppender(new ConsoleAppender());
@@ -21,10 +23,10 @@ export function configure(aurelia) {
     .plugin('aurelia-validation')
     .plugin('aurelia-animator-css')
     .plugin('aurelia-configuration', config => {
-      config.setDirectory('assets/app/configuration');
+      config.setDirectory('dist/configuration');
       config.setConfig('application.json');
       config.setEnvironments({
-        development: ['lr.local'],
+        development: ['localhost'],
         staging: ['staging.legendsrising.de'],
         production: ['legendsrising.de']
       });
@@ -32,6 +34,21 @@ export function configure(aurelia) {
     .plugin('aurelia-auth', baseConfig => {
       baseConfig.configure(authConfig);
     });
+
+  aurelia.container.registerInstance(HttpClient, new HttpClient().configure(config => {
+    config
+      .withBaseUrl('http://lr.local/api')//configure.get('api.endpoint'))
+      .withInterceptor({
+        request(request) {
+          console.log(`Requesting ${request.method} ${request.url}`);
+          return request; // you can return a modified Request, or you can short-circuit the request by returning a Response
+        },
+        response(response) {
+          console.log(`Received ${response.status} ${response.url}`);
+          return response; // you can return a modified Response
+        }
+      });
+  }));
 
   aurelia.start().then(a => a.setRoot('view-models/app', document.body));
 }

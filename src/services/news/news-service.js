@@ -8,12 +8,12 @@ export class NewsService {
   }
 
   getRecent() {
-    return this.httpClient.fetch('/api/news')
+    return this.httpClient.fetch('/news')
       .then(response => response.json());
   }
 
   get(id) {
-    return this.httpClient.fetch('/api/news/' + id)
+    return this.httpClient.fetch('/news/' + id)
       .then(response => response.json());
   }
 }

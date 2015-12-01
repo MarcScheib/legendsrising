@@ -11,14 +11,11 @@ module.exports = function (config) {
 
     jspm: {
       // Edit this to your needs
-      config: 'public/config.js',
-      packages: 'public/jspm_packages',
-      loadFiles: ['resources/test/unit/**/*.js'],
-      serveFiles: ['resources/assets/app/**/*.js'],
+      loadFiles: ['src/**/*.js', 'test/unit/**/*.js'],
       paths: {
         '*': '*.js',
-        'github:*': 'public/jspm_packages/github/*.js',
-        'npm:*': 'public/jspm_packages/npm/*.js'
+        'github:*': 'jspm_packages/github/*.js',
+        'npm:*': 'jspm_packages/npm/*.js'
       }
     },
 
@@ -34,8 +31,8 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'resources/test/**/*.js': ['babel'],
-      'resources/assets/app/**/*.js': ['babel']
+      'test/**/*.js': ['babel'],
+      'src/**/*.js': ['babel']
     },
     'babelPreprocessor': {
       options: {
