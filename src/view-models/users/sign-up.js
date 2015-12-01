@@ -6,7 +6,7 @@ import {UserService} from '../../services/users/user-service';
 import {Notification} from '../../services/notification';
 
 @inject(Router, Validation, UserService, Notification)
-export class Register {
+export class SignUp {
   constructor(router, validation, userService, notification) {
     this.router = router;
     this.userService = userService;
@@ -57,7 +57,7 @@ export class Register {
       }, 'the entered password');
   }
 
-  register() {
+  signUp() {
     this.validation.validate().then(
       () => {
         let user = {
@@ -67,17 +67,17 @@ export class Register {
           'password_repeat': this.password_repeat
         };
 
-        this.userService.register(user).then(data => {
+        this.userService.signUp(user).then(data => {
           if (!data.id) {
-            this.notification.danger('You have got errors in your registration.');
+            this.notification.danger('You have got errors in your sign up form.');
           } else {
-            this.notification.success('You have been registered successfully.');
+            this.notification.success('You signed up successfully.');
             this.router.navigate('/auth/signin');
           }
         });
       },
       () => {
-        this.notification.danger('You have got errors in your registration.');
+        this.notification.danger('You have got errors in your sign up form.');
       }
     );
   }

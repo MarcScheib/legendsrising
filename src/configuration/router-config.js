@@ -23,7 +23,7 @@ export default class {
         {route: ['pages/:view'], moduleId: 'view-models/pages/index'},
         {route: ['news', 'news/index'], moduleId: 'view-models/news/index', title: 'News'},
         {route: ['news/view/:id'], moduleId: 'view-models/news/view', title: 'News'},
-        {route: ['users/register'], moduleId: 'view-models/users/register', title: 'Registration'},
+        {route: ['users/signup'], moduleId: 'view-models/users/sign-up', title: 'Sign Up'},
         {route: ['auth/signin'], moduleId: 'view-models/auth/signin', title: 'Sign In'},
         {route: ['auth/signout'], moduleId: 'view-models/auth/signout', title: 'Sign Out'}
       ]);

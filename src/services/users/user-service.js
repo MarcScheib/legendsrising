@@ -7,7 +7,7 @@ export class UserService {
     this.httpClient = httpClient;
   }
 
-  register(user) {
+  signUp(user) {
     return this.httpClient.fetch('/user', {
       method: 'post',
       body: json(user)
