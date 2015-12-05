@@ -23,7 +23,7 @@ gulp.task('tdd', function (done) {
 /**
  * Run test once with code coverage and exit
  */
-gulp.task('cover', function(done) {
+gulp.task('cover', function (done) {
   new Karma({
     configFile: __dirname + '/../../karma.conf.js',
     singleRun: true,
@@ -41,8 +41,8 @@ gulp.task('cover', function(done) {
         'src/**/*.js': 'isparta'
       },
       reporters: [
-        { type: 'html', dir: 'coverage' },
-        { type: 'text' }
+        {type: 'html', dir: 'coverage'},
+        {type: 'text'}
       ]
     }
   }, done).start();

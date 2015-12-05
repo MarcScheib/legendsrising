@@ -19,7 +19,7 @@ var rename = require('gulp-rename');
 // https://www.npmjs.com/package/gulp-plumber
 gulp.task('build-system', function() {
   return gulp.src(paths.source)
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.js'}))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(to5(assign({}, compilerOptions, {modules: 'system'})))
