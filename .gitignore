@@ -2,5 +2,8 @@
 /jspm_packages
 /dist
 /style
+/build/reports
+/coverage
+/test/e2e/dist
 /.idea
 *.iml
