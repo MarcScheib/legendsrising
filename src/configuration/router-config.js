@@ -24,8 +24,8 @@ export default class {
         {route: ['news', 'news/index'], moduleId: 'view-models/news/index', title: 'News'},
         {route: ['news/view/:id'], moduleId: 'view-models/news/view', title: 'News'},
         {route: ['users/signup'], moduleId: 'view-models/users/sign-up', title: 'Sign Up'},
-        {route: ['auth/signin'], moduleId: 'view-models/auth/signin', title: 'Sign In'},
-        {route: ['auth/signout'], moduleId: 'view-models/auth/signout', title: 'Sign Out'}
+        {route: ['auth/signin'], moduleId: 'view-models/auth/sign-in', title: 'Sign In'},
+        {route: ['auth/signout'], moduleId: 'view-models/auth/sign-out', title: 'Sign Out'}
       ]);
       config.mapUnknownRoutes(instruction => {
         return 'view-models/errors/error404';

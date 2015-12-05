@@ -5,7 +5,7 @@ import {Router} from 'aurelia-router';
 import {Notification} from '../../services/notification';
 
 @inject(AuthService, Notification, Router)
-export class Signin {
+export class SignIn {
   username = '';
   password = '';
 
@@ -17,7 +17,7 @@ export class Signin {
     this.router = router;
   }
 
-  signin() {
+  signIn() {
     let userInfo = { username: this.username, password: this.password };
     return this.auth.login(userInfo)
       .then(response => {

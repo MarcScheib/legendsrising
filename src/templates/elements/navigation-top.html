@@ -18,7 +18,7 @@
 
           <div class="dropdown-menu" style="padding: 15px; min-width: 250px; left: initial; right: 0;">
             <div class="alert alert-danger" if.bind="loginError">${loginError}</div>
-            <form method="post" action="" novalidate submit.delegate="signin()">
+            <form method="post" action="" novalidate submit.delegate="signIn()">
               <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Username" class="form-control" value.bind="username">

@@ -5,7 +5,7 @@ import {Router} from 'aurelia-router';
 import {Notification} from '../../services/notification';
 
 @inject(AuthService, Notification, Router)
-export class Signout {
+export class SignOut {
   constructor(auth, notification, router) {
     this.auth = auth;
     this.notification = notification;
@@ -15,7 +15,7 @@ export class Signout {
   activate() {
     return this.auth.logout()
       .then(response => {
-        this.notification.success('Signed out successfully');
+        this.notification.success('You signed out successfully');
         this.router.navigate('/auth/signin');
       })
       .catch(err => this.notification.error('Error signing out'));
