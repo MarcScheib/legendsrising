@@ -8,33 +8,33 @@ var args = require('../args');
 
 // utilizes the bump plugin to bump the
 // semver for the repo
-gulp.task('bump-version', function() {
-  return gulp.src(['./package.json', './resources/assets/app/configuration/application.json'], {base: './'})
+gulp.task('bump-version', function () {
+  return gulp.src(['./package.json', './src/configuration/application.json'])
     .pipe(bump({type: args.bump})) //major|minor|patch|prerelease
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('./'));
 });
 
 // generates the CHANGELOG.md file based on commit
 // from git commit messages
-gulp.task('changelog', function(callback) {
+gulp.task('changelog', function (callback) {
   var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
   return changelog({
     repository: pkg.repository.url,
     version: pkg.version,
     file: paths.doc + '/CHANGELOG.md'
-  }, function(err, log) {
+  }, function (err, log) {
     fs.writeFileSync(paths.doc + '/CHANGELOG.md', log);
   });
 });
 
 // calls the listed sequence of tasks in order
-gulp.task('prepare-release', function(callback) {
+gulp.task('prepare-release', function (callback) {
   return runSequence(
     'build',
     'lint',
     'bump-version',
-    //'doc',
+    'doc',
     'changelog',
     callback
   );
