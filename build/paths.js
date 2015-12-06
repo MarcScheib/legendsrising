@@ -1,18 +1,19 @@
-var path = require('path');
-
-var appRoot = 'resources/assets/';
-var outputRoot = 'public/assets/';
-var exporSrvtRoot = 'export/';
+var appRoot = 'src/';
+var outputRoot = 'dist/';
+var scssRoot = 'scss/';
+var cssRoot = 'style/';
+var exportSrvtRoot = 'export/';
 
 module.exports = {
   root: appRoot,
   source: appRoot + '**/*.js',
   json: appRoot + '**/*.json',
   html: appRoot + '**/*.html',
-  style: appRoot + '**/*.scss',
+  style: scssRoot + '**/*.scss',
   output: outputRoot,
-  exportSrv: exporSrvtRoot,
+  cssOutput: cssRoot,
+  exportSrv: exportSrvtRoot,
   doc:'./doc',
-  e2eSpecsSrc: 'resources/test/e2e/src/*.js',
-  e2eSpecsDist: 'resources/test/e2e/dist/'
+  e2eSpecsSrc: 'test/e2e/src/*.js',
+  e2eSpecsDist: 'test/e2e/dist/'
 };

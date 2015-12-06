@@ -7,7 +7,7 @@ var bundles = require('../bundles.json');
 var resources = require('../export.json');
 
 // deletes all files in the output path
-gulp.task('clean-export', function() {
+gulp.task('clean-export', function () {
   return gulp.src([paths.exportSrv])
     .pipe(vinylPaths(del));
 });
@@ -24,13 +24,13 @@ function getExportList() {
   return resources.list.concat(getBundles());
 }
 
-gulp.task('export-copy', function() {
-  return gulp.src(getExportList(), {base: "."})
+gulp.task('export-copy', function () {
+  return gulp.src(getExportList(), {base: '.'})
     .pipe(gulp.dest(paths.exportSrv));
 });
 
 // use after prepare-release
-gulp.task('export', function(callback) {
+gulp.task('export', function (callback) {
   return runSequence(
     'bundle',
     'clean-export',

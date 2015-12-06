@@ -1,5 +1,0 @@
-suites:
-    main:
-        namespace: LegendsRising
-        psr4_prefix: LegendsRising
-        src_path: app
