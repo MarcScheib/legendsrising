@@ -27,9 +27,7 @@ export default class {
         {route: ['auth/signin'], moduleId: 'view-models/auth/sign-in', title: 'Sign In'},
         {route: ['auth/signout'], moduleId: 'view-models/auth/sign-out', title: 'Sign Out'}
       ]);
-      config.mapUnknownRoutes(instruction => {
-        return 'view-models/errors/error404';
-      });
+      config.mapUnknownRoutes('view-models/errors/error404');
     };
 
     this.router.configure(appRouterConfig);
