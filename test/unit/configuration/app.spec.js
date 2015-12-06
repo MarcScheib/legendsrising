@@ -110,6 +110,21 @@ describe('the App module', () => {
     });
   });
 
+  it('should have profile routes', () => {
+    expect(sut.router.routes).toContain({
+      route: ['profiles/view/:id'],
+      moduleId: 'view-models/profiles/view',
+      title: 'Profile',
+      auth: true
+    });
+    expect(sut.router.routes).toContain({
+      route: ['profiles/edit'],
+      moduleId: 'view-models/profiles/edit',
+      title: 'Edit Profile',
+      auth: true
+    });
+  });
+
   it('should have a unknown route config', () => {
     expect(sut.router.unknownRouteConfig).toEqual(jasmine.any(String));
     expect(sut.router.unknownRouteConfig).toEqual('view-models/errors/error404');

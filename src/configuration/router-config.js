@@ -25,7 +25,9 @@ export default class {
         {route: ['news/view/:id'], moduleId: 'view-models/news/view', title: 'News'},
         {route: ['users/signup'], moduleId: 'view-models/users/sign-up', title: 'Sign Up'},
         {route: ['auth/signin'], moduleId: 'view-models/auth/sign-in', title: 'Sign In'},
-        {route: ['auth/signout'], moduleId: 'view-models/auth/sign-out', title: 'Sign Out'}
+        {route: ['auth/signout'], moduleId: 'view-models/auth/sign-out', title: 'Sign Out'},
+        {route: ['profiles/view/:id'], moduleId: 'view-models/profiles/view', title: 'Profile', auth: true},
+        {route: ['profiles/edit'], moduleId: 'view-models/profiles/edit', title: 'Edit Profile', auth: true}
       ]);
       config.mapUnknownRoutes('view-models/errors/error404');
     };
