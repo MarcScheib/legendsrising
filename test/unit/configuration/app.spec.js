@@ -1,7 +1,7 @@
 import {AuthorizeStep} from 'aurelia-auth';
 
-import AppRouterConfig from '../../src/configuration/router-config';
-import {ScrollToTop} from '../../src/configuration/router/pipeline/ScrollToTop';
+import AppRouterConfig from '../../../src/configuration/router-config';
+import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';
 
 class RouterStub {
   options = {
