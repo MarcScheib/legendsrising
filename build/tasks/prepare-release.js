@@ -9,7 +9,7 @@ var args = require('../args');
 // utilizes the bump plugin to bump the
 // semver for the repo
 gulp.task('bump-version', function () {
-  return gulp.src(['./package.json', './src/configuration/application.json'])
+  return gulp.src(['./package.json', './src/configuration/application.json'], {base: './'})
     .pipe(bump({type: args.bump})) //major|minor|patch|prerelease
     .pipe(gulp.dest('./'));
 });

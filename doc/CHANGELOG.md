@@ -1,3 +1,18 @@
+<a name"0.0.4"></a>
+### 0.0.4 (2015-12-06)
+
+
+#### Bug Fixes
+
+* **bump:** fix version bump in application.json ([c9c132b9](https://github.com/MarcScheib/legendsrising/commit/c9c132b9))
+
+
+#### Features
+
+* **http:** rework frontend project structure ([500b7569](https://github.com/MarcScheib/legendsrising/commit/500b7569))
+* **news:** show news title on single news view ([08a21cbf](https://github.com/MarcScheib/legendsrising/commit/08a21cbf))
+
+
 <a name"0.0.3"></a>
 ### 0.0.3 (2015-11-23)
 
