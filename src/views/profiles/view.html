@@ -3,16 +3,16 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="profile-image">
-          <img src="img/user.jpg" class="img-circle circle-border m-b-md">
+          <!-- Todo -->
+          <img src="http://lr.local/img/avatar/${profile.avatar}" class="img-circle circle-border m-b-md">
         </div>
         <div class="profile-info">
           <h2>
             ${profile.username}
           </h2>
-          <h4>Member of Guild XX</h4>
+          <h4 if.bind="profile.guild_id">Member of Guild</h4>
           <small>
-            <!-- Todo: update last visit -->
-            Joined on ${profile.created_at}, Last visit on ${profile.created_at}
+            Joined on ${profile.created_at}, Last update on ${profile.updated_at}
           </small>
         </div>
       </div>
