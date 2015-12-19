@@ -1,0 +1,72 @@
+<template>
+  <section class="au-animate">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="profile-image">
+          <!-- Todo -->
+          <img src="http://lr.local/img/avatar/${profile.avatar}" class="img-circle circle-border m-b-md">
+        </div>
+        <div class="profile-info">
+          <h2>
+            ${profile.username}
+          </h2>
+          <h4 if.bind="profile.guild_id">Member of Guild</h4>
+          <small>
+            Joined on ${profile.created_at}, Last update on ${profile.updated_at}
+          </small>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <table class="table small">
+          <tbody>
+            <tr>
+              <td>
+                <strong>3</strong> Settlements
+              </td>
+              <td>
+                <strong>200</strong> Troop Strength
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>3</strong> Fights Won
+              </td>
+              <td>
+                <strong>40 000</strong> Resources
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>0</strong> Artifacts
+              </td>
+              <td>
+                <strong>67 040</strong> Overall
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card card-default card-block">
+          <h4 class="card-title">Private message</h4>
+
+          <p class="small">
+            Send a private message to ${profile.username}
+          </p>
+
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="email" class="form-control" placeholder="Message subject">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea class="form-control" placeholder="Your message" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary btn-block">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

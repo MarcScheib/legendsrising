@@ -3,6 +3,7 @@ let authConfig = {
   signupUrl: 'user',
   loginUrl: 'auth/signin',
   tokenName: 'token',
+  loginRoute: 'auth/signin',
   loginRedirect: '',
   logoutRedirect: ''
 };
