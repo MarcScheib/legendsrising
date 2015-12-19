@@ -1,3 +1,15 @@
+<a name"0.1.0"></a>
+## 0.1.0 (2015-12-19)
+
+
+#### Features
+
+* **profile:**
+  * extend profile view ([d3c5c75e](https://github.com/MarcScheib/legendsrising/commit/d3c5c75e))
+  * add basic view profile page ([3813def9](https://github.com/MarcScheib/legendsrising/commit/3813def9))
+  * add profiles routes for view & edit ([54471ff9](https://github.com/MarcScheib/legendsrising/commit/54471ff9))
+
+
 <a name"0.0.4"></a>
 ### 0.0.4 (2015-12-06)
 
