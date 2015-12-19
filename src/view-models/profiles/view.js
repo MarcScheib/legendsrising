@@ -11,7 +11,7 @@ export class View {
     return this.profileService.get(params.id)
       .then(profile => {
         this.profile = profile;
-        routeConfig.navModel.setTitle("Profile of " + profile.username);
+        routeConfig.navModel.setTitle('Profile of ' + profile.username);
       });
   }
 }
