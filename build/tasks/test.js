@@ -8,7 +8,9 @@ gulp.task('test', function (done) {
   new Karma({
     configFile: __dirname + '/../../karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, function (e) {
+    done(e === 0 ? null : 'karma exited with status ' + e);
+  }).start();
 });
 
 /**
@@ -17,7 +19,9 @@ gulp.task('test', function (done) {
 gulp.task('tdd', function (done) {
   new Karma({
     configFile: __dirname + '/../../karma.conf.js'
-  }, done).start();
+  }, function (e) {
+    done();
+  }).start();
 });
 
 /**
