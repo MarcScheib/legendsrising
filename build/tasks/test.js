@@ -1,11 +1,11 @@
 var gulp = require('gulp');
-var Karma = require('karma').Server;
+var karma = require('karma');
 
 /**
  * Run test once and exit
  */
 gulp.task('test', function (done) {
-  new Karma({
+  new karma.Server({
     configFile: __dirname + '/../../karma.conf.js',
     singleRun: true
   }, function (e) {
@@ -17,7 +17,7 @@ gulp.task('test', function (done) {
  * Watch for file changes and re-run tests on each change
  */
 gulp.task('tdd', function (done) {
-  new Karma({
+  new karma.Server({
     configFile: __dirname + '/../../karma.conf.js'
   }, function (e) {
     done();
@@ -28,7 +28,7 @@ gulp.task('tdd', function (done) {
  * Run test once with code coverage and exit
  */
 gulp.task('cover', function (done) {
-  new Karma({
+  new karma.Server({
     configFile: __dirname + '/../../karma.conf.js',
     singleRun: true,
     reporters: ['coverage'],

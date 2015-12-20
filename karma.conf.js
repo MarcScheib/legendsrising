@@ -1,15 +1,16 @@
+var isparta = require('isparta');
+var paths = require('./build/paths');
+var babelOptions = require('./build/babel-options');
+
 module.exports = function (config) {
   var configuration = {
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jspm', 'jasmine'],
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['src/**/*.js', 'test/unit/**/*.js'],
+      loadFiles: [paths.source, paths.tests],
       paths: {
         '*': '*.js',
         'github:*': 'jspm_packages/github/*.js',
@@ -26,24 +27,43 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*.js': ['babel'],
-      'src/**/*.js': ['babel']
+      [paths.tests]: ['babel'],
+      [paths.source]: ['babel', 'sourcemap', 'coverage']
     },
-    'babelPreprocessor': {
+
+    babelPreprocessor: {
       options: {
-        sourceMap: 'inline',
-        moduleIds: false,
-        optional: [
-          'es7.decorators',
-          'es7.classProperties'
-        ]
+        loose: babelOptions.loose,
+        stage: babelOptions.stage,
+        optional: babelOptions.optional,
+        sourceMap: 'inline'
       }
     },
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['coverage', 'progress'],
+
+    coverageReporter: {
+      instrumenters: {
+        isparta: isparta
+      },
+
+      instrumenter: {
+        [paths.source]: 'isparta'
+      },
+
+      dir: 'build/reports/coverage/',
+
+      reporters: [{
+        type: 'text-summary'
+      }, {
+        type: 'html',
+        subdir: 'html'
+      }, {
+        type: 'lcovonly',
+        subdir: 'lcov',
+        file: 'report-lcovonly.txt'
+      }]
+    },
 
     // web server port
     port: 9876,
@@ -60,8 +80,6 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
-
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
@@ -69,13 +87,15 @@ module.exports = function (config) {
       }
     },
 
+    browsers: ['Chrome'],
+
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
   };
 
-  if(process.env.TRAVIS){
-    configuration.browsers = ['Chrome_travis_ci'];
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);
