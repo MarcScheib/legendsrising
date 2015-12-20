@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('ci', ['default', 'cover']);
+gulp.task('ci', ['default']);

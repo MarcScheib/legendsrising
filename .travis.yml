@@ -17,7 +17,6 @@ branches:
     - develop
 
 install:
-  - du -sh ./node_modules || true
   - npm install
   - ./node_modules/.bin/jspm config registries.github.auth $GH_TOKEN
   - ./node_modules/.bin/jspm install

@@ -9,7 +9,7 @@ module.exports = function (config) {
     frameworks: ['jspm', 'jasmine'],
 
     jspm: {
-      // Edit this to your needs
+      config: 'config.js',
       loadFiles: [paths.source, paths.tests],
       paths: {
         '*': '*.js',
