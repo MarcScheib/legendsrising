@@ -13,7 +13,12 @@ module.exports = function (config) {
 
     jspm: {
       config: 'config.js',
-      loadFiles: [paths.tests, paths.source]
+      loadFiles: [paths.tests, paths.source],
+      paths: {
+        '*': '*.js',
+        'github:*': 'jspm_packages/github/*.js',
+        'npm:*': 'jspm_packages/npm/*.js'
+      }
     },
 
     // list of files / patterns to load in the browser
