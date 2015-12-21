@@ -16,8 +16,8 @@ module.exports = function (config) {
       loadFiles: [paths.tests, paths.source],
       paths: {
         '*': '*.js',
-        'github:*': 'jspm_packages/github/*.js',
-        'npm:*': 'jspm_packages/npm/*.js'
+        'github:*': 'jspm_packages/github/*',
+        'npm:*': 'jspm_packages/npm/*'
       }
     },
 
