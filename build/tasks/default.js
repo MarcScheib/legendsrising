@@ -5,7 +5,6 @@ gulp.task('default', function (callback) {
   return runSequence(
     'lint',
     'build',
-    'doc',
     'test',
     callback
   );
