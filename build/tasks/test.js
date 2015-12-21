@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var karma = require('karma');
+var coveralls = require('gulp-coveralls');
 
 /**
  * Run test once and exit
@@ -25,29 +26,9 @@ gulp.task('tdd', function (done) {
 });
 
 /**
- * Run test once with code coverage and exit
+ * Report coverage to coveralls
  */
-gulp.task('cover', function (done) {
-  new karma.Server({
-    configFile: __dirname + '/../../karma.conf.js',
-    singleRun: true,
-    reporters: ['coverage'],
-    preprocessors: {
-      'test/**/*.js': ['babel'],
-      'src/**/*.js': ['babel', 'coverage']
-    },
-    coverageReporter: {
-      includeAllSources: true,
-      instrumenters: {
-        isparta: require('isparta')
-      },
-      instrumenter: {
-        'src/**/*.js': 'isparta'
-      },
-      reporters: [
-        {type: 'html', dir: 'coverage'},
-        {type: 'text'}
-      ]
-    }
-  }, done).start();
+gulp.task('coveralls', ['test'], function (done) {
+  gulp.src('build/reports/coverage/lcov/report-lcovonly.txt')
+    .pipe(coveralls());
 });
