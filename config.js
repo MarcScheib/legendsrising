@@ -4,7 +4,7 @@ System.config({
   babelOptions: {
     "optional": [
       "runtime",
-      "optimisation.modules.system"
+      "es7.decorators"
     ]
   },
   paths: {

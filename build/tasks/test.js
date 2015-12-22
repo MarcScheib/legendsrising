@@ -1,49 +1,34 @@
 var gulp = require('gulp');
-var Karma = require('karma').Server;
+var karma = require('karma');
+var coveralls = require('gulp-coveralls');
 
 /**
  * Run test once and exit
  */
 gulp.task('test', function (done) {
-  new Karma({
+  new karma.Server({
     configFile: __dirname + '/../../karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, function (e) {
+    done(e === 0 ? null : 'karma exited with status ' + e);
+  }).start();
 });
 
 /**
  * Watch for file changes and re-run tests on each change
  */
 gulp.task('tdd', function (done) {
-  new Karma({
+  new karma.Server({
     configFile: __dirname + '/../../karma.conf.js'
-  }, done).start();
+  }, function (e) {
+    done();
+  }).start();
 });
 
 /**
- * Run test once with code coverage and exit
+ * Report coverage to coveralls
  */
-gulp.task('cover', function (done) {
-  new Karma({
-    configFile: __dirname + '/../../karma.conf.js',
-    singleRun: true,
-    reporters: ['coverage'],
-    preprocessors: {
-      'test/**/*.js': ['babel'],
-      'src/**/*.js': ['babel', 'coverage']
-    },
-    coverageReporter: {
-      includeAllSources: true,
-      instrumenters: {
-        isparta: require('isparta')
-      },
-      instrumenter: {
-        'src/**/*.js': 'isparta'
-      },
-      reporters: [
-        {type: 'html', dir: 'coverage'},
-        {type: 'text'}
-      ]
-    }
-  }, done).start();
+gulp.task('coveralls', ['test'], function (done) {
+  gulp.src('build/reports/coverage/lcov/report-lcovonly.txt')
+    .pipe(coveralls());
 });
