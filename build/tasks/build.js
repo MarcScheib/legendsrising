@@ -10,7 +10,7 @@ var assign = Object.assign || require('object.assign');
 var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
-var minifycss = require('gulp-minify-css');
+var nano = require('gulp-cssnano');
 var autoprefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
@@ -56,7 +56,7 @@ gulp.task('build-scss', function () {
       'last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
     ))
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
+    .pipe(nano())
     .pipe(sourcemaps.write({includeContent: true}))
     .pipe(gulp.dest(paths.cssOutput))
     .pipe(browserSync.stream());
