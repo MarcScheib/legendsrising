@@ -41,7 +41,7 @@ describe('the News Index module', () => {
 });
 
 describe('the News View module', () => {
-  it('sets fetch response to news', (done) => {
+  it('sets fetch response to selected news', (done) => {
     var newsService = new NewsServiceStub();
     var sut = new View(newsService);
 

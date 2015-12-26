@@ -10,6 +10,11 @@ export class Index {
 
   activate() {
     return this.newsService.getRecent()
-      .then(news => this.news = news);
+      .then(news => {
+        this.news = news;
+      })
+      .catch(() => {
+        this.news = [];
+      });
   }
 }

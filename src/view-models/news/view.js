@@ -12,6 +12,8 @@ export class View {
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
+      })
+      .catch(() => {
       });
   }
 }
