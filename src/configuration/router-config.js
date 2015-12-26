@@ -17,7 +17,7 @@ export default class {
       config.title = this.configuration.get('name');
       config.addPipelineStep('postcomplete', ScrollToTop);
       config.addPipelineStep('authorize', AuthorizeStep);
-      config.options.pushState = true;
+      config.options.pushState = false;
       config.map([
         {route: ['/', 'contents', 'contents/index'], name: 'index', moduleId: 'view-models/contents/index', title: 'Welcome'},
         {route: ['pages/:view'], moduleId: 'view-models/pages/index'},
