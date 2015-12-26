@@ -16,7 +16,6 @@ export class SignOut {
     return this.auth.logout()
       .then(response => {
         this.notification.success('You signed out successfully');
-        this.router.navigate('/auth/signin');
       })
       .catch(err => this.notification.error('Error signing out'));
   }
