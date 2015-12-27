@@ -14,6 +14,7 @@ export class View {
         routeConfig.navModel.setTitle(news.title);
       })
       .catch(() => {
+        this.news = null;
       });
   }
 }
