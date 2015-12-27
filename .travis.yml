@@ -9,6 +9,7 @@ notifications:
 cache:
   directories:
     - node_modules
+    - jspm_packages
 
 branches:
   only:
