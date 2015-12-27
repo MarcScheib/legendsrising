@@ -1,3 +1,12 @@
+<a name"0.1.2"></a>
+### 0.1.2 (2015-12-27)
+
+
+#### Bug Fixes
+
+* **news:** display no news message on api unavailability ([f9c2f953](https://github.com/MarcScheib/legendsrising/commit/f9c2f953))
+
+
 <a name"0.1.1"></a>
 ### 0.1.1 (2015-12-20)
 
