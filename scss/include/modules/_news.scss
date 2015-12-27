@@ -1,0 +1,28 @@
+.news-card {
+  .card-text {
+    padding-top: 15px;
+  }
+}
+
+.news-card-header {
+  img {
+    height: 50px;
+    margin-right: 10px;
+    width: 50px;
+  }
+
+  h4 {
+    margin-bottom: 0.1rem;
+  }
+}
+
+.news-card-comment {
+  img {
+    margin-right: 10px;
+    width: 32px;
+  }
+
+  .media-body .form-control {
+    font-size: .8rem;
+  }
+}
