@@ -4,8 +4,8 @@ let authConfig = {
   loginUrl: 'auth/signin',
   tokenName: 'token',
   loginRoute: 'auth/signin',
-  loginRedirect: '',
-  logoutRedirect: ''
+  loginRedirect: '#/contents',
+  logoutRedirect: '#/auth/signin'
 };
 
 export default authConfig;

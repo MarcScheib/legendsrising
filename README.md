@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/MarcScheib/legendsrising.svg?branch=master)](https://travis-ci.org/MarcScheib/legendsrising) 
 [![Coverage Status](https://coveralls.io/repos/MarcScheib/legendsrising/badge.svg?branch=master&service=github)](https://coveralls.io/github/MarcScheib/legendsrising?branch=master)
+[![devDependency Status](https://img.shields.io/david/dev/MarcScheib/legendsrising.svg)](https://david-dm.org/MarcScheib/legendsrising#info=devDependencies)
 
 LegendsRising is a Massively Multiplayer Online Role-Playing Game, claiming player to One-vs-Many battles.
 

@@ -4,10 +4,10 @@
       &#9776;
     </button>
     <div class="collapse navbar-toggleable-xs" id="navigation-top-collapse">
-      <a class="navbar-brand" href="/">LegendsRising</a>
+      <a class="navbar-brand" href="#">LegendsRising</a>
       <ul class="nav navbar-nav pull-right">
         <li class="nav-item" if.bind="!isAuthenticated">
-          <a class="nav-link" href="/users/signup">
+          <a class="nav-link" href="#/users/signup">
             <i class="fa fa-user fa-fw"></i> Sign Up
           </a>
         </li>
@@ -32,7 +32,7 @@
           </div>
         </li>
         <li class="nav-item" if.bind="isAuthenticated">
-          <a class="nav-link" href="/auth/signout">
+          <a class="nav-link" href="#/auth/signout">
             <i class="fa fa-sign-out fa-fw"></i> Sign Out
           </a>
         </li>

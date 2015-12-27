@@ -55,8 +55,8 @@ describe('the App module', () => {
     expect(sut.router.title).toEqual('LegendsRising');
   });
 
-  it('configures router push state', () => {
-    expect(sut.router.options.pushState).toBe(true);
+  it('configures no router push state', () => {
+    expect(sut.router.options.pushState).toBe(false);
   });
 
   it('contains an authorize router pipeline step', () => {

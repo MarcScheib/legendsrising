@@ -22,7 +22,6 @@ export class SignIn {
     return this.auth.login(userInfo)
       .then(response => {
         this.notification.success('You signed in successfully.');
-        this.router.navigate('/contents');
       })
       .catch(error => this.loginError = 'Your sign in credentials are wrong.');
   }

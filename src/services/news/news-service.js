@@ -9,11 +9,13 @@ export class NewsService {
 
   getRecent() {
     return this.httpClient.fetch('/news')
-      .then(response => response.json());
+      .then(response => response.json())
+      .catch(error => Promise.reject(error));
   }
 
   get(id) {
     return this.httpClient.fetch('/news/' + id)
-      .then(response => response.json());
+      .then(response => response.json())
+      .catch(error => Promise.reject(error));
   }
 }
