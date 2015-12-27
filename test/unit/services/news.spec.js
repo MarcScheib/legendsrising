@@ -1,26 +1,12 @@
 import {NewsService} from '../../../src/services/news/news-service';
+import {HttpServiceStub} from '../fixtures/HttpServiceStub';
 
+var mockedObject = {news: 'test'};
 var mockedRequest = {
   json: function() {
-    return {news: 'test'};
+    return mockedObject;
   }
 };
-
-class HttpServiceStub {
-  reject = false;
-
-  fetch(resource) {
-    this.resource = resource;
-
-    return new Promise((resolve, reject) => {
-      if (this.reject == false) {
-        resolve(mockedRequest);
-      } else {
-        reject();
-      }
-    });
-  }
-}
 
 describe('the News service', () => {
   var mockedHttpService;
@@ -29,6 +15,7 @@ describe('the News service', () => {
   beforeEach(() => {
     mockedHttpService = new HttpServiceStub();
     sut = new NewsService(mockedHttpService);
+    mockedHttpService.mockedRequest = mockedRequest;
   });
 
   it('contains a http service property', () => {
@@ -40,7 +27,7 @@ describe('the News service', () => {
     sut.getRecent()
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/news');
-        expect(resp).toEqual({news: 'test'});
+        expect(resp).toEqual(mockedObject);
         done();
       })
       .catch(result => {
@@ -54,7 +41,7 @@ describe('the News service', () => {
     sut.get(1)
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/news/1');
-        expect(resp).toEqual({news: 'test'});
+        expect(resp).toEqual(mockedObject);
         done();
       })
       .catch(result => {

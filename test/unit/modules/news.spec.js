@@ -45,12 +45,20 @@ describe('the News Index module', () => {
     sut = new Index(newsService);
   });
 
+  it('contains a news service property', () => {
+    expect(sut.newsService).toBeDefined();
+  });
+
   it('sets fetch response to news', done => {
     newsService.itemStub = itemStubs;
     sut.activate()
       .then(() => {
         expect(sut.news).toBe(itemStubs);
         expect(sut.news).not.toBe(itemFake);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
         done();
       });
   });
@@ -60,6 +68,10 @@ describe('the News Index module', () => {
     sut.activate()
       .then(result => {
         expect(sut.news).toEqual([]);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
         done();
       });
   });
@@ -77,6 +89,10 @@ describe('the News View module', () => {
     sut = new View(newsService);
   });
 
+  it('contains a news service property', () => {
+    expect(sut.newsService).toBeDefined();
+  });
+
   it('sets fetch response to selected news', done => {
     newsService.itemStub = itemStubs;
     let navModelStub = new NavModelStub();
@@ -86,6 +102,10 @@ describe('the News View module', () => {
         expect(sut.news).toBe(itemStubs);
         expect(sut.news).not.toBe(itemFake);
         expect(navModelStub.title).toEqual(itemStubs[0].title);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
         done();
       });
   });
@@ -97,6 +117,10 @@ describe('the News View module', () => {
     sut.activate({id: 1}, {navModel: navModelStub})
       .then(result => {
         expect(sut.news).toBe(null);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
         done();
       });
   });

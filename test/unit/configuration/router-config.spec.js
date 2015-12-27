@@ -35,7 +35,7 @@ class Configure {
   }
 }
 
-describe('the App module', () => {
+describe('the router configuration', () => {
   var sut;
   var mockedRouter;
   var mockedConfigure;
