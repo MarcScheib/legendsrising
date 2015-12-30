@@ -3,10 +3,12 @@ import {json} from 'aurelia-fetch-client';
 import {UserService} from '../../../src/services/users/user-service';
 import {HttpServiceStub} from '../fixtures/HttpServiceStub';
 
-var mockedObject = {user: 'Test'};
-var mockedRequest = {
-  json: function() {
-    return mockedObject;
+var userDummy = {
+  user: 'Test'
+};
+var requestDummy = {
+  json: function () {
+    return userDummy;
   }
 };
 
@@ -17,7 +19,7 @@ describe('the User service', () => {
   beforeEach(() => {
     mockedHttpService = new HttpServiceStub();
     sut = new UserService(mockedHttpService);
-    mockedHttpService.mockedRequest = mockedRequest
+    mockedHttpService.requestDummy = requestDummy
   });
 
   it('contains a http service property', () => {
@@ -25,14 +27,14 @@ describe('the User service', () => {
   });
 
   it('signs up new users', (done) => {
-    sut.signUp(mockedObject)
+    sut.signUp(userDummy)
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/user');
         expect(mockedHttpService.options).toEqual({
           method: 'post',
-          body: json(mockedObject)
+          body: json(userDummy)
         });
-        expect(resp).toEqual(mockedObject);
+        expect(resp).toEqual(userDummy);
         done();
       })
       .catch(result => {
@@ -45,7 +47,7 @@ describe('the User service', () => {
     sut.isUsernameExisting('Test')
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/user/usernameexist/Test');
-        expect(resp).toEqual(mockedObject);
+        expect(resp).toEqual(userDummy);
         done();
       })
       .catch(result => {
@@ -58,7 +60,7 @@ describe('the User service', () => {
     sut.isEmailExisting('Test@test.de')
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/user/emailexist/Test@test.de');
-        expect(resp).toEqual(mockedObject);
+        expect(resp).toEqual(userDummy);
         done();
       })
       .catch(result => {

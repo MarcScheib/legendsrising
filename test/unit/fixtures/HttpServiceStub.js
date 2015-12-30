@@ -1,5 +1,5 @@
 export class HttpServiceStub {
-  mockedRequest;
+  requestDummy;
   reject = false;
 
   fetch(resource, options = {}) {
@@ -8,7 +8,7 @@ export class HttpServiceStub {
 
     return new Promise((resolve, reject) => {
       if (this.reject == false) {
-        resolve(this.mockedRequest);
+        resolve(this.requestDummy);
       } else {
         reject();
       }

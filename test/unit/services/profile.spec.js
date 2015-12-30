@@ -2,10 +2,12 @@ import {ProfileService} from '../../../src/services/profiles/profile-service';
 
 import {HttpServiceStub} from '../fixtures/HttpServiceStub';
 
-var mockedObject = {user: 'Test'};
-var mockedRequest = {
-  json: function() {
-    return mockedObject;
+var profileDummy = {
+  user: 'Test'
+};
+var requestDummy = {
+  json: function () {
+    return profileDummy;
   }
 };
 
@@ -16,7 +18,7 @@ describe('the Profile service', () => {
   beforeEach(() => {
     mockedHttpService = new HttpServiceStub();
     sut = new ProfileService(mockedHttpService);
-    mockedHttpService.mockedRequest = mockedRequest
+    mockedHttpService.requestDummy = requestDummy
   });
 
   it('contains a http service property', () => {
@@ -27,7 +29,7 @@ describe('the Profile service', () => {
     sut.get(1)
       .then(resp => {
         expect(mockedHttpService.resource).toEqual('/profile/1');
-        expect(resp).toEqual(mockedObject);
+        expect(resp).toEqual(profileDummy);
         done();
       })
       .catch(result => {
