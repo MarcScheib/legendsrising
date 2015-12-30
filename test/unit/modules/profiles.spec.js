@@ -1,25 +1,7 @@
 import {View} from '../../../src/view-models/profiles/view';
 
-class ProfileServiceStub {
-  reject = false;
-
-  get(id) {
-    var response = this.itemStub;
-    return new Promise((resolve, reject) => {
-      if (this.reject == false) {
-        resolve(response);
-      } else {
-        reject();
-      }
-    });
-  }
-}
-
-class NavModelStub {
-  setTitle(title) {
-    this.title = title;
-  }
-}
+import {ProfileServiceStub} from '../fixtures/ProfileServiceStub';
+import {NavModelStub} from '../fixtures/NavModelStub';
 
 describe('the Profiles View module', () => {
   var profileService;

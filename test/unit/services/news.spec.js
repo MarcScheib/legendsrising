@@ -1,4 +1,5 @@
 import {NewsService} from '../../../src/services/news/news-service';
+
 import {HttpServiceStub} from '../fixtures/HttpServiceStub';
 
 var mockedObject = {news: 'test'};

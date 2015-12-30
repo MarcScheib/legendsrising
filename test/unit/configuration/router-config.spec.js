@@ -3,29 +3,7 @@ import {AuthorizeStep} from 'aurelia-auth';
 import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';
 
-class RouterStub {
-  options = {
-    pushState: false
-  };
-
-  pipelineSteps = [];
-
-  configure(handler) {
-    handler(this);
-  }
-
-  addPipelineStep(name, step) {
-    this.pipelineSteps.push({name, step})
-  }
-
-  mapUnknownRoutes(config) {
-    this.unknownRouteConfig = config;
-  }
-
-  map(routes) {
-    this.routes = routes;
-  }
-}
+import {RouterStub} from '../fixtures/RouterStub';
 
 class Configure {
   get(key) {

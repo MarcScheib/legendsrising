@@ -1,4 +1,5 @@
 import {ProfileService} from '../../../src/services/profiles/profile-service';
+
 import {HttpServiceStub} from '../fixtures/HttpServiceStub';
 
 var mockedObject = {user: 'Test'};

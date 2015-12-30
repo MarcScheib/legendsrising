@@ -1,37 +1,8 @@
 import {Index} from '../../../src/view-models/news/index';
 import {View} from '../../../src/view-models/news/view';
 
-class NewsServiceStub {
-  reject = false;
-
-  getRecent() {
-    var response = this.itemStub;
-    return new Promise((resolve, reject) => {
-      if (this.reject == false) {
-        resolve(response);
-      } else {
-        reject();
-      }
-    });
-  }
-
-  get(id) {
-    var response = this.itemStub;
-    return new Promise((resolve, reject) => {
-      if (this.reject == false) {
-        resolve(response);
-      } else {
-        reject();
-      }
-    });
-  }
-}
-
-class NavModelStub {
-  setTitle(title) {
-    this.title = title;
-  }
-}
+import {NewsServiceStub} from '../fixtures/NewsServiceStub';
+import {NavModelStub} from '../fixtures/NavModelStub';
 
 describe('the News Index module', () => {
   var newsService;
