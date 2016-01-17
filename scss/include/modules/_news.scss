@@ -17,6 +17,12 @@
 }
 
 .news-card-comment {
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
   img {
     margin-right: 10px;
     width: 32px;

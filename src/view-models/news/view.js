@@ -1,10 +1,12 @@
 import {inject} from 'aurelia-framework';
+import {AuthService} from 'aurelia-auth';
 import {NewsService} from '../../services/news/news-service';
 
-@inject(NewsService)
+@inject(NewsService, AuthService)
 export class View {
-  constructor(newsService) {
+  constructor(newsService, authService) {
     this.newsService = newsService;
+    this.authService = authService;
   }
 
   activate(params, routeConfig) {
@@ -16,5 +18,9 @@ export class View {
       .catch(() => {
         this.news = null;
       });
+  }
+
+  get isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 }

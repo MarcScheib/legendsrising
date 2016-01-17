@@ -21,8 +21,8 @@
             </div>
             <div class="card-text">${news.text}</div>
           </div>
-          <div class="card-footer">
-            <div class="news-card-comment">
+          <div class="card-footer" if.bind="isAuthenticated">
+            <div class="news-card-comment" if.bind="isAuthenticated">
               <!-- Todo: add logged in user data -->
               <a href="#/profiles/view/${news.user_id}" class="pull-left">
                 <img alt="${news.user.username}" src="http://lr.local/img/avatar/${news.user.avatar}">
