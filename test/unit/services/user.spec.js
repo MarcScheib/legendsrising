@@ -1,39 +1,31 @@
 import {json} from 'aurelia-fetch-client';
 
 import {UserService} from '../../../src/services/users/user-service';
-import {HttpServiceStub} from '../fixtures/HttpServiceStub';
+import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
 var userDummy = {
   user: 'Test'
 };
-var requestDummy = {
-  json: function () {
-    return userDummy;
-  }
-};
 
 describe('the User service', () => {
-  var mockedHttpService;
+  var mockedEndpointService;
   var sut;
 
   beforeEach(() => {
-    mockedHttpService = new HttpServiceStub();
-    sut = new UserService(mockedHttpService);
-    mockedHttpService.requestDummy = requestDummy
+    mockedEndpointService = new EndpointServiceStub();
+    sut = new UserService(mockedEndpointService);
+    mockedEndpointService.requestDummy = userDummy
   });
 
   it('contains a http service property', () => {
-    expect(sut.httpClient).toBeDefined();
+    expect(sut.apiClient).toBeDefined();
   });
 
   it('signs up new users', (done) => {
     sut.signUp(userDummy)
       .then(resp => {
-        expect(mockedHttpService.resource).toEqual('/user');
-        expect(mockedHttpService.options).toEqual({
-          method: 'post',
-          body: json(userDummy)
-        });
+        expect(mockedEndpointService.resource).toEqual('user');
+        expect(mockedEndpointService.options).toEqual(userDummy);
         expect(resp).toEqual(userDummy);
         done();
       })
@@ -46,7 +38,8 @@ describe('the User service', () => {
   it('returns user based on username', (done) => {
     sut.isUsernameExisting('Test')
       .then(resp => {
-        expect(mockedHttpService.resource).toEqual('/user/usernameexist/Test');
+        expect(mockedEndpointService.resource).toEqual('user/usernameexist');
+        expect(mockedEndpointService.options).toEqual('Test');
         expect(resp).toEqual(userDummy);
         done();
       })
@@ -59,7 +52,8 @@ describe('the User service', () => {
   it('returns user based on email', (done) => {
     sut.isEmailExisting('Test@test.de')
       .then(resp => {
-        expect(mockedHttpService.resource).toEqual('/user/emailexist/Test@test.de');
+        expect(mockedEndpointService.resource).toEqual('user/emailexist');
+        expect(mockedEndpointService.options).toEqual('Test@test.de');
         expect(resp).toEqual(userDummy);
         done();
       })

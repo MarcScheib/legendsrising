@@ -1,21 +1,19 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {Endpoint} from 'aurelia-api';
 
-@inject(HttpClient)
+@inject(Endpoint.of())
 export class NewsService {
-  constructor(httpClient) {
-    this.httpClient = httpClient;
+  constructor(apiClient) {
+    this.apiClient = apiClient;
   }
 
   getRecent() {
-    return this.httpClient.fetch('/news')
-      .then(response => response.json())
+    return this.apiClient.find('news')
       .catch(error => Promise.reject(error));
   }
 
   get(id) {
-    return this.httpClient.fetch('/news/' + id)
-      .then(response => response.json())
+    return this.apiClient.find('news', id)
       .catch(error => Promise.reject(error));
   }
 }

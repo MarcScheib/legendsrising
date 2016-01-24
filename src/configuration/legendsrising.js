@@ -20,8 +20,13 @@ export function configure(aurelia) {
     .eventAggregator()
     .plugin('aurelia-validation')
     .plugin('aurelia-animator-css')
-    .plugin('aurelia-auth', baseConfig => {
-      baseConfig.configure(authConfig);
+    .plugin('aurelia-api', config => {
+      config
+        .registerEndpoint('dev', 'http://lr.local/api/')
+        .setDefaultEndpoint('dev');
+    })
+    .plugin('aurelia-auth', config => {
+      config.configure(authConfig);
     });
 
   aurelia.start().then(a => a.setRoot('view-models/app', document.body));

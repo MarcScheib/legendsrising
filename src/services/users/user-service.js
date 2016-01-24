@@ -1,27 +1,22 @@
 import {inject} from 'aurelia-framework';
+import {Endpoint} from 'aurelia-api';
 import {HttpClient, json} from 'aurelia-fetch-client';
 
-@inject(HttpClient)
+@inject(Endpoint.of())
 export class UserService {
-  constructor(httpClient) {
-    this.httpClient = httpClient;
+  constructor(apiClient) {
+    this.apiClient = apiClient;
   }
 
   signUp(user) {
-    return this.httpClient.fetch('/user', {
-      method: 'post',
-      body: json(user)
-    })
-      .then(response => response.json());
+    return this.apiClient.create('user', user);
   }
 
   isUsernameExisting(username) {
-    return this.httpClient.fetch('/user/usernameexist/' + username)
-      .then(response => response.json());
+    return this.apiClient.find('user/usernameexist', username);
   }
 
   isEmailExisting(email) {
-    return this.httpClient.fetch('/user/emailexist/' + email)
-      .then(response => response.json());
+    return this.apiClient.find('user/emailexist', email);
   }
 }

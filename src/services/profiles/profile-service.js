@@ -1,14 +1,14 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {Endpoint} from 'aurelia-api';
 
-@inject(HttpClient)
+@inject(Endpoint.of())
 export class ProfileService {
-  constructor(httpClient) {
-    this.httpClient = httpClient;
+  constructor(apiClient) {
+    this.apiClient = apiClient;
   }
 
   get(id) {
-    return this.httpClient.fetch('/profile/' + id)
-      .then(response => response.json());
+    console.log(this.apiClient);
+    return this.apiClient.find('profile', id);
   }
 }

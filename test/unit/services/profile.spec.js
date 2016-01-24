@@ -1,34 +1,30 @@
 import {ProfileService} from '../../../src/services/profiles/profile-service';
 
-import {HttpServiceStub} from '../fixtures/HttpServiceStub';
+import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
 var profileDummy = {
   user: 'Test'
 };
-var requestDummy = {
-  json: function () {
-    return profileDummy;
-  }
-};
 
 describe('the Profile service', () => {
-  var mockedHttpService;
+  var mockedEndpointService;
   var sut;
 
   beforeEach(() => {
-    mockedHttpService = new HttpServiceStub();
-    sut = new ProfileService(mockedHttpService);
-    mockedHttpService.requestDummy = requestDummy
+    mockedEndpointService = new EndpointServiceStub();
+    sut = new ProfileService(mockedEndpointService);
+    mockedEndpointService.requestDummy = profileDummy
   });
 
   it('contains a http service property', () => {
-    expect(sut.httpClient).toBeDefined();
+    expect(sut.apiClient).toBeDefined();
   });
 
   it('returns users based on ids', (done) => {
     sut.get(1)
       .then(resp => {
-        expect(mockedHttpService.resource).toEqual('/profile/1');
+        expect(mockedEndpointService.resource).toEqual('profile');
+        expect(mockedEndpointService.options).toEqual(1);
         expect(resp).toEqual(profileDummy);
         done();
       })

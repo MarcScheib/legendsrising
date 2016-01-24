@@ -1,6 +1,14 @@
-export class HttpServiceStub {
+export class EndpointServiceStub {
   requestDummy;
   reject = false;
+
+  find(resource, options) {
+    return this.fetch(resource, options);
+  }
+
+  create(resource, options) {
+    return this.fetch(resource, options);
+  }
 
   fetch(resource, options = {}) {
     this.resource = resource;

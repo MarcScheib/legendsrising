@@ -1,9 +1,9 @@
 let authConfig = {
-  baseUrl: '/',
+  endpoint: 'dev',
+  configureEndpoints: ['dev'],
   signupUrl: 'user',
   loginUrl: 'auth/signin',
   profileUrl: 'auth/user',
-  tokenName: 'token',
   loginRoute: '#/auth/signin',
   loginRedirect: '#/contents',
   logoutRedirect: '#/auth/signin'
