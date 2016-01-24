@@ -10,7 +10,12 @@ export class View {
   }
 
   activate(params, routeConfig) {
-    return this.newsService.get(params.id)
+    let user = this.authService.getMe()
+      .then(user => {
+        this.user = user;
+      });
+
+    let news = this.newsService.get(params.id)
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
@@ -18,6 +23,8 @@ export class View {
       .catch(() => {
         this.news = null;
       });
+
+    return Promise.all([user, news]);
   }
 
   get isAuthenticated() {

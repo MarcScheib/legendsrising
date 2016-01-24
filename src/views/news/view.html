@@ -23,9 +23,8 @@
           </div>
           <div class="card-footer" if.bind="isAuthenticated">
             <div class="news-card-comment" if.bind="isAuthenticated">
-              <!-- Todo: add logged in user data -->
-              <a href="#/profiles/view/${news.user_id}" class="pull-left">
-                <img alt="${news.user.username}" src="http://lr.local/img/avatar/${news.user.avatar}">
+              <a href="#/profiles/view/${user.user_id}" class="pull-left">
+                <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
               </a>
               <div class="media-body">
                 <textarea class="form-control" placeholder="Write comment..."></textarea>

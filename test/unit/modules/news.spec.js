@@ -1,6 +1,7 @@
 import {Index} from '../../../src/view-models/news/index';
 import {View} from '../../../src/view-models/news/view';
 
+import {AuthServiceStub} from '../fixtures/AuthServiceStub';
 import {NewsServiceStub} from '../fixtures/NewsServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';
 
@@ -50,18 +51,24 @@ describe('the News Index module', () => {
 
 describe('the News View module', () => {
   var newsService;
+  var authService;
   var sut;
 
   var itemStubs = [1];
   var itemFake = [2];
 
   beforeEach(() => {
+    authService = new AuthServiceStub();
     newsService = new NewsServiceStub();
-    sut = new View(newsService);
+    sut = new View(newsService, authService);
   });
 
   it('contains a news service property', () => {
     expect(sut.newsService).toBeDefined();
+  });
+
+  it('contains an auth service property', () => {
+    expect(sut.authService).toBeDefined();
   });
 
   it('sets fetch response to selected news', done => {
