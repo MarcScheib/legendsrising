@@ -1,5 +1,5 @@
 let authConfig = {
-  baseUrl: 'http://lr.local/api',
+  baseUrl: '/',
   signupUrl: 'user',
   loginUrl: 'auth/signin',
   profileUrl: 'auth/user',
