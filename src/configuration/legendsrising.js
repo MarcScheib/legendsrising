@@ -20,15 +20,6 @@ export function configure(aurelia) {
     .eventAggregator()
     .plugin('aurelia-validation')
     .plugin('aurelia-animator-css')
-    .plugin('aurelia-configuration', config => {
-      config.setDirectory('dist/configuration');
-      config.setConfig('application.json');
-      config.setEnvironments({
-        development: ['localhost'],
-        staging: ['staging.legendsrising.de'],
-        production: ['legendsrising.de']
-      });
-    })
     .plugin('aurelia-auth', baseConfig => {
       baseConfig.configure(authConfig);
     });

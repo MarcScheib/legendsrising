@@ -1,12 +1,10 @@
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
-import {Configure} from 'aurelia-configuration';
 
-@inject(HttpClient, Configure)
+@inject(HttpClient)
 export default class {
-  constructor(httpClient, configure) {
+  constructor(httpClient) {
     this.httpClient = httpClient;
-    this.configuration = configure;
   }
 
   configure() {
@@ -17,7 +15,7 @@ export default class {
             'Accept': 'application/json'
           }
         })
-        .withBaseUrl(this.configuration.get('api.endpoint'))
+        .withBaseUrl('http://lr.local/api')
         .withInterceptor({
           request(request) {
             console.log(`Requesting ${request.method} ${request.url}`);

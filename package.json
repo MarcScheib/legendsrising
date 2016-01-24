@@ -68,7 +68,6 @@
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0-beta.1.0.3",
       "aurelia-auth": "github:spoonx/aurelia-auth@^0.13.2",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.0.2",
-      "aurelia-configuration": "github:vheissu/aurelia-configuration@^1.0.3",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.0.2",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.8",

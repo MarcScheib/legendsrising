@@ -5,23 +5,13 @@ import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTo
 
 import {RouterStub} from '../fixtures/RouterStub';
 
-class Configure {
-  get(key) {
-    if (key === 'name') {
-      return 'LegendsRising';
-    }
-  }
-}
-
 describe('the router configuration', () => {
   var sut;
   var mockedRouter;
-  var mockedConfigure;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
-    mockedConfigure = new Configure();
-    sut = new AppRouterConfig(mockedRouter, mockedConfigure);
+    sut = new AppRouterConfig(mockedRouter);
     sut.configure();
   });
 
