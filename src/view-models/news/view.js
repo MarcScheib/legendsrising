@@ -13,6 +13,9 @@ export class View {
     let user = this.authService.getMe()
       .then(user => {
         this.user = user;
+      })
+      .catch(() => {
+        this.user = null;
       });
 
     let news = this.newsService.get(params.id)
