@@ -21,7 +21,17 @@
             </div>
             <div class="card-text">${news.text}</div>
           </div>
-          <div class="card-footer" if.bind="isAuthenticated">
+          <div class="card-footer" if.bind="isAuthenticated || news.comments.length > 0">
+            <div class="news-card-comment" repeat.for="item of news.comments">
+              <a href="#/profiles/view/${item.user.id}" class="pull-left">
+                <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
+              </a>
+              <div class="media-body">
+                <a href="#/profiles/view/${item.user.id}">${item.user.username}</a> ${item.text}
+                <br>
+                <small class="text-muted">${item.created_at}</small>
+              </div>
+            </div>
             <div class="news-card-comment" if.bind="isAuthenticated">
               <a href="#/profiles/view/${user.id}" class="pull-left">
                 <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
