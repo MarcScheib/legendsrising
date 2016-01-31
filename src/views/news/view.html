@@ -21,8 +21,8 @@
             </div>
             <div class="card-text">${news.text}</div>
           </div>
-          <div class="card-footer" if.bind="isAuthenticated || news.comments.length > 0">
-            <div class="news-card-comment" repeat.for="item of news.comments">
+          <div class="card-footer" if.bind="isAuthenticated || comments.length > 0">
+            <div class="news-card-comment" repeat.for="item of comments">
               <a href="#/profiles/view/${item.user.id}" class="pull-left">
                 <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
               </a>

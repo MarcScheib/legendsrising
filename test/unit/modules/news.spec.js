@@ -3,6 +3,7 @@ import {View} from '../../../src/view-models/news/view';
 
 import {AuthServiceStub} from '../fixtures/AuthServiceStub';
 import {NewsServiceStub} from '../fixtures/NewsServiceStub';
+import {NewsCommentsServiceStub} from '../fixtures/NewsCommentsServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';
 
 describe('the News Index module', () => {
@@ -51,6 +52,7 @@ describe('the News Index module', () => {
 
 describe('the News View module', () => {
   var newsService;
+  var newsCommentsService;
   var authService;
   var sut;
 
@@ -60,11 +62,16 @@ describe('the News View module', () => {
   beforeEach(() => {
     authService = new AuthServiceStub();
     newsService = new NewsServiceStub();
-    sut = new View(newsService, authService);
+    newsCommentsService = new NewsCommentsServiceStub();
+    sut = new View(newsService, newsCommentsService, authService);
   });
 
   it('contains a news service property', () => {
     expect(sut.newsService).toBeDefined();
+  });
+
+  it('contains a news comments service property', () => {
+    expect(sut.newsCommentsService).toBeDefined();
   });
 
   it('contains an auth service property', () => {
@@ -95,6 +102,37 @@ describe('the News View module', () => {
     sut.activate({id: 1}, {navModel: navModelStub})
       .then(result => {
         expect(sut.news).toBe(null);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
+        done();
+      });
+  });
+
+  it('sets the comments for the selected news', done => {
+    newsCommentsService.itemStub = itemStubs;
+    let navModelStub = new NavModelStub();
+
+    sut.activate({id: 1}, {navModel: navModelStub})
+      .then(() => {
+        expect(sut.comments).toBe(itemStubs);
+        expect(sut.comments).not.toBe(itemFake);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
+        done();
+      });
+  });
+
+  it('sets the comments to empty list on API fail', done => {
+    newsCommentsService.reject = true;
+    let navModelStub = new NavModelStub();
+
+    sut.activate({id: 1}, {navModel: navModelStub})
+      .then(result => {
+        expect(sut.comments).toEqual([]);
         done();
       })
       .catch(result => {

@@ -1,11 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-auth';
 import {NewsService} from '../../services/news/news-service';
+import {NewsCommentsService} from '../../services/news/news-comments-service';
 
-@inject(NewsService, AuthService)
+@inject(NewsService, NewsCommentsService, AuthService)
 export class View {
-  constructor(newsService, authService) {
+  constructor(newsService, newsCommentsService, authService) {
     this.newsService = newsService;
+    this.newsCommentsService = newsCommentsService;
     this.authService = authService;
   }
 
@@ -18,6 +20,14 @@ export class View {
         this.user = null;
       });
 
+    let comments = this.newsCommentsService.getRecent(params.id)
+      .then(comments => {
+        this.comments = comments;
+      })
+      .catch(() => {
+        this.comments = [];
+      });
+
     let news = this.newsService.get(params.id)
       .then(news => {
         this.news = news;
@@ -27,7 +37,7 @@ export class View {
         this.news = null;
       });
 
-    return Promise.all([user, news]);
+    return Promise.all([user, comments, news]);
   }
 
   get isAuthenticated() {
