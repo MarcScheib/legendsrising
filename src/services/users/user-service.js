@@ -1,6 +1,5 @@
 import {inject} from 'aurelia-framework';
 import {Endpoint} from 'aurelia-api';
-import {HttpClient, json} from 'aurelia-fetch-client';
 
 @inject(Endpoint.of())
 export class UserService {

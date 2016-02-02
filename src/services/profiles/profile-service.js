@@ -8,7 +8,6 @@ export class ProfileService {
   }
 
   get(id) {
-    console.log(this.apiClient);
     return this.apiClient.find('profile', id);
   }
 }

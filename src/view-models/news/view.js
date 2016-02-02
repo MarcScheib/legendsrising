@@ -12,7 +12,7 @@ export class View {
   }
 
   activate(params, routeConfig) {
-    let user = this.authService.getMe()
+    let userPromise = this.authService.getMe()
       .then(user => {
         this.user = user;
       })
@@ -20,7 +20,7 @@ export class View {
         this.user = null;
       });
 
-    let comments = this.newsCommentsService.getRecent(params.id)
+    let commentsPromise = this.newsCommentsService.getRecent(params.id)
       .then(comments => {
         this.comments = comments;
       })
@@ -28,7 +28,7 @@ export class View {
         this.comments = [];
       });
 
-    let news = this.newsService.get(params.id)
+    let newsPromise = this.newsService.get(params.id)
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
@@ -37,7 +37,7 @@ export class View {
         this.news = null;
       });
 
-    return Promise.all([user, comments, news]);
+    return Promise.all([userPromise, commentsPromise, newsPromise]);
   }
 
   get isAuthenticated() {
