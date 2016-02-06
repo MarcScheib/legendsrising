@@ -78,6 +78,20 @@ describe('the News View module', () => {
     expect(sut.authService).toBeDefined();
   });
 
+  it('stores the news id on activation', done => {
+    let navModelStub = new NavModelStub();
+
+    sut.activate({id: 1}, {navModel: navModelStub})
+      .then(() => {
+        expect(sut.newsId).toBe(1);
+        done();
+      })
+      .catch(result => {
+        expect(result).not.toBe(result);
+        done();
+      });
+  });
+
   it('sets fetch response to selected news', done => {
     newsService.itemStub = itemStubs;
     let navModelStub = new NavModelStub();

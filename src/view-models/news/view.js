@@ -3,6 +3,8 @@ import {AuthService} from 'aurelia-auth';
 import {NewsService} from '../../services/news/news-service';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 
+const ENTER_KEY = 13;
+
 @inject(NewsService, NewsCommentsService, AuthService)
 export class View {
   constructor(newsService, newsCommentsService, authService) {
@@ -12,6 +14,8 @@ export class View {
   }
 
   activate(params, routeConfig) {
+    this.newsId = params.id;
+
     let userPromise = this.authService.getMe()
       .then(user => {
         this.user = user;
@@ -38,6 +42,28 @@ export class View {
       });
 
     return Promise.all([userPromise, commentsPromise, newsPromise]);
+  }
+
+  onKeyUp(event) {
+    if (event.keyCode === ENTER_KEY) {
+      this.addNewComment(this.comment);
+    }
+  }
+
+  addNewComment(comment) {
+    if (comment === undefined) {
+      return;
+    }
+
+    comment = comment.trim();
+    if (comment.length === 0) {
+      return;
+    }
+
+    this.newsCommentsService.add(this.newsId, {'text': comment}).then(data => {
+      this.comments.push(data);
+      this.comment = null;
+    });
   }
 
   get isAuthenticated() {

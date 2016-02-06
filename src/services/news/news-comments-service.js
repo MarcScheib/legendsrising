@@ -7,8 +7,12 @@ export class NewsCommentsService {
     this.apiClient = apiClient;
   }
 
-  getRecent(id) {
-    return this.apiClient.find('news/' + id + '/comments')
+  getRecent(newsId) {
+    return this.apiClient.find('news/' + newsId + '/comments')
       .catch(error => Promise.reject(error));
+  }
+
+  add(newsId, comment) {
+    return this.apiClient.create('news/' + newsId + '/comments', comment);
   }
 }

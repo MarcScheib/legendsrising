@@ -37,7 +37,7 @@
                 <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
               </a>
               <div class="media-body">
-                <textarea class="form-control" placeholder="Write comment..."></textarea>
+                <input class="form-control" placeholder="Write comment..." autofocus keyup.delegate="onKeyUp($event)" value.bind="comment">
               </div>
             </div>
           </div>
