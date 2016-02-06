@@ -1,3 +1,26 @@
+<a name"0.2.0"></a>
+## 0.2.0 (2016-02-06)
+
+
+#### Bug Fixes
+
+* **news:**
+  * fix user id reference ([282d5c93](https://github.com/MarcScheib/legendsrising/commit/282d5c93))
+  * fix news view if user is not logged in ([77cf852f](https://github.com/MarcScheib/legendsrising/commit/77cf852f))
+* **util:** remove leading space on titlecase ([d207b82e](https://github.com/MarcScheib/legendsrising/commit/d207b82e))
+
+
+#### Features
+
+* **news:**
+  * add comment store to news view ([5ef8871e](https://github.com/MarcScheib/legendsrising/commit/5ef8871e))
+  * add individual news comments service ([aeeb8c18](https://github.com/MarcScheib/legendsrising/commit/aeeb8c18))
+  * list comments for news ([284d4069](https://github.com/MarcScheib/legendsrising/commit/284d4069))
+  * show logged in user related data ([3ade702d](https://github.com/MarcScheib/legendsrising/commit/3ade702d))
+  * add news comment condition to news view ([0cba7e72](https://github.com/MarcScheib/legendsrising/commit/0cba7e72))
+  * rework list design and add comment view ([73274ff4](https://github.com/MarcScheib/legendsrising/commit/73274ff4))
+
+
 <a name"0.1.2"></a>
 ### 0.1.2 (2015-12-27)
 
