@@ -15,7 +15,7 @@ System.config({
 
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.1.0",
-    "aurelia-api": "github:spoonx/aurelia-api@2.0.3",
+    "aurelia-api": "github:spoonx/aurelia-api@2.0.5",
     "aurelia-auth": "github:spoonx/aurelia-auth@0.13.2",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.1.1",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.1.0",
@@ -57,7 +57,7 @@ System.config({
     "github:rstacruz/nprogress@0.2.0": {
       "css": "github:systemjs/plugin-css@0.1.20"
     },
-    "github:spoonx/aurelia-api@2.0.3": {
+    "github:spoonx/aurelia-api@2.0.5": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.1.2",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.1.0",
       "extend": "npm:extend@3.0.0",
@@ -68,7 +68,7 @@ System.config({
       "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.1.1",
       "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.1.0",
       "fetch": "github:github/fetch@0.10.1",
-      "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.0.3"
+      "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.0.5"
     },
     "github:twbs/bootstrap@4.0.0-alpha": {
       "jquery": "github:components/jquery@2.2.0"
