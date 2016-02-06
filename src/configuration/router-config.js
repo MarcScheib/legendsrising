@@ -1,20 +1,18 @@
 import {AuthorizeStep} from 'aurelia-auth';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {Configure} from 'aurelia-configuration';
 
 import {ScrollToTop} from './router/pipeline/ScrollToTop';
 
-@inject(Router, Configure)
+@inject(Router)
 export default class {
-  constructor(router, configure) {
+  constructor(router) {
     this.router = router;
-    this.configuration = configure;
   }
 
   configure() {
     let appRouterConfig = config => {
-      config.title = this.configuration.get('name');
+      config.title = 'LegendsRising';
       config.addPipelineStep('postcomplete', ScrollToTop);
       config.addPipelineStep('authorize', AuthorizeStep);
       config.options.pushState = false;

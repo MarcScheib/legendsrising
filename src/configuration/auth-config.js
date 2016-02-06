@@ -1,9 +1,10 @@
 let authConfig = {
-  baseUrl: 'http://lr.local/api',
+  endpoint: 'dev',
+  configureEndpoints: ['dev'],
   signupUrl: 'user',
   loginUrl: 'auth/signin',
-  tokenName: 'token',
-  loginRoute: 'auth/signin',
+  profileUrl: 'auth/user',
+  loginRoute: '#/auth/signin',
   loginRedirect: '#/contents',
   logoutRedirect: '#/auth/signin'
 };

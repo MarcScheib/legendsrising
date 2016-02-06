@@ -20,17 +20,13 @@ export function configure(aurelia) {
     .eventAggregator()
     .plugin('aurelia-validation')
     .plugin('aurelia-animator-css')
-    .plugin('aurelia-configuration', config => {
-      config.setDirectory('dist/configuration');
-      config.setConfig('application.json');
-      config.setEnvironments({
-        development: ['localhost'],
-        staging: ['staging.legendsrising.de'],
-        production: ['legendsrising.de']
-      });
+    .plugin('aurelia-api', config => {
+      config
+        .registerEndpoint('dev', 'http://lr.local/api/')
+        .setDefaultEndpoint('dev');
     })
-    .plugin('aurelia-auth', baseConfig => {
-      baseConfig.configure(authConfig);
+    .plugin('aurelia-auth', config => {
+      config.configure(authConfig);
     });
 
   aurelia.start().then(a => a.setRoot('view-models/app', document.body));

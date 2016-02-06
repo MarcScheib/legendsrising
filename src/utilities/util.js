@@ -5,5 +5,5 @@ function addSpaceAndUpper(char) {
 }
 
 export function _titlecase(name) {
-  return (name.charAt(0).toUpperCase() + name.slice(1)).replace(capitalMatcher, addSpaceAndUpper);
+  return name.charAt(0).toUpperCase() + name.slice(1).replace(capitalMatcher, addSpaceAndUpper);
 }

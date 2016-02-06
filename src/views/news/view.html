@@ -2,23 +2,45 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <div class="card card-default card-block" if.bind="news">
-          <h4 class="card-title">${news.title}<br>
-            <small>on
-              <time>${news.created_at}</time>
-            </small>
-          </h4>
-          <p class="card-text">${news.text}</p>
-
-          <p class="card-text text-right">
-            posted by <a href="#/profiles/view/${news.user_id}">${news.user.username}</a>
-          </p>
-        </div>
-
         <div class="card card-default card-block" if.bind="!news">
           <p class="card-text">
             The selected news entry is not available.
           </p>
+        </div>
+
+        <div class="card news-card">
+          <div class="card-default card-block" if.bind="news">
+            <div class="news-card-header">
+              <a href="#/profiles/view/${news.user_id}" class="pull-left">
+                <!-- Todo -->
+                <img alt="${news.user.username}" src="http://lr.local/img/avatar/${news.user.avatar}">
+              </a>
+              <h4><a href="#/news/view/${news.id}">${news.title}</a></h4>
+              <a href="#/profiles/view/${news.user_id}">${news.user.username}</a>
+              <small class="text-muted">on ${news.created_at}</small>
+            </div>
+            <div class="card-text">${news.text}</div>
+          </div>
+          <div class="card-footer" if.bind="isAuthenticated || comments.length > 0">
+            <div class="news-card-comment" repeat.for="item of comments">
+              <a href="#/profiles/view/${item.user.id}" class="pull-left">
+                <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
+              </a>
+              <div class="media-body">
+                <a href="#/profiles/view/${item.user.id}">${item.user.username}</a> ${item.text}
+                <br>
+                <small class="text-muted">${item.created_at}</small>
+              </div>
+            </div>
+            <div class="news-card-comment" if.bind="isAuthenticated">
+              <a href="#/profiles/view/${user.id}" class="pull-left">
+                <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
+              </a>
+              <div class="media-body">
+                <input class="form-control" placeholder="Write comment..." autofocus keyup.delegate="onKeyUp($event)" value.bind="comment">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

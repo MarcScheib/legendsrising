@@ -5,19 +5,17 @@
         <div if.bind="news.length == 0" class="card card-default card-block">
             <p class="card-text">There are no news available currently.</p>
         </div>
-        <div class="card card-default card-block" repeat.for="item of news">
-          <h4 class="card-title">${item.title}<br>
-            <small>on
-              <time>${item.created_at}</time>
-            </small>
-          </h4>
-          <p class="card-text">${item.text}</p>
-
-          <p class="card-text text-right">
-            posted by <a href="#/profiles/view/${item.user_id}">${item.user.username}</a>
-            -
-            <a href="#/news/view/${item.id}">View</a>
-          </p>
+        <div class="card card-default card-block news-card" repeat.for="item of news">
+          <div class="news-card-header">
+            <a href="#/profiles/view/${item.user_id}" class="pull-left">
+              <!-- Todo -->
+              <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
+            </a>
+            <h4><a href="#/news/view/${item.id}">${item.title}</a></h4>
+            <a href="#/profiles/view/${item.user_id}">${item.user.username}</a>
+            <small class="text-muted">on ${item.created_at}</small>
+          </div>
+          <div class="card-text">${item.text}</div>
         </div>
       </div>
     </div>

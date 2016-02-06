@@ -2,18 +2,17 @@ import {inject} from 'aurelia-framework';
 import {Endpoint} from 'aurelia-api';
 
 @inject(Endpoint.of())
-export class NewsService {
+export class NewsCommentsService {
   constructor(apiClient) {
     this.apiClient = apiClient;
   }
 
-  getRecent() {
-    return this.apiClient.find('news')
+  getRecent(newsId) {
+    return this.apiClient.find('news/' + newsId + '/comments')
       .catch(error => Promise.reject(error));
   }
 
-  get(id) {
-    return this.apiClient.find('news', id)
-      .catch(error => Promise.reject(error));
+  add(newsId, comment) {
+    return this.apiClient.create('news/' + newsId + '/comments', comment);
   }
 }

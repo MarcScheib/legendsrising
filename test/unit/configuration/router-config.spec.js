@@ -3,47 +3,15 @@ import {AuthorizeStep} from 'aurelia-auth';
 import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';
 
-class RouterStub {
-  options = {
-    pushState: false
-  };
+import {RouterStub} from '../fixtures/RouterStub';
 
-  pipelineSteps = [];
-
-  configure(handler) {
-    handler(this);
-  }
-
-  addPipelineStep(name, step) {
-    this.pipelineSteps.push({name, step})
-  }
-
-  mapUnknownRoutes(config) {
-    this.unknownRouteConfig = config;
-  }
-
-  map(routes) {
-    this.routes = routes;
-  }
-}
-
-class Configure {
-  get(key) {
-    if (key === 'name') {
-      return 'LegendsRising';
-    }
-  }
-}
-
-describe('the App module', () => {
+describe('the router configuration', () => {
   var sut;
   var mockedRouter;
-  var mockedConfigure;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
-    mockedConfigure = new Configure();
-    sut = new AppRouterConfig(mockedRouter, mockedConfigure);
+    sut = new AppRouterConfig(mockedRouter);
     sut.configure();
   });
 
