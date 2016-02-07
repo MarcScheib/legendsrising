@@ -29,5 +29,7 @@ export function configure(aurelia) {
       config.configure(authConfig);
     });
 
-  aurelia.start().then(a => a.setRoot('view-models/app', document.body));
+  aurelia.start()
+    .then(a => a.setRoot('view-models/app', document.body))
+    .catch(() => {});
 }
