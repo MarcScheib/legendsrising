@@ -12,8 +12,8 @@
               <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
             </a>
             <h4><a href="#/news/view/${item.id}">${item.title}</a></h4>
-            <a href="#/profiles/view/${item.user_id}">${item.user.username}</a>
-            <small class="text-muted">on ${item.created_at}</small>
+            <strong><a href="#/profiles/view/${item.user_id}">${item.user.username}</a></strong>
+            <small class="text-muted"><i class="fa fa-clock-o"></i> ${item.created_at}</small>
           </div>
           <div class="card-text">${item.text}</div>
         </div>
