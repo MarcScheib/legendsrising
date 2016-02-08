@@ -1,3 +1,13 @@
+<a name"0.3.0"></a>
+## 0.3.0 (2016-02-08)
+
+
+#### Features
+
+* **faq:** add faq view ([fd9c018e](https://github.com/MarcScheib/legendsrising/commit/fd9c018e))
+* **news:** update news view design ([574d52a4](https://github.com/MarcScheib/legendsrising/commit/574d52a4))
+
+
 <a name"0.2.0"></a>
 ## 0.2.0 (2016-02-06)
 

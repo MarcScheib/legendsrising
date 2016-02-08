@@ -5,7 +5,7 @@ var appRoot = 'src/';
 var outputRoot = 'dist/';
 var scssRoot = 'scss/';
 var cssRoot = 'style/';
-var exportSrvtRoot = 'export/';
+var exportSrvRoot = 'export/';
 var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
 module.exports = {
@@ -16,10 +16,10 @@ module.exports = {
   style: scssRoot + '**/*.scss',
   output: outputRoot,
   cssOutput: cssRoot,
-  exportSrv: exportSrvtRoot,
+  exportSrv: exportSrvRoot,
   doc:'./doc',
   tests: 'test/**/*.js',
-  e2eSpecsSrc: 'test/e2e/src/*.js',
+  e2eSpecsSrc: 'test/e2e/src/**/*.js',
   e2eSpecsDist: 'test/e2e/dist/',
   packageName: pkg.name
 };

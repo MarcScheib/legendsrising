@@ -1,6 +1,6 @@
 {
   "name": "LegendsRising",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "LegendsRising, a Massively Multiplayer Online Role-Playing Game",
   "keywords": [
     "legendsrising",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "aurelia-bundler": "^0.3.1",
     "aurelia-tools": "^0.1.18",
-    "babel": "^5.8.23",
-    "babel-eslint": "^4.1.3",
+    "babel": "^5.8.35",
+    "babel-eslint": "^4.1.8",
     "browser-sync": "^2.10.0",
     "conventional-changelog": "0.0.15",
     "del": "^1.1.0",
@@ -49,11 +49,10 @@
     "jasmine-core": "^2.1.3",
     "jshint-stylish": "^1.0.0",
     "jspm": "0.16.15",
-    "karma": "0.13.15",
+    "karma": "0.13.19",
     "karma-babel-preprocessor": "^5.2.2",
-    "karma-chrome-launcher": "^0.2.1",
+    "karma-chrome-launcher": "^0.1.7",
     "karma-coverage": "github:douglasduteil/karma-coverage#next",
-    "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.6",
     "karma-jspm": "2.0.1",
     "karma-sourcemap-loader": "0.3.6",
@@ -66,7 +65,7 @@
   "jspm": {
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0-beta.1.1.0",
-      "aurelia-api": "github:spoonx/aurelia-api@^2.0.4",
+      "aurelia-api": "github:spoonx/aurelia-api@^2.0.5",
       "aurelia-auth": "github:spoonx/aurelia-auth@^0.13.2",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.1.1",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.1.1.0",

@@ -1,0 +1,33 @@
+<template>
+  <section class="au-animate">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-default card-block" if.bind="!faqs">
+          <p class="card-text">
+            At the moment, no FAQs are available.
+          </p>
+        </div>
+
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="card card-default card-block" repeat.for="item of faqs">
+            <div class="row">
+              <div class="col-md-7">
+                <a class="faq-question" data-toggle="collapse" data-parent="#accordion" href="#faq-${item.id}"
+                   aria-expanded="false" aria-controls="faq-${item.id}">${item.question}</a>
+                <small>Added <i class="fa fa-clock-o"></i> ${item.created_at}</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="faq-${item.id}" class="panel-collapse collapse" role="tabpanel"
+                     aria-labelledby="faq-${item.id}">
+                  <div class="faq-answer" innerhtml="${item.answer}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
