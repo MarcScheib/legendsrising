@@ -1,15 +1,15 @@
 import {inject} from 'aurelia-framework';
-import {NewsService} from '../../services/news/news-service';
+import {EntityManager} from 'aurelia-orm';
 
-@inject(NewsService)
+@inject(EntityManager)
 export class Index {
-  constructor(newsService) {
-    this.newsService = newsService;
+  constructor(entityManager) {
+    this.newsRepository = entityManager.getRepository('news');
     this.news = [];
   }
 
   activate() {
-    return this.newsService.getRecent()
+    return this.newsRepository.find()
       .then(news => {
         this.news = news;
       })

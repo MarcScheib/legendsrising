@@ -1,6 +1,7 @@
 import {ViewLocator, LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import authConfig from './auth-config';
+import * as entities from './entities';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.debug);
@@ -24,6 +25,9 @@ export function configure(aurelia) {
       config
         .registerEndpoint('dev', 'http://lr.local/api/')
         .setDefaultEndpoint('dev');
+    })
+    .plugin('aurelia-orm', config => {
+      config.registerEntities(entities);
     })
     .plugin('aurelia-auth', config => {
       config.configure(authConfig);

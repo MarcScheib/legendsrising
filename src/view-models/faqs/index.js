@@ -1,15 +1,15 @@
 import {inject} from 'aurelia-framework';
-import {FaqService} from '../../services/faqs/faq-service';
+import {EntityManager} from 'aurelia-orm';
 
-@inject(FaqService)
+@inject(EntityManager)
 export class Index {
-  constructor(faqService) {
-    this.faqService = faqService;
+  constructor(entityManager) {
+    this.faqRepository = entityManager.getRepository('faq');
     this.faqs = [];
   }
 
   activate() {
-    return this.faqService.get()
+    return this.faqRepository.find()
       .then(faqs => {
         this.faqs = faqs;
       })

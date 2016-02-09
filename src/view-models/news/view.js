@@ -1,14 +1,14 @@
 import {inject} from 'aurelia-framework';
+import {EntityManager} from 'aurelia-orm';
 import {AuthService} from 'aurelia-auth';
-import {NewsService} from '../../services/news/news-service';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 
 const ENTER_KEY = 13;
 
-@inject(NewsService, NewsCommentsService, AuthService)
+@inject(EntityManager, NewsCommentsService, AuthService)
 export class View {
-  constructor(newsService, newsCommentsService, authService) {
-    this.newsService = newsService;
+  constructor(entityManager, newsCommentsService, authService) {
+    this.newsRepository = entityManager.getRepository('news');
     this.newsCommentsService = newsCommentsService;
     this.authService = authService;
   }
@@ -24,7 +24,7 @@ export class View {
         this.user = null;
       });
 
-    let commentsPromise = this.newsCommentsService.getRecent(params.id)
+    let commentsPromise = this.newsRepository.find(params.id + '/comments')
       .then(comments => {
         this.comments = comments;
       })
@@ -32,7 +32,7 @@ export class View {
         this.comments = [];
       });
 
-    let newsPromise = this.newsService.get(params.id)
+    let newsPromise = this.newsRepository.find(params.id)
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);

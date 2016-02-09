@@ -1,14 +1,14 @@
 import {inject} from 'aurelia-framework';
-import {ProfileService} from '../../services/profiles/profile-service';
+import {EntityManager} from 'aurelia-orm';
 
-@inject(ProfileService)
+@inject(EntityManager)
 export class View {
-  constructor(profileService) {
-    this.profileService = profileService;
+  constructor(entityManager) {
+    this.profileRepository = entityManager.getRepository('profile');
   }
 
   activate(params, routeConfig) {
-    return this.profileService.get(params.id)
+    return this.profileRepository.find(params.id)
       .then(profile => {
         this.profile = profile;
         routeConfig.navModel.setTitle('Profile of ' + profile.username);
