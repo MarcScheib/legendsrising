@@ -65,7 +65,7 @@
   "jspm": {
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0-beta.1.1.1",
-      "aurelia-api": "github:spoonx/aurelia-api@^2.0.5",
+      "aurelia-api": "github:spoonx/aurelia-api@^2.0.6",
       "aurelia-auth": "github:spoonx/aurelia-auth@^0.13.6",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.1.2",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.1.1.1",
