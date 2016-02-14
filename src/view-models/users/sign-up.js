@@ -1,11 +1,11 @@
 import {inject} from 'aurelia-framework';
+import {NotificationService} from 'aurelia-notification';
 import {Router} from 'aurelia-router';
 import {Validation} from 'aurelia-validation';
 
 import {UserService} from '../../services/users/user-service';
-import {Notification} from '../../services/notification';
 
-@inject(Router, Validation, UserService, Notification)
+@inject(Router, Validation, UserService, NotificationService)
 export class SignUp {
   constructor(router, validation, userService, notification) {
     this.router = router;

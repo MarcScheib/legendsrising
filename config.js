@@ -24,6 +24,7 @@ System.config({
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.1.2",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.1.2",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.1.4",
+    "aurelia-notification": "github:MarcScheib/aurelia-notification@0.0.2",
     "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.1.1",
     "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.1",
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.1.1",
@@ -39,6 +40,12 @@ System.config({
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "text": "github:systemjs/plugin-text@0.0.4",
     "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
+    "github:MarcScheib/aurelia-notification@0.0.2": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.1.3",
+      "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.1.3",
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.1.4",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.1"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
