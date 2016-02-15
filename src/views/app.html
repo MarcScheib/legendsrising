@@ -9,7 +9,7 @@
     </header>
 
     <main>
-        <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
+        <loading-indicator loading.bind="router.isNavigating || api.client.isRequesting"></loading-indicator>
         <navigation-side id="sidebar" class="sidebar-nav"></navigation-side>
 
         <div class="container-fluid" id="content-container">
