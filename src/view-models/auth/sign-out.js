@@ -17,7 +17,7 @@ export class SignOut {
         this.notification.success('You signed out successfully');
       })
       .catch(err => {
-        this.notification.danger('Error signing out')
+        this.notification.danger('Error signing out');
       });
   }
 }
