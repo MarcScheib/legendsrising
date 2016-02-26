@@ -1,15 +1,12 @@
-import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-auth';
+import {inject} from 'aurelia-framework';
+import {NotificationService} from 'aurelia-notification';
 import {Router} from 'aurelia-router';
 
-import {Notification} from '../../services/notification';
-
-@inject(AuthService, Notification, Router)
+@inject(AuthService, NotificationService, Router)
 export class SignIn {
   username = '';
   password = '';
-
-  loginError = '';
 
   constructor(auth, notification, router) {
     this.auth = auth;
@@ -23,6 +20,8 @@ export class SignIn {
       .then(response => {
         this.notification.success('You signed in successfully.');
       })
-      .catch(error => this.loginError = 'Your sign in credentials are wrong.');
+      .catch(error => {
+        this.notification.danger('Your sign in credentials are wrong.');
+      });
   }
 }
