@@ -1,3 +1,13 @@
+<a name="0.3.4"></a>
+## [0.3.4](https://github.com/MarcScheib/legendsrising/compare/0.3.2...v0.3.4) (2016-03-06)
+
+
+### Bug Fixes
+
+* loader indicates http requests correct now ([04219ad](https://github.com/MarcScheib/legendsrising/commit/04219ad))
+
+
+
 <a name"0.3.3"></a>
 ### 0.3.3 (2016-02-26)
 
