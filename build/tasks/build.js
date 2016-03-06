@@ -28,13 +28,6 @@ gulp.task('build-system', function () {
     .pipe(gulp.dest(paths.output));
 });
 
-// copies changed json files to the output directory
-gulp.task('build-json', function () {
-  return gulp.src(paths.json)
-    .pipe(changed(paths.output, {extension: '.json'}))
-    .pipe(gulp.dest(paths.output));
-});
-
 // copies changed html files to the output directory
 gulp.task('build-html', function () {
   return gulp.src(paths.html)
@@ -44,7 +37,7 @@ gulp.task('build-html', function () {
 
 // transpiles changed scss files to css
 gulp.task('build-scss', function () {
-  return gulp.src(paths.style)
+  return gulp.src(paths.scss)
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sass({
       outputStyle: 'nested'
@@ -69,7 +62,7 @@ gulp.task('build-scss', function () {
 gulp.task('build', function (callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-json', 'build-html', 'build-scss'],
+    ['build-system', 'build-html', 'build-scss'],
     callback
   );
 });
