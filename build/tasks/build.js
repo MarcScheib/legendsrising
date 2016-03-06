@@ -37,7 +37,7 @@ gulp.task('build-html', function () {
 
 // transpiles changed scss files to css
 gulp.task('build-scss', function () {
-  return gulp.src(paths.style)
+  return gulp.src(paths.scss)
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sass({
       outputStyle: 'nested'
