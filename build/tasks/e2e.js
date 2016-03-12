@@ -5,11 +5,16 @@ var plumber = require('gulp-plumber');
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
 var webdriverStandalone = require('gulp-protractor').webdriver_standalone;
 var protractor = require('gulp-protractor').protractor;
+var del = require('del');
 
 // for full documentation of gulp-protractor,
 // please check https://github.com/mllrsohn/gulp-protractor
 gulp.task('webdriver-update', webdriverUpdate);
 gulp.task('webdriver-standalone', ['webdriver-update'], webdriverStandalone);
+
+gulp.task('clean-e2e', function() {
+  return del(paths.e2eSpecsDist + '*');
+});
 
 // transpiles files in
 // /test/e2e/src/ from es6 to es5
