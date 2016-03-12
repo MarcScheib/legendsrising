@@ -35,8 +35,8 @@ System.config({
     "aurelia-validation": "npm:aurelia-validation@0.6.3",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
-    "core-js": "npm:core-js@2.1.3",
-    "fetch": "github:github/fetch@0.10.1",
+    "core-js": "npm:core-js@2.1.5",
+    "fetch": "github:github/fetch@0.11.0",
     "font-awesome": "github:FortAwesome/font-awesome@4.5.0",
     "jquery": "github:components/jquery@2.2.1",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
@@ -101,7 +101,7 @@ System.config({
       "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.1.4",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.1.1.4",
-      "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.0.1",
+      "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.0.6",
       "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.1.3",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.4",
       "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.1.2",
@@ -150,7 +150,7 @@ System.config({
     "npm:aurelia-pal-browser@1.0.0-beta.1.1.4": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1"
     },
-    "npm:aurelia-polyfills@1.0.0-beta.1.0.1": {
+    "npm:aurelia-polyfills@1.0.0-beta.1.0.6": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1"
     },
     "npm:aurelia-route-recognizer@1.0.0-beta.1.1.3": {
@@ -211,7 +211,7 @@ System.config({
     "npm:babel-runtime@5.8.35": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:core-js@2.1.3": {
+    "npm:core-js@2.1.5": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
