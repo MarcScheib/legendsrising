@@ -3,8 +3,6 @@ System.config({
   transpiler: "babel",
   babelOptions: {
     "optional": [
-      "runtime",
-      "optimisation.modules.system",
       "es7.decorators",
       "es7.classProperties"
     ]
@@ -26,6 +24,8 @@ System.config({
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.1.3",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.1.4",
     "aurelia-notification": "github:MarcScheib/aurelia-notification@0.1.2",
+    "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.1.1.4",
+    "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.0.6",
     "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.1.3",
     "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.4",
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.1.2",
@@ -34,13 +34,13 @@ System.config({
     "aurelia-validation": "npm:aurelia-validation@0.6.3",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
-    "core-js": "npm:core-js@2.1.5",
+    "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
+    "core-js": "npm:core-js@1.2.6",
     "fetch": "github:github/fetch@0.11.0",
     "font-awesome": "github:FortAwesome/font-awesome@4.5.0",
     "jquery": "github:components/jquery@2.2.1",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "text": "github:systemjs/plugin-text@0.0.4",
-    "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
     "github:MarcScheib/aurelia-notification@0.1.2": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.1.5",
       "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.1.4",
@@ -210,7 +210,7 @@ System.config({
     "npm:babel-runtime@5.8.35": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:core-js@2.1.5": {
+    "npm:core-js@1.2.6": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",

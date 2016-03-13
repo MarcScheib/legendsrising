@@ -9,11 +9,10 @@ module.exports = function (config) {
     frameworks: ['jspm', 'jasmine'],
 
     jspm: {
-      config: 'config.js',
-      loadFiles: [paths.tests],
+      loadFiles: ['test/unit/setup.js', paths.tests],
       serveFiles: [paths.source],
       paths: {
-        '*': '*.js',
+        '*': '*',
         'github:*': 'jspm_packages/github/*',
         'npm:*': 'jspm_packages/npm/*'
       }

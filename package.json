@@ -74,28 +74,27 @@
       "aurelia-loader-default": "npm:aurelia-loader-default@^1.0.0-beta.1.1.3",
       "aurelia-logging-console": "npm:aurelia-logging-console@^1.0.0-beta.1.1.4",
       "aurelia-notification": "github:MarcScheib/aurelia-notification@^0.1.2",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@^1.0.0-beta.1.1.4",
+      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0-beta.1.0.3",
       "aurelia-router": "npm:aurelia-router@^1.0.0-beta.1.1.3",
       "aurelia-templating": "npm:aurelia-templating@^1.0.0-beta.1.1.4",
       "aurelia-templating-binding": "npm:aurelia-templating-binding@^1.0.0-beta.1.1.2",
       "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.1.1.3",
       "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0-beta.1.1.2",
       "aurelia-validation": "npm:aurelia-validation@^0.6.3",
+      "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
       "fetch": "github:github/fetch@^0.11.0",
       "font-awesome": "github:FortAwesome/font-awesome@^4.5.0",
       "jquery": "github:components/jquery@^2.2.1",
       "nprogress": "github:rstacruz/nprogress@^0.2.0",
-      "text": "github:systemjs/plugin-text@^0.0.4",
-      "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha"
+      "text": "github:systemjs/plugin-text@^0.0.4"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.35",
       "babel-runtime": "npm:babel-runtime@^5.8.35",
-      "core-js": "npm:core-js@^2.1.5"
+      "core-js": "npm:core-js@^1.2.6"
     },
     "overrides": {
-      "npm:core-js@2.1.5": {
-        "main": "client/shim.min"
-      },
       "github:twbs/bootstrap@4.0.0-alpha": {
         "main": "dist/js/bootstrap",
         "files": null,
