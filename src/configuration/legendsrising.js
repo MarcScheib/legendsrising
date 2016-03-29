@@ -28,7 +28,7 @@ export function configure(aurelia) {
     .plugin('aurelia-auth', config => {
       config.configure(authConfig);
     })
-    .plugin('aurelia-notification', settings => {
+    .plugin('aurelia-notify', settings => {
       settings.containerSelector = '#notification-container';
       settings.timeout = 10000;
     });

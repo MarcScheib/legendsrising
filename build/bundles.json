@@ -23,7 +23,7 @@
         "aurelia-history-browser",
         "aurelia-loader-default",
         "aurelia-logging-console",
-        "aurelia-notification",
+        "aurelia-notify",
         "aurelia-router",
         "aurelia-templating",
         "aurelia-templating-binding",

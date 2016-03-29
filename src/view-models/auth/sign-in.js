@@ -1,6 +1,6 @@
 import {AuthService} from 'aurelia-auth';
 import {inject} from 'aurelia-framework';
-import {NotificationService} from 'aurelia-notification';
+import {NotificationService} from 'aurelia-notify';
 import {Router} from 'aurelia-router';
 
 @inject(AuthService, NotificationService, Router)

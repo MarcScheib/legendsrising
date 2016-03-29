@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {NotificationService} from 'aurelia-notification';
+import {NotificationService} from 'aurelia-notify';
 import {Router} from 'aurelia-router';
 import {Validation} from 'aurelia-validation';
 
