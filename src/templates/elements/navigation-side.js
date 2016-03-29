@@ -1,5 +1,5 @@
 import {bindable, inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-auth';
+import {AuthService} from 'aurelia-authentication';
 
 @inject(AuthService)
 export class NavigationSide {

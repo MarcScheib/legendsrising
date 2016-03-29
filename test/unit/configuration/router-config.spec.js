@@ -1,4 +1,4 @@
-import {AuthorizeStep} from 'aurelia-auth';
+import {AuthorizeStep} from 'aurelia-authentication';
 
 import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';

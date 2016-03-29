@@ -15,7 +15,7 @@
       "includes": [
         "aurelia-animator-css",
         "aurelia-api",
-        "aurelia-auth",
+        "aurelia-authentication",
         "aurelia-bootstrapper",
         "aurelia-event-aggregator",
         "aurelia-fetch-client",

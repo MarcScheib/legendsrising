@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-auth';
+import {AuthService} from 'aurelia-authentication';
 import {NewsService} from '../../services/news/news-service';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 

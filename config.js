@@ -14,8 +14,8 @@ System.config({
   },
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.2.0",
-    "aurelia-api": "github:spoonx/aurelia-api@2.1.2",
-    "aurelia-auth": "github:SpoonX/aurelia-authentication@0.13.9",
+    "aurelia-api": "github:SpoonX/aurelia-api@2.1.2",
+    "aurelia-authentication": "github:SpoonX/aurelia-authentication@2.0.0",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.0",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.2.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.0",
@@ -47,7 +47,13 @@ System.config({
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.0",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.1"
     },
-    "github:SpoonX/aurelia-authentication@0.13.9": {
+    "github:SpoonX/aurelia-api@2.1.2": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.0",
+      "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.0",
+      "extend": "npm:extend@3.0.0",
+      "qs": "npm:qs@6.1.0"
+    },
+    "github:SpoonX/aurelia-authentication@2.0.0": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.0",
       "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.2.0",

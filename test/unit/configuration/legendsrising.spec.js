@@ -40,6 +40,6 @@ describe('the app configuration', () => {
     expect(aurelia.use.info).toContain('aurelia-event-aggregator');
     expect(aurelia.use.info).toContain('aurelia-validation');
     expect(aurelia.use.info).toContain('aurelia-animator-css');
-    expect(aurelia.use.info).toContain('aurelia-auth');
+    expect(aurelia.use.info).toContain('aurelia-authentication');
   });
 });

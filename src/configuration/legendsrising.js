@@ -25,7 +25,7 @@ export function configure(aurelia) {
         .registerEndpoint('dev', 'http://lr.local/api/')
         .setDefaultEndpoint('dev');
     })
-    .plugin('aurelia-auth', config => {
+    .plugin('aurelia-authentication', config => {
       config.configure(authConfig);
     })
     .plugin('aurelia-notify', settings => {
