@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
 var compilerOptions = require('../babel-options');
 var assign = Object.assign || require('object.assign');
-var notify = require("gulp-notify");
+var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
 var nano = require('gulp-cssnano');
@@ -23,7 +23,7 @@ gulp.task('build-system', function () {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.js'}))
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(to5(assign({}, compilerOptions, {modules: 'system'})))
+    .pipe(to5(assign({}, compilerOptions.system())))
     .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/src'}))
     .pipe(gulp.dest(paths.output));
 });

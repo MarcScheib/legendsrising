@@ -58,7 +58,7 @@ System.config({
       "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.0",
       "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.2.0",
       "fetch": "github:github/fetch@0.11.0",
-      "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.1.2"
+      "SpoonX/aurelia-api": "github:SpoonX/aurelia-api@2.1.2"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -75,7 +75,7 @@ System.config({
     "github:rstacruz/nprogress@0.2.0": {
       "css": "github:systemjs/plugin-css@0.1.20"
     },
-    "github:spoonx/aurelia-api@2.1.2": {
+    "github:SpoonX/aurelia-api@2.1.2": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.0",
       "extend": "npm:extend@3.0.0",

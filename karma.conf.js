@@ -1,6 +1,5 @@
 var isparta = require('isparta');
 var paths = require('./build/paths');
-var babelOptions = require('./build/babel-options');
 
 module.exports = function (config) {
   var configuration = {
@@ -28,15 +27,18 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       [paths.tests]: ['babel'],
-      [paths.source]: ['babel', 'sourcemap', 'coverage']
+      [paths.source]: ['babel', 'coverage']
     },
 
-    babelPreprocessor: {
+    'babelPreprocessor': {
       options: {
-        loose: babelOptions.loose,
-        stage: babelOptions.stage,
-        optional: babelOptions.optional,
-        sourceMap: 'inline'
+        sourceMap: 'inline',
+        presets: [ 'es2015-loose', 'stage-1'],
+        plugins: [
+          'syntax-flow',
+          'transform-decorators-legacy',
+          'transform-flow-strip-types'
+        ]
       }
     },
 
