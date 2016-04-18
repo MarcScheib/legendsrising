@@ -7,3 +7,4 @@
 /test/e2e/dist
 /.idea
 *.iml
+aurelia.env

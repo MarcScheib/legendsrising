@@ -17,6 +17,7 @@ System.config({
     "aurelia-api": "github:spoonx/aurelia-api@2.2.0",
     "aurelia-authentication": "github:spoonx/aurelia-authentication@2.1.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.0",
+    "aurelia-environment": "github:MarcScheib/aurelia-environment@0.1.2",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.2.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.2.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.2",
