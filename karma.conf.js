@@ -1,7 +1,7 @@
 var isparta = require('isparta');
 var paths = require('./build/paths');
 
-module.exports = function (config) {
+module.exports = function(config) {
   var configuration = {
     basePath: '',
 
@@ -18,7 +18,13 @@ module.exports = function (config) {
     },
 
     // list of files / patterns to load in the browser
-    files: [],
+    files: [
+      {pattern: 'aurelia.env', watched: false, included: false, served: true, nocache: false}
+    ],
+
+    proxies: {
+      '/aurelia.env': '/base/aurelia.env'
+    },
 
     // list of files to exclude
     exclude: [],
@@ -33,7 +39,7 @@ module.exports = function (config) {
     'babelPreprocessor': {
       options: {
         sourceMap: 'inline',
-        presets: [ 'es2015-loose', 'stage-1'],
+        presets: ['es2015-loose', 'stage-1'],
         plugins: [
           'syntax-flow',
           'transform-decorators-legacy',
