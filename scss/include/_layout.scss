@@ -27,3 +27,26 @@ main {
 footer {
 
 }
+
+.nav-footer {
+  background: $footer-bg-color;
+  border-top: 1px solid $footer-border-color;
+  color: $footer-text-color;
+  padding: 48px;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 16px;
+  position: relative;
+  background: $footer-bg-color;
+  color: $footer-text-color;
+}
+
+.text-caption {
+  margin: 0 0 16px 0;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: .54;
+  line-height: 20px;
+}
