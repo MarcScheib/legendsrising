@@ -23,10 +23,10 @@ System.config({
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.2.1",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.2.2",
-    "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.1",
-    "aurelia-notify": "npm:aurelia-notify@0.3.0",
-    "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.1.2.1",
-    "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.4",
+    "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.2",
+    "aurelia-notify": "npm:aurelia-notify@0.4.0",
+    "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.2.0.1",
+    "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.6",
     "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.2.3",
     "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.2.4",
@@ -39,7 +39,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "fetch": "github:github/fetch@0.11.1",
     "font-awesome": "github:FortAwesome/font-awesome@4.6.3",
-    "jquery": "github:components/jquery@2.2.1",
+    "jquery": "github:components/jquery@2.2.4",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.2.0",
     "text": "github:systemjs/plugin-text@0.0.4",
@@ -59,7 +59,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:rstacruz/nprogress@0.2.0": {
-      "css": "github:systemjs/plugin-css@0.1.21"
+      "css": "github:systemjs/plugin-css@0.1.22"
     },
     "github:spoonx/aurelia-api@2.2.0": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
@@ -75,7 +75,7 @@ System.config({
       "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.2.0"
     },
     "github:twbs/bootstrap@4.0.0-alpha": {
-      "jquery": "github:components/jquery@2.2.1"
+      "jquery": "github:components/jquery@2.2.4"
     },
     "npm:assert@1.4.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -101,10 +101,10 @@ System.config({
       "aurelia-history": "npm:aurelia-history@1.0.0-beta.1.2.1",
       "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.2.1",
       "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.2.2",
-      "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.1",
+      "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1.2.2",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2",
-      "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.1.2.1",
-      "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.4",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-beta.2.0.1",
+      "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.6",
       "aurelia-router": "npm:aurelia-router@1.0.0-beta.1.2.3",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7",
       "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.2.4",
@@ -143,23 +143,22 @@ System.config({
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.2.2"
     },
-    "npm:aurelia-logging-console@1.0.0-beta.1.2.1": {
-      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1",
-      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
+    "npm:aurelia-logging-console@1.0.0-beta.1.2.2": {
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.2.1"
     },
     "npm:aurelia-metadata@1.0.0-beta.1.2.1": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
     },
-    "npm:aurelia-notify@0.3.0": {
+    "npm:aurelia-notify@0.4.0": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.3",
       "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.2.5",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.2.1",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.2.7"
     },
-    "npm:aurelia-pal-browser@1.0.0-beta.1.2.1": {
+    "npm:aurelia-pal-browser@1.0.0-beta.2.0.1": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
     },
-    "npm:aurelia-polyfills@1.0.0-beta.1.1.4": {
+    "npm:aurelia-polyfills@1.0.0-beta.1.1.6": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.2"
     },
     "npm:aurelia-route-recognizer@1.0.0-beta.1.2.1": {
