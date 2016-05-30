@@ -220,3 +220,6 @@ The rest of the commit message is then used for this.
 Add the diff of the commit from `git diff HEAD --stat=73`
 A git diff from a sub directory is possible with the parameter ```--relative```.
 Filter can be used via ```--diff-filter=[(A|C|D|M|R|T|U|X|B)…​[*]]```.
+
+[github]: https://github.com/MarcScheib/legendsrising
+[stackoverflow]: http://stackoverflow.com/
