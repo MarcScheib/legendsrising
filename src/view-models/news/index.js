@@ -9,9 +9,9 @@ export class Index {
   }
 
   activate() {
-    return this.newsService.getRecent()
+    return this.newsService.getAll()
       .then(news => {
-        this.news = news;
+        this.news = news.data;
       })
       .catch(() => {
         this.news = [];

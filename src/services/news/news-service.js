@@ -7,7 +7,7 @@ export class NewsService {
     this.apiClient = apiClient;
   }
 
-  getRecent() {
+  getAll() {
     return this.apiClient.find('news')
       .catch(error => Promise.reject(error));
   }

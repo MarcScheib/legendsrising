@@ -1,7 +1,7 @@
 export class NewsServiceStub {
   reject = false;
 
-  getRecent() {
+  getAll() {
     var response = this.itemStub;
     return new Promise((resolve, reject) => {
       if (this.reject == false) {

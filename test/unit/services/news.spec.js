@@ -20,9 +20,9 @@ describe('the News service', () => {
     expect(sut.apiClient).toBeDefined();
   });
 
-  it('returns recent news', (done) => {
+  it('returns all news', (done) => {
     mockedEndpointService.reject = false;
-    sut.getRecent()
+    sut.getAll()
       .then(resp => {
         expect(mockedEndpointService.resource).toEqual('news');
         expect(resp).toEqual(newsDummy);
@@ -51,7 +51,7 @@ describe('the News service', () => {
 
   it('rejects recent news on failure', (done) => {
     mockedEndpointService.reject = true;
-    sut.getRecent()
+    sut.getAll()
       .catch(result => {
         expect(mockedEndpointService.resource).toEqual('news');
         done();

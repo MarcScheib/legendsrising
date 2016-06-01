@@ -23,7 +23,7 @@ describe('the News Index module', () => {
   });
 
   it('sets fetch response to news', done => {
-    newsService.itemStub = itemStubs;
+    newsService.itemStub = { data: itemStubs };
     sut.activate()
       .then(() => {
         expect(sut.news).toBe(itemStubs);
