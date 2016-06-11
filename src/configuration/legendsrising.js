@@ -10,38 +10,39 @@ ViewLocator.prototype.convertOriginToViewUrl = function(origin) {
 };
 
 export function configure(aurelia) {
-  return load().then(() => {
-    LogManager.addAppender(new ConsoleAppender());
-    LogManager.setLevel(env.LOG_LEVEL);
+  return load()
+    .then(() => {
+      LogManager.addAppender(new ConsoleAppender());
+      LogManager.setLevel(env.LOG_LEVEL);
 
-    aurelia.use
-      .defaultBindingLanguage()
-      .defaultResources()
-      .history()
-      .router()
-      .eventAggregator()
-      .plugin('aurelia-validation')
-      .plugin('aurelia-animator-css')
-      .plugin('aurelia-api', config => {
-        config
-          .registerEndpoint('dev', env.API_ENDPOINT)
-          .setDefaultEndpoint('dev');
-      })
-      .plugin('aurelia-authentication', config => {
-        config.configure(authConfig);
-      })
-      .plugin('aurelia-notify', settings => {
-        settings.containerSelector = '#notification-container';
-        settings.timeout = 10000;
-      });
+      aurelia.use
+        .defaultBindingLanguage()
+        .defaultResources()
+        .history()
+        .router()
+        .eventAggregator()
+        .plugin('aurelia-validation')
+        .plugin('aurelia-animator-css')
+        .plugin('aurelia-api', config => {
+          config
+            .registerEndpoint('dev', env.API_ENDPOINT)
+            .setDefaultEndpoint('dev');
+        })
+        .plugin('aurelia-authentication', config => {
+          config.configure(authConfig);
+        })
+        .plugin('aurelia-notify', settings => {
+          settings.containerSelector = '#notification-container';
+          settings.timeout = 10000;
+        });
 
-    aurelia.start()
-      .then(a => a.setRoot('view-models/app', document.body))
-      .catch(() => {
+      aurelia.start()
+        .then(a => a.setRoot('view-models/app', document.body))
+        .catch(() => {
 
-      });
-  })
-  .catch(error => {
-    console.error('Cannot load environment: ' + error.status + ' ' + error.statusText);
-  });
+        });
+    })
+    .catch(error => {
+      console.error('Cannot load environment: ' + error.status + ' ' + error.statusText);
+    });
 }
