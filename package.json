@@ -18,8 +18,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "e2e": "gulp serve e2e",
-    "ci": "gulp ci"
+    "e2e": "gulp serve e2e"
   },
   "devDependencies": {
     "aurelia-bundler": "^0.4.0",
@@ -52,14 +51,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "isparta": "^4.0.0",
-    "istanbul": "github:gotwarlost/istanbul#source-map",
     "jasmine-core": "^2.4.1",
     "jspm": "^0.16.39",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^1.0.1",
-    "karma-coverage": "github:douglasduteil/karma-coverage#next",
+    "karma-coverage": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-jspm": "^2.1.1",
     "object.assign": "^4.0.3",

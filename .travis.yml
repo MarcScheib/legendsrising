@@ -28,4 +28,5 @@ before_script:
   - cp ./aurelia.env.example ./aurelia.env
 
 script:
-  - npm run ci
+  - ./node_modules/.bin/gulp build
+  - ./node_modules/.bin/gulp coveralls
