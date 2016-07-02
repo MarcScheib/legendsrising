@@ -1,6 +1,7 @@
 /node_modules
 /jspm_packages
 /dist
+/export
 /style
 /build/reports
 /coverage

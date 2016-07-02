@@ -12,7 +12,6 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-rc.1.0.0",
     "aurelia-api": "github:spoonx/aurelia-api@2.2.0",
