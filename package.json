@@ -87,6 +87,7 @@
       "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-rc.1.0.0",
       "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0-rc.1.0.0",
       "aurelia-validation": "npm:aurelia-validation@^0.6.8",
+      "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@^1.0.0-alpha.4",
       "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
       "fetch": "github:github/fetch@^0.11.1",
       "font-awesome": "github:FortAwesome/font-awesome@^4.6.3",

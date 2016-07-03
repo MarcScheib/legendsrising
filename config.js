@@ -33,6 +33,7 @@ System.config({
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-rc.1.0.0",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-rc.1.0.0",
     "aurelia-validation": "npm:aurelia-validation@0.6.8",
+    "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.4",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
