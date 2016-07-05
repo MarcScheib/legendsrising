@@ -10,8 +10,8 @@
     <navigation-top router.bind="router"></navigation-top>
   </header>
 
-  <aside>
-    <navigation-side id="sidebar" class="sidebar-nav"></navigation-side>
+  <aside class="sidebar-nav">
+    <navigation-side></navigation-side>
   </aside>
 
   <main>
@@ -19,7 +19,8 @@
       <div id="notification-container"></div>
       <router-view></router-view>
     </div>
+
+    <footer></footer>
   </main>
 
-  <footer></footer>
 </template>

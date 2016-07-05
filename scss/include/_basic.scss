@@ -1,8 +1,9 @@
 /** Loading Screen **/
 .splash {
-  text-align: center;
-  margin: 10% 0 0 0;
   box-sizing: border-box;
+  flex: 1;
+  margin: 10% 0 0 0;
+  text-align: center;
 }
 
 .splash .message {

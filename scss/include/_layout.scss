@@ -1,32 +1,35 @@
 body {
   background-color: $page-bg-color;
-}
-
-header {
-
-}
-
-main {
   display: flex;
-  flex-flow: row;
-  margin-top: 54px;
 }
 
-.sidebar-nav {
-  flex: 0 0 230px;
+aside {
+  flex: 1;
+  min-width: 230px;
+  max-width: 230px;
   z-index: 1020;
 }
 
 @include media-breakpoint-down(lg) {
-  .sidebar-nav {
+  aside {
     display: none;
   }
 }
 
+navigation-side {
+  position: fixed;
+  padding: 14px 22px;
+  top: 54px;
+  width: 230px;
+}
+
+main {
+  flex: 1;
+  margin-top: 54px;
+}
+
 #content-container {
   background-color: $content-bg-color;
-  flex: 1 1 auto;
-  min-height: 600px;
   padding-bottom: 15px;
   padding-top: 15px;
 }
