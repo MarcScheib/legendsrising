@@ -1,21 +1,21 @@
 <template>
-    <require from="templates/elements/navigation-top"></require>
-    <require from="templates/elements/navigation-side"></require>
-    <require from="templates/elements/footer.html"></require>
-    <require from="utilities/loading-indicator"></require>
+  <require from="templates/elements/navigation-top"></require>
+  <require from="templates/elements/navigation-side"></require>
+  <require from="templates/elements/footer.html"></require>
+  <require from="utilities/loading-indicator"></require>
+  <loading-indicator loading.bind="router.isNavigating || api.client.isRequesting"></loading-indicator>
 
-    <header>
-        <navigation-top router.bind="router"></navigation-top>
-    </header>
+  <header>
+    <navigation-top router.bind="router"></navigation-top>
+  </header>
 
-    <main>
-        <loading-indicator loading.bind="router.isNavigating || api.client.isRequesting"></loading-indicator>
-        <navigation-side id="sidebar" class="sidebar-nav"></navigation-side>
+  <main>
+    <navigation-side id="sidebar" class="sidebar-nav"></navigation-side>
 
-        <div class="container-fluid" id="content-container">
-            <div id="notification-container"></div>
-            <router-view></router-view>
-        </div>
-    </main>
-    <footer></footer>
+    <div class="container-fluid" id="content-container">
+      <div id="notification-container"></div>
+      <router-view></router-view>
+    </div>
+  </main>
+  <footer></footer>
 </template>
