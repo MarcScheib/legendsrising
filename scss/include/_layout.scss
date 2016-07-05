@@ -1,3 +1,7 @@
+body {
+  background-color: $page-bg-color;
+}
+
 header {
 
 }
@@ -20,8 +24,11 @@ main {
 }
 
 #content-container {
-  min-height: 600px;
+  background-color: $content-bg-color;
   flex: 1 1 auto;
+  min-height: 600px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 footer {
