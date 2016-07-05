@@ -1,7 +1,7 @@
 import {load} from 'aurelia-environment';
 import {ViewLocator, LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
-import authConfig from './auth-config';
+import authConfig from './configuration/auth-config';
 
 ViewLocator.prototype.convertOriginToViewUrl = function(origin) {
   let moduleId = origin.moduleId;
@@ -37,7 +37,7 @@ export function configure(aurelia) {
         });
 
       aurelia.start()
-        .then(a => a.setRoot('view-models/app', document.body))
+        .then(a => a.setRoot('app', document.body))
         .catch(() => {
 
         });
