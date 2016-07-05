@@ -1,3 +1,9 @@
+html, body {
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 body {
   background-color: $page-bg-color;
   display: flex;
@@ -26,10 +32,13 @@ navigation-side {
 main {
   flex: 1;
   margin-top: 54px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #content-container {
   background-color: $content-bg-color;
+  min-height: calc(100vh - 54px);
   padding-bottom: 15px;
   padding-top: 15px;
 }
@@ -42,7 +51,7 @@ footer {
   background: $footer-bg-color;
   border-top: 1px solid $footer-border-color;
   color: $footer-text-color;
-  padding: 48px;
+  padding: 15px;
 }
 
 .main-footer {
