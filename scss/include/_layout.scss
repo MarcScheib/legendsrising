@@ -16,10 +16,8 @@ aside {
   z-index: 1020;
 }
 
-@include media-breakpoint-down(lg) {
-  aside {
-    display: none;
-  }
+.sidebar-nav-hidden {
+  display: none;
 }
 
 navigation-side {

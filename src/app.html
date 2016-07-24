@@ -10,7 +10,7 @@
     <navigation-top router.bind="router"></navigation-top>
   </header>
 
-  <aside class="sidebar-nav">
+  <aside class="sidebar-nav ${uiState.sideNavigationVisibility ? '' : 'sidebar-nav-hidden'}">
     <navigation-side></navigation-side>
   </aside>
 

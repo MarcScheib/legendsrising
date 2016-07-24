@@ -3,6 +3,10 @@ header {
     border-bottom: 1px solid $top-navigation-border-color;
   }
 
+  .navbar-brand {
+    float: none;
+  }
+
   .bg-faded {
     background-color: $top-navigation-bg-color;
   }
