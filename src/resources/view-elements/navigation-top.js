@@ -1,19 +1,12 @@
 import {bindable, inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-authentication';
 
-import {UIState} from '../../services/UIState';
-
-@inject(AuthService, UIState)
+@inject(AuthService)
 export class NavigationTop {
   @bindable router = null;
 
-  constructor(auth, uiState) {
+  constructor(auth) {
     this.auth = auth;
-    this.uiState = uiState;
-  }
-
-  toggleSideNavigation() {
-    this.uiState.toggleSideNavigation();
   }
 
   get isAuthenticated() {

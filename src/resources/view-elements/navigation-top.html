@@ -1,8 +1,6 @@
 <template>
   <nav class="navbar navbar-fixed-top navbar-light bg-faded">
-    <button class="navbar-toggler" type="button" click.delegate="toggleSideNavigation()">
-      <i class="fa fa-bars fa-fw"></i>
-    </button>
+    <nav-toggler></nav-toggler>
     <a class="navbar-brand" href="#">${router.title}</a>
     <ul class="nav navbar-nav pull-right">
       <li class="nav-item" if.bind="!isAuthenticated">
