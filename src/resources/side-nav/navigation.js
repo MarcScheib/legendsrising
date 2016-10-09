@@ -1,30 +1,42 @@
 import {BindingEngine, customElement, noView, inject} from 'aurelia-framework';
-import {UIState} from './ui-state';
+import {NavState, MAX_WIDTH_MOBILE_NAV} from './nav-state';
 
 @noView()
 @customElement('navigation')
-@inject(BindingEngine, UIState, Element)
+@inject(BindingEngine, NavState, Element)
 export class Navigation {
   showNavigationEvent = () => {
-    if (window.innerWidth < 1200) {
-      this.uiState.hideNav();
+    if (window.innerWidth < MAX_WIDTH_MOBILE_NAV) {
+      this.navState.setMobileNav(true);
+      this.element.classList.remove('navigation-pinned');
     } else {
-      this.uiState.showNav();
+      this.navState.setMobileNav(false);
+      this.element.classList.add('navigation-pinned');
     }
   };
 
-  constructor(bindingEngine, uiState, element) {
-    this.uiState = uiState;
+  constructor(bindingEngine, navState, element) {
+    this.navState = navState;
     this.element = element;
 
-    let subscription = bindingEngine.propertyObserver(this.uiState, 'navVisible').subscribe(this.navStateChanged.bind(this));
+    bindingEngine.propertyObserver(this.navState, 'navToggled').subscribe(this.navStateChanged.bind(this));
+    bindingEngine.propertyObserver(this.navState, 'mobileNavToggled').subscribe(this.mobileNavStateChanged.bind(this));
+    this.showNavigationEvent();
   }
 
-  navStateChanged(newValue, oldValue) {
-    if (this.uiState.navVisible) {
-      this.element.classList.remove('sidebar-nav-hidden')
-    } else {
-      this.element.classList.add('sidebar-nav-hidden')
+  navStateChanged() {
+    if (this.navState.isMobileNav() === false && this.navState.navToggled === true) {
+      this.element.classList.add('show-navigation');
+    } else if (this.navState.isMobileNav() === false && this.navState.navToggled === false) {
+      this.element.classList.remove('show-navigation');
+    }
+  }
+
+  mobileNavStateChanged() {
+    if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === false) {
+      this.element.classList.add('show-navigation');
+    } else if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === false) {
+      this.element.classList.remove('show-navigation')
     }
   }
 

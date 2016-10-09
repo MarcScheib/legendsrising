@@ -9,15 +9,16 @@ body {
   display: flex;
 }
 
-navigation {
+.navigation-pinned {
   flex: 1;
   min-width: 230px;
   max-width: 230px;
   z-index: 1020;
+  display: none;
 }
 
-.sidebar-nav-hidden {
-  display: none;
+.show-navigation {
+  display: block;
 }
 
 navigation-side {
@@ -25,6 +26,17 @@ navigation-side {
   padding: 14px 22px;
   top: 54px;
   width: 230px;
+}
+
+@media (max-width: 992px) {
+  .show-navigation  {
+    display: block;
+    position: absolute;
+  }
+
+  .show-navigation navigation-side {
+    background-color: #fff;
+  }
 }
 
 main {
