@@ -33,7 +33,7 @@ export class Navigation {
   }
 
   mobileNavStateChanged() {
-    if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === false) {
+    if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === true) {
       this.element.classList.add('show-navigation');
     } else if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === false) {
       this.element.classList.remove('show-navigation')
