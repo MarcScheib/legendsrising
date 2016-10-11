@@ -88,10 +88,10 @@
       "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0",
       "aurelia-validation": "npm:aurelia-validation@^0.6.8",
       "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@^1.0.0-alpha.4",
-      "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
+      "bootstrap": "npm:bootstrap@4.0.0-alpha.4",
       "fetch": "github:github/fetch@^0.11.1",
       "font-awesome": "github:FortAwesome/font-awesome@^4.6.3",
-      "jquery": "github:components/jquery@^2.2.4",
+      "jquery": "npm:jquery@^3.1.1",
       "nprogress": "github:rstacruz/nprogress@^0.2.0",
       "spoonx/aurelia-api": "github:spoonx/aurelia-api@^2.2.0",
       "text": "github:systemjs/plugin-text@^0.0.4"
@@ -100,29 +100,6 @@
       "babel": "npm:babel-core@^5.8.38",
       "babel-runtime": "npm:babel-runtime@^5.8.38",
       "core-js": "npm:core-js@^1.2.7"
-    },
-    "overrides": {
-      "github:twbs/bootstrap@4.0.0-alpha": {
-        "main": "dist/js/bootstrap",
-        "files": null,
-        "ignore": [
-          "dist/js/npm"
-        ],
-        "directories": {
-          "lib": "*"
-        },
-        "shim": {
-          "js/bootstrap": {
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$"
-          }
-        },
-        "dependencies": {
-          "jquery": "github:components/jquery"
-        }
-      }
     }
   }
 }
