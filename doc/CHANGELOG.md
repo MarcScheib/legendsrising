@@ -1,3 +1,24 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/MarcScheib/legendsrising/compare/0.3.4...v0.4.0) (2016-10-16)
+
+
+### Bug Fixes
+
+* fix index favicon and doctype ([302f1aa](https://github.com/MarcScheib/legendsrising/commit/302f1aa))
+* **faq:** fix check for empty faq list ([cbd7d9d](https://github.com/MarcScheib/legendsrising/commit/cbd7d9d))
+* **nav:** fix mobile nav toggling ([9af132d](https://github.com/MarcScheib/legendsrising/commit/9af132d))
+
+### Features
+
+* **env:** add aurelia environment plugin ([f998946](https://github.com/MarcScheib/legendsrising/commit/f998946))
+* **nav:** add mobile nav toggling ([1cc1e78](https://github.com/MarcScheib/legendsrising/commit/1cc1e78))
+* **nav:** add nav toggling ([ecc022b](https://github.com/MarcScheib/legendsrising/commit/ecc022b))
+* **nav:** add nav toggling ([b5a5b30](https://github.com/MarcScheib/legendsrising/commit/b5a5b30))
+* **nav:** improve nav toggling ([48fef21](https://github.com/MarcScheib/legendsrising/commit/48fef21))
+* **style:** add radio/checkbox styles ([197b82e](https://github.com/MarcScheib/legendsrising/commit/197b82e))
+
+
+
 <a name="0.3.4"></a>
 ## [0.3.4](https://github.com/MarcScheib/legendsrising/compare/0.3.2...v0.3.4) (2016-03-06)
 
