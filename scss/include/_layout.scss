@@ -22,6 +22,7 @@ body {
 }
 
 navigation-side {
+  background-color: #fff;
   position: fixed;
   padding: 14px 22px;
   top: 54px;
@@ -29,14 +30,25 @@ navigation-side {
 }
 
 @media (max-width: 992px) {
-  .show-navigation  {
-    display: block;
-    position: absolute;
+  navigation {
+    display: none;
+    z-index: 20000;
   }
 
-  .show-navigation navigation-side {
+  navigation-side {
+    padding: 5px 0;
+    margin: 2px 0 0;
+    color: #373a3c;
+    text-align: left;
+    list-style: none;
     background-color: #fff;
-    z-index: 20000;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    border-right: 1px solid rgba(0,0,0,.15);
+    border-bottom-right-radius: .25rem;
+  }
+
+  .show-navigation {
+    position: absolute;
   }
 }
 

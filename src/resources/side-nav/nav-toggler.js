@@ -1,10 +1,10 @@
 import {customElement, inlineView} from 'aurelia-templating';
-import {NavState, MAX_WIDTH_MOBILE_NAV} from './nav-state';
+import {NavState} from './nav-state';
 
 @customElement('nav-toggler')
 @inlineView(`
   <template>
-    <button class="navbar-toggler" type="button" click.delegate="toggleNav()">
+    <button class="navbar-toggler" type="button" click.delegate="toggle()">
       <i class="fa fa-bars fa-fw"></i>
     </button>
   </template>
@@ -16,11 +16,7 @@ export class NavToggler {
     this.navState = navState;
   }
 
-  toggleNav() {
-    if (this.navState.isMobileNav() == false) {
-      this.navState.toggleNav();
-    } else {
-      this.navState.toggleMobileNav();
-    }
+  toggle() {
+    this.navState.toggle();
   }
 }
