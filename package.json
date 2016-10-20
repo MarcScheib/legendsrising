@@ -31,11 +31,11 @@
     "babel-plugin-transform-es2015-modules-systemjs": "^6.14.0",
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-preset-es2015": "^6.16.0",
-    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-stage-1": "^6.16.0",
-    "browser-sync": "^2.17.2",
+    "browser-sync": "^2.17.5",
     "del": "^2.2.2",
-    "eslint": "^3.7.1",
+    "eslint": "^3.8.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
@@ -50,12 +50,12 @@
     "gulp-protractor": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^2.1.1",
     "jasmine-core": "^2.5.2",
     "jspm": "^0.16.46",
     "karma": "^1.3.0",
     "karma-babel-preprocessor": "^6.0.1",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-jspm": "^2.2.0",
@@ -63,7 +63,7 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "vinyl-paths": "^2.1.0",
-    "yargs": "^6.0.0"
+    "yargs": "^6.2.0"
   },
   "jspm": {
     "dependencies": {
