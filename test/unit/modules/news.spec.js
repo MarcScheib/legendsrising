@@ -125,7 +125,7 @@ describe('the News View module', () => {
   });
 
   it('sets the comments for the selected news', done => {
-    newsCommentsService.itemStub = itemStubs;
+    newsCommentsService.itemStub = {data: itemStubs};
     let navModelStub = new NavModelStub();
 
     sut.activate({id: 1}, {navModel: navModelStub})
