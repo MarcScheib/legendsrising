@@ -7,8 +7,8 @@ export class NewsCommentsService {
     this.apiClient = apiClient;
   }
 
-  getRecent(newsId) {
-    return this.apiClient.find('news/' + newsId + '/comments')
+  getAll(newsId, page = 1) {
+    return this.apiClient.find('news/' + newsId + '/comments', {page: page})
       .catch(error => Promise.reject(error));
   }
 

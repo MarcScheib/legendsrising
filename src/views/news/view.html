@@ -21,9 +21,13 @@
             </div>
             <div class="card-text">${news.text}</div>
           </div>
-          <div class="card-footer" if.bind="isAuthenticated || comments.length > 0">
-            <div class="news-card-comment" repeat.for="item of comments">
+          <div class="card-footer aurelia-animators" if.bind="isAuthenticated || comments.length > 0">
+            <div class="news-card-comment">
+              <a click.delegate="loadMore()">Load more...</a>
+            </div>
+            <div class="news-card-comment au-animate" repeat.for="item of comments">
               <a href="#/profiles/view/${item.user.id}" class="pull-left">
+                <!-- Todo -->
                 <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
               </a>
               <div class="media-body">
@@ -34,6 +38,7 @@
             </div>
             <div class="news-card-comment" if.bind="isAuthenticated">
               <a href="#/profiles/view/${user.id}" class="pull-left">
+                <!-- Todo: image path -->
                 <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
               </a>
               <div class="media-body">

@@ -3,6 +3,14 @@ section.au-enter-active {
   animation: fadeIn 1s;
 }
 
+.aurelia-animators > .au-enter {
+  opacity: 0 !important;
+}
+
+.aurelia-animators > .au-enter-active {
+  animation: fadeIn 2s;
+}
+
 /* animation definitions */
 @keyframes fadeIn {
   0% {

@@ -24,9 +24,11 @@ export class View {
         this.user = null;
       });
 
-    let commentsPromise = this.newsCommentsService.getRecent(params.id)
+    let commentsPromise = this.newsCommentsService.getAll(params.id)
       .then(comments => {
-        this.comments = comments;
+        this.comments = comments.data.reverse();
+        this.currentPage = comments.current_page;
+        this.lastPage = comments.last_page;
       })
       .catch(() => {
         this.comments = [];
@@ -64,6 +66,18 @@ export class View {
       this.comments.push(data);
       this.comment = null;
     });
+  }
+
+  loadMore() {
+    this.newsCommentsService.getAll(this.newsId, this.currentPage + 1)
+      .then(comments => {
+        this.comments = comments.data.reverse().concat(this.comments);
+        this.currentPage = comments.current_page;
+        this.lastPage = comments.last_page;
+      })
+      .catch(() => {
+        this.comments = [];
+      });
   }
 
   get isAuthenticated() {
