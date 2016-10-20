@@ -35,7 +35,7 @@ export function configure(aurelia) {
           settings.containerSelector = '#notification-container';
           settings.timeout = 10000;
         })
-        .feature('resources/side-nav');
+        .feature('resources/features/navigation');
 
       aurelia.start()
         .then(a => a.setRoot('app', document.body))
