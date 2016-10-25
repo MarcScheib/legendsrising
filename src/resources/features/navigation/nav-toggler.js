@@ -1,12 +1,11 @@
-import {customElement, inlineView} from 'aurelia-templating';
+import {customElement, containerless, inlineView} from 'aurelia-templating';
 import {NavState} from './nav-state';
 
+@containerless
 @customElement('nav-toggler')
 @inlineView(`
   <template>
-    <button class="navbar-toggler" type="button" click.delegate="toggle()">
-      <i class="fa fa-bars fa-fw"></i>
-    </button>
+    <button class="navbar-toggler mr-1" type="button" click.delegate="toggle()"></button>
   </template>
 `)
 export class NavToggler {
