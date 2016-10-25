@@ -12,7 +12,6 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-api": "github:spoonx/aurelia-api@2.2.0",
@@ -38,10 +37,10 @@ System.config({
     "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.4",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
-    "bootstrap": "npm:bootstrap@4.0.0-alpha.4",
+    "bootstrap": "npm:bootstrap@4.0.0-alpha.5",
     "core-js": "npm:core-js@1.2.7",
     "fetch": "github:github/fetch@0.11.1",
-    "font-awesome": "github:FortAwesome/font-awesome@4.6.3",
+    "font-awesome": "github:FortAwesome/font-awesome@4.7.0",
     "jquery": "npm:jquery@3.1.1",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "spoonx/aurelia-api": "github:spoonx/aurelia-api@2.2.0",
@@ -65,7 +64,7 @@ System.config({
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
     "github:rstacruz/nprogress@0.2.0": {
-      "css": "github:systemjs/plugin-css@0.1.31"
+      "css": "github:systemjs/plugin-css@0.1.32"
     },
     "github:spoonx/aurelia-api@2.2.0": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.0",
@@ -222,7 +221,7 @@ System.config({
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:bootstrap@4.0.0-alpha.4": {
+    "npm:bootstrap@4.0.0-alpha.5": {
       "jquery": "npm:jquery@3.1.1",
       "tether": "github:HubSpot/tether@1.3.7"
     },
