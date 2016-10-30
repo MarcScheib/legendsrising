@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-authentication';
 import {NotificationService} from 'aurelia-notify';
+import {DataListController} from 'resources/features/data-list/controller';
 import {NewsService} from '../../services/news/news-service';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 
@@ -8,13 +9,13 @@ const ENTER_KEY = 13;
 
 @inject(NewsService, NewsCommentsService, AuthService, NotificationService)
 export class View {
-  loading = false;
-
   constructor(newsService, newsCommentsService, authService, notificationService) {
     this.newsService = newsService;
     this.newsCommentsService = newsCommentsService;
     this.authService = authService;
     this.notificationService = notificationService;
+
+    this.dataListController = new DataListController(options => this.loadMore(options));
   }
 
   activate(params, routeConfig) {
@@ -28,16 +29,6 @@ export class View {
         this.user = null;
       });
 
-    let commentsPromise = this.newsCommentsService.getAll(params.id)
-      .then(comments => {
-        this.comments = comments.data;
-        this.currentPage = comments.current_page;
-        this.lastPage = comments.last_page;
-      })
-      .catch(() => {
-        this.comments = [];
-      });
-
     let newsPromise = this.newsService.get(params.id)
       .then(news => {
         this.news = news;
@@ -47,7 +38,7 @@ export class View {
         this.news = null;
       });
 
-    return Promise.all([userPromise, commentsPromise, newsPromise]);
+    return Promise.all([userPromise, newsPromise]);
   }
 
   onKeyUp(event) {
@@ -78,19 +69,8 @@ export class View {
       });
   }
 
-  loadMore() {
-    this.loading = true;
-    this.newsCommentsService.getAll(this.newsId, this.currentPage + 1)
-      .then(comments => {
-        this.comments = this.comments.concat(comments.data);
-        this.currentPage = comments.current_page;
-        this.lastPage = comments.last_page;
-        this.loading = false;
-      })
-      .catch(() => {
-        this.comments = [];
-        this.loading = false;
-      });
+  loadMore(page) {
+    return this.newsCommentsService.getAll(this.newsId, page);
   }
 
   get isAuthenticated() {

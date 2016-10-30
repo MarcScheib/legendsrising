@@ -1,7 +1,16 @@
 import {load} from 'aurelia-environment';
-import {ViewLocator, LogManager} from 'aurelia-framework';
+import {ViewLocator, LogManager, DirtyCheckProperty} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import authConfig from './configuration/auth-config';
+
+/** DEBUG DIRTY CHECKING **/
+const logger = LogManager.getLogger('my-app');
+DirtyCheckProperty.prototype.standardSubscribe = DirtyCheckProperty.prototype.subscribe;
+DirtyCheckProperty.prototype.subscribe = function(context, callable) {
+  this.standardSubscribe(context, callable);
+  logger.warn(`'${this.obj.constructor.name}.${this.propertyName}' is being dirty checked`, this.obj);
+};
+/** /DEBUG DIRTY CHECKING **/
 
 ViewLocator.prototype.convertOriginToViewUrl = function(origin) {
   let moduleId = origin.moduleId;
@@ -35,7 +44,8 @@ export function configure(aurelia) {
           settings.containerSelector = '#notification-container';
           settings.timeout = 10000;
         })
-        .feature('resources/features/navigation');
+        .feature('resources/features/navigation')
+        .feature('resources/features/data-list');
 
       aurelia.start()
         .then(a => a.setRoot('app', document.body))
