@@ -3,6 +3,10 @@ section.au-enter-active {
   animation: fadeIn 1s;
 }
 
+.aurelia-animators.au-stagger {
+  animation-delay: 50ms;
+}
+
 .aurelia-animators > .au-enter {
   opacity: 0 !important;
 }
