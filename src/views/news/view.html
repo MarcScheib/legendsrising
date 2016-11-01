@@ -36,9 +36,9 @@
               </div>
             </div>
 
-            <data-list controller.bind="dataListController" data.bind="data" model.bind="model">
+            <data-list controller.bind="dataListController" data.bind="comments" model.bind="model">
               <div class="aurelia-animators au-stagger">
-                <div class="news-card-comment au-animate" repeat.for="item of data">
+                <div class="news-card-comment au-animate" repeat.for="item of comments">
                   <a href="#/profiles/view/${item.user.id}" class="pull-left">
                     <!-- Todo -->
                     <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">

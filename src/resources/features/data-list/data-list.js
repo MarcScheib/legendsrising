@@ -9,7 +9,7 @@ import {BindingEngine, bindable, bindingMode, customElement, containerless, inje
 `)
 @inject(BindingEngine)
 export class DataListElement {
-  @bindable({defaultBindingMode: bindingMode.twoWay}) data = [];
+  @bindable({defaultBindingMode: bindingMode.twoWay}) data;
   @bindable({defaultBindingMode: bindingMode.twoWay}) model;
   @bindable controller;
 

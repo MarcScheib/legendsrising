@@ -9,6 +9,8 @@ const ENTER_KEY = 13;
 
 @inject(NewsService, NewsCommentsService, AuthService, NotificationService)
 export class View {
+  comments = [];
+
   constructor(newsService, newsCommentsService, authService, notificationService) {
     this.newsService = newsService;
     this.newsCommentsService = newsCommentsService;
