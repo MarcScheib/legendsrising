@@ -1,7 +1,7 @@
 export class NewsCommentsServiceStub {
   reject = false;
 
-  getRecent(id) {
+  getAll(id) {
     var response = this.itemStub;
     return new Promise((resolve, reject) => {
       if (this.reject == false) {

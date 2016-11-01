@@ -2,9 +2,10 @@ import {Index} from '../../../src/view-models/news/index';
 import {View} from '../../../src/view-models/news/view';
 
 import {AuthServiceStub} from '../fixtures/AuthServiceStub';
-import {NewsServiceStub} from '../fixtures/NewsServiceStub';
-import {NewsCommentsServiceStub} from '../fixtures/NewsCommentsServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';
+import {NewsCommentsServiceStub} from '../fixtures/NewsCommentsServiceStub';
+import {NewsServiceStub} from '../fixtures/NewsServiceStub';
+import {NotificationServiceStub} from '../fixtures/NotificationServiceStub';
 
 describe('the News Index module', () => {
   var newsService;
@@ -54,6 +55,7 @@ describe('the News View module', () => {
   var newsService;
   var newsCommentsService;
   var authService;
+  var notificationService;
   var sut;
 
   var itemStubs = [1];
@@ -63,7 +65,8 @@ describe('the News View module', () => {
     authService = new AuthServiceStub();
     newsService = new NewsServiceStub();
     newsCommentsService = new NewsCommentsServiceStub();
-    sut = new View(newsService, newsCommentsService, authService);
+    notificationService = new NotificationServiceStub();
+    sut = new View(newsService, newsCommentsService, authService, notificationService);
   });
 
   it('contains a news service property', () => {
@@ -76,6 +79,10 @@ describe('the News View module', () => {
 
   it('contains an auth service property', () => {
     expect(sut.authService).toBeDefined();
+  });
+
+  it('contains a notification service property', () => {
+    expect(sut.notificationService).toBeDefined();
   });
 
   it('stores the news id on activation', done => {
@@ -116,22 +123,6 @@ describe('the News View module', () => {
     sut.activate({id: 1}, {navModel: navModelStub})
       .then(result => {
         expect(sut.news).toBe(null);
-        done();
-      })
-      .catch(result => {
-        expect(result).not.toBe(result);
-        done();
-      });
-  });
-
-  it('sets the comments for the selected news', done => {
-    newsCommentsService.itemStub = itemStubs;
-    let navModelStub = new NavModelStub();
-
-    sut.activate({id: 1}, {navModel: navModelStub})
-      .then(() => {
-        expect(sut.comments).toBe(itemStubs);
-        expect(sut.comments).not.toBe(itemFake);
         done();
       })
       .catch(result => {

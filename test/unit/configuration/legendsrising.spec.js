@@ -1,6 +1,6 @@
-import {ViewLocator} from "aurelia-framework";
-import {configure} from "../../../src/legendsrising";
-import {AureliaStub} from "../fixtures/AureliaStub";
+import {ViewLocator} from 'aurelia-framework';
+import {configure} from '../../../src/legendsrising';
+import {AureliaStub} from '../fixtures/AureliaStub';
 
 describe('the app configuration', () => {
   it('adjust the view view-model locations with js extension', () => {

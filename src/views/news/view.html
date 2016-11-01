@@ -19,26 +19,54 @@
               <strong><a href="#/profiles/view/${news.user_id}">${news.user.username}</a></strong>
               <small class="text-muted"><i class="fa fa-clock-o"></i> ${news.created_at}</small>
             </div>
+
             <div class="card-text">${news.text}</div>
           </div>
-          <div class="card-footer" if.bind="isAuthenticated || comments.length > 0">
-            <div class="news-card-comment" repeat.for="item of comments">
-              <a href="#/profiles/view/${item.user.id}" class="pull-left">
-                <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
-              </a>
-              <div class="media-body">
-                <a href="#/profiles/view/${item.user.id}">${item.user.username}</a> ${item.text}
-                <br>
-                <small class="text-muted">${item.created_at}</small>
-              </div>
-            </div>
-            <div class="news-card-comment" if.bind="isAuthenticated">
+
+          <div class="card-footer">
+            <div class="news-card-comment mb-1" if.bind="isAuthenticated">
               <a href="#/profiles/view/${user.id}" class="pull-left">
+                <!-- Todo: image path -->
                 <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
               </a>
+
               <div class="media-body">
-                <input class="form-control" placeholder="Write comment..." autofocus keyup.delegate="onKeyUp($event)" value.bind="comment">
+                <input class="form-control" placeholder="Write comment..." autofocus keyup.delegate="onKeyUp($event)"
+                       value.bind="comment">
               </div>
+            </div>
+
+            <data-list controller.bind="dataListController" data.bind="comments" model.bind="model">
+              <div class="aurelia-animators au-stagger">
+                <div class="news-card-comment au-animate" repeat.for="item of comments">
+                  <a href="#/profiles/view/${item.user.id}" class="pull-left">
+                    <!-- Todo -->
+                    <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
+                  </a>
+                  <div class="media-body">
+                    <a href="#/profiles/view/${item.user.id}">${item.user.username}</a> ${item.text}
+                    <br>
+                    <small class="text-muted">${item.created_at}</small>
+                  </div>
+                </div>
+
+                <data-loader data-list-model.bind="model">
+                  <template replace-part="item-template">
+                    <div
+                      class="news-card-comment ${dataListModel.lastPage > 1 || dataListModel.loading ? '' : 'hidden-xl-down'}">
+                      <a href="#" click.delegate="nextPage()"
+                         class="${dataListModel.currentPage != dataListModel.lastPage ? '' : 'hidden-xl-down'}">
+                        Load more comments
+                      </a>
+                      <i class="fa fa-fw fa-spinner fa-spin ${dataListModel.loading ? '' : 'hidden-xl-down'}"></i>
+                    </div>
+                  </template>
+                </data-loader>
+              </div>
+            </data-list>
+
+            <div class="news-card-comment" if.bind="isAuthenticated">
+              <a href="">Comment...</a>
             </div>
           </div>
         </div>
