@@ -10,12 +10,10 @@ export class ScrollToTop {
     let hops = 33;
     let gap = element.scrollTop / hops;
 
-    for (var i = 1; i <= hops; i++) {
-      (function() {
-        setTimeout(() => {
-          element.scrollTop = Math.max(element.scrollTop - gap, 0);
-        }, movingFrequency * i);
-      })();
+    for (let i = 1; i <= hops; i++) {
+      setTimeout(() => {
+        element.scrollTop = Math.max(element.scrollTop - gap, 0);
+      }, movingFrequency * i);
     }
   }
 }

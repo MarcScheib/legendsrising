@@ -66,7 +66,7 @@ export class View {
       })
       .catch((error) => {
         if (error.status === 401) {
-          this.notificationService.danger('You are not allowed to post a comment without signing in.')
+          this.notificationService.danger('You are not allowed to post a comment without signing in.');
         }
       });
   }
