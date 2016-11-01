@@ -68,8 +68,8 @@
   "jspm": {
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.1",
-      "aurelia-api": "github:spoonx/aurelia-api@^2.2.0",
-      "aurelia-authentication": "github:spoonx/aurelia-authentication@^2.1.2",
+      "aurelia-api": "npm:aurelia-api@^3.0.0",
+      "aurelia-authentication": "npm:aurelia-authentication@^3.0.3",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
       "aurelia-environment": "npm:aurelia-environment@^0.1.7",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
@@ -94,7 +94,6 @@
       "font-awesome": "github:FortAwesome/font-awesome@^4.7.0",
       "jquery": "npm:jquery@^3.1.1",
       "nprogress": "github:rstacruz/nprogress@^0.2.0",
-      "spoonx/aurelia-api": "github:spoonx/aurelia-api@^2.2.0",
       "text": "github:systemjs/plugin-text@^0.0.4"
     },
     "devDependencies": {
