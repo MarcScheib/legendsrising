@@ -12,10 +12,11 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-api": "npm:aurelia-api@3.0.0",
-    "aurelia-authentication": "npm:aurelia-authentication@3.0.3",
+    "aurelia-authentication": "npm:aurelia-authentication@3.1.0",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",
     "aurelia-environment": "npm:aurelia-environment@0.1.7",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",
@@ -83,7 +84,7 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.1.1",
       "extend": "npm:extend@3.0.0"
     },
-    "npm:aurelia-authentication@3.0.3": {
+    "npm:aurelia-authentication@3.1.0": {
       "aurelia-api": "npm:aurelia-api@3.0.0",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.0",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",

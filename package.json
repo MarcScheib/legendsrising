@@ -69,7 +69,7 @@
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.1",
       "aurelia-api": "npm:aurelia-api@^3.0.0",
-      "aurelia-authentication": "npm:aurelia-authentication@^3.0.3",
+      "aurelia-authentication": "npm:aurelia-authentication@^3.1.0",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
       "aurelia-environment": "npm:aurelia-environment@^0.1.7",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
