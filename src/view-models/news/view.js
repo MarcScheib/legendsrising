@@ -2,20 +2,22 @@ import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-authentication';
 import {NotificationService} from 'aurelia-notify';
 import {DataListController} from 'resources/features/data-list/controller';
+import {LoggedInUser} from 'resources/entities/logged-in-user';
 import {NewsService} from '../../services/news/news-service';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 
 const ENTER_KEY = 13;
 
-@inject(NewsService, NewsCommentsService, AuthService, NotificationService)
+@inject(NewsService, NewsCommentsService, AuthService, NotificationService, LoggedInUser)
 export class View {
   comments = [];
 
-  constructor(newsService, newsCommentsService, authService, notificationService) {
+  constructor(newsService, newsCommentsService, authService, notificationService, loggedInUser) {
     this.newsService = newsService;
     this.newsCommentsService = newsCommentsService;
     this.authService = authService;
     this.notificationService = notificationService;
+    this.loggedInUser = loggedInUser;
 
     this.dataListController = new DataListController(options => this.loadMore(options));
   }
@@ -73,9 +75,5 @@ export class View {
 
   loadMore(page) {
     return this.newsCommentsService.getAll(this.newsId, page);
-  }
-
-  get isAuthenticated() {
-    return this.authService.isAuthenticated();
   }
 }

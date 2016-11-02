@@ -16,8 +16,8 @@
       </a>
     </li>
   </ul>
-  <hr class="nav-separator" if.bind="isAuthenticated">
-  <ul class="nav-container" if.bind="isAuthenticated">
+  <hr class="nav-separator" if.bind="loggedInUser.isLoggedIn">
+  <ul class="nav-container" if.bind="loggedInUser.isLoggedIn">
     <li>
       <a href="#/news" class="nav-item-toggle">
         <i class="nav-item-icon fa fa-home fa-fw"></i> Settlement
