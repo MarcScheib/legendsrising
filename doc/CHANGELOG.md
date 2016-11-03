@@ -1,3 +1,24 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/MarcScheib/legendsrising/compare/0.4.0...v0.5.0) (2016-11-03)
+
+
+### Bug Fixes
+
+* **nav:** fix navbar border ([f1596db](https://github.com/MarcScheib/legendsrising/commit/f1596db))
+* **router:** fix scroll to top on routing ([8117803](https://github.com/MarcScheib/legendsrising/commit/8117803))
+
+
+### Features
+
+* **news:** add animations to comment loading ([adf59e0](https://github.com/MarcScheib/legendsrising/commit/adf59e0))
+* **news:** add pagination to comments ([786a1fb](https://github.com/MarcScheib/legendsrising/commit/786a1fb))
+* **news:** implement data list for news comments ([38d09dd](https://github.com/MarcScheib/legendsrising/commit/38d09dd))
+* **news:** implement news comment function ([e842b22](https://github.com/MarcScheib/legendsrising/commit/e842b22))
+* **user:** add user entity ([f4b2da1](https://github.com/MarcScheib/legendsrising/commit/f4b2da1))
+* **user:** store user data in logged in entity ([e9b2a81](https://github.com/MarcScheib/legendsrising/commit/e9b2a81))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/MarcScheib/legendsrising/compare/0.3.4...v0.4.0) (2016-10-16)
 
