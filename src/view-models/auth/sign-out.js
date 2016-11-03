@@ -14,10 +14,10 @@ export class SignOut {
   activate() {
     return this.auth.logout()
       .then(response => {
-        this.notification.success('You signed out successfully');
+        this.notification.success('You signed out successfully.');
       })
       .catch(err => {
-        this.notification.danger('Error signing out');
+        this.notification.danger('Error when signing you out.');
       });
   }
 }

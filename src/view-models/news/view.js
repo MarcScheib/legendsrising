@@ -1,5 +1,4 @@
 import {inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-authentication';
 import {NotificationService} from 'aurelia-notify';
 import {DataListController} from 'resources/features/data-list/controller';
 import {LoggedInUser} from 'resources/entities/logged-in-user';
@@ -8,14 +7,13 @@ import {NewsCommentsService} from '../../services/news/news-comments-service';
 
 const ENTER_KEY = 13;
 
-@inject(NewsService, NewsCommentsService, AuthService, NotificationService, LoggedInUser)
+@inject(NewsService, NewsCommentsService, NotificationService, LoggedInUser)
 export class View {
   comments = [];
 
-  constructor(newsService, newsCommentsService, authService, notificationService, loggedInUser) {
+  constructor(newsService, newsCommentsService, notificationService, loggedInUser) {
     this.newsService = newsService;
     this.newsCommentsService = newsCommentsService;
-    this.authService = authService;
     this.notificationService = notificationService;
     this.loggedInUser = loggedInUser;
 
@@ -25,15 +23,7 @@ export class View {
   activate(params, routeConfig) {
     this.newsId = params.id;
 
-    let userPromise = this.authService.getMe()
-      .then(user => {
-        this.user = user;
-      })
-      .catch(() => {
-        this.user = null;
-      });
-
-    let newsPromise = this.newsService.get(params.id)
+    return this.newsService.get(params.id)
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
@@ -41,8 +31,6 @@ export class View {
       .catch(() => {
         this.news = null;
       });
-
-    return Promise.all([userPromise, newsPromise]);
   }
 
   onKeyUp(event) {

@@ -25,9 +25,9 @@
 
           <div class="card-footer">
             <div class="news-card-comment mb-1" if.bind="loggedInUser.isLoggedIn">
-              <a href="#/profiles/view/${user.id}" class="pull-left">
+              <a href="#/profiles/view/${loggedInUser.user.id}" class="pull-left">
                 <!-- Todo: image path -->
-                <img alt="${user.username}" src="http://lr.local/img/avatar/${user.avatar}">
+                <img alt="${loggedInUser.user.username}" src="http://lr.local/img/avatar/${loggedInUser.user.avatar}">
               </a>
 
               <div class="media-body">
