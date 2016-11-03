@@ -3,17 +3,17 @@
     <nav-toggler></nav-toggler>
     <a class="navbar-brand" href="#">${router.title}</a>
     <ul class="nav navbar-nav pull-right">
-      <li class="nav-item" if.bind="!isAuthenticated">
+      <li class="nav-item" if.bind="!loggedInUser.isLoggedIn">
         <a class="nav-link" href="#/users/signup">
           <i class="fa fa-user fa-fw"></i> <span class="hidden-xs-down">Sign Up</span>
         </a>
       </li>
-      <li class="nav-item" if.bind="!isAuthenticated">
+      <li class="nav-item" if.bind="!loggedInUser.isLoggedIn">
         <a class="nav-link" href="#/auth/signin">
           <i class="fa fa-sign-in fa-fw"></i> <span class="hidden-xs-down">Sign In</span>
         </a>
       </li>
-      <li class="nav-item" if.bind="isAuthenticated">
+      <li class="nav-item" if.bind="loggedInUser.isLoggedIn">
         <a class="nav-link" href="#/auth/signout">
           <i class="fa fa-sign-out fa-fw"></i> <span class="hidden-xs-down">Sign Out</span>
         </a>

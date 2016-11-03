@@ -77,10 +77,6 @@ describe('the News View module', () => {
     expect(sut.newsCommentsService).toBeDefined();
   });
 
-  it('contains an auth service property', () => {
-    expect(sut.authService).toBeDefined();
-  });
-
   it('contains a notification service property', () => {
     expect(sut.notificationService).toBeDefined();
   });

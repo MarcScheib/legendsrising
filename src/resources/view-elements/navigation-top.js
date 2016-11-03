@@ -1,15 +1,12 @@
 import {bindable, inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-authentication';
 
-@inject(AuthService)
+import {LoggedInUser} from '../entities/logged-in-user';
+
+@inject(LoggedInUser)
 export class NavigationTop {
   @bindable router = null;
 
-  constructor(auth) {
-    this.auth = auth;
-  }
-
-  get isAuthenticated() {
-    return this.auth.isAuthenticated();
+  constructor(loggedInUser) {
+    this.loggedInUser = loggedInUser;
   }
 }
