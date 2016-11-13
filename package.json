@@ -21,8 +21,8 @@
     "e2e": "gulp serve e2e"
   },
   "devDependencies": {
-    "aurelia-bundler": "^0.4.0",
-    "aurelia-tools": "^0.2.4",
+    "aurelia-bundler": "^0.5.0",
+    "aurelia-tools": "^1.0.0",
     "babel-eslint": "^7.1.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -35,7 +35,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "browser-sync": "^2.17.5",
     "del": "^2.2.2",
-    "eslint": "^3.9.1",
+    "eslint": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
@@ -52,7 +52,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
     "jasmine-core": "^2.5.2",
-    "jspm": "^0.16.47",
+    "jspm": "^0.16.48",
     "karma": "^1.3.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^2.0.0",
