@@ -1,5 +1,5 @@
-import {Index} from '../../../src/view-models/news/index';
-import {View} from '../../../src/view-models/news/view';
+import {Index} from '../../../src/application/news/index';
+import {View} from '../../../src/application/news/view';
 
 import {AuthServiceStub} from '../fixtures/AuthServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';

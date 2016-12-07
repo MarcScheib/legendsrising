@@ -11,12 +11,12 @@
         <div class="card news-card">
           <div class="card-default card-block" if.bind="news">
             <div class="news-card-header">
-              <a href="#/profiles/view/${news.user_id}" class="pull-left">
+              <a href="#/profile/view/${news.user_id}" class="pull-left">
                 <!-- Todo -->
                 <img alt="${news.user.username}" src="http://lr.local/img/avatar/${news.user.avatar}">
               </a>
               <h4><a href="#/news/view/${news.id}">${news.title}</a></h4>
-              <strong><a href="#/profiles/view/${news.user_id}">${news.user.username}</a></strong>
+              <strong><a href="#/profile/view/${news.user_id}">${news.user.username}</a></strong>
               <small class="text-muted"><i class="fa fa-clock-o"></i> ${news.created_at}</small>
             </div>
 
@@ -25,7 +25,7 @@
 
           <div class="card-footer">
             <div class="news-card-comment mb-1" if.bind="loggedInUser.isLoggedIn">
-              <a href="#/profiles/view/${loggedInUser.user.id}" class="pull-left">
+              <a href="#/profile/view/${loggedInUser.user.id}" class="pull-left">
                 <!-- Todo: image path -->
                 <img alt="${loggedInUser.user.username}" src="http://lr.local/img/avatar/${loggedInUser.user.avatar}">
               </a>
@@ -39,12 +39,12 @@
             <data-list controller.bind="dataListController" data.bind="comments" model.bind="model">
               <div class="aurelia-animators au-stagger">
                 <div class="news-card-comment au-animate" repeat.for="item of comments">
-                  <a href="#/profiles/view/${item.user.id}" class="pull-left">
+                  <a href="#/profile/view/${item.user.id}" class="pull-left">
                     <!-- Todo -->
                     <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
                   </a>
                   <div class="media-body">
-                    <a href="#/profiles/view/${item.user.id}">${item.user.username}</a> ${item.text}
+                    <a href="#/profile/view/${item.user.id}">${item.user.username}</a> ${item.text}
                     <br>
                     <small class="text-muted">${item.created_at}</small>
                   </div>

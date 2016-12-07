@@ -1,4 +1,4 @@
-import {View} from '../../../src/view-models/profiles/view';
+import {View} from '../../../src/application/profile/view';
 
 import {ProfileServiceStub} from '../fixtures/ProfileServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';

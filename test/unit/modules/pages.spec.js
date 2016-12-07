@@ -1,6 +1,6 @@
 import {activationStrategy} from 'aurelia-router';
 
-import {Index} from '../../../src/view-models/pages/index';
+import {Index} from '../../../src/application/page/index';
 
 import {NavModelStub} from '../fixtures/NavModelStub';
 
