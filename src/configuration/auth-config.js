@@ -5,7 +5,7 @@ let authConfig = {
   loginUrl: 'auth/signin',
   profileUrl: 'auth/user',
   loginRoute: '#/auth/signin',
-  loginRedirect: '#/contents',
+  loginRedirect: '#/content',
   logoutRedirect: '#/auth/signin'
 };
 

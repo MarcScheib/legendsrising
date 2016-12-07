@@ -12,7 +12,7 @@ export class Index {
   }
 
   getViewStrategy() {
-    return 'views/pages/' + this.view + '.html';
+    return 'application/page/' + this.view + '.html';
   }
 
   activate(params, routeConfig) {

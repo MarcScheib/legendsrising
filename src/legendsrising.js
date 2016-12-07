@@ -12,26 +12,27 @@ DirtyCheckProperty.prototype.subscribe = function(context, callable) {
 };
 /** /DEBUG DIRTY CHECKING **/
 
-ViewLocator.prototype.convertOriginToViewUrl = function(origin) {
-  let moduleId = origin.moduleId;
-  let id = (moduleId.endsWith('.js') || moduleId.endsWith('.ts')) ? moduleId.substring(0, moduleId.length - 3) : moduleId;
-  return id.replace('view-models', 'views') + '.html';
-};
-
 export function configure(aurelia) {
   return load()
     .then(() => {
       LogManager.addAppender(new ConsoleAppender());
       LogManager.setLevel(env.LOG_LEVEL);
 
+      // Specify official libraries
       aurelia.use
         .defaultBindingLanguage()
         .defaultResources()
         .history()
         .router()
-        .eventAggregator()
+        .eventAggregator();
+
+      // Specify official plugins
+      aurelia.use
         .plugin('aurelia-validation')
-        .plugin('aurelia-animator-css')
+        .plugin('aurelia-animator-css');
+
+      // Specify unofficial plugins
+      aurelia.use
         .plugin('aurelia-api', config => {
           config
             .registerEndpoint('dev', env.API_ENDPOINT)
@@ -43,7 +44,10 @@ export function configure(aurelia) {
         .plugin('aurelia-notify', settings => {
           settings.containerSelector = '#notification-container';
           settings.timeout = 10000;
-        })
+        });
+
+      // Specify application features
+      aurelia.use
         .feature('resources/features/navigation')
         .feature('resources/features/data-list');
 
