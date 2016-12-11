@@ -28,7 +28,7 @@ https://plnkr.co or similar.
 <!-- Operating system, IDE, package manager, HTTP server, ... -->
 
 * **Version:** x.y.z
-<!-- Check whether this is still an issue in the most recent Angular version -->
+<!-- Check whether this is still an issue in the most recent version -->
 
 * **Browser:** [all | Chrome XX | Firefox XX | IE XX | Safari XX | Mobile Chrome XX | Android X.X Web Browser | iOS XX Safari | iOS XX UIWebView | iOS XX WKWebView ]
 <!-- All browsers where this could be reproduced -->
