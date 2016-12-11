@@ -45,7 +45,6 @@ export class Navigation {
     }
 
     if (this.element.contains(event.target) === true && event.target.tagName.toLowerCase() === 'a' && this.navState.isMobileNavToggled() === true) {
-      console.log(event.target);
       this.navState.toggle();
     }
   }
