@@ -25,6 +25,10 @@ class NavState {
     this.mobileNavToggled = state;
   }
 
+  isMobileNavToggled() {
+    return this.mobileNavToggled;
+  }
+
   setMobileNav(mobileNav) {
     this.mobileNav = mobileNav;
   }

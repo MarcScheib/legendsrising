@@ -10,6 +10,7 @@ export class Navigation {
     this.element = element;
     this.windowResizeListener = () => this.handleResize();
     this.outsideClickListener = event => this.handleBlur(event);
+    this.navLinkClickListener = event => this.handleNavLink(event);
 
     bindingEngine.propertyObserver(this.navState, 'navToggled').subscribe(this.navStateChanged.bind(this));
     bindingEngine.propertyObserver(this.navState, 'mobileNavToggled').subscribe(this.mobileNavStateChanged.bind(this));
@@ -33,7 +34,18 @@ export class Navigation {
       return;
     }
 
-    if (this.element.contains(event.target) === false && this.navState.mobileNavToggled === true) {
+    if (this.element.contains(event.target) === false && this.navState.isMobileNavToggled() === true) {
+      this.navState.toggle();
+    }
+  }
+
+  handleNavLink(event) {
+    if (this.navState.isMobileNav() === false || event.defaultPrevented === true) {
+      return;
+    }
+
+    if (this.element.contains(event.target) === true && event.target.tagName.toLowerCase() === 'a' && this.navState.isMobileNavToggled() === true) {
+      console.log(event.target);
       this.navState.toggle();
     }
   }
@@ -57,11 +69,13 @@ export class Navigation {
   attached() {
     window.addEventListener('resize', this.windowResizeListener);
     document.addEventListener('click', this.outsideClickListener);
+    document.addEventListener('click', this.navLinkClickListener);
     this.handleResize();
   }
 
   detached() {
     window.removeEventListener('resize', this.windowResizeListener);
     document.removeEventListener('click', this.outsideClickListener);
+    document.removeEventListener('click', this.navLinkClickListener);
   }
 }
