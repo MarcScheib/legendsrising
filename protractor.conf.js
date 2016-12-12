@@ -7,7 +7,7 @@ exports.config = {
   specs: ['test/e2e/dist/**/*.js'],
 
   plugins: [{
-    path: 'protractor.aurelia.plugin.js'
+    package: 'aurelia-protractor-plugin'
   }],
 
   jasmineNodeOpts: {
