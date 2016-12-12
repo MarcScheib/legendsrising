@@ -37,9 +37,9 @@ describe('the router configuration', () => {
 
   it('should have a welcome route', () => {
     expect(sut.router.routes).toContain({
-      route: ['/', 'contents', 'contents/index'],
+      route: ['/', 'content', 'content/index'],
       name: 'index',
-      moduleId: 'view-models/contents/index',
+      moduleId: 'application/content/index',
       title: 'Welcome'
     });
   });
@@ -47,7 +47,7 @@ describe('the router configuration', () => {
   it('should have a news list route', () => {
     expect(sut.router.routes).toContain({
       route: ['news', 'news/index'],
-      moduleId: 'view-models/news/index',
+      moduleId: 'application/news/index',
       title: 'News'
     });
   });
@@ -55,39 +55,39 @@ describe('the router configuration', () => {
   it('should have a news view route', () => {
     expect(sut.router.routes).toContain({
       route: ['news/view/:id'],
-      moduleId: 'view-models/news/view',
+      moduleId: 'application/news/view',
       title: 'News'
     });
   });
 
   it('should have auth routes', () => {
     expect(sut.router.routes).toContain({
-      route: ['users/signup'],
-      moduleId: 'view-models/users/sign-up',
+      route: ['user/signup'],
+      moduleId: 'application/user/sign-up',
       title: 'Sign Up'
     });
     expect(sut.router.routes).toContain({
       route: ['auth/signin'],
-      moduleId: 'view-models/auth/sign-in',
+      moduleId: 'application/auth/sign-in',
       title: 'Sign In'
     });
     expect(sut.router.routes).toContain({
       route: ['auth/signout'],
-      moduleId: 'view-models/auth/sign-out',
+      moduleId: 'application/auth/sign-out',
       title: 'Sign Out'
     });
   });
 
   it('should have profile routes', () => {
     expect(sut.router.routes).toContain({
-      route: ['profiles/view/:id'],
-      moduleId: 'view-models/profiles/view',
+      route: ['profile/view/:id'],
+      moduleId: 'application/profile/view',
       title: 'Profile',
       auth: true
     });
     expect(sut.router.routes).toContain({
-      route: ['profiles/edit'],
-      moduleId: 'view-models/profiles/edit',
+      route: ['profile/edit'],
+      moduleId: 'application/profile/edit',
       title: 'Edit Profile',
       auth: true
     });
@@ -95,6 +95,6 @@ describe('the router configuration', () => {
 
   it('should have a unknown route config', () => {
     expect(sut.router.unknownRouteConfig).toEqual(jasmine.any(String));
-    expect(sut.router.unknownRouteConfig).toEqual('view-models/errors/error404');
+    expect(sut.router.unknownRouteConfig).toEqual('application/error/error404');
   });
 });

@@ -17,7 +17,7 @@ describe('the Pages Index module', () => {
 
   it('determines the correct view via a view strategy', () => {
     sut.view = 'index';
-    expect(sut.getViewStrategy()).toEqual('views/pages/index.html');
+    expect(sut.getViewStrategy()).toEqual('application/page/index.html');
   });
 
   it('specifies the correct view and title via model activation', () => {
