@@ -4,13 +4,13 @@ var server;
 
 module.exports = {
   start: function(done) {
-    server = jsonServer.create();
+    var app = jsonServer.create();
     var router = jsonServer.router(path.join(__dirname, '../../test/api/dev.json'));
     var middlewares = jsonServer.defaults();
 
-    server.use(middlewares);
-    server.use(router);
-    server.listen(3000, function() {
+    app.use(middlewares);
+    app.use(router);
+    server = app.listen(3000, function() {
       console.log('JSON Server is running');
       done();
     });
