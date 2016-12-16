@@ -1,16 +1,16 @@
 var gulp = require('gulp');
-var karma = require('karma');
+var Karma = require('karma').Server;
 var coveralls = require('gulp-coveralls');
 var server = require('./server');
 
 gulp.task('test', function (done) {
   server.start(function () {
-    new karma.Server({
+    new Karma({
       configFile: __dirname + '/../../karma.conf.js',
       singleRun: true
     }, function (e) {
       server.stop(function () {
-        done(e === 0 ? null : 'karma exited with status ' + e);
+        done();
       });
     }).start();
   });
@@ -18,7 +18,7 @@ gulp.task('test', function (done) {
 
 gulp.task('tdd', function (done) {
   server.start(function () {
-    new karma.Server({
+    new Karma({
       configFile: __dirname + '/../../karma.conf.js'
     }, function (e) {
       server.stop(function () {
@@ -30,7 +30,7 @@ gulp.task('tdd', function (done) {
 
 gulp.task('cover', function (done) {
   server.start(function () {
-    new karma.Server({
+    new Karma({
       configFile: __dirname + '/../../karma.conf.js',
       singleRun: true,
       reporters: ['coverage'],
