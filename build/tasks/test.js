@@ -1,14 +1,19 @@
 var gulp = require('gulp');
 var karma = require('karma');
 var coveralls = require('gulp-coveralls');
+var server = require('./server');
 
 gulp.task('test', function(done) {
-  new karma.Server({
-    configFile: __dirname + '/../../karma.conf.js',
-    singleRun: true
-  }, function(e) {
-    done(e === 0 ? null : 'karma exited with status ' + e);
-  }).start();
+  server.start(function () {
+    new karma.Server({
+      configFile: __dirname + '/../../karma.conf.js',
+      singleRun: true
+    }, function (e) {
+      server.stop(function() {
+        done(e === 0 ? null : 'karma exited with status ' + e);
+      });
+    }).start();
+  });
 });
 
 gulp.task('tdd', function(done) {
