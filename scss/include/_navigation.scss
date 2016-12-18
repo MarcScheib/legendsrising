@@ -19,11 +19,13 @@
       a {
         color: $navigation-link-color;
         display: block;
-        font-size: 0.9rem;
+        font-size: .9rem;
         padding: 8px 10px;
       }
 
-      a:hover, a:focus, a:active {
+      a:hover,
+      a:focus,
+      a:active {
         background-color: $navigation-link-bg-color-hover;
         color: $navigation-link-color-hover;
         outline: none;
@@ -33,9 +35,9 @@
   }
 
   .nav-separator {
-    margin: 8px 0;
     border: 0;
     border-bottom: 1px solid $navigation-separator-color;
+    margin: 8px 0;
   }
 
   .nav-item-icon {
@@ -43,7 +45,7 @@
   }
 
   .nav-item-arrow.fa:before {
-    content: "\f105";
+    content: '\f105';
   }
 
   .nav-sub-container {

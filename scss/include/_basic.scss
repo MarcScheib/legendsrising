@@ -1,27 +1,26 @@
-/** Loading Screen **/
+// Loading Screen
 .splash {
   box-sizing: border-box;
   flex: 1;
-  margin: 10% 0 0 0;
+  margin: 10% 0 0;
   text-align: center;
+
+  .message {
+    font-size: 72px;
+    line-height: 72px;
+    text-shadow: rgba(0, 0, 0, .5) 0 0 15px;
+    text-transform: uppercase;
+  }
+
+  .fa-spinner {
+    display: inline-block;
+    font-size: 72px;
+    margin-top: 50px;
+    text-align: center;
+  }
 }
 
-.splash .message {
-  font-size: 72px;
-  line-height: 72px;
-  text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
-  text-transform: uppercase;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.splash .fa-spinner {
-  text-align: center;
-  display: inline-block;
-  font-size: 72px;
-  margin-top: 50px;
-}
-
-/** Cards **/
+// Cards
 .card-default {
   background-color: $brand-default-bg;
   border-color: $brand-default-border;
@@ -30,37 +29,37 @@
 /** Info Box **/
 .info-box {
   color: #fff;
+
+  i {
+    border-right: 2px solid #fff;
+    display: block;
+    float: left;
+    font-size: 60px;
+    margin-right: 20px;
+    padding-right: 20px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .count {
+    font-size: 34px;
+    font-weight: 700;
+    margin-top: -10px;
+  }
+
+  .title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .desc {
+    font-size: 12px;
+    margin-top: 10px;
+  }
 }
 
-.info-box i {
-  border-right: 2px solid #fff;
-  display: block;
-  float: left;
-  font-size: 60px;
-  margin-right: 20px;
-  padding-right: 20px;
-  text-align: center;
-  width: 100px;
-}
-
-.info-box .count {
-  font-size: 34px;
-  font-weight: 700;
-  margin-top: -10px;
-}
-
-.info-box .title {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.info-box .desc {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-/** Validation **/
+// Validation
 .aurelia-validation-message {
   display: inline;
   margin-left: 5px;
@@ -74,13 +73,13 @@
   color: $state-warning-text;
 }
 
-/** colors **/
+// colors
 .green {
-  color: #69aa46!important;
+  color: #69aa46 !important;
 }
 
 .red {
-  color: #dd5a43!important;
+  color: #dd5a43 !important;
 }
 
 .pricing li {

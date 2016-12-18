@@ -12,7 +12,7 @@
   }
 
   h4 {
-    margin-bottom: 0.1rem;
+    margin-bottom: .1rem;
   }
 }
 
@@ -28,7 +28,9 @@
     width: 32px;
   }
 
-  .media-body .form-control {
-    font-size: .8rem;
+  .media-body {
+    .form-control {
+      font-size: .8rem;
+    }
   }
 }

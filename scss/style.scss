@@ -1,20 +1,20 @@
-/** vendor **/
-@import "include/_variables";
+// vendor
+@import 'include/variables';
 
-@import "../jspm_packages/github/FortAwesome/font-awesome@4.7.0/scss/font-awesome";
-@import "../jspm_packages/npm/bootstrap@4.0.0-alpha.5/scss/bootstrap.scss";
+@import '../jspm_packages/github/FortAwesome/font-awesome@4.7.0/scss/font-awesome';
+@import '../jspm_packages/npm/bootstrap@4.0.0-alpha.5/scss/bootstrap';
 
-@import "../jspm_packages/github/flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.4/awesome-bootstrap-checkbox.css";
+@import '../jspm_packages/github/flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.4/awesome-bootstrap-checkbox';
 
-/** base **/
-@import "include/_layout";
-@import "include/_top_navigation";
-@import "include/_navigation";
-@import "include/_footer";
-@import "include/_basic";
-@import "include/_animation";
+// base
+@import 'include/layout';
+@import 'include/top_navigation';
+@import 'include/navigation';
+@import 'include/footer';
+@import 'include/basic';
+@import 'include/animation';
 
-/** modules **/
-@import "include/modules/_faq";
-@import "include/modules/_news";
-@import "include/modules/_profile";
+// modules
+@import 'include/modules/faq';
+@import 'include/modules/news';
+@import 'include/modules/profile';
