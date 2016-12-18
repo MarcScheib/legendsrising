@@ -24,6 +24,7 @@ gulp.task('changelog', function() {
 gulp.task('prepare-release', function (callback) {
   return runSequence(
     'build',
+    'scss-lint',
     'lint',
     'bump-version',
     'changelog',
