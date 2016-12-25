@@ -6,14 +6,16 @@ export class ScrollToTop {
 
   scrollSmooth() {
     let element = document.getElementsByTagName('main')[0];
-    let movingFrequency = 15;
-    let hops = 33;
-    let gap = element.scrollTop / hops;
+    if (element !== undefined) {
+      let movingFrequency = 15;
+      let hops = 33;
+      let gap = element.scrollTop / hops;
 
-    for (let i = 1; i <= hops; i++) {
-      setTimeout(() => {
-        element.scrollTop = Math.max(element.scrollTop - gap, 0);
-      }, movingFrequency * i);
+      for (let i = 1; i <= hops; i++) {
+        setTimeout(() => {
+          element.scrollTop = Math.max(element.scrollTop - gap, 0);
+        }, movingFrequency * i);
+      }
     }
   }
 }

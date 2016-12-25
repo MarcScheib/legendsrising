@@ -1,4 +1,4 @@
-import {AuthorizeStep} from 'aurelia-authentication';
+import {AuthenticateStep} from 'aurelia-authentication';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 
@@ -13,8 +13,8 @@ export default class {
   configure() {
     let appRouterConfig = config => {
       config.title = 'LegendsRising';
-      config.addPipelineStep('postcomplete', ScrollToTop);
-      config.addPipelineStep('authorize', AuthorizeStep);
+      config.addPipelineStep('postRender', ScrollToTop);
+      config.addPipelineStep('authorize', AuthenticateStep);
       config.options.pushState = false;
       config.map([
         {route: ['/', 'content', 'content/index'], name: 'index', moduleId: 'application/content/index', title: 'Welcome'},
