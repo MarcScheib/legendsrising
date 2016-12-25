@@ -25,7 +25,7 @@ body {
 navigation-side {
   padding: 15px;
   position: fixed;
-  top: 54px;
+  top: 57px;
   width: 230px;
 }
 
@@ -40,7 +40,6 @@ navigation-side {
     border-bottom: 1px solid $navigation-border-color;
     border-bottom-right-radius: .25rem;
     border-right: 1px solid $navigation-border-color;
-    margin: 3px 0 0;
     padding: 8px;
   }
 
@@ -51,7 +50,7 @@ navigation-side {
 
 main {
   flex: 1;
-  margin-top: 54px;
+  margin-top: 57px;
   overflow-x: hidden;
   overflow-y: auto;
 }
