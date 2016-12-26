@@ -51,7 +51,7 @@
   .nav-sub-container {
     background-color: $navigation-bg-color;
     border: 1px solid $navigation-border-color;
-    box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, .1);
+    box-shadow: 5px 10px 15px 5px $navigation-sub-menu-shadow-color;
     left: 207px;
     margin-top: -41px;
     padding: 12px;

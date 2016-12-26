@@ -2,10 +2,10 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <div if.bind="news.length == 0" class="card card-default card-block">
+        <div if.bind="news.length == 0" class="card card-block">
             <p class="card-text">There are no news available currently.</p>
         </div>
-        <div class="card card-default card-block news-card" repeat.for="item of news">
+        <div class="card card-block news-card" repeat.for="item of news">
           <div class="news-card-header">
             <a href="#/profile/view/${item.user_id}" class="pull-left">
               <!-- Todo -->

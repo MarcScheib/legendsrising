@@ -2,14 +2,14 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <div class="card card-default card-block" if.bind="faqs.length == 0">
+        <div class="card card-block" if.bind="faqs.length == 0">
           <p class="card-text">
             At the moment, no FAQs are available.
           </p>
         </div>
 
         <div id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="card card-default card-block" repeat.for="item of faqs">
+          <div class="card card-block" repeat.for="item of faqs">
             <div class="row">
               <div class="col-lg-12">
                 <a class="faq-question" data-toggle="collapse" data-parent="#accordion" href="#faq-${item.id}"

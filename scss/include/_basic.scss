@@ -8,7 +8,7 @@
   .message {
     font-size: 72px;
     line-height: 72px;
-    text-shadow: rgba(0, 0, 0, .5) 0 0 15px;
+    text-shadow: $splash-message-shadow-color 0 0 15px;
     text-transform: uppercase;
   }
 
@@ -20,18 +20,12 @@
   }
 }
 
-// Cards
-.card-default {
-  background-color: $brand-default-bg;
-  border-color: $brand-default-border;
-}
-
 // Info Box
 .info-box {
-  color: #fff;
+  color: $widget-info-box-text-color;
 
   i {
-    border-right: 2px solid #fff;
+    border-right: 2px solid $widget-info-box-inner-border-color;
     display: block;
     float: left;
     font-size: 60px;
@@ -75,13 +69,9 @@
 
 // colors
 .green {
-  color: #69aa46 !important;
+  color: $pricing-checkbox-green;
 }
 
 .red {
-  color: #dd5a43 !important;
-}
-
-.pricing li {
-  color: #fff;
+  color: $pricing-checkbox-red;
 }

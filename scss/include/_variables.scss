@@ -8,9 +8,12 @@ $fa-font-path: '../jspm_packages/github/FortAwesome/font-awesome@4.7.0/fonts';
 //
 // project specific
 //
-// cards
-$brand-default-bg: #fff;
-$brand-default-border: #e5e5e5;
+// widgets - info box
+$widget-info-box-text-color: #fff;
+$widget-info-box-inner-border-color: #fff;
+
+// loading screen
+$splash-message-shadow-color: rgba(0, 0, 0, .5);
 
 // page
 $page-bg-color: #fff;
@@ -26,10 +29,24 @@ $navigation-bg-color: #fff;
 $navigation-link-color: #222;
 $navigation-link-color-hover: #fff;
 $navigation-link-bg-color-hover: #444;
+$navigation-sub-menu-shadow-color: rgba(0, 0, 0, .1);
 
 // main content
 $content-border-color: #e8e8e8;
 $content-bg-color: #f1f1f1;
+
+// faq
+$faq-answer-box-border-size: 1px;
+$faq-answer-box-border-color: #e7eaec;
+$faq-answer-box-background-color: #f3f3f4;
+
+// pricing
+$pricing-checkbox-red: #dd5a43;
+$pricing-checkbox-green: #69aa46;
+
+// profile
+$profile-image-border-color: #fff;
+$profile-image-border-size: 5px;
 
 // footer
 $footer-border-color: #e8e8e8;

@@ -2,7 +2,7 @@
   float: left;
 
   img {
-    border: 5px solid #fff;
+    border: $profile-image-border-size solid $profile-image-border-color;
     height: 128px;
     width: 128px;
   }
