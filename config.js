@@ -33,7 +33,7 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.1.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.2.0",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.1",
-    "aurelia-validation": "npm:aurelia-validation@0.6.8",
+    "aurelia-validation": "npm:aurelia-validation@1.0.0-beta.1.0.1",
     "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.4",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
@@ -218,12 +218,12 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.1.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.1.0"
     },
-    "npm:aurelia-validation@0.6.8": {
+    "npm:aurelia-validation@1.0.0-beta.1.0.1": {
       "aurelia-binding": "npm:aurelia-binding@1.1.0",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.1",
-      "aurelia-loader": "npm:aurelia-loader@1.0.0",
       "aurelia-logging": "npm:aurelia-logging@1.2.0",
-      "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
+      "aurelia-pal": "npm:aurelia-pal@1.2.0",
+      "aurelia-task-queue": "npm:aurelia-task-queue@1.1.0",
       "aurelia-templating": "npm:aurelia-templating@1.1.4"
     },
     "npm:babel-runtime@5.8.38": {

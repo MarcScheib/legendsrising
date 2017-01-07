@@ -1,84 +1,97 @@
-import {inject} from 'aurelia-framework';
+import {inject, NewInstance} from 'aurelia-framework';
 import {NotificationService} from 'aurelia-notify';
 import {Router} from 'aurelia-router';
-import {Validation} from 'aurelia-validation';
-
+import {ValidationController, ValidationRules, validateTrigger} from 'aurelia-validation';
+import {BootstrapFormRenderer} from '../../resources/validation/bootstrap-form-renderer';
 import {UserService} from '../../services/users/user-service';
 
-@inject(Router, Validation, UserService, NotificationService)
+@inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp {
-  constructor(router, validation, userService, notification) {
+  constructor(router, validationController, userService, notification) {
     this.router = router;
     this.userService = userService;
     this.notification = notification;
-    this.validation = validation.on(this)
-      .ensure('username', (config) => {
-        config.useDebounceTimeout(150);
-      })
-      .isNotEmpty()
-      .hasLengthBetween(3, 25)
-      .passes((newValue) => {
+    this.validationRenderer = new BootstrapFormRenderer();
+    this.validationController = validationController;
+    this.validationController.validateTrigger = validateTrigger.change;
+    ValidationRules
+      .ensure('username')
+      .required()
+      .minLength(3)
+      .maxLength(25)
+      .then()
+      .satisfies(newValue => {
         return new Promise((accept, reject) => {
           this.userService.isUsernameExisting(newValue).then(data => {
             if (data.exists) {
-              reject('is already taken');
+              accept(false);
             } else {
-              accept();
+              accept(true);
             }
           });
         });
-      })
-      .ensure('email', (config) => {
-        config.useDebounceTimeout(150);
-      })
-      .isNotEmpty()
-      .isEmail()
-      .passes((newValue) => {
+      }).withMessage(`\${$displayName} is already taken.`)
+      .ensure('email')
+      .required()
+      .email().withMessage('This is not a valid email address.')
+      .then()
+      .satisfies(newValue => {
         return new Promise((accept, reject) => {
           this.userService.isEmailExisting(newValue).then(data => {
             if (data.exists) {
-              reject('is already taken');
+              accept(false);
             } else {
-              accept();
+              accept(true);
             }
           });
         });
-      })
+      }).withMessage(`\${$displayName} is already taken.`)
       .ensure('password')
-      .isNotEmpty()
-      .hasLengthBetween(8, 32)
-      .isStrongPassword()
-      .ensure('password_repeat', (config) => {
-        config.computedFrom(['password']);
-      })
-      .isNotEmpty()
-      .isEqualTo(() => {
-        return this.password;
-      }, 'the entered password');
+      .required()
+      .minLength(8)
+      .maxLength(32)
+      .ensure('password_repeat')
+      .required()
+      .satisfies(newValue => {
+        return newValue === this.password;
+      }).withMessage('Your chosen passwords must match each other.')
+      .on(this);
+  }
+
+  activate() {
+    this.validationController.addRenderer(this.validationRenderer);
+  }
+
+  deactivate() {
+    this.validationController.removeRenderer(this.validationRenderer);
   }
 
   signUp() {
-    this.validation.validate().then(
-      () => {
-        let user = {
-          'username': this.username,
-          'email': this.email,
-          'password': this.password,
-          'password_repeat': this.password_repeat
-        };
+    this.validationController.validate()
+      .then(result => {
+        if (result.valid) {
+          let user = {
+            'username': this.username,
+            'email': this.email,
+            'password': this.password,
+            'password_repeat': this.password_repeat
+          };
 
-        this.userService.signUp(user).then(data => {
-          if (!data.id) {
-            this.notification.danger('You have got errors in your sign up form.');
-          } else {
-            this.notification.success('You signed up successfully.');
-            this.router.navigate('/auth/signin');
-          }
-        });
-      },
-      () => {
-        this.notification.danger('You have got errors in your sign up form.');
-      }
-    );
+          this.userService.signUp(user)
+            .then(data => {
+              if (!data.id) {
+                this.notification.danger('You have got errors in your sign up form.');
+              } else {
+                this.notification.success('You signed up successfully.');
+                this.router.navigate('/auth/signin');
+              }
+            })
+            .catch(data => {
+              this.notification.danger('You have got errors in your sign up form.');
+            });
+        } else {
+          this.notification.danger('You have got errors in your sign up form.');
+        }
+      });
   }
 }
