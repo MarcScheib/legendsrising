@@ -1,5 +1,5 @@
 import {BindingEngine, customElement, noView, inject} from 'aurelia-framework';
-import {NavState, MAX_WIDTH_MOBILE_NAV} from './nav-state';
+import {NavState, globalSettings} from './nav-state';
 
 @noView()
 @customElement('navigation')
@@ -17,7 +17,7 @@ export class Navigation {
   }
 
   handleResize() {
-    if (window.innerWidth < MAX_WIDTH_MOBILE_NAV) {
+    if (window.innerWidth < globalSettings.maxWidthMobileNav) {
       this.element.classList.remove('navigation-pinned');
       this.navState.setMobileNav(true);
       this.navState.setMobileNavToggled(false);

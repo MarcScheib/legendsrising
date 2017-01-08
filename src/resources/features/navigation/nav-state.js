@@ -1,4 +1,6 @@
-const MAX_WIDTH_MOBILE_NAV = 992;
+let globalSettings = {
+  maxWidthMobileNav: 992
+};
 
 class NavState {
   mobileNav = false;
@@ -6,7 +8,7 @@ class NavState {
   mobileNavToggled = false;
 
   constructor() {
-    if (window.innerWidth < MAX_WIDTH_MOBILE_NAV) {
+    if (window.innerWidth < globalSettings.maxWidthMobileNav) {
       this.mobileNav = true;
       this.navToggled = true;
       this.mobileNavToggled = false;
@@ -39,6 +41,6 @@ class NavState {
 }
 
 export {
-  MAX_WIDTH_MOBILE_NAV,
+  globalSettings,
   NavState
 };

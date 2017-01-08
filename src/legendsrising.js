@@ -48,7 +48,9 @@ export function configure(aurelia) {
 
       // Specify application features
       aurelia.use
-        .feature('resources/features/navigation')
+        .feature('resources/features/navigation', settings => {
+          settings.maxWidthMobileNav = 992;
+        })
         .feature('resources/features/data-list');
 
       aurelia.start()
