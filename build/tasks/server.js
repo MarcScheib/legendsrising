@@ -11,7 +11,7 @@ module.exports = {
     app.use(middlewares);
     app.use(router);
     server = app.listen(3000, function() {
-      console.log('JSON Server is running');
+      console.log('JSON Server is running on localhost:3000');
       done();
     });
   },
