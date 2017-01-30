@@ -8,7 +8,8 @@ export class FaqService {
   }
 
   get() {
-    return this.apiClient.find('faq')
+    return this.apiClient
+      .find('faqs')
       .catch(error => Promise.reject(error));
   }
 }

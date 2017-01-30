@@ -8,12 +8,18 @@ export class NewsService {
   }
 
   getAll() {
-    return this.apiClient.find('news')
+    return this.apiClient
+      .find('news', {
+        '_expand': 'user'
+      })
       .catch(error => Promise.reject(error));
   }
 
   get(id) {
-    return this.apiClient.find('news', id)
+    return this.apiClient
+      .findOne('news', id, {
+        '_expand': 'user'
+      })
       .catch(error => Promise.reject(error));
   }
 }

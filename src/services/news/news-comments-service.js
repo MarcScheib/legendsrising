@@ -8,11 +8,16 @@ export class NewsCommentsService {
   }
 
   getAll(newsId, page = 1) {
-    return this.apiClient.find('news/' + newsId + '/comments', {page: page})
+    return this.apiClient
+      .find('news/' + newsId + '/comments', {
+        '_page': page,
+        '_expand': 'user'
+      })
       .catch(error => Promise.reject(error));
   }
 
   add(newsId, comment) {
-    return this.apiClient.create('news/' + newsId + '/comments', comment);
+    return this.apiClient
+      .create('news/' + newsId + '/comments', comment);
   }
 }

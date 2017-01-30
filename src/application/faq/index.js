@@ -11,7 +11,7 @@ export class Index {
   activate() {
     return this.faqService.get()
       .then(faqs => {
-        this.faqs = faqs;
+        this.faqs = faqs.data;
       })
       .catch(() => {
         this.faqs = [];
