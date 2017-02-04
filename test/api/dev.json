@@ -11,6 +11,6 @@
     { "id": 2, "question": "och kommm", "answer": "some answer 2", "created_at": "08.01.2017" }
   ],
   "users": [
-    { "id": 1, "username": "Marc" }
+    { "id": 1, "username": "Marc", "email": "test@test.de", "created_at": "08.01.2017", "updated_at": "08.01.2017" }
   ]
 }

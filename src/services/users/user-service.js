@@ -8,14 +8,26 @@ export class UserService {
   }
 
   signUp(user) {
-    return this.apiClient.create('user', user);
+    return this.apiClient.create('users', user);
   }
 
   isUsernameExisting(username) {
-    return this.apiClient.find('user/usernameexist', username);
+    return this.apiClient
+      .find('users', {
+        'username': username
+      })
+      .then(result => {
+        return result.data.length;
+      });
   }
 
   isEmailExisting(email) {
-    return this.apiClient.find('user/emailexist', email);
+    return this.apiClient
+      .find('users', {
+        'email': email
+      })
+      .then(result => {
+        return result.data.length;
+      });
   }
 }

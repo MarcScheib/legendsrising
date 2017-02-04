@@ -1,9 +1,9 @@
-import {inject, NewInstance} from "aurelia-framework";
-import {NotificationService} from "aurelia-notify";
-import {Router} from "aurelia-router";
-import {ValidationController, ValidationRules, validateTrigger} from "aurelia-validation";
-import {BootstrapFormRenderer} from "../../resources/validation/bootstrap-form-renderer";
-import {UserService} from "../../services/users/user-service";
+import {inject, NewInstance} from 'aurelia-framework';
+import {NotificationService} from 'aurelia-notify';
+import {Router} from 'aurelia-router';
+import {ValidationController, ValidationRules, validateTrigger} from 'aurelia-validation';
+import {BootstrapFormRenderer} from '../../resources/validation/bootstrap-form-renderer';
+import {UserService} from '../../services/users/user-service';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp {
@@ -24,7 +24,7 @@ export class SignUp {
         return new Promise((accept, reject) => {
           this.userService.isUsernameExisting(newValue)
             .then(data => {
-              if (data.exists) {
+              if (data) {
                 accept(false);
               } else {
                 accept(true);
@@ -44,7 +44,7 @@ export class SignUp {
         return new Promise((accept, reject) => {
           this.userService.isEmailExisting(newValue)
             .then(data => {
-              if (data.exists) {
+              if (data) {
                 accept(false);
               } else {
                 accept(true);
