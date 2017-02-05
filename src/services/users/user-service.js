@@ -7,8 +7,14 @@ export class UserService {
     this.apiClient = apiClient;
   }
 
+  get(id) {
+    return this.apiClient
+      .find('users', id);
+  }
+
   signUp(user) {
-    return this.apiClient.create('users', user);
+    return this.apiClient
+      .create('users', user);
   }
 
   isUsernameExisting(username) {

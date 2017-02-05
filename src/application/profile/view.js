@@ -1,17 +1,17 @@
 import {inject} from 'aurelia-framework';
-import {ProfileService} from '../../services/profiles/profile-service';
+import {UserService} from '../../services/users/user-service';
 
-@inject(ProfileService)
+@inject(UserService)
 export class View {
-  constructor(profileService) {
-    this.profileService = profileService;
+  constructor(userService) {
+    this.userService = userService;
   }
 
   activate(params, routeConfig) {
-    return this.profileService.get(params.id)
-      .then(profile => {
-        this.profile = profile;
-        routeConfig.navModel.setTitle('Profile of ' + profile.username);
+    return this.userService.get(params.id)
+      .then(user => {
+        this.user = user;
+        routeConfig.navModel.setTitle('Profile of ' + user.username);
       });
   }
 }

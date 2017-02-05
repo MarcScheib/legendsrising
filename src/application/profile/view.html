@@ -2,47 +2,49 @@
   <section class="au-animate">
     <div class="row mb-1">
       <div class="col-lg-4">
-        <div class="profile-image">
-          <!-- Todo -->
-          <img src="http://lr.local/img/avatar/${profile.avatar}">
-        </div>
-        <div class="profile-info">
-          <h2>
-            ${profile.username}
-          </h2>
-          <h4 if.bind="profile.guild_id">Member of Guild</h4>
-          <small>
-            Joined on ${profile.created_at}, Last update on ${profile.updated_at}
-          </small>
+        <div class="card card-block">
+          <div class="profile-image">
+            <!-- Todo -->
+            <img src="http://lr.local/img/avatar/${user.avatar}">
+          </div>
+          <div class="profile-info">
+            <h2>
+              ${user.username}
+            </h2>
+            <h4 if.bind="user.guild_id">Member of Guild</h4>
+            <small>
+              Joined on ${user.created_at}, Last update on ${user.updated_at}
+            </small>
+          </div>
         </div>
       </div>
       <div class="col-lg-4">
         <table class="table small">
           <tbody>
-            <tr>
-              <td>
-                <strong>3</strong> Settlements
-              </td>
-              <td>
-                <strong>200</strong> Troop Strength
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>3</strong> Fights Won
-              </td>
-              <td>
-                <strong>40 000</strong> Resources
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>0</strong> Artifacts
-              </td>
-              <td>
-                <strong>67 040</strong> Overall
-              </td>
-            </tr>
+          <tr>
+            <td>
+              <strong>3</strong> Settlements
+            </td>
+            <td>
+              <strong>200</strong> Troop Strength
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>3</strong> Fights Won
+            </td>
+            <td>
+              <strong>40 000</strong> Resources
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>0</strong> Artifacts
+            </td>
+            <td>
+              <strong>67 040</strong> Overall
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -53,7 +55,7 @@
           <h4 class="card-title">Private message</h4>
 
           <p class="small">
-            Send a private message to ${profile.username}
+            Send a private message to ${user.username}
           </p>
 
           <div class="form-group">
