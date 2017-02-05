@@ -11,12 +11,12 @@
         <div class="card news-card">
           <div class="card-block" if.bind="news">
             <div class="news-card-header">
-              <a href="#/profile/view/${news.user_id}" class="pull-left">
+              <a href="#/profile/view/${news.user.id}" class="pull-left">
                 <!-- Todo -->
                 <img alt="${news.user.username}" src="http://lr.local/img/avatar/${news.user.avatar}">
               </a>
               <h4><a href="#/news/view/${news.id}">${news.title}</a></h4>
-              <strong><a href="#/profile/view/${news.user_id}">${news.user.username}</a></strong>
+              <strong><a href="#/profile/view/${news.user.id}">${news.user.username}</a></strong>
               <small class="text-muted"><i class="fa fa-clock-o"></i> ${news.created_at}</small>
             </div>
 
