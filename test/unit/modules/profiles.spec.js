@@ -16,7 +16,7 @@ describe('the Profiles View module', () => {
   });
 
   it('contains a profile service property', () => {
-    expect(sut.profileService).toBeDefined();
+    expect(sut.userService).toBeDefined();
   });
 
   it('sets fetch response to selected profile', done => {
@@ -25,8 +25,8 @@ describe('the Profiles View module', () => {
 
     sut.activate({id: 1}, {navModel: navModelStub})
       .then(() => {
-        expect(sut.profile).toBe(itemStub);
-        expect(sut.profile).not.toBe(itemFake);
+        expect(sut.user).toBe(itemStub);
+        expect(sut.user).not.toBe(itemFake);
         expect(navModelStub.title).toEqual('Profile of ' + itemStub.username);
         done();
       })

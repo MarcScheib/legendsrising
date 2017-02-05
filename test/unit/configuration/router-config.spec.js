@@ -1,4 +1,4 @@
-import {AuthorizeStep} from 'aurelia-authentication';
+import {AuthenticateStep} from 'aurelia-authentication';
 
 import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';
@@ -28,11 +28,11 @@ describe('the router configuration', () => {
   });
 
   it('contains an authorize router pipeline step', () => {
-    expect(sut.router.pipelineSteps).toContain({name: 'authorize', step: AuthorizeStep});
+    expect(sut.router.pipelineSteps).toContain({name: 'authorize', step: AuthenticateStep});
   });
 
   it('contains an ScrollToTop router pipeline step', () => {
-    expect(sut.router.pipelineSteps).toContain({name: 'postcomplete', step: ScrollToTop});
+    expect(sut.router.pipelineSteps).toContain({name: 'postRender', step: ScrollToTop});
   });
 
   it('should have a welcome route', () => {

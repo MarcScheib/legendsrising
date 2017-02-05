@@ -1,5 +1,4 @@
 import {json} from 'aurelia-fetch-client';
-
 import {UserService} from '../../../src/services/users/user-service';
 import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
@@ -14,7 +13,9 @@ describe('the User service', () => {
   beforeEach(() => {
     mockedEndpointService = new EndpointServiceStub();
     sut = new UserService(mockedEndpointService);
-    mockedEndpointService.requestDummy = userDummy
+    mockedEndpointService.requestDummy = {
+      'data': [userDummy]
+    }
   });
 
   it('contains a http service property', () => {
@@ -24,7 +25,7 @@ describe('the User service', () => {
   it('signs up new users', (done) => {
     sut.signUp(userDummy)
       .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('user');
+        expect(mockedEndpointService.resource).toEqual('users');
         expect(mockedEndpointService.options).toEqual(userDummy);
         expect(resp).toEqual(userDummy);
         done();
@@ -38,8 +39,10 @@ describe('the User service', () => {
   it('returns user based on username', (done) => {
     sut.isUsernameExisting('Test')
       .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('user/usernameexist');
-        expect(mockedEndpointService.options).toEqual('Test');
+        expect(mockedEndpointService.resource).toEqual('users');
+        expect(mockedEndpointService.options).toEqual({
+          'username': 'Test'
+        });
         expect(resp).toEqual(userDummy);
         done();
       })
@@ -52,8 +55,10 @@ describe('the User service', () => {
   it('returns user based on email', (done) => {
     sut.isEmailExisting('Test@test.de')
       .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('user/emailexist');
-        expect(mockedEndpointService.options).toEqual('Test@test.de');
+        expect(mockedEndpointService.resource).toEqual('users');
+        expect(mockedEndpointService.options).toEqual({
+          'email': 'Test@test.de'
+        });
         expect(resp).toEqual(userDummy);
         done();
       })

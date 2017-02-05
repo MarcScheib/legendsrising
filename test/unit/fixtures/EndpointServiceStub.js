@@ -6,6 +6,10 @@ export class EndpointServiceStub {
     return this.fetch(resource, options);
   }
 
+  findOne(resource, options) {
+    return this.fetch(resource, options);
+  }
+
   create(resource, options) {
     return this.fetch(resource, options);
   }
