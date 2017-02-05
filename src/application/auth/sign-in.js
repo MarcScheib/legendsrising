@@ -28,7 +28,7 @@ export class SignIn {
         if (error.status === 401) {
           this.notification.danger('Your sign in credentials are wrong.');
         } else {
-          this.notification.danger('Your user data could not be loaded. Signing you out again.');
+          this.notification.danger('Your user data could not be loaded. Please try signing in again.');
           this.authService.logout();
         }
       });
