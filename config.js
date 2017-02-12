@@ -12,6 +12,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-api": "npm:aurelia-api@3.1.1",
@@ -24,6 +25,7 @@ System.config({
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0",
+    "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
     "aurelia-notify": "npm:aurelia-notify@0.7.0",
     "aurelia-pal": "npm:aurelia-pal@1.2.0",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.1.0",
