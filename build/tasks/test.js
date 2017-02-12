@@ -53,6 +53,7 @@ gulp.task('cover', function (done) {
       },
       coverageReporter: {
         dir: 'build/reports/coverage',
+        includeAllSources: true,
         reporters: [
           // reporters not supporting the `file` property
           {type: 'html', subdir: 'html'},
