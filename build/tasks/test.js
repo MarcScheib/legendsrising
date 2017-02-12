@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var Karma = require('karma').Server;
 var coveralls = require('gulp-coveralls');
+var gutil = require('gulp-util');
 var server = require('./server');
 
 gulp.task('test', function (done) {
@@ -8,9 +9,15 @@ gulp.task('test', function (done) {
     new Karma({
       configFile: __dirname + '/../../karma.conf.js',
       singleRun: true
-    }, function (e) {
+    }, function (err) {
       server.stop(function () {
-        done();
+        if (err === 0) {
+          done();
+        } else {
+          done(new gutil.PluginError('karma', {
+            message: 'Karma Tests failed'
+          }));
+        }
       });
     }).start();
   });
@@ -22,7 +29,13 @@ gulp.task('tdd', function (done) {
       configFile: __dirname + '/../../karma.conf.js'
     }, function (e) {
       server.stop(function () {
-        done();
+        if (err === 0) {
+          done();
+        } else {
+          done(new gutil.PluginError('karma', {
+            message: 'Karma Tests failed'
+          }));
+        }
       });
     }).start();
   });
@@ -33,7 +46,7 @@ gulp.task('cover', function (done) {
     new Karma({
       configFile: __dirname + '/../../karma.conf.js',
       singleRun: true,
-      reporters: ['coverage'],
+      reporters: ['progress', 'coverage'],
       preprocessors: {
         'test/**/*.js': ['babel'],
         'src/**/*.js': ['babel', 'coverage']
@@ -49,7 +62,13 @@ gulp.task('cover', function (done) {
       }
     }, function () {
       server.stop(function () {
-        done();
+        if (err === 0) {
+          done();
+        } else {
+          done(new gutil.PluginError('karma', {
+            message: 'Karma Tests failed'
+          }));
+        }
       });
     }).start();
   });
@@ -64,7 +83,7 @@ gulp.task('coveralls', ['cover'], function (done) {
 });
 
 gulp.task('test-api', function (done) {
-  server.start(function() {
+  server.start(function () {
     // do nothing
   });
 });
