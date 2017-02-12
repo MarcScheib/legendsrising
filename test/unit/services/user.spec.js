@@ -27,7 +27,7 @@ describe('the User service', () => {
       .then(resp => {
         expect(mockedEndpointService.resource).toEqual('users');
         expect(mockedEndpointService.options).toEqual(userDummy);
-        expect(resp).toEqual(userDummy);
+        expect(resp.data[0]).toEqual(userDummy);
         done();
       })
       .catch(result => {
@@ -43,7 +43,7 @@ describe('the User service', () => {
         expect(mockedEndpointService.options).toEqual({
           'username': 'Test'
         });
-        expect(resp).toEqual(userDummy);
+        expect(resp).toEqual(1);
         done();
       })
       .catch(result => {
@@ -59,7 +59,7 @@ describe('the User service', () => {
         expect(mockedEndpointService.options).toEqual({
           'email': 'Test@test.de'
         });
-        expect(resp).toEqual(userDummy);
+        expect(resp).toEqual(1);
         done();
       })
       .catch(result => {
