@@ -51,7 +51,8 @@ export function configure(aurelia) {
         .feature('resources/features/navigation', settings => {
           settings.maxWidthMobileNav = 992;
         })
-        .feature('resources/features/data-list');
+        .feature('resources/features/data-list')
+        .feature('resources/features/persistence');
 
       aurelia.start()
         .then(a => a.setRoot('app', document.body))
