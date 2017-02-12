@@ -27,7 +27,7 @@ gulp.task('tdd', function (done) {
   server.start(function () {
     new Karma({
       configFile: __dirname + '/../../karma.conf.js'
-    }, function (e) {
+    }, function (err) {
       server.stop(function () {
         if (err === 0) {
           done();
@@ -60,7 +60,7 @@ gulp.task('cover', function (done) {
           {type: 'text-summary'}
         ]
       }
-    }, function () {
+    }, function (err) {
       server.stop(function () {
         if (err === 0) {
           done();
