@@ -4,7 +4,7 @@ import {ConsoleAppender} from 'aurelia-logging-console';
 import authConfig from './configuration/auth-config';
 
 /** DEBUG DIRTY CHECKING **/
-const logger = LogManager.getLogger('my-app');
+const logger = LogManager.getLogger('legendsrising');
 DirtyCheckProperty.prototype.standardSubscribe = DirtyCheckProperty.prototype.subscribe;
 DirtyCheckProperty.prototype.subscribe = function(context, callable) {
   this.standardSubscribe(context, callable);
