@@ -15,6 +15,11 @@ describe('the app configuration', () => {
       expect(aurelia.use.info).toContain('aurelia-validation');
       expect(aurelia.use.info).toContain('aurelia-animator-css');
       expect(aurelia.use.info).toContain('aurelia-authentication');
+      expect(aurelia.use.info).toContain('aurelia-api');
+      expect(aurelia.use.info).toContain('aurelia-notify');
+      expect(aurelia.use.info).toContain('resources/features/navigation');
+      expect(aurelia.use.info).toContain('resources/features/data-list');
+      expect(aurelia.use.info).toContain('resources/features/persistence');
       done();
     });
   });
