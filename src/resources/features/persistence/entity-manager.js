@@ -2,11 +2,11 @@ export class EntityManager {
   /**
    * Construct a new EntityManager for an entity.
    *
-   * @param {Rest} apiClient
+   * @param {Config} apiConfig
    * @param {Entity} entityClass
    */
-  constructor(apiClient, entityClass) {
-    this.apiClient = apiClient.getEndpoint();
+  constructor(apiConfig, entityClass) {
+    this.apiClient = apiConfig.getEndpoint();
     this.entityClass = entityClass;
     this.resource = entityClass;
   }
