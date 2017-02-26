@@ -27,4 +27,9 @@ export class FrameworkConfigurationStub {
     this.info.push(pluginName);
     return this;
   }
+
+  feature(featureName) {
+    this.info.push(featureName);
+    return this;
+  }
 }
