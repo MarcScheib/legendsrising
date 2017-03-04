@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {Config} from 'aurelia-api';
 import {EntityManager} from './entity-manager';
+import {Entity} from './entity';
 
 /**
  * The Persistence Manager class. Creates entity managers based on entities.
@@ -13,6 +14,11 @@ export class PersistenceManager {
   entityManagers = {};
 
   /**
+   * Collection of configured/seen entities.
+   */
+  entities = {};
+
+  /**
    * Construct the Persistence Manager.
    *
    * @param {Config} apiConfig
@@ -23,21 +29,64 @@ export class PersistenceManager {
   }
 
   /**
+   * Register an Entity class.
+   *
+   * @param {function} entityClass
+   */
+  registerEntity(entityClass) {
+    if (typeof entityClass !== 'function') {
+      throw new Error(`Can't register an entity of type ${typeof entityClass}. Expected function.`);
+    }
+    this.entities[entityClass.getResource()] = entityClass;
+  }
+
+  /**
    * Returns the entity manager of an entity class.
    *
-   * @param {Entity} entityClass the entity class
+   * @param {Entity|string} entity the entity class or name of the entity
    * @return {EntityManager} the corresponding entity manager
    */
-  getEntityManager(entityClass) {
-    if (!entityClass) {
+  getEntityManager(entity) {
+    if (!entity) {
       throw new Error(`Can't load an entity manager without an entity`);
     }
 
-    let entityManager = this.entityManagers[entityClass];
+    let entityReference = this.resolveEntityReference(entity);
+    let resource = entity;
+
+    if (typeof entityReference.getResource === 'function') {
+      resource = entityReference.getResource() || resource;
+    }
+
+    if (typeof resource !== 'string') {
+      throw new Error('Unable to find resource for entity.');
+    }
+
+    let entityManager = this.entityManagers[resource];
     if (!entityManager) {
-      entityManager = new EntityManager(this.apiConfig, entityClass);
-      this.entityManagers[entityClass] = entityManager;
+      entityManager = new EntityManager(this.apiConfig, entityReference);
+      this.entityManagers[resource] = entityManager;
     }
     return entityManager;
+  }
+
+  /**
+   * Returns the class reference of an entity.
+   *
+   * @param {Entity|string} entity the entity class  or name of the entity
+   * @return {Entity} the entity class resolved from the given class/name
+   * @throws Error
+   */
+  resolveEntityReference(entity) {
+    let entityReference = entity;
+    if (typeof entity === 'string') {
+      entityReference = this.entities[entity] || Entity;
+    }
+
+    if (typeof entityReference === 'function') {
+      return entityReference;
+    }
+
+    throw new Error('Unable to resolve to entity reference. Expected string or function.');
   }
 }
