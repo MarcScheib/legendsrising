@@ -1,13 +1,11 @@
 import {AuthenticateStep} from 'aurelia-authentication';
-
 import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTop} from '../../../src/configuration/router/pipeline/ScrollToTop';
-
 import {RouterStub} from '../fixtures/RouterStub';
 
 describe('the router configuration', () => {
-  var sut;
-  var mockedRouter;
+  let sut;
+  let mockedRouter;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();

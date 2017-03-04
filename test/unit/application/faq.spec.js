@@ -1,13 +1,12 @@
 import {Index} from '../../../src/application/faq/index';
-
 import {FaqServiceStub} from '../fixtures/FaqServiceStub';
 
 describe('the FAQ Index module', () => {
-  var faqService;
-  var sut;
+  let faqService;
+  let sut;
 
-  var itemStubs = [{title: 'test'}];
-  var itemFake = [2];
+  let itemStubs = [{title: 'test'}];
+  let itemFake = [2];
 
   beforeEach(() => {
     faqService = new FaqServiceStub();
@@ -19,7 +18,7 @@ describe('the FAQ Index module', () => {
   });
 
   it('sets fetch response to faqs', done => {
-    faqService.itemStub = { data: itemStubs };
+    faqService.itemStub = {data: itemStubs};
     sut.activate()
       .then(() => {
         expect(sut.faqs).toBe(itemStubs);

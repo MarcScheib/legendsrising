@@ -8,11 +8,11 @@ import {NewsServiceStub} from '../fixtures/NewsServiceStub';
 import {NotificationServiceStub} from '../fixtures/NotificationServiceStub';
 
 describe('the News Index module', () => {
-  var newsService;
-  var sut;
+  let newsService;
+  let sut;
 
-  var itemStubs = [{title: 'test'}];
-  var itemFake = [2];
+  let itemStubs = [{title: 'test'}];
+  let itemFake = [2];
 
   beforeEach(() => {
     newsService = new NewsServiceStub();
@@ -52,14 +52,14 @@ describe('the News Index module', () => {
 });
 
 describe('the News View module', () => {
-  var newsService;
-  var newsCommentsService;
-  var authService;
-  var notificationService;
-  var sut;
+  let newsService;
+  let newsCommentsService;
+  let authService;
+  let notificationService;
+  let sut;
 
-  var itemStubs = [1];
-  var itemFake = [2];
+  let itemStubs = [1];
+  let itemFake = [2];
 
   beforeEach(() => {
     authService = new AuthServiceStub();

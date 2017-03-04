@@ -2,13 +2,13 @@ import {NewsService} from '../../../src/services/news/news-service';
 
 import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
-var newsDummy = {
+let newsDummy = {
   news: 'test'
 };
 
 describe('the News service', () => {
-  var mockedEndpointService;
-  var sut;
+  let mockedEndpointService;
+  let sut;
 
   beforeEach(() => {
     mockedEndpointService = new EndpointServiceStub();

@@ -2,13 +2,13 @@ import {json} from 'aurelia-fetch-client';
 import {UserService} from '../../../src/services/users/user-service';
 import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
-var userDummy = {
+let userDummy = {
   user: 'Test'
 };
 
 describe('the User service', () => {
-  var mockedEndpointService;
-  var sut;
+  let mockedEndpointService;
+  let sut;
 
   beforeEach(() => {
     mockedEndpointService = new EndpointServiceStub();

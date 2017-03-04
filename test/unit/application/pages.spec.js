@@ -5,7 +5,7 @@ import {Index} from '../../../src/application/page/index';
 import {NavModelStub} from '../fixtures/NavModelStub';
 
 describe('the Pages Index module', () => {
-  var sut;
+  let sut;
 
   beforeEach(() => {
     sut = new Index();

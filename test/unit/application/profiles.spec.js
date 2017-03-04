@@ -4,11 +4,11 @@ import {ProfileServiceStub} from '../fixtures/ProfileServiceStub';
 import {NavModelStub} from '../fixtures/NavModelStub';
 
 describe('the Profiles View module', () => {
-  var profileService;
-  var sut;
+  let profileService;
+  let sut;
 
-  var itemStub = {username: 'test'};
-  var itemFake = [2];
+  let itemStub = {username: 'test'};
+  let itemFake = [2];
 
   beforeEach(() => {
     profileService = new ProfileServiceStub();
