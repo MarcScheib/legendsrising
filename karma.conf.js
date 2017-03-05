@@ -1,7 +1,7 @@
-var paths = require('./build/paths');
+let paths = require('./build/paths');
 
-module.exports = function(config) {
-  var configuration = {
+module.exports = function (config) {
+  let configuration = {
     basePath: '',
 
     frameworks: ['jspm', 'jasmine'],
@@ -39,11 +39,12 @@ module.exports = function(config) {
     'babelPreprocessor': {
       options: {
         sourceMap: 'inline',
-        presets: [ ['es2015', { loose: true }], 'stage-1'],
+        presets: [['es2015', {loose: true}], 'stage-1'],
         plugins: [
           'syntax-flow',
           'transform-decorators-legacy',
-          'transform-flow-strip-types'
+          'transform-flow-strip-types',
+          'istanbul'
         ]
       }
     },
