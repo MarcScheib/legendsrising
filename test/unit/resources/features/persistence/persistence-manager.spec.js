@@ -4,6 +4,7 @@ import {EntityManager} from '../../../../../src/resources/features/persistence/e
 import {Entity} from '../../../../../src/resources/features/persistence/entity';
 import {BaseEntity} from './fixtures/base-entity';
 import {FooEntity} from './fixtures/foo-entity';
+import {NoResourceEntity} from './fixtures/no-resource-entity';
 
 let baseUrls = {
   api: 'https://api.github.com'
@@ -59,13 +60,18 @@ describe('PersistenceManager', () => {
       expect(fooEm).not.toBe(baseEm);
     });
 
-
     it('Should create default entity manager for string.', () => {
       let em = sut.getEntityManager('test');
       expect(em).not.toBe(null);
       expect(em instanceof EntityManager).toBe(true);
       expect(sut.entityManagers).toEqual({'test': em});
     });
+
+    it('Should throw an error if called with an entity without resource.', () => {
+      expect(() => {
+        sut.getEntityManager(NoResourceEntity);
+      }).toThrowError(Error, 'Unable to find resource for entity.');
+    })
   });
 
   describe('.resolveEntityReference()', () => {
