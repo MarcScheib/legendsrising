@@ -64,7 +64,7 @@ export class PersistenceManager {
 
     let entityManager = this.entityManagers[resource];
     if (!entityManager) {
-      entityManager = new EntityManager(this.apiConfig, entityReference);
+      entityManager = new EntityManager(this.apiConfig.getEndpoint(), entityReference);
       this.entityManagers[resource] = entityManager;
     }
     return entityManager;

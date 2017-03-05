@@ -40,8 +40,8 @@ describe('PersistenceManager', () => {
       let em = sut.getEntityManager(BaseEntity);
       expect(em).not.toBe(null);
       expect(em instanceof EntityManager).toBe(true);
-      expect(em.apiClient).not.toBe(null);
-      expect(em.apiClient instanceof Rest).toBe(true);
+      expect(em.api).not.toBe(null);
+      expect(em.api instanceof Rest).toBe(true);
     });
 
     it('Should reuse entity managers for an entity.', () => {
