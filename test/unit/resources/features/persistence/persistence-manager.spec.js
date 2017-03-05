@@ -36,6 +36,12 @@ describe('PersistenceManager', () => {
   });
 
   describe('.getEntityManager()', () => {
+    it('Should throw an error when called without an entity.', () => {
+      expect(() => {
+        sut.getEntityManager();
+      }).toThrowError(Error, `Can't load an entity manager without an entity`);
+    });
+
     it('Should create and return the entity manager for an entity.', () => {
       let em = sut.getEntityManager(BaseEntity);
       expect(em).not.toBe(null);
