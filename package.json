@@ -19,12 +19,14 @@
   "scripts": {
     "api:start": "./node_modules/.bin/json-server --watch ./test/api/dev.json",
     "test": "gulp test",
-    "e2e": "gulp serve e2e"
+    "e2e": "gulp serve e2e",
+    "test:ava": "ava"
   },
   "devDependencies": {
     "aurelia-bundler": "^0.5.0",
     "aurelia-protractor-plugin": "^1.0.1",
     "aurelia-tools": "^1.0.0",
+    "ava": "^0.18.2",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-plugin-istanbul": "^4.0.0",
@@ -106,5 +108,16 @@
       "babel-runtime": "npm:babel-runtime@^5.8.38",
       "core-js": "npm:core-js@^1.2.7"
     }
+  },
+  "ava": {
+    "files": [
+      "test/ava/**/*.js"
+    ],
+    "source": [
+      "src/**/*.{js,jsx}"
+    ],
+    "verbose": true,
+    "concurrency": 5,
+    "powerAssert": false
   }
 }
