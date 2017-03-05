@@ -1,11 +1,10 @@
 import {Container} from 'aurelia-framework';
 import {Rest, Config} from 'aurelia-api';
 import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
-import {Entity} from '../../../../../src/resources/features/persistence/entity';
-import {BaseEntity} from './fixtures/base-entity';
+import {FaqEntity} from '../../../../../src/resources/entities/faq-entity';
 
 let baseUrls = {
-  api: 'https://api.github.com'
+  api: 'http://localhost:3000/'
 };
 
 describe('EntityManager', () => {
@@ -19,14 +18,27 @@ describe('EntityManager', () => {
     });
     config.setDefaultEndpoint('api');
 
-    sut = new EntityManager(container, config.getEndpoint(), BaseEntity);
+    sut = new EntityManager(container, config.getEndpoint(), FaqEntity);
   });
 
   describe('.getEntity()', () => {
-    it('Should return a new `BaseEntity` instance.', () => {
+    it('Should return a new `FaqEntity` instance.', () => {
       let entity = sut.getEntity();
-      expect(entity instanceof BaseEntity).toBe(true);
-      expect(entity.getResource()).toBe('baseentity');
+      expect(entity instanceof FaqEntity).toBe(true);
+      expect(entity.getResource()).toBe('faqs');
     });
   });
+
+  describe('.find()', () => {
+    it('Should create and return `FaqEntities`.', done => {
+      sut.find()
+        .then(entities => {
+          expect(typeof entities).toBe('object');
+          for (let entity of entities) {
+            expect(entity instanceof FaqEntity).toBe(true);
+          }
+          done();
+        });
+    });
+  })
 });
