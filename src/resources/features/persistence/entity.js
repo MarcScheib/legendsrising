@@ -1,6 +1,18 @@
+import {transient} from 'aurelia-framework';
 import {metadata} from 'aurelia-metadata';
 
+@transient()
 export class Entity {
+  /**
+   * Metadata object of this entity.
+   */
+  _metadata;
+
+  /**
+   * Resource name of this entity.
+   */
+  _resource;
+
   /**
    * Construct a new entity.
    */
@@ -24,6 +36,15 @@ export class Entity {
    * @return {string|null}
    */
   getResource() {
-    return this.resource;
+    return this._resource || this._metadata.get('resource');
+  }
+
+  /**
+   * Set the resource name of this entity.
+   *
+   * @param {string} resource - the resource name of the entity.
+   */
+  setResource(resource) {
+    this._resource = resource;
   }
 }

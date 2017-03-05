@@ -1,3 +1,4 @@
+import {Container} from 'aurelia-framework';
 import {Rest, Config} from 'aurelia-api';
 import {PersistenceManager} from '../../../../../src/resources/features/persistence/persistence-manager';
 import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
@@ -14,13 +15,14 @@ describe('PersistenceManager', () => {
   let sut;
 
   beforeEach(() => {
+    let container = new Container();
     let config = new Config();
     config.registerEndpoint('api', configure => {
       configure.withBaseUrl(baseUrls.api);
     });
     config.setDefaultEndpoint('api');
 
-    sut = new PersistenceManager(config);
+    sut = new PersistenceManager(container, config);
   });
 
   describe('.registerEntity()', () => {
