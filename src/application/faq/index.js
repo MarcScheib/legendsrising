@@ -1,17 +1,18 @@
 import {inject} from 'aurelia-framework';
-import {FaqService} from '../../services/faqs/faq-service';
+import {EntityManagerFactory} from '../../resources/features/persistence/entity-manager-factory';
+import {FaqEntity} from '../../resources/entities/faq-entity';
 
-@inject(FaqService)
+@inject(EntityManagerFactory.of(FaqEntity))
 export class Index {
-  constructor(faqService) {
-    this.faqService = faqService;
+  constructor(entityManager) {
+    this.entityManager = entityManager;
     this.faqs = [];
   }
 
   activate() {
-    return this.faqService.get()
-      .then(faqs => {
-        this.faqs = faqs.data;
+    return this.entityManager.find()
+      .then(entities => {
+        this.faqs = entities;
       })
       .catch(() => {
         this.faqs = [];
