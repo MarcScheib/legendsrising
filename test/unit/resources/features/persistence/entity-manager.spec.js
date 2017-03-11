@@ -1,7 +1,7 @@
 import {Container} from 'aurelia-framework';
 import {Rest, Config} from 'aurelia-api';
 import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
-import {FaqEntity} from '../../../../../src/resources/entities/faq-entity';
+import {FaqEntity} from './fixtures/faq-entity';
 
 let baseUrls = {
   api: 'http://localhost:3000/'
@@ -30,7 +30,7 @@ describe('EntityManager', () => {
   });
 
   describe('.find()', () => {
-    it('Should create and return `FaqEntities`.', done => {
+    it('Should create and return an array of `FaqEntity`.', done => {
       sut.find()
         .then(entities => {
           expect(typeof entities).toBe('object');
