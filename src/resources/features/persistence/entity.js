@@ -4,6 +4,16 @@ import {metadata} from 'aurelia-metadata';
 @transient()
 export class Entity {
   /**
+   * Get the resource name of this entity's class reference.
+   *
+   * @return {string|null}
+   */
+  static getResource() {
+    let meta = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
+    return meta.get('resource');
+  }
+
+  /**
    * Metadata object of this entity.
    */
   _metadata;
@@ -18,16 +28,6 @@ export class Entity {
    */
   constructor() {
     this._metadata = metadata.getOrCreateOwn(metadata.paramTypes, Map, this.constructor, this.constructor.name);
-  }
-
-  /**
-   * Get the resource name of this entity's class reference.
-   *
-   * @return {string|null}
-   */
-  static getResource() {
-    let meta = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
-    return meta.get('resource');
   }
 
   /**

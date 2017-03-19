@@ -1,9 +1,19 @@
-import {Container, resolver} from 'aurelia-framework';
+import {resolver} from 'aurelia-framework';
 
 import {PersistenceManager} from './persistence-manager';
 
 @resolver()
 export class EntityManagerFactory {
+  /**
+   * Get a new Entity Manager for `entity`.
+   *
+   * @param {Entity|string} entity - The entity class or name of the entity
+   * @returns {EntityManagerFactory} Resolves to the Entity Manager for this entity
+   */
+  static of(entity) {
+    return new EntityManagerFactory(entity);
+  }
+
   /**
    * Get a new Entity Manager for `entity`.
    *
@@ -22,15 +32,5 @@ export class EntityManagerFactory {
    */
   get(container) {
     return container.get(PersistenceManager).getEntityManager(this.entity);
-  }
-
-  /**
-   * Get a new Entity Manager for `entity`.
-   *
-   * @param {Entity|string} entity - The entity class or name of the entity
-   * @returns {EntityManagerFactory} Resolves to the Entity Manager for this entity
-   */
-  static of(entity) {
-    return new EntityManagerFactory(entity);
   }
 }

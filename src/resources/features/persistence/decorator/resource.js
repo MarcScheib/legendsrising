@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import {metadata} from 'aurelia-metadata';
 
 /**
@@ -8,7 +9,7 @@ import {metadata} from 'aurelia-metadata';
  * @decorator
  */
 export function resource(resource) {
-  return function (target) {
+  return function(target) {
     metadata.getOrCreateOwn(metadata.paramTypes, Map, target, target.name).set('resource', resource || target.name.toLowerCase());
   };
 }

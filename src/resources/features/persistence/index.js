@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import {PersistenceManager} from './persistence-manager';
 
 /**

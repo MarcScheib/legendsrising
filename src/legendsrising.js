@@ -1,5 +1,5 @@
 import {load} from 'aurelia-environment';
-import {ViewLocator, LogManager, DirtyCheckProperty} from 'aurelia-framework';
+import {LogManager, DirtyCheckProperty} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import authConfig from './configuration/auth-config';
 

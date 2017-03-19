@@ -51,7 +51,7 @@ export class PersistenceManager {
    */
   getEntityManager(entity) {
     if (!entity) {
-      throw new Error(`Can't load an entity manager without an entity`);
+      throw new Error(`Can't load an entity manager without an entity`);  // eslint-disable-line quotes
     }
 
     let entityReference = this.resolveEntityReference(entity);

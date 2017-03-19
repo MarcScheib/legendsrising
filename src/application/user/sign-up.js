@@ -35,7 +35,7 @@ export class SignUp {
               accept(false);
             });
         });
-      }).withMessage(`\${$displayName} is already taken.`)
+      }).withMessage(`\${$displayName} is already taken.`)  // eslint-disable-line quotes
       .ensure('email')
       .required()
       .email().withMessage('This is not a valid email address.')
@@ -55,7 +55,7 @@ export class SignUp {
               accept(false);
             });
         });
-      }).withMessage(`\${$displayName} is already taken.`)
+      }).withMessage(`\${$displayName} is already taken.`) // eslint-disable-line quotes
       .ensure('password')
       .required()
       .minLength(8)
