@@ -14,7 +14,6 @@ export class Index {
       '_expand': 'user'
     })
       .then(entities => {
-        console.log(entities);
         this.news = entities;
       })
       .catch(() => {

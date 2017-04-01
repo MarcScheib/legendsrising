@@ -8,7 +8,7 @@ import {metadata} from 'aurelia-metadata';
  * @decorator
  */
 export function hasOne(association) {
-  return function (target, propertyName, descriptor) {
+  return function(target, propertyName, descriptor) {
     if (!association) {
       association = propertyName;
     }

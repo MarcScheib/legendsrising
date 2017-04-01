@@ -30,7 +30,7 @@ export class EntityManager {
    * @return {Promise<Entity|[Entity]>}
    */
   find(criteria) {
-    return this._find(this.entityClass.getResource(), criteria);
+    return this.findResource(this.entityClass.getResource(), criteria);
   }
 
   /**
@@ -41,7 +41,7 @@ export class EntityManager {
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @return {Promise<Entity|[Entity]>}
    */
-  _find(resource, criteria, raw) {
+  findResource(resource, criteria, raw) {
     let result = this.api.find(resource, criteria);
 
     if (raw) {
