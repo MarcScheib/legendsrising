@@ -4,7 +4,7 @@ import {metadata} from 'aurelia-metadata';
 /**
  * Sets the 'resource' metadata on the entity.
  *
- * @param {string} resource The name of the resource
+ * @param {string} resource - The name of the resource
  * @return {function}
  * @decorator
  */

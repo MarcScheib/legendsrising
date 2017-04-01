@@ -2,11 +2,13 @@ export class EntityManager {
   /**
    * Construct a new EntityManager for an entity.
    *
+   * @param {PersistenceManager} persistenceUnit
    * @param {Container} container
    * @param {Rest} api
    * @param {Entity} entityClass
    */
-  constructor(container, api, entityClass) {
+  constructor(persistenceUnit, container, api, entityClass) {
+    this.persistenceUnit = persistenceUnit;
     this.container = container;
     this.api = api;
     this.entityClass = entityClass;
@@ -21,8 +23,32 @@ export class EntityManager {
     return instance;
   }
 
-  find() {
-    return this.api.find(this.entityClass.getResource())
+  /**
+   * Performs a query and populates entities based on the returned data.
+   *
+   * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @return {Promise<Entity|[Entity]>}
+   */
+  find(criteria) {
+    return this._find(this.entityClass.getResource(), criteria);
+  }
+
+  /**
+   * Performs a query on `resource` and populates entities based on the returned data.
+   *
+   * @param {string} resource - The resource to query
+   * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
+   * @return {Promise<Entity|[Entity]>}
+   */
+  _find(resource, criteria, raw) {
+    let result = this.api.find(resource, criteria);
+
+    if (raw) {
+      return result;
+    }
+
+    return result
       .then(response => {
         return this.populateEntities(response);
       });
@@ -57,12 +83,21 @@ export class EntityManager {
    */
   populateEntity(data) {
     let entity = this.getEntity();
+    let entityAssociations = entity.getAssociations();
     let entityData = {};
     for (let key in data) {
-      // TODO: check associations
-      entityData[key] = data[key];
+      let value = data[key];
+
+      if (entityAssociations[key] && typeof value === 'object') {
+        // TODO: those entities are dirty checked!!
+        let associationEntityManager = this.persistenceUnit.getEntityManager(entityAssociations[key]);
+        entityData[key] = associationEntityManager.populateEntity(value);
+        continue;
+      }
+
+      entityData[key] = value;
     }
-    Object.assign(entity, data);
+    Object.assign(entity, entityData);
     return entity;
   }
 }

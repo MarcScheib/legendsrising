@@ -47,4 +47,13 @@ export class Entity {
   setResource(resource) {
     this._resource = resource;
   }
+
+  /**
+   * Returns the associations of this entity.
+   *
+   * @return {object}
+   */
+  getAssociations() {
+    return this._metadata.get('associations') || {};
+  }
 }

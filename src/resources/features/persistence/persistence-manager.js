@@ -4,9 +4,8 @@ import {EntityManager} from './entity-manager';
 import {Entity} from './entity';
 
 /**
- * The Persistence Manager class. Creates entity managers based on entities.
+ * The Persistence Unit class. Creates entity managers based on entities for a specific endpoint.
  */
-// TODO: rename to persistence unit, should represent one API endpoint
 @inject(Container, Config)
 export class PersistenceManager {
   /**
@@ -67,7 +66,7 @@ export class PersistenceManager {
 
     let entityManager = this.entityManagers[resource];
     if (!entityManager) {
-      entityManager = new EntityManager(this.container, this.apiConfig.getEndpoint(), entityReference);
+      entityManager = new EntityManager(this, this.container, this.apiConfig.getEndpoint(), entityReference);
       this.entityManagers[resource] = entityManager;
     }
     return entityManager;
