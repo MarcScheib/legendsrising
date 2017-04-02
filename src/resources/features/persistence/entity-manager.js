@@ -2,7 +2,7 @@ export class EntityManager {
   /**
    * Construct a new EntityManager for an entity.
    *
-   * @param {PersistenceManager} persistenceUnit
+   * @param {PersistenceUnit} persistenceUnit
    * @param {Container} container
    * @param {Rest} api
    * @param {Entity} entityClass
@@ -89,7 +89,7 @@ export class EntityManager {
       let value = data[key];
 
       if (entityAssociations[key] && typeof value === 'object') {
-        // TODO: those entities are dirty checked!!
+        // TODO: those entities are not observable right now!
         let associationEntityManager = this.persistenceUnit.getEntityManager(entityAssociations[key]);
         entityData[key] = associationEntityManager.populateEntity(value);
         continue;

@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import {PersistenceManager} from './persistence-manager';
+import {PersistenceUnit} from './persistence-unit';
 
 /**
  * Persistence feature configuration
@@ -9,11 +9,11 @@ import {PersistenceManager} from './persistence-manager';
  * @param {function} configure
  */
 export function configure(frameworkConfig, configure) {
-  // create a new instance of the PersistenceManager
-  let persistenceManager = frameworkConfig.container.get(PersistenceManager);
+  // create a new instance of the PersistenceUnit
+  let persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
 
   // configure feature
   if (configure !== undefined && typeof configure === 'function') {
-    configure(persistenceManager);
+    configure(persistenceUnit);
   }
 }

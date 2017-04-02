@@ -7,14 +7,6 @@ export class NewsService {
     this.apiClient = apiClient;
   }
 
-  getAll() {
-    return this.apiClient
-      .find('news', {
-        '_expand': 'user'
-      })
-      .catch(error => Promise.reject(error));
-  }
-
   get(id) {
     return this.apiClient
       .findOne('news', id, {

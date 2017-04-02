@@ -7,7 +7,7 @@ import {Entity} from './entity';
  * The Persistence Unit class. Creates entity managers based on entities for a specific endpoint.
  */
 @inject(Container, Config)
-export class PersistenceManager {
+export class PersistenceUnit {
   /**
    * Collection of configured entity managers.
    */
@@ -19,7 +19,7 @@ export class PersistenceManager {
   entities = {};
 
   /**
-   * Construct the Persistence Manager.
+   * Constructs the Persistence Unit.
    *
    * @param {Container} container
    * @param {Config} apiConfig
