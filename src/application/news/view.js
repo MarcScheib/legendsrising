@@ -2,17 +2,18 @@ import {inject} from 'aurelia-framework';
 import {NotificationService} from 'aurelia-notify';
 import {DataListController} from 'resources/features/data-list/controller';
 import {LoggedInUser} from 'resources/entities/logged-in-user';
-import {NewsService} from '../../services/news/news-service';
+import {EntityManagerFactory} from '../../resources/features/persistence/entity-manager-factory';
+import {NewsEntity} from '../../resources/entities/news-entity';
 import {NewsCommentsService} from '../../services/news/news-comments-service';
 
 const ENTER_KEY = 13;
 
-@inject(NewsService, NewsCommentsService, NotificationService, LoggedInUser)
+@inject(EntityManagerFactory.of(NewsEntity), NewsCommentsService, NotificationService, LoggedInUser)
 export class View {
   comments = [];
 
-  constructor(newsService, newsCommentsService, notificationService, loggedInUser) {
-    this.newsService = newsService;
+  constructor(entityManager, newsCommentsService, notificationService, loggedInUser) {
+    this.entityManager = entityManager;
     this.newsCommentsService = newsCommentsService;
     this.notificationService = notificationService;
     this.loggedInUser = loggedInUser;
@@ -23,7 +24,9 @@ export class View {
   activate(params, routeConfig) {
     this.newsId = params.id;
 
-    return this.newsService.get(params.id)
+    return this.entityManager.findOne(params.id, {
+      '_expand': 'user'
+    })
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);

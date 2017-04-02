@@ -27,10 +27,25 @@ export class EntityManager {
    * Performs a query and populates entities based on the returned data.
    *
    * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @return {Promise<Entity|[Entity]>}
    */
-  find(criteria) {
-    return this.findResource(this.entityClass.getResource(), criteria);
+  find(criteria, raw) {
+    return this.findResource(this.entityClass.getResource(), criteria, raw);
+  }
+
+  /**
+   * Performs a query for a single resource and populates an entity based on the returned data.
+   *
+   * @param {string} identifier - Identifier for the requested resource.
+   * @param criteria
+   * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
+   * @returns {Promise.<Entity|Entity[]>}
+   */
+  findOne(identifier, criteria, raw) {
+    if (typeof identifier === 'string' || typeof identifier === 'number') {
+      return this.findResource(this.entityClass.getResource() + '/' + identifier, criteria, raw, true);
+    }
   }
 
   /**
@@ -39,10 +54,16 @@ export class EntityManager {
    * @param {string} resource - The resource to query
    * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
+   * @param {boolean} [single] - Set to true to get a single entity instead of a collection.
    * @return {Promise<Entity|[Entity]>}
    */
-  findResource(resource, criteria, raw) {
-    let result = this.api.find(resource, criteria);
+  findResource(resource, criteria, raw, single) {
+    let result;
+    if (single) {
+      result = this.api.findOne(resource, criteria);
+    } else {
+      result = this.api.find(resource, criteria);
+    }
 
     if (raw) {
       return result;
@@ -57,7 +78,7 @@ export class EntityManager {
   /**
    * Populate entity of this manager with data returned from API.
    *
-   * @param {[]} data - The data returned from the API.
+   * @param {{}|[]} data - The data returned from the API.
    * @returns {Entity[]}
    */
   populateEntities(data) {

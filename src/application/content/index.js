@@ -1,17 +1,20 @@
 import {inject} from 'aurelia-framework';
-import {NewsService} from '../../services/news/news-service';
+import {EntityManagerFactory} from '../../resources/features/persistence/entity-manager-factory';
+import {NewsEntity} from '../../resources/entities/news-entity';
 
-@inject(NewsService)
+@inject(EntityManagerFactory.of(NewsEntity))
 export class Index {
-  constructor(newsService) {
-    this.newsService = newsService;
+  constructor(entityManager) {
+    this.entityManager = entityManager;
     this.news = [];
   }
 
   activate() {
-    return this.newsService.getAll()
-      .then(news => {
-        this.news = news.data;
+    return this.entityManager.find({
+      '_expand': 'user'
+    })
+      .then(entities => {
+        this.news = entities;
       })
       .catch(() => {
         this.news = [];

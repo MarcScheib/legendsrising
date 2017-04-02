@@ -1,5 +1,6 @@
 import {Container} from 'aurelia-framework';
 import {Rest, Config} from 'aurelia-api';
+import {PersistenceUnit} from '../../../../../src/resources/features/persistence/persistence-unit';
 import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
 import {FaqEntity} from './fixtures/faq-entity';
 
@@ -18,7 +19,7 @@ describe('EntityManager', () => {
     });
     config.setDefaultEndpoint('api');
 
-    sut = new EntityManager(container, config.getEndpoint(), FaqEntity);
+    sut = new EntityManager(container.get(PersistenceUnit), container, config.getEndpoint(), FaqEntity);
   });
 
   describe('.getEntity()', () => {
