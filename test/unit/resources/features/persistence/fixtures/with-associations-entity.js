@@ -7,4 +7,10 @@ import {BaseEntity} from './base-entity';
 export class WithAssociationsEntity extends Entity {
   @hasOne(BaseEntity)
   base = null;
+
+  @hasOne()
+  bar = null;
+
+  @hasOne('bar')
+  anotherBar = null;
 }

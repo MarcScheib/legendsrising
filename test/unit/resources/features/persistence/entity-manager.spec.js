@@ -3,6 +3,7 @@ import {Config, Rest} from 'aurelia-api';
 import {PersistenceUnit} from '../../../../../src/resources/features/persistence/persistence-unit';
 import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
 import {BaseEntity} from './fixtures/base-entity';
+import {BarEntity} from './fixtures/bar-entity';
 import {FaqEntity} from './fixtures/faq-entity';
 import {WithAssociationsEntity} from './fixtures/with-associations-entity';
 
@@ -77,11 +78,19 @@ describe('EntityManager', () => {
 
   describe('populateEntity()', () => {
     it('Should resolve hasOne() associations', () => {
-      sut = new EntityManager(container.get(PersistenceUnit), container, config.getEndpoint(), WithAssociationsEntity);
+      let persistenceUnit = container.get(PersistenceUnit);
+      persistenceUnit.registerEntity(BarEntity);
+      sut = new EntityManager(persistenceUnit, container, config.getEndpoint(), WithAssociationsEntity);
       let populatedEntity = sut.populateEntity({
         value1: 'something',
         base: {
           baseValue: 'anotherValue'
+        },
+        bar: {
+          barValue: 'bar'
+        },
+        anotherBar: {
+          barValue: 'still bar'
         }
       });
 
@@ -91,6 +100,12 @@ describe('EntityManager', () => {
       expect(typeof populatedEntity.base).toBe('object');
       expect(populatedEntity.base instanceof BaseEntity).toBe(true);
       expect(populatedEntity.base.baseValue).toEqual('anotherValue');
+      expect(typeof populatedEntity.bar).toBe('object');
+      expect(populatedEntity.bar instanceof BarEntity).toBe(true);
+      expect(populatedEntity.bar.barValue).toEqual('bar');
+      expect(typeof populatedEntity.anotherBar).toBe('object');
+      expect(populatedEntity.anotherBar instanceof BarEntity).toBe(true);
+      expect(populatedEntity.anotherBar.barValue).toEqual('still bar');
     });
   });
 });
