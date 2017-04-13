@@ -2,7 +2,7 @@ import {AuthenticateStep} from 'aurelia-authentication';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 
-import {ScrollToTop} from './router/pipeline/ScrollToTop';
+import {ScrollToTopStep} from './router/pipeline/scroll-to-top-step';
 
 @inject(Router)
 export default class {
@@ -13,7 +13,7 @@ export default class {
   configure() {
     let appRouterConfig = config => {
       config.title = 'LegendsRising';
-      config.addPipelineStep('postRender', ScrollToTop);
+      config.addPipelineStep('postRender', ScrollToTopStep);
       config.addPipelineStep('authorize', AuthenticateStep);
       config.options.pushState = false;
       config.map([
