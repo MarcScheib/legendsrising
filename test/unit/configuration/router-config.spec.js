@@ -1,5 +1,5 @@
 import {AuthenticateStep} from 'aurelia-authentication';
-import {AppRouterConfig} from '../../../src/configuration/router-config';
+import AppRouterConfig from '../../../src/configuration/router-config';
 import {ScrollToTopStep} from '../../../src/configuration/router/pipeline/scroll-to-top-step';
 import {RouterStub} from '../fixtures/RouterStub';
 
