@@ -1,9 +1,9 @@
-import {smoothScrollTo} from '../../../utilities/smooth-scroll-to';
+import {smoothScrollReset} from '../../../utilities/smooth-scroll-reset';
 
 export class ScrollToTopStep {
   run(instruction, next) {
     let element = document.getElementsByTagName('main')[0];
-    smoothScrollTo(element);
+    smoothScrollReset(element);
     return next();
   }
 }
