@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {NotificationService} from 'aurelia-notify';
-import {DataListController} from '../../resources/features/data-list/controller';
+import {DataListController} from '../../resources/features/data-list/index';
 import {LoggedInUser} from '../../resources/entities/logged-in-user';
 import {EntityManagerFactory} from '../../resources/features/persistence/index';
 import {NewsEntity} from '../../resources/entities/news-entity';
