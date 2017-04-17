@@ -18,7 +18,7 @@ export function configure(frameworkConfig, configure) {
   }
 }
 
-export {PersistenceUnit} from 'persistence-unit';
-export {EntityManagerFactory} from 'entity-manager-factory';
-export {EntityManager} from 'entity-manager';
+export {PersistenceUnit} from './persistence-unit';
+export {EntityManagerFactory} from './entity-manager-factory';
+export {EntityManager} from './entity-manager';
 export {Entity} from './entity';
