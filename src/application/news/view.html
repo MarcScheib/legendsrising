@@ -8,7 +8,7 @@
           </p>
         </div>
 
-        <div class="card news-card">
+        <div class="card">
           <div class="card-block" if.bind="news">
             <div class="news-card-header">
               <a href="#/profile/view/${news.user.id}" class="pull-left">
@@ -20,7 +20,7 @@
               <small class="text-muted"><i class="fa fa-clock-o"></i> ${news.created_at}</small>
             </div>
 
-            <div class="card-text">${news.text}</div>
+            <div class="card-text pt-1">${news.text}</div>
           </div>
 
           <div class="card-footer">
