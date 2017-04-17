@@ -40,7 +40,7 @@ export class DataListElement {
     Promise
       .resolve(this.controller.fetchData(this.model.currentPage))
       .then(comments => {
-        this.data = this.data.concat(comments.data);
+        this.data = this.data.concat(comments);
         this.model.total = comments.total;
         this.model.lastPage = comments.last_page;
         this.model.loading = false;
