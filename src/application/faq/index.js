@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {EntityManagerFactory} from '../../resources/features/persistence/index';
+import {EntityManagerFactory} from '../../resources/features/persistence';
 import {FaqEntity} from '../../resources/entities/faq-entity';
 
 @inject(EntityManagerFactory.of(FaqEntity))
