@@ -24,9 +24,10 @@ export class View {
   activate(params, routeConfig) {
     this.newsId = params.id;
 
-    return this.entityManager.findOne(params.id, {
-      '_expand': 'user'
-    })
+    return this.entityManager
+      .findOne(params.id, {
+        '_expand': 'user'
+      })
       .then(news => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
@@ -52,7 +53,8 @@ export class View {
       return;
     }
 
-    this.newsCommentsService.add(this.newsId, {'text': comment})
+    this.newsCommentsService
+      .add(this.newsId, {'text': comment})
       .then(data => {
         this.comments.unshift(data);
         this.comment = null;
@@ -65,6 +67,7 @@ export class View {
   }
 
   loadMore(page) {
-    return this.newsCommentsService.getAll(this.newsId, page);
+    return this.newsCommentsService
+      .getAll(this.newsId, page);
   }
 }
