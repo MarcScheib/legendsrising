@@ -15,7 +15,7 @@ System.config({
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.2",
     "aurelia-api": "npm:aurelia-api@3.1.1",
-    "aurelia-authentication": "npm:aurelia-authentication@3.4.1",
+    "aurelia-authentication": "npm:aurelia-authentication@3.6.0",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@2.1.1",
     "aurelia-environment": "npm:aurelia-environment@0.1.7",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1",
@@ -25,7 +25,7 @@ System.config({
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.2",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0",
     "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
-    "aurelia-notify": "npm:aurelia-notify@0.7.1",
+    "aurelia-notify": "npm:aurelia-notify@0.8.1",
     "aurelia-pal": "npm:aurelia-pal@1.3.0",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.2.1",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.2.1",
@@ -55,7 +55,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.9"
+      "process": "npm:process@0.11.10"
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
@@ -82,9 +82,9 @@ System.config({
       "aurelia-fetch-client": "npm:aurelia-fetch-client@1.1.2",
       "aurelia-framework": "npm:aurelia-framework@1.1.2",
       "aurelia-path": "npm:aurelia-path@1.1.1",
-      "extend": "npm:extend@3.0.0"
+      "extend": "npm:extend@3.0.1"
     },
-    "npm:aurelia-authentication@3.4.1": {
+    "npm:aurelia-authentication@3.6.0": {
       "aurelia-api": "npm:aurelia-api@3.1.1",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1",
@@ -95,7 +95,7 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.1.1",
       "aurelia-router": "npm:aurelia-router@1.3.0",
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.4.0",
-      "extend": "npm:extend@3.0.0",
+      "extend": "npm:extend@3.0.1",
       "jwt-decode": "npm:jwt-decode@2.2.0"
     },
     "npm:aurelia-binding@1.2.1": {
@@ -157,7 +157,7 @@ System.config({
     "npm:aurelia-metadata@1.0.3": {
       "aurelia-pal": "npm:aurelia-pal@1.3.0"
     },
-    "npm:aurelia-notify@0.7.1": {
+    "npm:aurelia-notify@0.8.1": {
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
       "aurelia-pal": "npm:aurelia-pal@1.3.0",
@@ -254,7 +254,7 @@ System.config({
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:process@0.11.9": {
+    "npm:process@0.11.10": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
