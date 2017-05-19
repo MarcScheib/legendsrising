@@ -13,6 +13,7 @@ var sass = require('gulp-sass');
 var nano = require('gulp-cssnano');
 var autoprefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var htmlmin = require('gulp-htmlmin');
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -31,7 +32,9 @@ gulp.task('build-system', function () {
 // copies changed html files to the output directory
 gulp.task('build-html', function () {
   return gulp.src(paths.html)
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.html'}))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(paths.output));
 });
 
