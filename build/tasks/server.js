@@ -9,13 +9,7 @@ module.exports = {
     var middlewares = jsonServer.defaults();
 
     router.render = function (req, res) {
-      /*if (Array.isArray(res.locals.data)) {
-        res.jsonp({
-          data: res.locals.data
-        })
-      } else {*/
-        res.jsonp(res.locals.data);
-      /*}*/
+      res.jsonp(res.locals.data);
     };
 
     app.use(middlewares);
