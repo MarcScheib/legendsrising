@@ -64,7 +64,6 @@ gulp.task('build-scss', function () {
 // https://www.npmjs.com/package/gulp-run-sequence
 gulp.task('build', function (callback) {
   return runSequence(
-    'clean',
     ['build-system', 'build-html', 'build-scss'],
     callback
   );

@@ -18,7 +18,10 @@
   },
   "scripts": {
     "start": "nps",
-    "test": "nps test"
+    "test": "nps test",
+    "prerelease": "nps prerelease",
+    "release": "npm --no-git-tag-version version",
+    "postrelease": "nps changelog"
   },
   "devDependencies": {
     "aurelia-bundler": "^0.5.0",
@@ -33,6 +36,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "browser-sync": "^2.18.11",
+    "conventional-changelog-cli": "^1.3.1",
+    "coveralls": "^2.13.1",
     "del": "^2.2.2",
     "eslint": "^3.19.0",
     "eslint-plugin-sort-class-members": "^1.1.1",
