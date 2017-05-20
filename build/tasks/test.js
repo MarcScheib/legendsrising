@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var Karma = require('karma').Server;
-var coveralls = require('gulp-coveralls');
 var gutil = require('gulp-util');
 var server = require('./server');
 
@@ -72,19 +71,5 @@ gulp.task('cover', function (done) {
         }
       });
     }).start();
-  });
-});
-
-/**
- * Report coverage to coveralls
- */
-gulp.task('coveralls', ['cover'], function (done) {
-  gulp.src('build/reports/coverage/lcov/lcov.info')
-    .pipe(coveralls());
-});
-
-gulp.task('test-api', function (done) {
-  server.start(function () {
-    // do nothing
   });
 });

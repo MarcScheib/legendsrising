@@ -58,10 +58,8 @@ gulp.task('build-scss', function () {
     .pipe(browserSync.stream());
 });
 
-// this task calls the clean task (located
-// in ./clean.js), then runs the build-system
+// runs the build-system
 // and build-html tasks in parallel
-// https://www.npmjs.com/package/gulp-run-sequence
 gulp.task('build', function (callback) {
   return runSequence(
     ['build-system', 'build-html', 'build-scss'],
