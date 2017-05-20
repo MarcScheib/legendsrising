@@ -17,9 +17,8 @@
     "url": "https://github.com/MarcScheib/legendsrising"
   },
   "scripts": {
-    "api:start": "./node_modules/.bin/json-server --watch ./test/api/dev.json",
-    "test": "gulp test",
-    "e2e": "gulp serve e2e"
+    "start": "nps",
+    "test": "nps test"
   },
   "devDependencies": {
     "aurelia-bundler": "^0.5.0",
@@ -35,6 +34,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "browser-sync": "^2.18.11",
     "del": "^2.2.2",
+    "eslint": "^3.19.0",
     "eslint-plugin-sort-class-members": "^1.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -63,10 +63,13 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-jspm": "^2.2.3",
+    "nps": "^5.2.0",
+    "nps-utils": "^1.2.0",
     "object.assign": "^4.0.4",
     "protractor": "^5.1.2",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
+    "sass-lint": "^1.10.2",
     "vinyl-paths": "^2.1.0",
     "yargs": "^8.0.1"
   },
