@@ -28,8 +28,15 @@ module.exports = {
     build: {
       default: series(
         rimraf(`rimraf ${destDir}`),
-        'gulp build'
-      )
+        concurrent({
+          jsbuild: 'nps build.js',
+          htmlbuild: 'nps build.html',
+          sassbuild: 'nps build.sass'
+        })
+      ),
+      js: 'gulp build-system',
+      html: 'gulp build-html',
+      sass: 'gulp build-scss'
     },
     prerelease: series(
       concurrent({
@@ -39,6 +46,7 @@ module.exports = {
       'nps test',
       'nps build'
     ),
-    changelog: `conventional-changelog -p angular -i ${docsDir}/CHANGELOG.md -s`
+    changelog: `conventional-changelog -p angular -i ${docsDir}/CHANGELOG.md -s`,
+    serve: `browser-sync start --server . --files style`
   }
 };
