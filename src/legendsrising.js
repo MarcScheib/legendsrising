@@ -31,6 +31,10 @@ export function configure(aurelia) {
         .plugin('aurelia-validation')
         .plugin('aurelia-animator-css');
 
+      // Specify global resources
+      aurelia.use
+        .globalResources(['resources/custom-elements/no-data']);
+
       // Specify unofficial plugins
       aurelia.use
         .plugin('aurelia-api', config => {

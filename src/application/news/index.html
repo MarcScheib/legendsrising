@@ -2,9 +2,8 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <div if.bind="news.length == 0" class="card card-block">
-            <p class="card-text">There are no news available currently.</p>
-        </div>
+        <no-data message="There are no news available currently." visible.bind="news.length === 0"></no-data>
+
         <div class="card card-block" repeat.for="item of news">
           <div class="news-card-header">
             <a href="#/profile/view/${item.user.id}" class="pull-left">

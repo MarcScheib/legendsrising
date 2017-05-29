@@ -3,11 +3,8 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="card card-block" if.bind="!news">
-          <p class="card-text">
-            The selected news entry is not available.
-          </p>
+          <p class="card-text">The selected news entry is not available.</p>
         </div>
-
         <div class="card" if.bind="news">
           <div class="card-block">
             <div class="news-card-header">
@@ -19,7 +16,6 @@
               <strong><a href="#/profile/view/${news.user.id}">${news.user.username}</a></strong>
               <small class="text-muted"><i class="fa fa-clock-o"></i> ${news.created_at}</small>
             </div>
-
             <div class="card-text pt-1">${news.text}</div>
           </div>
 
