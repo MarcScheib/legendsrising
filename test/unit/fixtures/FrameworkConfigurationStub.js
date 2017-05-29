@@ -23,6 +23,11 @@ export class FrameworkConfigurationStub {
     return this.plugin('aurelia-event-aggregator');
   }
 
+  globalResources(resources) {
+    this.info.concat(resources);
+    return this;
+  }
+
   plugin(pluginName) {
     this.info.push(pluginName);
     return this;
