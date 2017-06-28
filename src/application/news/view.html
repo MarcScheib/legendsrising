@@ -2,9 +2,8 @@
   <section class="au-animate">
     <div class="row">
       <div class="col-lg-12">
-        <div class="card card-block" if.bind="!news">
-          <p class="card-text">The selected news entry is not available.</p>
-        </div>
+        <no-data message="The selected news entry is not available." visible.bind="!news"></no-data>
+
         <div class="card" if.bind="news">
           <div class="card-block">
             <div class="news-card-header">
