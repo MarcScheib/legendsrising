@@ -12,6 +12,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.2",
     "aurelia-api": "npm:aurelia-api@3.1.1",
@@ -34,7 +35,7 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.3.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.4.0",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.1.0",
-    "aurelia-validation": "npm:aurelia-validation@1.0.0",
+    "aurelia-validation": "npm:aurelia-validation@1.1.0",
     "awesome-bootstrap-checkbox": "github:flatlogic/awesome-bootstrap-checkbox@1.0.0-alpha.5",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
@@ -44,7 +45,7 @@ System.config({
     "font-awesome": "github:FortAwesome/font-awesome@4.7.0",
     "jquery": "npm:jquery@3.2.1",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
-    "text": "github:systemjs/plugin-text@0.0.4",
+    "text": "github:systemjs/plugin-text@0.0.8",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -64,7 +65,7 @@ System.config({
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
     "github:rstacruz/nprogress@0.2.0": {
-      "css": "github:systemjs/plugin-css@0.1.33"
+      "css": "github:systemjs/plugin-css@0.1.35"
     },
     "npm:assert@1.4.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -219,7 +220,7 @@ System.config({
       "aurelia-path": "npm:aurelia-path@1.1.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.2.0"
     },
-    "npm:aurelia-validation@1.0.0": {
+    "npm:aurelia-validation@1.1.0": {
       "aurelia-binding": "npm:aurelia-binding@1.2.1",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
       "aurelia-logging": "npm:aurelia-logging@1.3.1",
@@ -235,7 +236,7 @@ System.config({
       "tether": "github:HubSpot/tether@1.4.0"
     },
     "npm:buffer@5.0.6": {
-      "base64-js": "npm:base64-js@1.2.0",
+      "base64-js": "npm:base64-js@1.2.1",
       "ieee754": "npm:ieee754@1.1.8"
     },
     "npm:core-js@1.2.7": {
