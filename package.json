@@ -65,7 +65,7 @@
     "karma-jspm": "^2.2.3",
     "object.assign": "^4.0.4",
     "protractor": "^5.1.2",
-    "require-dir": "^0.3.1",
+    "require-dir": "^0.3.2",
     "run-sequence": "^1.2.2",
     "vinyl-paths": "^2.1.0",
     "yargs": "^8.0.1"
