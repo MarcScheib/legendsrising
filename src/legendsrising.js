@@ -28,8 +28,8 @@ export function configure(aurelia) {
 
       // Specify official plugins
       aurelia.use
-        .plugin('aurelia-validation')
-        .plugin('aurelia-animator-css');
+        .plugin(PLATFORM.moduleName('aurelia-validation'))
+        .plugin(PLATFORM.moduleName('aurelia-animator-css'));
 
       // Specify global resources
       aurelia.use
@@ -37,15 +37,15 @@ export function configure(aurelia) {
 
       // Specify unofficial plugins
       aurelia.use
-        .plugin('aurelia-api', config => {
+        .plugin(PLATFORM.moduleName('aurelia-api'), config => {
           config
             .registerEndpoint('dev', env.API_ENDPOINT)
             .setDefaultEndpoint('dev');
         })
-        .plugin('aurelia-authentication', config => {
+        .plugin(PLATFORM.moduleName('aurelia-authentication'), config => {
           config.configure(authConfig);
         })
-        .plugin('aurelia-notify', settings => {
+        .plugin(PLATFORM.moduleName('aurelia-notify'), settings => {
           settings.containerSelector = '#notification-container';
           settings.timeout = 10000;
         });
@@ -59,7 +59,7 @@ export function configure(aurelia) {
         .feature('resources/features/persistence');
 
       aurelia.start()
-        .then(a => a.setRoot('app', document.body))
+        .then(a => a.setRoot(PLATFORM.moduleName('app'), document.body))
         .catch(() => {
 
         });
