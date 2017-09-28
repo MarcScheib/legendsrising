@@ -4,7 +4,12 @@ import {Router} from 'aurelia-router';
 
 import AppRouterConfig from './configuration/router-config';
 import 'jquery';
-import 'bootstrap';
+
+System.import('popper').then(popper => {
+  window.Popper = popper;
+}).then(() => {
+  System.import('bootstrap')
+});
 
 @inject(Router, Endpoint.of(), AppRouterConfig)
 export class App {

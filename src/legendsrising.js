@@ -60,8 +60,8 @@ export function configure(aurelia) {
 
       aurelia.start()
         .then(a => a.setRoot('app', document.body))
-        .catch(() => {
-
+        .catch(error => {
+          console.log(error);
         });
     })
     .catch(error => {

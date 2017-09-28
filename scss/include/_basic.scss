@@ -60,11 +60,11 @@
 }
 
 .has-success label {
-  color: $state-success-text;
+  color: map-get($theme-colors, success);
 }
 
 .has-warning label {
-  color: $state-warning-text;
+  color: map-get($theme-colors, warning);
 }
 
 // colors
