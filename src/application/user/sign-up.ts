@@ -1,18 +1,23 @@
-import {inject, NewInstance} from 'aurelia-framework';
-import {NotificationService} from 'aurelia-notify';
-import {Router} from 'aurelia-router';
-import {ValidationController, ValidationRules, validateTrigger} from 'aurelia-validation';
-import {BootstrapFormRenderer} from '../../resources/validation/bootstrap-form-renderer';
-import {UserService} from '../../services/users/user-service';
+import { inject, NewInstance } from 'aurelia-framework';
+import { NotificationService } from 'aurelia-notify';
+import { Router } from 'aurelia-router';
+import { validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
+import { BootstrapFormRenderer } from '../../resources/validation/bootstrap-form-renderer';
+import { UserService } from '../../services/users/user-service';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp {
-  constructor(router, validationController, userService, notification) {
-    this.router = router;
-    this.userService = userService;
-    this.notification = notification;
+  validationRenderer: BootstrapFormRenderer;
+  username: string;
+  email: string;
+  password_repeat: string;
+  password: string;
+
+  constructor(private router: Router,
+              private validationController: ValidationController,
+              private userService: UserService,
+              private notification: NotificationService) {
     this.validationRenderer = new BootstrapFormRenderer();
-    this.validationController = validationController;
     this.validationController.validateTrigger = validateTrigger.change;
     ValidationRules
       .ensure('username')
@@ -80,7 +85,7 @@ export class SignUp {
     this.validationController.validate()
       .then(result => {
         if (result.valid) {
-          let user = {
+          const user = {
             'username': this.username,
             'email': this.email,
             'password': this.password,

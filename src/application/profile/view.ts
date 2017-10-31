@@ -1,13 +1,16 @@
-import {inject} from 'aurelia-framework';
-import {UserService} from '../../services/users/user-service';
+import { inject } from 'aurelia-framework';
+import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
+
+import { UserService } from '../../services/users/user-service';
 
 @inject(UserService)
-export class View {
-  constructor(userService) {
-    this.userService = userService;
+export class View implements RoutableComponentActivate {
+  user: any;
+
+  constructor(private userService: UserService) {
   }
 
-  activate(params, routeConfig) {
+  activate(params: any, routeConfig: RouteConfig) {
     return this.userService.get(params.id)
       .then(user => {
         this.user = user;

@@ -1,4 +1,4 @@
-export function smoothScrollReset(element) {
+export function smoothScrollReset(element: Element) {
   if (!element) {
     return;
   }
@@ -8,8 +8,8 @@ export function smoothScrollReset(element) {
   const diff = -scrollFrom;
   let startTime = null;
   let lastYOffset;
-  let scrollLoop = (currentTime) => {
-    let currentYOffset = element.scrollTop;
+  const scrollLoop = (currentTime) => {
+    const currentYOffset = element.scrollTop;
     if (!startTime) {
       startTime = currentTime - 1;
     }
@@ -43,6 +43,6 @@ export function smoothScrollReset(element) {
  * @param {number} d - duration
  * @return {number} - calculated value
  */
-function linearTween(t, b, c, d) {
+function linearTween(t: number, b: number, c: number, d: number): number {
   return c * t / d + b;
 }

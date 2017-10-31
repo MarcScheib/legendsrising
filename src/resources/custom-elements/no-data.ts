@@ -1,4 +1,4 @@
-import {bindable, customElement, inlineView} from 'aurelia-templating';
+import { bindable, customElement, inlineView } from 'aurelia-templating';
 
 @customElement('no-data')
 @inlineView(`
@@ -9,6 +9,6 @@ import {bindable, customElement, inlineView} from 'aurelia-templating';
 </template>
 `)
 export class NoData {
-  @bindable message;
-  @bindable visible = false;
+  @bindable message: string;
+  @bindable visible: boolean = false;
 }

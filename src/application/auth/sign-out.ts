@@ -1,14 +1,11 @@
-import {AuthService} from 'aurelia-authentication';
-import {inject} from 'aurelia-framework';
-import {NotificationService} from 'aurelia-notify';
-import {Router} from 'aurelia-router';
+import { AuthService } from 'aurelia-authentication';
+import { inject } from 'aurelia-framework';
+import { NotificationService } from 'aurelia-notify';
 
-@inject(AuthService, NotificationService, Router)
+@inject(AuthService, NotificationService)
 export class SignOut {
-  constructor(auth, notification, router) {
-    this.auth = auth;
-    this.notification = notification;
-    this.router = router;
+  constructor(private auth: AuthService,
+              private notification: NotificationService) {
   }
 
   activate() {

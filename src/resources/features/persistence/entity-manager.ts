@@ -22,7 +22,7 @@ export class EntityManager {
    * Returns a new entity.
    */
   getEntity() {
-    let instance = this.container.get(this.entityClass);
+    const instance = this.container.get(this.entityClass);
     instance.setResource(this.entityClass.getResource());
     return instance;
   }
@@ -30,11 +30,11 @@ export class EntityManager {
   /**
    * Performs a query and populates entities based on the returned data.
    *
-   * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @param {{}|number|string} [criteria] - Criteria to add to the query. A plain string/number will be used as relative path.
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @return {Promise<Entity|[Entity]>}
    */
-  find(criteria, raw) {
+  find(criteria?: {} | number | string, raw?: boolean) {
     return this.findResource(this.entityClass.getResource(), criteria, raw);
   }
 
@@ -42,11 +42,11 @@ export class EntityManager {
    * Performs a query for a single resource and populates an entity based on the returned data.
    *
    * @param {string} identifier - Identifier for the requested resource.
-   * @param criteria
+   * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @returns {Promise.<Entity|Entity[]>}
    */
-  findOne(identifier, criteria, raw) {
+  findOne(identifier: string | number, criteria: {} | number | string, raw?: boolean) {
     if (typeof identifier === 'string' || typeof identifier === 'number') {
       return this.findResource(this.entityClass.getResource() + '/' + identifier, criteria, raw, true);
     }
@@ -61,9 +61,9 @@ export class EntityManager {
    * @param {boolean} [single] - Set to true to get a single entity instead of a collection.
    * @return {Promise<Entity|[Entity]>}
    */
-  findResource(resource, criteria, raw, single?) {
+  findResource(resource: string, criteria: {} | number | string, raw?: boolean, single?: boolean) {
     let result;
-    if (single) {
+    if (single && typeof criteria === 'number') {
       result = this.api.findOne(resource, criteria);
     } else {
       result = this.api.find(resource, criteria);
@@ -85,7 +85,7 @@ export class EntityManager {
    * @param {{}|[]} data - The data returned from the API.
    * @returns {Entity[]}
    */
-  populateEntities(data) {
+  populateEntities(data: {} | any[]) {
     if (!data) {
       return [];
     }
@@ -94,7 +94,7 @@ export class EntityManager {
       return this.populateEntity(data);
     }
 
-    let entities = [];
+    const entities = [];
     data.forEach(entityData => {
       entities.push(this.populateEntity(entityData));
     });
@@ -106,16 +106,16 @@ export class EntityManager {
    *
    * @param {{}} data
    */
-  populateEntity(data) {
-    let entity = this.getEntity();
-    let entityAssociations = entity.getAssociations();
-    let entityData = {};
+  populateEntity(data: {}) {
+    const entity = this.getEntity();
+    const entityAssociations = entity.getAssociations();
+    const entityData = {};
     for (let key in data) {
-      let value = data[key];
+      const value = data[key];
 
       if (entityAssociations[key] && typeof value === 'object') {
         // TODO: those entities are not observable right now!
-        let associationEntityManager = this.persistenceUnit.getEntityManager(entityAssociations[key]);
+        const associationEntityManager = this.persistenceUnit.getEntityManager(entityAssociations[key]);
         entityData[key] = associationEntityManager.populateEntity(value);
         continue;
       }

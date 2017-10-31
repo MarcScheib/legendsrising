@@ -4,17 +4,17 @@ import { Entity } from './entity';
 
 @resolver()
 export class EntityManagerFactory {
+  entity: Entity | string;
+
   /**
    * Get a new Entity Manager for `entity`.
    *
    * @param {Entity|string} entity - The entity class or name of the entity
    * @returns {EntityManagerFactory} Resolves to the Entity Manager for this entity
    */
-  static of(entity) {
+  static of(entity: Entity | string) {
     return new EntityManagerFactory(entity);
   }
-
-  entity: Entity;
 
   /**
    * Get a new Entity Manager for `entity`.
@@ -22,7 +22,7 @@ export class EntityManagerFactory {
    * @param {Entity|string} entity - The entity class or name of the entity
    * @constructor
    */
-  constructor(entity) {
+  constructor(entity: Entity | string) {
     this.entity = entity;
   }
 

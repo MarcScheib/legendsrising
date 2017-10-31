@@ -8,7 +8,7 @@ export class LoggedInUser {
   user = {};
 
   constructor(private eventAggregator: EventAggregator,
-              private  authService: AuthService) {
+              private authService: AuthService) {
     this.isLoggedIn = this.authService.isAuthenticated();
     this.eventAggregator.subscribe('authentication-change', this.authStateChanged.bind(this));
 

@@ -47,12 +47,12 @@ export class PersistenceUnit {
    * @param {Entity|string} entity the entity class or name of the entity
    * @return {EntityManager} the corresponding entity manager
    */
-  getEntityManager(entity) {
+  getEntityManager(entity: Entity | string) {
     if (!entity) {
       throw new Error(`Can't load an entity manager without an entity`);  // eslint-disable-line quotes
     }
 
-    let entityReference = this.resolveEntityReference(entity);
+    const entityReference = this.resolveEntityReference(entity);
     let resource = entity;
 
     if (typeof entityReference.getResource === 'function') {
@@ -65,7 +65,8 @@ export class PersistenceUnit {
 
     let entityManager = this.entityManagers[resource];
     if (!entityManager) {
-      entityManager = new EntityManager(this, this.container, this.apiConfig.getEndpoint(undefined), entityReference); // TODO: getEndpoint() has wrong type
+      // TODO: getEndpoint() has wrong type
+      entityManager = new EntityManager(this, this.container, this.apiConfig.getEndpoint(undefined), entityReference);
       this.entityManagers[resource] = entityManager;
     }
     return entityManager;
@@ -78,7 +79,7 @@ export class PersistenceUnit {
    * @return {Entity} the entity class resolved from the given class/name
    * @throws Error
    */
-  resolveEntityReference(entity) {
+  resolveEntityReference(entity: Entity | string): Entity {
     let entityReference = entity;
     if (typeof entity === 'string') {
       entityReference = this.entities[entity] || Entity;

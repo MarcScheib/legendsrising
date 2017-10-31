@@ -1,6 +1,12 @@
-import { activationStrategy } from 'aurelia-router';
-import { _hyphenate, _titlecase } from '../../utilities/util';
 import { PLATFORM } from 'aurelia-pal';
+import {
+  activationStrategy,
+  RoutableComponentActivate,
+  RoutableComponentDetermineActivationStrategy,
+  RouteConfig
+} from 'aurelia-router';
+
+import { _hyphenate, _titlecase } from '../../utilities/util';
 
 const pages = {
   'legal-notice': PLATFORM.moduleName('application/page/legal-notice.html'),
@@ -8,7 +14,7 @@ const pages = {
   'story': PLATFORM.moduleName('application/page/story.html')
 };
 
-export class Index {
+export class Index implements RoutableComponentActivate, RoutableComponentDetermineActivationStrategy {
   view: string;
 
   determineActivationStrategy() {
@@ -19,7 +25,7 @@ export class Index {
     return pages[this.view];
   }
 
-  activate(params, routeConfig) {
+  activate(params: any, routeConfig: RouteConfig) {
     this.view = _hyphenate(params.view);
     routeConfig.navModel.setTitle(_titlecase(params.view));
   }

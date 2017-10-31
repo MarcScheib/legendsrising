@@ -1,30 +1,34 @@
-import {inject} from 'aurelia-framework';
-import {NotificationService} from 'aurelia-notify';
-import {DataListController} from '../../resources/features/data-list/index';
-import {LoggedInUser} from '../../resources/entities/logged-in-user';
-import {EntityManagerFactory} from '../../resources/features/persistence/index';
-import {NewsEntity} from '../../resources/entities/news-entity';
-import {NewsCommentsService} from '../../services/news/news-comments-service';
+import { inject } from 'aurelia-framework';
+import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
+import { NotificationService } from 'aurelia-notify';
+
+import { DataListController } from '../../resources/features/data-list/index';
+import { LoggedInUser } from '../../resources/entities/logged-in-user';
+import { EntityManagerFactory } from '../../resources/features/persistence/index';
+import { NewsEntity } from '../../resources/entities/news-entity';
+import { NewsCommentsService } from '../../services/news/news-comments-service';
+import { EntityManager } from '../../resources/features/persistence/entity-manager';
 
 const ENTER_KEY = 13;
 
 @inject(EntityManagerFactory.of(NewsEntity), NewsCommentsService, NotificationService, LoggedInUser)
-export class View {
-  newsId = -1;
+export class View implements RoutableComponentActivate {
+  dataListController: DataListController;
+
+  newsId: number = -1;
   news: NewsEntity;
-  comments = [];
+  comment: any;
+  comments: any[] = [];
 
 
-  constructor(entityManager, newsCommentsService, notificationService, loggedInUser) {
-    this.entityManager = entityManager;
-    this.newsCommentsService = newsCommentsService;
-    this.notificationService = notificationService;
-    this.loggedInUser = loggedInUser;
-
+  constructor(private entityManager: EntityManager,
+              private newsCommentsService: NewsCommentsService,
+              private notificationService: NotificationService,
+              private loggedInUser: LoggedInUser) {
     this.dataListController = new DataListController(options => this.loadMore(options));
   }
 
-  activate(params, routeConfig) {
+  activate(params: any, routeConfig: RouteConfig) {
     this.newsId = params.id;
 
     return this.entityManager
@@ -40,13 +44,13 @@ export class View {
       });
   }
 
-  onKeyUp(event) {
+  onKeyUp(event: KeyboardEvent) {
     if (event.keyCode === ENTER_KEY) {
       this.addNewComment(this.comment);
     }
   }
 
-  addNewComment(comment) {
+  addNewComment(comment: any) {
     if (comment === undefined) {
       return;
     }
@@ -69,7 +73,7 @@ export class View {
       });
   }
 
-  loadMore(page) {
+  loadMore(page: number) {
     return this.newsCommentsService
       .getAll(this.newsId, page);
   }

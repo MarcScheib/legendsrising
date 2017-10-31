@@ -1,13 +1,13 @@
-import {inject} from 'aurelia-framework';
-import {Endpoint} from 'aurelia-api';
+import { inject } from 'aurelia-framework';
+import { Endpoint, Rest } from 'aurelia-api';
 
 @inject(Endpoint.of())
 export class NewsCommentsService {
-  constructor(apiClient) {
+  constructor(private apiClient: Rest) {
     this.apiClient = apiClient;
   }
 
-  getAll(newsId, page = 1) {
+  getAll(newsId: number, page: number = 1) {
     return this.apiClient
       .find('news/' + newsId + '/comments', {
         '_page': page,
@@ -16,7 +16,7 @@ export class NewsCommentsService {
       .catch(error => Promise.reject(error));
   }
 
-  add(newsId, comment) {
+  add(newsId: number, comment: any) {
     return this.apiClient
       .create('news/' + newsId + '/comments', comment);
   }

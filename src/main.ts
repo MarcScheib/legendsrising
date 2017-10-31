@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.css';
 import { Aurelia, LogManager } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { ConsoleAppender } from 'aurelia-logging-console';
+
 import authConfig from './configuration/auth-config';
 
 export async function configure(aurelia: Aurelia) {

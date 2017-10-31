@@ -6,5 +6,5 @@ import { UserEntity } from './user-entity';
 @resource('news')
 export class NewsEntity extends Entity {
   @hasOne(UserEntity)
-  user = null;
+  user: UserEntity = null;
 }

@@ -1,23 +1,22 @@
-import {inject} from 'aurelia-framework';
-import {Endpoint} from 'aurelia-api';
+import { inject } from 'aurelia-framework';
+import { Endpoint, Rest } from 'aurelia-api';
 
 @inject(Endpoint.of())
 export class UserService {
-  constructor(apiClient) {
-    this.apiClient = apiClient;
+  constructor(private apiClient: Rest) {
   }
 
-  get(id) {
+  get(id: number) {
     return this.apiClient
       .find('users', id);
   }
 
-  signUp(user) {
+  signUp(user: any) {
     return this.apiClient
       .create('users', user);
   }
 
-  isUsernameExisting(username) {
+  isUsernameExisting(username: string) {
     return this.apiClient
       .find('users', {
         'username': username
@@ -27,7 +26,7 @@ export class UserService {
       });
   }
 
-  isEmailExisting(email) {
+  isEmailExisting(email: string) {
     return this.apiClient
       .find('users', {
         'email': email

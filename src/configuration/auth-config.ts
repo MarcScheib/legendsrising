@@ -1,4 +1,4 @@
-let authConfig = {
+const authConfig = {
   endpoint: 'dev',
   configureEndpoints: ['dev'],
   signupUrl: 'user',

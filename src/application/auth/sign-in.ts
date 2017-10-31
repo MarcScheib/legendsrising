@@ -1,23 +1,20 @@
-import {inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-authentication';
-import {NotificationService} from 'aurelia-notify';
-import {Router} from 'aurelia-router';
-import {LoggedInUser} from '../../resources/entities/logged-in-user';
+import { inject } from 'aurelia-framework';
+import { AuthService } from 'aurelia-authentication';
+import { NotificationService } from 'aurelia-notify';
+import { LoggedInUser } from '../../resources/entities/logged-in-user';
 
-@inject(AuthService, NotificationService, Router, LoggedInUser)
+@inject(AuthService, NotificationService, LoggedInUser)
 export class SignIn {
-  username = '';
-  password = '';
+  username: string = '';
+  password: string = '';
 
-  constructor(authService, notification, router, loggedInUser) {
-    this.authService = authService;
-    this.notification = notification;
-    this.router = router;
-    this.loggedInUser = loggedInUser;
+  constructor(private authService: AuthService,
+              private notification: NotificationService,
+              private loggedInUser: LoggedInUser) {
   }
 
   signIn() {
-    let userInfo = {username: this.username, password: this.password};
+    const userInfo = {username: this.username, password: this.password};
     return this.authService.login(userInfo)
       .then(() => this.authService.getMe())
       .then(user => {
