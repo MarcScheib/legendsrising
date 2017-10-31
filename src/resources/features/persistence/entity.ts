@@ -1,5 +1,5 @@
-import {transient} from 'aurelia-framework';
-import {metadata} from 'aurelia-metadata';
+import { transient } from 'aurelia-framework';
+import { metadata } from 'aurelia-metadata';
 
 @transient()
 export class Entity {
@@ -9,7 +9,7 @@ export class Entity {
    * @return {string|null}
    */
   static getResource() {
-    let meta = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
+    let meta: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
     return meta.get('resource');
   }
 

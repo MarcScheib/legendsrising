@@ -1,5 +1,6 @@
-import {resolver} from 'aurelia-framework';
-import {PersistenceUnit} from './persistence-unit';
+import { Container, resolver } from 'aurelia-framework';
+import { PersistenceUnit } from './persistence-unit';
+import { Entity } from './entity';
 
 @resolver()
 export class EntityManagerFactory {
@@ -12,6 +13,8 @@ export class EntityManagerFactory {
   static of(entity) {
     return new EntityManagerFactory(entity);
   }
+
+  entity: Entity;
 
   /**
    * Get a new Entity Manager for `entity`.
@@ -29,7 +32,7 @@ export class EntityManagerFactory {
    * @param {Container} container - Aurelia's DI container
    * @returns {EntityManager}
    */
-  get(container) {
+  get(container: Container) {
     return container.get(PersistenceUnit).getEntityManager(this.entity);
   }
 }

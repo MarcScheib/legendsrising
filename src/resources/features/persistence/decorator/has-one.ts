@@ -1,4 +1,4 @@
-import {metadata} from 'aurelia-metadata';
+import { metadata } from 'aurelia-metadata';
 
 /**
  * Associates a property with an entity.
@@ -8,13 +8,13 @@ import {metadata} from 'aurelia-metadata';
  * @decorator
  */
 export function hasOne(association) {
-  return function(target, propertyName, descriptor) {
+  return function (target, propertyName, descriptor) {
     if (!association) {
       association = propertyName;
     }
 
-    let objectMetadata = metadata.getOrCreateOwn(metadata.paramTypes, Map, target.constructor, target.constructor.name);
-    let associations = objectMetadata.get('associations');
+    let objectMetadata: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, target.constructor, target.constructor.name);
+    let associations: any = objectMetadata.get('associations');
     if (!associations) {
       associations = {};
       objectMetadata.set('associations', associations);

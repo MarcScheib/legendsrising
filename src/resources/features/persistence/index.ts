@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-import {PersistenceUnit} from './persistence-unit';
+import { PersistenceUnit } from './persistence-unit';
 
 /**
  * Persistence feature configuration
@@ -18,7 +17,7 @@ export function configure(frameworkConfig, configure) {
   }
 }
 
-export {PersistenceUnit} from './persistence-unit';
-export {EntityManagerFactory} from './entity-manager-factory';
-export {EntityManager} from './entity-manager';
-export {Entity} from './entity';
+export { PersistenceUnit } from './persistence-unit';
+export { EntityManagerFactory } from './entity-manager-factory';
+export { EntityManager } from './entity-manager';
+export { Entity } from './entity';

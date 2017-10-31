@@ -1,5 +1,7 @@
 export class DataListController {
-  constructor(dataCollector) {
+  dataCollector: (number) => any;
+
+  constructor(dataCollector: (number) => any) {
     this.dataCollector = dataCollector;
   }
 

@@ -1,3 +1,8 @@
+import { Container } from 'aurelia-framework';
+import { Rest } from 'aurelia-api';
+import { PersistenceUnit } from './persistence-unit';
+import { Entity } from './entity';
+
 export class EntityManager {
   /**
    * Construct a new EntityManager for an entity.
@@ -7,11 +12,10 @@ export class EntityManager {
    * @param {Rest} api
    * @param {Entity} entityClass
    */
-  constructor(persistenceUnit, container, api, entityClass) {
-    this.persistenceUnit = persistenceUnit;
-    this.container = container;
-    this.api = api;
-    this.entityClass = entityClass;
+  constructor(private persistenceUnit: PersistenceUnit,
+              private container: Container,
+              private api: Rest,
+              private entityClass: Entity) {
   }
 
   /**
@@ -57,7 +61,7 @@ export class EntityManager {
    * @param {boolean} [single] - Set to true to get a single entity instead of a collection.
    * @return {Promise<Entity|[Entity]>}
    */
-  findResource(resource, criteria, raw, single) {
+  findResource(resource, criteria, raw, single?) {
     let result;
     if (single) {
       result = this.api.findOne(resource, criteria);

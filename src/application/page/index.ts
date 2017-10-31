@@ -1,10 +1,10 @@
-import {activationStrategy} from 'aurelia-router';
-import {_hyphenate} from 'aurelia-templating';
-import {_titlecase} from '../../utilities/util';
+import { activationStrategy } from 'aurelia-router';
+import { _hyphenate, _titlecase } from '../../utilities/util';
 
 export class Index {
-  constructor() {
+  view: string;
 
+  constructor() {
   }
 
   determineActivationStrategy() {

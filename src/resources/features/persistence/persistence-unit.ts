@@ -1,12 +1,12 @@
-import {Container, inject} from 'aurelia-framework';
-import {Config} from 'aurelia-api';
-import {EntityManager} from './entity-manager';
-import {Entity} from './entity';
+import { autoinject, Container } from 'aurelia-framework';
+import { Config } from 'aurelia-api';
+import { EntityManager } from './entity-manager';
+import { Entity } from './entity';
 
 /**
  * The Persistence Unit class. Creates entity managers based on entities for a specific endpoint.
  */
-@inject(Container, Config)
+@autoinject()
 export class PersistenceUnit {
   /**
    * Collection of configured entity managers.
@@ -25,9 +25,8 @@ export class PersistenceUnit {
    * @param {Config} apiConfig
    * @constructor
    */
-  constructor(container, apiConfig) {
-    this.container = container;
-    this.apiConfig = apiConfig;
+  constructor(private container: Container,
+              private apiConfig: Config) {
   }
 
   /**
@@ -66,7 +65,7 @@ export class PersistenceUnit {
 
     let entityManager = this.entityManagers[resource];
     if (!entityManager) {
-      entityManager = new EntityManager(this, this.container, this.apiConfig.getEndpoint(), entityReference);
+      entityManager = new EntityManager(this, this.container, this.apiConfig.getEndpoint(undefined), entityReference); // TODO: getEndpoint() has wrong type
       this.entityManagers[resource] = entityManager;
     }
     return entityManager;

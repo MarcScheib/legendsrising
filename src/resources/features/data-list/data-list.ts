@@ -1,4 +1,12 @@
-import {BindingEngine, bindable, bindingMode, customElement, containerless, inject, inlineView} from 'aurelia-framework';
+import {
+  BindingEngine,
+  bindable,
+  bindingMode,
+  customElement,
+  containerless,
+  inject,
+  inlineView
+} from 'aurelia-framework';
 
 @containerless
 @customElement('data-list')
@@ -13,11 +21,9 @@ export class DataListElement {
   @bindable({defaultBindingMode: bindingMode.twoWay}) model;
   @bindable controller;
 
-  bindingEngine;
   pageObserver;
 
-  constructor(bindingEngine) {
-    this.bindingEngine = bindingEngine;
+  constructor(private bindingEngine: BindingEngine) {
   }
 
   attached() {

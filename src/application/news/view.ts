@@ -10,7 +10,10 @@ const ENTER_KEY = 13;
 
 @inject(EntityManagerFactory.of(NewsEntity), NewsCommentsService, NotificationService, LoggedInUser)
 export class View {
+  newsId = -1;
+  news: NewsEntity;
   comments = [];
+
 
   constructor(entityManager, newsCommentsService, notificationService, loggedInUser) {
     this.entityManager = entityManager;
