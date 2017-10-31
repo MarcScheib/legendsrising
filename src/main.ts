@@ -8,7 +8,7 @@ import authConfig from './configuration/auth-config';
 
 export async function configure(aurelia: Aurelia) {
   LogManager.addAppender(new ConsoleAppender());
-  LogManager.setLevel('debug'); // TODO: env was used here before
+  LogManager.setLevel(4); // TODO: env was used here before
 
   // Specify official libraries
   aurelia.use
