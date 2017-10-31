@@ -1,3 +1,6 @@
+import '../scss/style.scss';
+import 'font-awesome/css/font-awesome.css';
+
 import { Aurelia, LogManager } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { ConsoleAppender } from 'aurelia-logging-console';
@@ -28,7 +31,7 @@ export async function configure(aurelia: Aurelia) {
   aurelia.use
     .plugin(PLATFORM.moduleName('aurelia-api'), config => {
       config
-        .registerEndpoint('dev', 'rest') // TODO: env was used here before
+        .registerEndpoint('dev', 'http://localhost:3000/') // TODO: env was used here before
         .setDefaultEndpoint('dev');
     })
     .plugin(PLATFORM.moduleName('aurelia-authentication'), config => {
