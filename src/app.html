@@ -1,8 +1,8 @@
 <template>
+  <require from="resources/view-elements/loading-indicator"></require>
   <require from="resources/view-elements/navigation-top"></require>
   <require from="resources/view-elements/navigation-side"></require>
   <require from="resources/view-elements/footer.html"></require>
-  <require from="resources/view-elements/loading-indicator"></require>
 
   <loading-indicator loading.bind="router.isNavigating || api.client.isRequesting"></loading-indicator>
 

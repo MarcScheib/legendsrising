@@ -1,5 +1,5 @@
 import {ViewLocator} from 'aurelia-framework';
-import {configure} from '../../../src/legendsrising';
+import {configure} from '../../../src/main';
 import {AureliaStub} from '../fixtures/AureliaStub';
 
 describe('the app configuration', () => {
