@@ -20,7 +20,8 @@
     "api:start": "./node_modules/.bin/json-server --watch ./test/api/dev.json",
     "build:dev": "rimraf dist && webpack --progress -d",
     "server": "webpack-dev-server -d --inline --env.server",
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server",
+    "bump-version": "npm --no-git-tag-version version"
   },
   "devDependencies": {
     "@types/jest": "20.0.4",
