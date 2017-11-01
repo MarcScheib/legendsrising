@@ -23,27 +23,10 @@ To build the code, follow these steps.
   ```shell
   npm install
   ```
-3. Ensure that [Gulp](http://gulpjs.com/) is installed. If you need to install it, use the following command:
+3. To build the code, you can now run:
 
   ```shell
-  npm install -g gulp
-  ```
-4. Ensure that [jspm](http://jspm.io/) is installed. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g jspm
-  ```
-  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm endpoint config github` and following the prompts.
-5. Install the client-side dependencies with jspm:
-
-  ```shell
-  jspm install
-  ```
-  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-6. To build the code, you can now run:
-
-  ```shell
-  gulp build
+  npm run build:dev
   ```
   
 ## Running The Tests
@@ -60,3 +43,19 @@ To run the unit tests, first ensure that you have followed the steps above in or
   ```shell
   karma start
   ```
+  
+## Releasing A New Version
+
+1. Bump the version
+  
+  ```shell
+  npm run bump-version [<newversion> | major | minor | patch]
+  ```
+
+2. Prepare the release (run tests, run build, docs, release notes)
+  
+  ```shell
+  npm run prepare-release
+  ```
+
+3. Commit and tag
