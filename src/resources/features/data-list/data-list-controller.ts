@@ -1,11 +1,11 @@
 export class DataListController {
-  dataCollector: (number) => any;
+  dataCollector: (page: number) => any;
 
-  constructor(dataCollector: (number) => any) {
+  constructor(dataCollector: (page: number) => any) {
     this.dataCollector = dataCollector;
   }
 
-  fetchData(page) {
+  fetchData(page: number) {
     return this.dataCollector(page);
   }
 }

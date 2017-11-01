@@ -1,9 +1,9 @@
-import { BindingEngine, customElement, inject, noView } from 'aurelia-framework';
+import { autoinject, BindingEngine, customElement, noView } from 'aurelia-framework';
 import { globalSettings, NavState } from './nav-state';
 
 @noView()
 @customElement('navigation')
-@inject(BindingEngine, NavState, Element)
+@autoinject()
 export class Navigation {
   private windowResizeListener: () => any;
   private outsideClickListener: (event?) => any;

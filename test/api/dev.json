@@ -1,16 +1,61 @@
 {
   "news": [
-    { "id": 1, "userId": 1, "title": "json-server", "text": "test news", "created_at": "08.01.2017" },
-    { "id": 2, "userId": 1, "title": "test api", "text": "test news", "created_at": "08.01.2017" }
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "json-server",
+      "text": "test news",
+      "created_at": "08.01.2017"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "test api",
+      "text": "test news",
+      "created_at": "08.01.2017"
+    }
   ],
   "comments": [
-    { "id": 1, "newsId": 1, "userId": 1, "text": "some comment", "created_at": "08.01.2017" }
+    {
+      "id": 1,
+      "newsId": 1,
+      "userId": 1,
+      "text": "some comment",
+      "created_at": "08.01.2017"
+    }
   ],
   "faqs": [
-    { "id": 1, "question": "Hey Ho lets go", "answer": "some answer", "created_at": "08.01.2017" },
-    { "id": 2, "question": "och kommm", "answer": "some answer 2", "created_at": "08.01.2017" }
+    {
+      "id": 1,
+      "question": "Hey Ho lets go",
+      "answer": "some answer",
+      "created_at": "08.01.2017"
+    },
+    {
+      "id": 2,
+      "question": "och kommm",
+      "answer": "some answer 2",
+      "created_at": "08.01.2017"
+    }
   ],
   "users": [
-    { "id": 1, "username": "Marc", "email": "test@test.de", "created_at": "08.01.2017", "updated_at": "08.01.2017" }
+    {
+      "id": 1,
+      "username": "Marc",
+      "email": "test@test.de",
+      "created_at": "08.01.2017",
+      "updated_at": "08.01.2017"
+    },
+    {
+      "id": 2
+    },
+    {
+      "username": "tesss",
+      "email": "test",
+      "id": 3
+    },
+    {
+      "id": 4
+    }
   ]
 }

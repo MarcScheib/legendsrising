@@ -1,11 +1,12 @@
 import { autoinject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { AuthService } from 'aurelia-authentication';
+import { UserEntity } from './user-entity';
 
 @autoinject()
 export class LoggedInUser {
-  isLoggedIn = false;
-  user = {};
+  isLoggedIn: boolean = false;
+  user: UserEntity;
 
   constructor(private eventAggregator: EventAggregator,
               private authService: AuthService) {
@@ -27,10 +28,10 @@ export class LoggedInUser {
     }
   }
 
-  authStateChanged(authenticated) {
+  authStateChanged(authenticated: boolean) {
     this.isLoggedIn = authenticated;
     if (authenticated === false) {
-      this.user = {};
+      this.user = null;
     }
   }
 }

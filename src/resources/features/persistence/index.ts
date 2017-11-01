@@ -9,7 +9,7 @@ import { PersistenceUnit } from './persistence-unit';
  */
 export function configure(frameworkConfig, configure) {
   // create a new instance of the PersistenceUnit
-  let persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
+  const persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
 
   // configure feature
   if (configure !== undefined && typeof configure === 'function') {

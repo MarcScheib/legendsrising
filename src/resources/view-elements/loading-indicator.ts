@@ -3,9 +3,9 @@ import {bindable, noView} from 'aurelia-framework';
 
 @noView
 export class LoadingIndicator {
-  @bindable loading = false;
+  @bindable loading: boolean = false;
 
-  loadingChanged(newValue) {
+  loadingChanged(newValue: any) {
     if (newValue) {
       nprogress.configure({ showSpinner: false });
       nprogress.start();

@@ -1,9 +1,9 @@
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
 
 import { UserService } from '../../services/users/user-service';
 
-@inject(UserService)
+@autoinject()
 export class View implements RoutableComponentActivate {
   user: any;
 

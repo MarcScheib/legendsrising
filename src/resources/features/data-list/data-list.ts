@@ -1,10 +1,10 @@
 import {
-  BindingEngine,
+  autoinject,
   bindable,
+  BindingEngine,
   bindingMode,
-  customElement,
   containerless,
-  inject,
+  customElement,
   inlineView
 } from 'aurelia-framework';
 
@@ -15,7 +15,7 @@ import {
     <slot></slot>
   </template>
 `)
-@inject(BindingEngine)
+@autoinject()
 export class DataListElement {
   @bindable({defaultBindingMode: bindingMode.twoWay}) data;
   @bindable({defaultBindingMode: bindingMode.twoWay}) model;

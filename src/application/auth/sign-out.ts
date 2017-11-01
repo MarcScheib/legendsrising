@@ -1,8 +1,8 @@
+import { autoinject } from 'aurelia-framework';
 import { AuthService } from 'aurelia-authentication';
-import { inject } from 'aurelia-framework';
 import { NotificationService } from 'aurelia-notify';
 
-@inject(AuthService, NotificationService)
+@autoinject()
 export class SignOut {
   constructor(private auth: AuthService,
               private notification: NotificationService) {

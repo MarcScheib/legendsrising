@@ -1,4 +1,4 @@
-import {customElement, containerless, bindable, bindingMode, inlineView} from 'aurelia-framework';
+import { bindable, bindingMode, containerless, customElement, inlineView } from 'aurelia-framework';
 
 @containerless
 @customElement('data-loader')

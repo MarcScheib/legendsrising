@@ -1,12 +1,13 @@
 import { inject, NewInstance } from 'aurelia-framework';
 import { NotificationService } from 'aurelia-notify';
-import { Router } from 'aurelia-router';
+import { RoutableComponentActivate, RoutableComponentDeactivate, Router } from 'aurelia-router';
 import { validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
+
 import { BootstrapFormRenderer } from '../../resources/validation/bootstrap-form-renderer';
 import { UserService } from '../../services/users/user-service';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
-export class SignUp {
+export class SignUp implements RoutableComponentActivate, RoutableComponentDeactivate {
   validationRenderer: BootstrapFormRenderer;
   username: string;
   email: string;
@@ -40,7 +41,7 @@ export class SignUp {
               accept(false);
             });
         });
-      }).withMessage(`\${$displayName} is already taken.`)  // eslint-disable-line quotes
+      }).withMessage(`\${$displayName} is already taken.`)
       .ensure('email')
       .required()
       .email().withMessage('This is not a valid email address.')
@@ -60,7 +61,7 @@ export class SignUp {
               accept(false);
             });
         });
-      }).withMessage(`\${$displayName} is already taken.`) // eslint-disable-line quotes
+      }).withMessage(`\${$displayName} is already taken.`)
       .ensure('password')
       .required()
       .minLength(8)
@@ -71,6 +72,7 @@ export class SignUp {
         return newValue === this.password;
       }).withMessage('Your chosen passwords must match each other.')
       .on(this);
+    console.log(this.validationController);
   }
 
   activate() {

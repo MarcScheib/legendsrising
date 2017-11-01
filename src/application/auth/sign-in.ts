@@ -1,9 +1,9 @@
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { AuthService } from 'aurelia-authentication';
 import { NotificationService } from 'aurelia-notify';
 import { LoggedInUser } from '../../resources/entities/logged-in-user';
 
-@inject(AuthService, NotificationService, LoggedInUser)
+@autoinject()
 export class SignIn {
   username: string = '';
   password: string = '';
