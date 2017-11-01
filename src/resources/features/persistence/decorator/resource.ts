@@ -1,4 +1,5 @@
 import { metadata } from 'aurelia-metadata';
+import { Entity } from '../entity';
 
 /**
  * Sets the 'resource' metadata on the entity.
@@ -7,8 +8,8 @@ import { metadata } from 'aurelia-metadata';
  * @return {function}
  * @decorator
  */
-export function resource(resource) {
-  return function (target) {
+export function resource(resource: string) {
+  return function <T extends typeof Entity>(target: T) {
     const object: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, target, target.name);
     object.set('resource', resource || target.name.toLowerCase());
   };

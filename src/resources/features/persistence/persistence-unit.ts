@@ -1,5 +1,6 @@
 import { autoinject, Container } from 'aurelia-framework';
 import { Config } from 'aurelia-api';
+
 import { EntityManager } from './entity-manager';
 import { Entity } from './entity';
 
@@ -34,7 +35,7 @@ export class PersistenceUnit {
    *
    * @param {function} entityClass
    */
-  registerEntity(entityClass) {
+  registerEntity(entityClass: typeof Entity): void {
     if (typeof entityClass !== 'function') {
       throw new Error(`Can't register an entity of type ${typeof entityClass}. Expected function.`);
     }
@@ -44,12 +45,12 @@ export class PersistenceUnit {
   /**
    * Returns the entity manager of an entity class.
    *
-   * @param {Entity|string} entity the entity class or name of the entity
+   * @param {function|string} entity the entity class or name of the entity
    * @return {EntityManager} the corresponding entity manager
    */
-  getEntityManager(entity: Entity | string) {
+  getEntityManager(entity: typeof Entity | string): EntityManager {
     if (!entity) {
-      throw new Error(`Can't load an entity manager without an entity`);  // eslint-disable-line quotes
+      throw new Error(`Can't load an entity manager without an entity`);
     }
 
     const entityReference = this.resolveEntityReference(entity);
@@ -75,11 +76,11 @@ export class PersistenceUnit {
   /**
    * Returns the class reference of an entity.
    *
-   * @param {Entity|string} entity the entity class  or name of the entity
+   * @param {function|string} entity the entity class  or name of the entity
    * @return {Entity} the entity class resolved from the given class/name
    * @throws Error
    */
-  resolveEntityReference(entity: Entity | string): Entity {
+  resolveEntityReference(entity: typeof Entity | string): typeof Entity {
     let entityReference = entity;
     if (typeof entity === 'string') {
       entityReference = this.entities[entity] || Entity;

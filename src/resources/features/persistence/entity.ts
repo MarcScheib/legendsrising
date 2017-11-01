@@ -4,24 +4,24 @@ import { metadata } from 'aurelia-metadata';
 @transient()
 export class Entity {
   /**
-   * Get the resource name of this entity's class reference.
-   *
-   * @return {string|null}
-   */
-  static getResource() {
-    let meta: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
-    return meta.get('resource');
-  }
-
-  /**
    * Metadata object of this entity.
    */
-  _metadata;
+  _metadata: any;
 
   /**
    * Resource name of this entity.
    */
-  _resource;
+  _resource: string;
+
+  /**
+   * Get the resource name of this entity's class reference.
+   *
+   * @return {string|null}
+   */
+  static getResource(): string {
+    const meta: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, this, this.name);
+    return meta.get('resource');
+  }
 
   /**
    * Construct a new entity.
@@ -35,7 +35,7 @@ export class Entity {
    *
    * @return {string|null}
    */
-  getResource() {
+  getResource(): string {
     return this._resource || this._metadata.get('resource');
   }
 
@@ -44,7 +44,7 @@ export class Entity {
    *
    * @param {string} resource - the resource name of the entity.
    */
-  setResource(resource) {
+  setResource(resource: string): void {
     this._resource = resource;
   }
 

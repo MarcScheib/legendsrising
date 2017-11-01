@@ -1,19 +1,20 @@
 import { metadata } from 'aurelia-metadata';
+import { Entity } from '../entity';
 
 /**
  * Associates a property with an entity.
  *
- * @param {undefined|string|Entity} association - The associated entity
+ * @param {string|Entity} [association] - The associated entity
  * @return {function}
  * @decorator
  */
-export function hasOne(association) {
-  return function (target, propertyName, descriptor) {
+export function hasOne(association?: string | typeof Entity): (target: any, propertyName: string) => void {
+  return function (target: any, propertyName: string): void {
     if (!association) {
       association = propertyName;
     }
 
-    let objectMetadata: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, target.constructor, target.constructor.name);
+    const objectMetadata: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, target.constructor, target.constructor.name);
     let associations: any = objectMetadata.get('associations');
     if (!associations) {
       associations = {};

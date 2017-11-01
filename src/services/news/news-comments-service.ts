@@ -1,7 +1,7 @@
 import { inject } from 'aurelia-framework';
 import { Endpoint, Rest } from 'aurelia-api';
 
-@inject(Endpoint.of()) // TODO required new aurelia-api version with optional param
+@inject(Endpoint.of(undefined)) // TODO required new aurelia-api version with optional param
 export class NewsCommentsService {
   constructor(private apiClient: Rest) {
     this.apiClient = apiClient;

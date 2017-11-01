@@ -1,5 +1,6 @@
 import { Container } from 'aurelia-framework';
 import { Rest } from 'aurelia-api';
+
 import { PersistenceUnit } from './persistence-unit';
 import { Entity } from './entity';
 
@@ -10,12 +11,12 @@ export class EntityManager {
    * @param {PersistenceUnit} persistenceUnit
    * @param {Container} container
    * @param {Rest} api
-   * @param {Entity} entityClass
+   * @param {typeof Entity} entityClass
    */
   constructor(private persistenceUnit: PersistenceUnit,
               private container: Container,
               private api: Rest,
-              private entityClass: Entity) {
+              private entityClass: typeof Entity) {
   }
 
   /**
