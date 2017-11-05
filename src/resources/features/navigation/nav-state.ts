@@ -1,11 +1,11 @@
-let globalSettings = {
+const globalSettings = {
   maxWidthMobileNav: 992
 };
 
 class NavState {
-  mobileNav = false;
-  navToggled = true;
-  mobileNavToggled = false;
+  mobileNav: boolean = false;
+  navToggled: boolean = true;
+  mobileNavToggled: boolean = false;
 
   constructor() {
     if (window.innerWidth < globalSettings.maxWidthMobileNav) {
@@ -15,7 +15,7 @@ class NavState {
     }
   }
 
-  toggle() {
+  toggle(): void {
     if (this.mobileNav) {
       this.mobileNavToggled = !this.mobileNavToggled;
     } else {
@@ -23,19 +23,19 @@ class NavState {
     }
   }
 
-  setMobileNavToggled(state) {
+  setMobileNavToggled(state: boolean): void {
     this.mobileNavToggled = state;
   }
 
-  isMobileNavToggled() {
+  isMobileNavToggled(): boolean {
     return this.mobileNavToggled;
   }
 
-  setMobileNav(mobileNav) {
+  setMobileNav(mobileNav: boolean) {
     this.mobileNav = mobileNav;
   }
 
-  isMobileNav() {
+  isMobileNav(): boolean {
     return this.mobileNav;
   }
 }

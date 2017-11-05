@@ -111,7 +111,7 @@ export class EntityManager {
     const entity = this.getEntity();
     const entityAssociations = entity.getAssociations();
     const entityData = {};
-    for (let key in data) {
+    for (const key in data) {
       const value = data[key];
 
       if (entityAssociations[key] && typeof value === 'object') {

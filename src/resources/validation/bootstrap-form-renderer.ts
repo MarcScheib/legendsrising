@@ -1,13 +1,13 @@
 export class BootstrapFormRenderer {
   render(instruction) {
-    for (let {result, elements} of instruction.unrender) {
-      for (let element of elements) {
+    for (const {result, elements} of instruction.unrender) {
+      for (const element of elements) {
         this.remove(element, result);
       }
     }
 
-    for (let {result, elements} of instruction.render) {
-      for (let element of elements) {
+    for (const {result, elements} of instruction.render) {
+      for (const element of elements) {
         this.add(element, result);
       }
     }
