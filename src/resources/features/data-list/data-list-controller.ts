@@ -5,7 +5,7 @@ export class DataListController {
     this.dataCollector = dataCollector;
   }
 
-  fetchData(page: number) {
+  fetchData(page: number): any {
     return this.dataCollector(page);
   }
 }

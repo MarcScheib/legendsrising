@@ -10,9 +10,9 @@ import { bindable, bindingMode, containerless, customElement, inlineView } from 
   </template>
 `)
 export class DataLoaderElement {
-  @bindable({defaultBindingMode: bindingMode.twoWay}) dataListModel;
+  @bindable({defaultBindingMode: bindingMode.twoWay}) dataListModel: any;
 
-  nextPage() {
+  nextPage(): void {
     this.dataListModel.currentPage++;
   }
 }

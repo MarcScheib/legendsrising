@@ -7,6 +7,10 @@ import {
   customElement,
   inlineView
 } from 'aurelia-framework';
+import { ComponentAttached, ComponentDetached } from 'aurelia-templating';
+import { Disposable } from 'aurelia-binding';
+
+import { DataListController } from './data-list-controller';
 
 @containerless
 @customElement('data-list')
@@ -16,39 +20,39 @@ import {
   </template>
 `)
 @autoinject()
-export class DataListElement {
-  @bindable({defaultBindingMode: bindingMode.twoWay}) data;
-  @bindable({defaultBindingMode: bindingMode.twoWay}) model;
-  @bindable controller;
+export class DataListElement implements ComponentAttached, ComponentDetached {
+  @bindable({defaultBindingMode: bindingMode.twoWay}) data: any[];
+  @bindable({defaultBindingMode: bindingMode.twoWay}) model: any;
+  @bindable controller: DataListController;
 
-  pageObserver;
+  pageObserver: Disposable;
 
   constructor(private bindingEngine: BindingEngine) {
   }
 
-  attached() {
+  attached(): void {
     this.data = [];
     this.model = {loading: true, currentPage: 1, lastPage: 1, totalPages: 1};
     this.pageObserver = this.bindingEngine.propertyObserver(this.model, 'currentPage').subscribe(this.pageChanged.bind(this));
     this._process();
   }
 
-  detached() {
+  detached(): void {
     this.pageObserver.dispose();
   }
 
-  pageChanged() {
+  pageChanged(): void {
     this._process();
   }
 
-  _process() {
+  private _process(): void {
     this.model.loading = true;
     Promise
       .resolve(this.controller.fetchData(this.model.currentPage))
-      .then(comments => {
-        this.data = this.data.concat(comments);
-        this.model.total = comments.total;
-        this.model.lastPage = comments.last_page;
+      .then((fetchedData: any) => {
+        this.data = this.data.concat(fetchedData);
+        this.model.total = fetchedData.total;
+        this.model.lastPage = fetchedData.last_page;
         this.model.loading = false;
       });
   }
