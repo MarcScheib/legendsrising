@@ -4,11 +4,14 @@ import 'font-awesome/css/font-awesome.css';
 import { Aurelia, LogManager } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { ConsoleAppender } from 'aurelia-logging-console';
+import { Config } from 'aurelia-api';
+import { BaseConfig } from 'aurelia-authentication';
+import { globalSettings } from 'aurelia-notify';
 
 import authConfig from './configuration/auth-config';
 import { NavigationSettings } from './resources/features/navigation/navigation-settings';
 
-export async function configure(aurelia: Aurelia) {
+export async function configure(aurelia: Aurelia): Promise<void> {
   LogManager.addAppender(new ConsoleAppender());
   LogManager.setLevel(4); // TODO: env was used here before
 
@@ -31,15 +34,15 @@ export async function configure(aurelia: Aurelia) {
 
   // Specify unofficial plugins
   aurelia.use
-    .plugin(PLATFORM.moduleName('aurelia-api'), config => {
+    .plugin(PLATFORM.moduleName('aurelia-api'), (config: Config) => {
       config
         .registerEndpoint('dev', 'http://localhost:3000/') // TODO: env was used here before
         .setDefaultEndpoint('dev');
     })
-    .plugin(PLATFORM.moduleName('aurelia-authentication'), config => {
+    .plugin(PLATFORM.moduleName('aurelia-authentication'), (config: BaseConfig) => {
       config.configure(authConfig);
     })
-    .plugin(PLATFORM.moduleName('aurelia-notify'), settings => {
+    .plugin(PLATFORM.moduleName('aurelia-notify'), (settings: any) => { // TODO: type from notify needed
       settings.containerSelector = '#notification-container';
       settings.timeout = 10000;
     });
