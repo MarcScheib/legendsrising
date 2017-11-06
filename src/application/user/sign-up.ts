@@ -72,7 +72,6 @@ export class SignUp implements RoutableComponentActivate, RoutableComponentDeact
         return newValue === this.password;
       }).withMessage('Your chosen passwords must match each other.')
       .on(this);
-    console.log(this.validationController);
   }
 
   activate() {

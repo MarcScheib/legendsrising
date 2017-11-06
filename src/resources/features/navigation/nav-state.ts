@@ -1,14 +1,14 @@
-const globalSettings = {
-  maxWidthMobileNav: 992
-};
+import { autoinject } from 'aurelia-framework';
+import { NavigationSettings } from './navigation-settings';
 
-class NavState {
+@autoinject()
+export class NavState {
   mobileNav: boolean = false;
   navToggled: boolean = true;
   mobileNavToggled: boolean = false;
 
-  constructor() {
-    if (window.innerWidth < globalSettings.maxWidthMobileNav) {
+  constructor(private settings: NavigationSettings) {
+    if (window.innerWidth < settings.maxWidthMobileNav) {
       this.mobileNav = true;
       this.navToggled = true;
       this.mobileNavToggled = false;
@@ -31,7 +31,7 @@ class NavState {
     return this.mobileNavToggled;
   }
 
-  setMobileNav(mobileNav: boolean) {
+  setMobileNav(mobileNav: boolean): void {
     this.mobileNav = mobileNav;
   }
 
@@ -39,8 +39,3 @@ class NavState {
     return this.mobileNav;
   }
 }
-
-export {
-  globalSettings,
-  NavState
-};

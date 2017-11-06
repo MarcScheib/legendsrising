@@ -6,6 +6,7 @@ import { PLATFORM } from 'aurelia-pal';
 import { ConsoleAppender } from 'aurelia-logging-console';
 
 import authConfig from './configuration/auth-config';
+import { NavigationSettings } from './resources/features/navigation/navigation-settings';
 
 export async function configure(aurelia: Aurelia) {
   LogManager.addAppender(new ConsoleAppender());
@@ -45,7 +46,7 @@ export async function configure(aurelia: Aurelia) {
 
   // Specify application features
   aurelia.use
-    .feature(PLATFORM.moduleName('resources/features/navigation/index'), settings => {
+    .feature(PLATFORM.moduleName('resources/features/navigation/index'), (settings: NavigationSettings) => {
       settings.maxWidthMobileNav = 992;
     })
     .feature(PLATFORM.moduleName('resources/features/data-list/index'))

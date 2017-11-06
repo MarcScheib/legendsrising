@@ -55,10 +55,10 @@
     "no-eval": true,
     "typedef": [
       true,
-      // "call-signature",
+      "call-signature",
       "parameter",
-      "member-variable-declaration"
-      // "arrow-parameter"
+      "member-variable-declaration",
+      "arrow-parameter"
     ],
     "no-inferrable-types": false,
     "no-misused-new": true,

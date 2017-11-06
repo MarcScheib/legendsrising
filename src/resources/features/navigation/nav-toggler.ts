@@ -14,7 +14,7 @@ export class NavToggler {
   constructor(private navState: NavState) {
   }
 
-  toggle() {
+  toggle(): void {
     this.navState.toggle();
   }
 }

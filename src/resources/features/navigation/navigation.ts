@@ -1,27 +1,29 @@
 import { autoinject, BindingEngine, customElement, noView } from 'aurelia-framework';
-import { globalSettings, NavState } from './nav-state';
+import { NavState } from './nav-state';
+import { NavigationSettings } from './navigation-settings';
 
 @noView()
 @customElement('navigation')
 @autoinject()
 export class Navigation {
-  private windowResizeListener: () => any;
-  private outsideClickListener: (event?) => any;
-  private navLinkClickListener: (event?) => any;
+  private windowResizeListener: () => void;
+  private outsideClickListener: (event?: Event) => void;
+  private navLinkClickListener: (event?: Event) => void;
 
   constructor(private bindingEngine: BindingEngine,
               private navState: NavState,
+              private settings: NavigationSettings,
               private element: Element) {
     this.windowResizeListener = () => this.handleResize();
-    this.outsideClickListener = event => this.handleBlur(event);
-    this.navLinkClickListener = event => this.handleNavLink(event);
+    this.outsideClickListener = (event: Event) => this.handleBlur(event);
+    this.navLinkClickListener = (event: Event) => this.handleNavLink(event);
 
     bindingEngine.propertyObserver(this.navState, 'navToggled').subscribe(this.navStateChanged.bind(this));
     bindingEngine.propertyObserver(this.navState, 'mobileNavToggled').subscribe(this.mobileNavStateChanged.bind(this));
   }
 
-  handleResize() {
-    if (window.innerWidth < globalSettings.maxWidthMobileNav) {
+  handleResize(): void {
+    if (window.innerWidth < this.settings.maxWidthMobileNav) {
       this.element.classList.remove('navigation-pinned');
       this.navState.setMobileNav(true);
       this.navState.setMobileNavToggled(false);
@@ -33,27 +35,31 @@ export class Navigation {
     }
   }
 
-  handleBlur(event) {
+  handleBlur(event: Event): void {
     if (this.navState.isMobileNav() === false || event.defaultPrevented === true) {
       return;
     }
 
-    if (this.element.contains(event.target) === false && this.navState.isMobileNavToggled() === true) {
+    const target = <HTMLElement> event.target;
+    if (this.element.contains(target) === false && this.navState.isMobileNavToggled() === true) {
       this.navState.toggle();
     }
   }
 
-  handleNavLink(event) {
+  handleNavLink(event: Event): void {
     if (this.navState.isMobileNav() === false || event.defaultPrevented === true) {
       return;
     }
 
-    if (this.element.contains(event.target) === true && event.target.tagName.toLowerCase() === 'a' && this.navState.isMobileNavToggled() === true) {
+    const target = <HTMLElement> event.target;
+    if (this.element.contains(target) === true
+      && target.tagName.toLowerCase() === 'a'
+      && this.navState.isMobileNavToggled() === true) {
       this.navState.toggle();
     }
   }
 
-  navStateChanged() {
+  navStateChanged(): void {
     if (this.navState.isMobileNav() === false && this.navState.navToggled === true) {
       this.element.classList.add('show-navigation');
     } else if (this.navState.isMobileNav() === false && this.navState.navToggled === false) {
@@ -61,7 +67,7 @@ export class Navigation {
     }
   }
 
-  mobileNavStateChanged() {
+  mobileNavStateChanged(): void {
     if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === true) {
       this.element.classList.add('show-navigation');
     } else if (this.navState.isMobileNav() === true && this.navState.mobileNavToggled === false) {
@@ -69,14 +75,14 @@ export class Navigation {
     }
   }
 
-  attached() {
+  attached(): void {
     window.addEventListener('resize', this.windowResizeListener);
     document.addEventListener('click', this.outsideClickListener);
     document.addEventListener('click', this.navLinkClickListener);
     this.handleResize();
   }
 
-  detached() {
+  detached(): void {
     window.removeEventListener('resize', this.windowResizeListener);
     document.removeEventListener('click', this.outsideClickListener);
     document.removeEventListener('click', this.navLinkClickListener);
