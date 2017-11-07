@@ -16,23 +16,23 @@ export class UserService {
       .create('users', user);
   }
 
-  isUsernameExisting(username: string) {
+  isUsernameExisting(username: string): Promise<boolean> {
     return this.apiClient
       .find('users', {
         'username': username
       })
-      .then(result => {
-        return result.data.length;
+      .then((result: { data: any[] }) => {
+        return !!result.data.length;
       });
   }
 
-  isEmailExisting(email: string) {
+  isEmailExisting(email: string): Promise<boolean> {
     return this.apiClient
       .find('users', {
         'email': email
       })
-      .then(result => {
-        return result.data.length;
+      .then((result: { data: any[] }) => {
+        return !!result.data.length;
       });
   }
 }

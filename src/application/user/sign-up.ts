@@ -1,10 +1,10 @@
 import { inject, NewInstance } from 'aurelia-framework';
 import { NotificationService } from 'aurelia-notify';
 import { RoutableComponentActivate, RoutableComponentDeactivate, Router } from 'aurelia-router';
-import { validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
+import { ControllerValidateResult, validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
 
-import { BootstrapFormRenderer } from '../../resources/validation/bootstrap-form-renderer';
-import { UserService } from '../../services/users/user-service';
+import { BootstrapFormRenderer } from 'resources/validation/bootstrap-form-renderer';
+import { UserService } from 'services/users/user-service';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp implements RoutableComponentActivate, RoutableComponentDeactivate {
@@ -26,65 +26,54 @@ export class SignUp implements RoutableComponentActivate, RoutableComponentDeact
       .minLength(3)
       .maxLength(25)
       .then()
-      .satisfies(newValue => {
-        return new Promise((accept, reject) => {
-          this.userService.isUsernameExisting(newValue)
-            .then(data => {
-              if (data) {
-                accept(false);
-              } else {
-                accept(true);
-              }
-            })
-            .catch(data => {
-              this.notification.danger('There seems to be an issue with the user service. Please, try again.');
-              accept(false);
-            });
-        });
-      }).withMessage(`\${$displayName} is already taken.`)
+      .satisfies((newValue: string) => this._checkExistence(() => this.userService.isUsernameExisting(newValue)))
+      .withMessage(`\${$displayName} is already taken.`)
       .ensure('email')
       .required()
       .email().withMessage('This is not a valid email address.')
       .then()
-      .satisfies(newValue => {
-        return new Promise((accept, reject) => {
-          this.userService.isEmailExisting(newValue)
-            .then(data => {
-              if (data) {
-                accept(false);
-              } else {
-                accept(true);
-              }
-            })
-            .catch(data => {
-              this.notification.danger('There seems to be an issue with the user service. Please, try again.');
-              accept(false);
-            });
-        });
-      }).withMessage(`\${$displayName} is already taken.`)
+      .satisfies((newValue: string) => this._checkExistence(() => this.userService.isEmailExisting(newValue)))
+      .withMessage(`\${$displayName} is already taken.`)
       .ensure('password')
       .required()
       .minLength(8)
       .maxLength(32)
       .ensure('password_repeat').displayName('Password')
       .required()
-      .satisfies(newValue => {
+      .satisfies((newValue: string) => {
         return newValue === this.password;
       }).withMessage('Your chosen passwords must match each other.')
       .on(this);
   }
 
-  activate() {
+  private _checkExistence(existenceFn: () => Promise<boolean>): Promise<boolean> {
+    return new Promise<boolean>((resolve: (value?: boolean) => void) => {
+      existenceFn()
+        .then((existing: boolean) => {
+          if (existing) {
+            resolve(false);
+          } else {
+            resolve(true);
+          }
+        })
+        .catch(() => {
+          this.notification.danger('There seems to be an issue with the user service. Please, try again.');
+          resolve(false);
+        });
+    });
+  }
+
+  activate(): void {
     this.validationController.addRenderer(this.validationRenderer);
   }
 
-  deactivate() {
+  deactivate(): void {
     this.validationController.removeRenderer(this.validationRenderer);
   }
 
-  signUp() {
+  signUp(): void {
     this.validationController.validate()
-      .then(result => {
+      .then((result: ControllerValidateResult) => {
         if (result.valid) {
           const user = {
             'username': this.username,
@@ -102,7 +91,7 @@ export class SignUp implements RoutableComponentActivate, RoutableComponentDeact
                 this.router.navigate('/auth/signin');
               }
             })
-            .catch(data => {
+            .catch(() => {
               this.notification.danger('The sign up process failed. Please try again.');
             });
         } else {
