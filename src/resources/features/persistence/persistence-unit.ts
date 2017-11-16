@@ -12,12 +12,12 @@ export class PersistenceUnit {
   /**
    * Collection of configured entity managers.
    */
-  entityManagers = {};
+  entityManagers: { [x: string]: EntityManager } = {};
 
   /**
    * Collection of configured/seen entities.
    */
-  entities = {};
+  entities: { [x: string]: typeof Entity } = {};
 
   /**
    * Constructs the Persistence Unit.
