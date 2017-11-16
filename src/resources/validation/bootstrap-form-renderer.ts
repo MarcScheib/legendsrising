@@ -1,5 +1,7 @@
-export class BootstrapFormRenderer {
-  render(instruction) {
+import { RenderInstruction, ValidateResult, ValidationRenderer } from 'aurelia-validation';
+
+export class BootstrapFormRenderer implements ValidationRenderer {
+  render(instruction: RenderInstruction): void {
     for (const {result, elements} of instruction.unrender) {
       for (const element of elements) {
         this.remove(element, result);
@@ -13,7 +15,7 @@ export class BootstrapFormRenderer {
     }
   }
 
-  add(element, result) {
+  add(element: Element, result: ValidateResult): void {
     const formGroup = element.closest('.form-group');
     if (!formGroup) {
       return;
@@ -39,7 +41,7 @@ export class BootstrapFormRenderer {
     }
   }
 
-  remove(element, result) {
+  remove(element: Element, result: ValidateResult): void {
     const formGroup = element.closest('.form-group');
     if (!formGroup) {
       return;
