@@ -1,17 +1,19 @@
 import { inject } from 'aurelia-framework';
 import { Endpoint, Rest } from 'aurelia-api';
 
+import { UserEntity } from 'resources/entities/user-entity';
+
 @inject(Endpoint.of(undefined)) // TODO required new aurelia-api version with optional param
 export class UserService {
   constructor(private apiClient: Rest) {
   }
 
-  get(id: number) {
+  get(id: number): Promise<UserEntity> {
     return this.apiClient
       .find('users', id);
   }
 
-  signUp(user: any) {
+  signUp(user: any): Promise<any> {
     return this.apiClient
       .create('users', user);
   }

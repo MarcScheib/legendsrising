@@ -6,7 +6,7 @@ import {
   RouteConfig
 } from 'aurelia-router';
 
-import { _hyphenate, _titlecase } from '../../utilities/util';
+import { _hyphenate, _titlecase } from 'utilities/util';
 
 const pages = {
   'legal-notice': PLATFORM.moduleName('application/page/legal-notice.html'),
@@ -17,15 +17,15 @@ const pages = {
 export class Index implements RoutableComponentActivate, RoutableComponentDetermineActivationStrategy {
   view: string;
 
-  determineActivationStrategy() {
+  determineActivationStrategy(): string {
     return activationStrategy.replace;
   }
 
-  getViewStrategy() {
+  getViewStrategy(): string {
     return pages[this.view];
   }
 
-  activate(params: any, routeConfig: RouteConfig) {
+  activate(params: any, routeConfig: RouteConfig): void {
     this.view = _hyphenate(params.view);
     routeConfig.navModel.setTitle(_titlecase(params.view));
   }

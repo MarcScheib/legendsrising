@@ -19,16 +19,16 @@ export class LoggedInUser {
     // sign-in.js view model.
     if (this.isLoggedIn === true) {
       this.authService.getMe()
-        .then(user => {
+        .then((user: UserEntity) => {
           this.user = user;
         })
-        .catch(error => {
+        .catch((error: any) => {
           // TODO: add logger
         });
     }
   }
 
-  authStateChanged(authenticated: boolean) {
+  authStateChanged(authenticated: boolean): void {
     this.isLoggedIn = authenticated;
     if (authenticated === false) {
       this.user = null;
