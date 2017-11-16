@@ -10,7 +10,7 @@ export default class {
   constructor(private router: Router) {
   }
 
-  configure() {
+  configure(): void {
     const appRouterConfig = (config: RouterConfiguration) => {
       config.title = 'LegendsRising';
       config.addPipelineStep('postRender', ScrollToTopStep);

@@ -7,16 +7,16 @@ import { PersistenceUnit } from './persistence-unit';
  *
  * @export
  * @param {FrameworkConfiguration} frameworkConfig
- * @param {function} configure
+ * @param {function} [callback]
  */
 export function configure(frameworkConfig: FrameworkConfiguration,
-                          configure: (persistenceUnit: PersistenceUnit) => void): void {
+                          callback?: (persistenceUnit: PersistenceUnit) => void): void {
   // create a new instance of the PersistenceUnit
   const persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
 
   // configure feature
-  if (configure !== undefined && typeof configure === 'function') {
-    configure(persistenceUnit);
+  if (callback !== undefined && typeof callback === 'function') {
+    callback(persistenceUnit);
   }
 }
 

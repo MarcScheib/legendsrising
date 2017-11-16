@@ -8,8 +8,8 @@ import { Entity } from '../entity';
  * @return {function}
  * @decorator
  */
-export function resource(resource: string) {
-  return function <T extends typeof Entity>(target: T) {
+export function resource(resource: string): (target: any) => void {
+  return function <T extends typeof Entity>(target: T): void {
     const object: any = metadata.getOrCreateOwn(metadata.paramTypes, Map, target, target.name);
     object.set('resource', resource || target.name.toLowerCase());
   };
