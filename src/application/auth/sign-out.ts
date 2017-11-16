@@ -1,19 +1,20 @@
 import { autoinject } from 'aurelia-framework';
+import { RoutableComponentActivate } from 'aurelia-router';
 import { AuthService } from 'aurelia-authentication';
 import { NotificationService } from 'aurelia-notify';
 
 @autoinject()
-export class SignOut {
+export class SignOut implements RoutableComponentActivate {
   constructor(private auth: AuthService,
               private notification: NotificationService) {
   }
 
-  activate() {
+  activate(): Promise<void> {
     return this.auth.logout()
-      .then(response => {
+      .then(() => {
         this.notification.success('You signed out successfully.');
       })
-      .catch(err => {
+      .catch(() => {
         this.notification.danger('Error when signing you out.');
       });
   }

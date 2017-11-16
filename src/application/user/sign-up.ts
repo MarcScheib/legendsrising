@@ -5,6 +5,7 @@ import { ControllerValidateResult, validateTrigger, ValidationController, Valida
 
 import { BootstrapFormRenderer } from 'resources/validation/bootstrap-form-renderer';
 import { UserService } from 'services/users/user-service';
+import { UserEntity } from '../../resources/entities/user-entity';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp implements RoutableComponentActivate, RoutableComponentDeactivate {
@@ -83,7 +84,7 @@ export class SignUp implements RoutableComponentActivate, RoutableComponentDeact
           };
 
           this.userService.signUp(user)
-            .then(data => {
+            .then((data: UserEntity) => {
               if (!data.id) {
                 this.notification.danger('You have got errors in your sign up form.');
               } else {

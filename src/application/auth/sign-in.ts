@@ -2,6 +2,7 @@ import { autoinject } from 'aurelia-framework';
 import { AuthService } from 'aurelia-authentication';
 import { NotificationService } from 'aurelia-notify';
 import { LoggedInUser } from '../../resources/entities/logged-in-user';
+import { UserEntity } from '../../resources/entities/user-entity';
 
 @autoinject()
 export class SignIn {
@@ -13,15 +14,15 @@ export class SignIn {
               private loggedInUser: LoggedInUser) {
   }
 
-  signIn() {
+  signIn(): Promise<void> {
     const userInfo = {username: this.username, password: this.password};
     return this.authService.login(userInfo)
       .then(() => this.authService.getMe())
-      .then(user => {
+      .then((user: UserEntity) => {
         this.loggedInUser.user = user;
         this.notification.success('You signed in successfully.');
       })
-      .catch(error => {
+      .catch((error: any) => {
         if (error.status === 401) {
           this.notification.danger('Your sign in credentials are wrong.');
         } else {
