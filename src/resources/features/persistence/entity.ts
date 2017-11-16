@@ -53,7 +53,7 @@ export class Entity {
    *
    * @return {object}
    */
-  getAssociations() {
+  getAssociations(): {} {
     return this._metadata.get('associations') || {};
   }
 }

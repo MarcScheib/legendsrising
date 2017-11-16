@@ -1,3 +1,5 @@
+import { FrameworkConfiguration } from 'aurelia-framework';
+
 import { PersistenceUnit } from './persistence-unit';
 
 /**
@@ -7,7 +9,8 @@ import { PersistenceUnit } from './persistence-unit';
  * @param {FrameworkConfiguration} frameworkConfig
  * @param {function} configure
  */
-export function configure(frameworkConfig, configure) {
+export function configure(frameworkConfig: FrameworkConfiguration,
+                          configure: (persistenceUnit: PersistenceUnit) => void): void {
   // create a new instance of the PersistenceUnit
   const persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
 

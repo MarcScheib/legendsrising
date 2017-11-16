@@ -1,4 +1,4 @@
-export function smoothScrollReset(element: Element) {
+export function smoothScrollReset(element: Element): void {
   if (!element) {
     return;
   }
@@ -8,7 +8,7 @@ export function smoothScrollReset(element: Element) {
   const diff = -scrollFrom;
   let startTime = null;
   let lastYOffset;
-  const scrollLoop = (currentTime) => {
+  const scrollLoop = (currentTime: number) => {
     const currentYOffset = element.scrollTop;
     if (!startTime) {
       startTime = currentTime - 1;
