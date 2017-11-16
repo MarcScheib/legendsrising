@@ -2,12 +2,12 @@ import { inject } from 'aurelia-framework';
 import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
 import { NotificationService } from 'aurelia-notify';
 
-import { DataListController } from '../../resources/features/data-list/index';
-import { LoggedInUser } from '../../resources/entities/logged-in-user';
-import { EntityManagerFactory } from '../../resources/features/persistence/index';
-import { NewsEntity } from '../../resources/entities/news-entity';
-import { NewsCommentsService } from '../../services/news/news-comments-service';
-import { EntityManager } from '../../resources/features/persistence/entity-manager';
+import { EntityManager } from 'resources/features/persistence/entity-manager';
+import { NewsCommentsService } from 'services/news/news-comments-service';
+import { DataListController } from 'resources/features/data-list/index';
+import { LoggedInUser } from 'resources/entities/logged-in-user';
+import { EntityManagerFactory } from 'resources/features/persistence/index';
+import { NewsEntity } from 'resources/entities/news-entity';
 
 const ENTER_KEY = 13;
 
@@ -25,17 +25,17 @@ export class View implements RoutableComponentActivate {
               private newsCommentsService: NewsCommentsService,
               private notificationService: NotificationService,
               private loggedInUser: LoggedInUser) {
-    this.dataListController = new DataListController(options => this.loadMore(options));
+    this.dataListController = new DataListController((page: number) => this.loadMore(page));
   }
 
-  activate(params: any, routeConfig: RouteConfig) {
+  activate(params: any, routeConfig: RouteConfig): Promise<void> {
     this.newsId = params.id;
 
     return this.entityManager
       .findOne(params.id, {
         '_expand': 'user'
       })
-      .then(news => {
+      .then((news: NewsEntity) => {
         this.news = news;
         routeConfig.navModel.setTitle(news.title);
       })
@@ -44,13 +44,13 @@ export class View implements RoutableComponentActivate {
       });
   }
 
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(event: KeyboardEvent): void {
     if (event.keyCode === ENTER_KEY) {
       this.addNewComment(this.comment);
     }
   }
 
-  addNewComment(comment: any) {
+  addNewComment(comment: any): void {
     if (comment === undefined) {
       return;
     }
@@ -62,18 +62,18 @@ export class View implements RoutableComponentActivate {
 
     this.newsCommentsService
       .add(this.newsId, {'text': comment})
-      .then(data => {
+      .then((data: any) => {
         this.comments.unshift(data);
         this.comment = null;
       })
-      .catch((error) => {
+      .catch((error: any) => {
         if (error.status === 401) {
           this.notificationService.danger('You are not allowed to post a comment without signing in.');
         }
       });
   }
 
-  loadMore(page: number) {
+  loadMore(page: number): Promise<any> {
     return this.newsCommentsService
       .getAll(this.newsId, page);
   }

@@ -7,4 +7,6 @@ import { UserEntity } from './user-entity';
 export class NewsEntity extends Entity {
   @hasOne(UserEntity)
   user: UserEntity = null;
+
+  title: string;
 }
