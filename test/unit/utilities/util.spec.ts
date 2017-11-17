@@ -1,4 +1,4 @@
-import {_titlecase} from '../../../src/utilities/util';
+import { _titlecase } from '../../../src/utilities/util';
 
 describe('the Utilities module', () => {
   it('titelcases strings', () => {

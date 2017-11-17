@@ -1,7 +1,7 @@
 import {View} from '../../../src/application/profile/view';
 
-import {ProfileServiceStub} from '../fixtures/ProfileServiceStub';
-import {NavModelStub} from '../fixtures/NavModelStub';
+import {ProfileServiceStub} from '../fixtures/profile-service.stub';
+import {NavModelStub} from '../fixtures/nav-model.stub';
 
 describe('the Profiles View module', () => {
   let profileService;

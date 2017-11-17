@@ -2,7 +2,7 @@ import {activationStrategy} from 'aurelia-router';
 
 import {Index} from '../../../src/application/page/index';
 
-import {NavModelStub} from '../fixtures/NavModelStub';
+import {NavModelStub} from '../fixtures/nav-model.stub';
 
 describe('the Pages Index module', () => {
   let sut;

@@ -8,10 +8,10 @@ import {NewsCommentsService} from '../../../src/services/news/news-comments-serv
 import {Index} from '../../../src/application/news/index';
 import {View} from '../../../src/application/news/view';
 
-import {NavModelStub} from '../fixtures/NavModelStub';
-import {NewsCommentsServiceStub} from '../fixtures/NewsCommentsServiceStub';
-import {NotificationServiceStub} from '../fixtures/NotificationServiceStub';
-import {setupApi} from '../fixtures/ApiHelper';
+import {NavModelStub} from '../fixtures/nav-model.stub';
+import {NewsCommentsServiceStub} from '../fixtures/news-comments-service.stub';
+import {NotificationServiceStub} from '../fixtures/notification-service.stub';
+import {setupApi} from '../fixtures/api-helper';
 
 describe('the News Index module', () => {
   let container;

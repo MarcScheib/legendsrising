@@ -1,31 +1,35 @@
-import {UserService} from '../../../src/services/users/user-service';
-import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
+import { Container } from 'aurelia-framework';
 
-let userDummy = {
+import { UserService } from 'services/users/user-service';
+import { RestStub } from '../fixtures/rest.stub';
+
+const userDummy = {
   user: 'Test'
 };
 
-describe('the User service', () => {
-  let mockedEndpointService;
-  let sut;
+describe('UserService', () => {
+  let restStub: RestStub;
+  let sut: UserService;
 
   beforeEach(() => {
-    mockedEndpointService = new EndpointServiceStub();
-    sut = new UserService(mockedEndpointService);
-    mockedEndpointService.requestDummy = {
+    const container = new Container();
+    restStub = container.get(RestStub);
+    restStub.requestDummy = {
       'data': [userDummy]
-    }
+    };
+    sut = new UserService(restStub);
   });
 
-  it('contains a http service property', () => {
-    expect(sut.apiClient).toBeDefined();
+  it('is created and initialized', () => {
+    expect(sut).toBeTruthy();
+    expect(sut.apiClient).toBeTruthy();
   });
 
-  it('signs up new users', (done) => {
+  it('signs up new users', (done: jest.DoneCallback) => {
     sut.signUp(userDummy)
       .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('users');
-        expect(mockedEndpointService.options).toEqual(userDummy);
+        expect(restStub.path).toEqual('users');
+        expect(restStub.body).toEqual(userDummy);
         expect(resp.data[0]).toEqual(userDummy);
         done();
       })
@@ -35,34 +39,28 @@ describe('the User service', () => {
       });
   });
 
-  it('returns user based on username', (done) => {
+  it('returns user based on username', (done: jest.DoneCallback) => {
     sut.isUsernameExisting('Test')
-      .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('users');
-        expect(mockedEndpointService.options).toEqual({
-          'username': 'Test'
-        });
-        expect(resp).toEqual(1);
+      .then((response: boolean) => {
+        expect(restStub.path).toEqual('users?username=Test');
+        expect(response).toBe(true);
         done();
       })
-      .catch(result => {
-        expect(result).not.toBe(result);
+      .catch(() => {
+        expect(true).toBe(false);
         done();
       });
   });
 
-  it('returns user based on email', (done) => {
+  it('returns user based on email', (done: jest.DoneCallback) => {
     sut.isEmailExisting('Test@test.de')
-      .then(resp => {
-        expect(mockedEndpointService.resource).toEqual('users');
-        expect(mockedEndpointService.options).toEqual({
-          'email': 'Test@test.de'
-        });
-        expect(resp).toEqual(1);
+      .then((response: boolean) => {
+        expect(restStub.path).toEqual('users?email=Test%40test.de');
+        expect(response).toBeTruthy();
         done();
       })
-      .catch(result => {
-        expect(result).not.toBe(result);
+      .catch(() => {
+        expect(true).toBe(false);
         done();
       });
   });

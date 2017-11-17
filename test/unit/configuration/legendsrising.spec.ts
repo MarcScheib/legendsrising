@@ -1,6 +1,6 @@
 import {ViewLocator} from 'aurelia-framework';
 import {configure} from '../../../src/main';
-import {AureliaStub} from '../fixtures/AureliaStub';
+import {AureliaStub} from '../fixtures/aurelia.stub';
 
 describe('the app configuration', () => {
   it('configures aurelia', done => {

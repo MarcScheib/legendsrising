@@ -5,7 +5,7 @@ import { UserEntity } from 'resources/entities/user-entity';
 
 @inject(Endpoint.of(undefined)) // TODO required new aurelia-api version with optional param
 export class UserService {
-  constructor(private apiClient: Rest) {
+  constructor(public apiClient: Rest) {
   }
 
   get(id: number): Promise<UserEntity> {

@@ -1,7 +1,8 @@
-import {Config} from 'aurelia-api';
+import { Container } from 'aurelia-framework';
+import { Config } from 'aurelia-api';
 
-export function setupApi(container) {
-  let api = container.get(Config);
+export function setupApi(container: Container): void {
+  const api: Config = container.get(Config);
   api.registerEndpoint('apiFail', configure => {
     configure.withBaseUrl('http://localhost:3000/');
     configure.withInterceptor({
@@ -10,6 +11,7 @@ export function setupApi(container) {
       }
     });
   });
+
   api.registerEndpoint('api', 'http://localhost:3000/')
     .setDefaultEndpoint('api');
 }

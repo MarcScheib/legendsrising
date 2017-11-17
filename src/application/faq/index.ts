@@ -9,7 +9,7 @@ import { EntityManager } from 'resources/features/persistence/entity-manager';
 export class Index implements RoutableComponentActivate {
   faqs: FaqEntity[] = [];
 
-  constructor(private entityManager: EntityManager) {
+  constructor(public entityManager: EntityManager) {
   }
 
   activate(): Promise<void> {

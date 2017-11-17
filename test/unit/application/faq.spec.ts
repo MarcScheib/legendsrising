@@ -1,25 +1,27 @@
+import DoneCallback = jest.DoneCallback;
+
 import { Container } from 'aurelia-framework';
 import { Config } from 'aurelia-api';
 
-import { setupApi } from '../fixtures/ApiHelper';
-import { Index } from '../../../src/application/faq/index';
+import { setupApi } from '../fixtures/api-helper';
+import { Index } from 'application/faq/index';
 
 describe('the FAQ Index module', () => {
-  let container;
+  let container: Container;
+  let sut: Index;
 
   beforeEach(() => {
     container = new Container();
     setupApi(container);
     container.registerTransient(Index);
+    sut = container.get(Index);
   });
 
   it('contains an entity manager property', () => {
-    let sut = container.get(Index);
     expect(sut.entityManager).toBeDefined();
   });
 
-  it('fetches faqs', done => {
-    let sut = container.get(Index);
+  it('fetches faqs', (done: DoneCallback) => {
     sut.activate()
       .then(() => {
         expect(sut.faqs).toBeDefined();
