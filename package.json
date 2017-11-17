@@ -21,6 +21,7 @@
     "build:dev": "rimraf dist && webpack --progress -d",
     "server": "webpack-dev-server -d --inline --env.server",
     "serve": "webpack-dev-server",
+    "test:jest": "rimraf test/coverage-jest && jest --config test/jest.config.json",
     "bump-version": "npm --no-git-tag-version version"
   },
   "devDependencies": {

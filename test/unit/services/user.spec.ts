@@ -1,4 +1,3 @@
-import {json} from 'aurelia-fetch-client';
 import {UserService} from '../../../src/services/users/user-service';
 import {EndpointServiceStub} from '../fixtures/EndpointServiceStub';
 
