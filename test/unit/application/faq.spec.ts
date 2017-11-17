@@ -1,7 +1,8 @@
-import {Container} from 'aurelia-framework';
-import {Config} from 'aurelia-api';
-import {setupApi} from '../fixtures/ApiHelper';
-import {Index} from '../../../src/application/faq/index';
+import { Container } from 'aurelia-framework';
+import { Config } from 'aurelia-api';
+
+import { setupApi } from '../fixtures/ApiHelper';
+import { Index } from '../../../src/application/faq/index';
 
 describe('the FAQ Index module', () => {
   let container;

@@ -45,17 +45,6 @@
       "email": "test@test.de",
       "created_at": "08.01.2017",
       "updated_at": "08.01.2017"
-    },
-    {
-      "id": 2
-    },
-    {
-      "username": "tesss",
-      "email": "test",
-      "id": 3
-    },
-    {
-      "id": 4
     }
   ]
 }
