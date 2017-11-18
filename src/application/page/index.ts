@@ -17,7 +17,7 @@ const pages = {
 export class Index implements RoutableComponentActivate, RoutableComponentDetermineActivationStrategy {
   view: string;
 
-  determineActivationStrategy(): string {
+  determineActivationStrategy(): 'replace' {
     return activationStrategy.replace;
   }
 
