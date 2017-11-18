@@ -1,10 +1,9 @@
 import { Container } from 'aurelia-framework';
-import { Config, Rest } from 'aurelia-api';
 
-import { setupApi } from '../fixtures/api-helper';
 import { RestStub } from '../fixtures/rest.stub';
 import { Index } from 'application/faq/index';
-import { EntityManager } from '../../../src/resources/features/persistence/entity-manager';
+import { getRestMock } from '../fixtures/api-helper';
+import { FaqEntity } from 'resources/entities/faq-entity';
 
 describe('the FAQ Index module', () => {
   let rest: RestStub;
@@ -12,8 +11,7 @@ describe('the FAQ Index module', () => {
 
   beforeEach(() => {
     const container = new Container();
-    container.registerSingleton(Rest, RestStub);
-    rest = container.get(Rest);
+    rest = getRestMock(container);
     sut = container.get(Index);
   });
 
@@ -22,6 +20,7 @@ describe('the FAQ Index module', () => {
   });
 
   it('fetches faqs', (done: jest.DoneCallback) => {
+    rest.requestDummy = [new FaqEntity()];
     sut.activate()
       .then(() => {
         expect(sut.faqs).toBeDefined();
@@ -31,9 +30,7 @@ describe('the FAQ Index module', () => {
   });
 
   it('contains an empty list on api fail', (done: jest.DoneCallback) => {
-    const apiConfig = container.get(Config);
-    apiConfig.setDefaultEndpoint('apiFail');
-    const sut = container.get(Index);
+    rest.reject = true;
     sut.activate()
       .then(() => {
         expect(sut.faqs).toEqual([]);
