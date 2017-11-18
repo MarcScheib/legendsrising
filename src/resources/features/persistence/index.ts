@@ -1,6 +1,8 @@
 import { FrameworkConfiguration } from 'aurelia-framework';
+import { Config } from 'aurelia-api';
 
 import { PersistenceUnit } from './persistence-unit';
+import { PersistenceConfiguration } from './persistence-configuration';
 
 /**
  * Persistence feature configuration
@@ -10,13 +12,14 @@ import { PersistenceUnit } from './persistence-unit';
  * @param {function} [callback]
  */
 export function configure(frameworkConfig: FrameworkConfiguration,
-                          callback?: (persistenceUnit: PersistenceUnit) => void): void {
-  // create a new instance of the PersistenceUnit
-  const persistenceUnit = frameworkConfig.container.get(PersistenceUnit);
+                          callback?: (persistenceConfiguration: PersistenceConfiguration) => void): void {
+  const persistenceConfiguration: PersistenceConfiguration = frameworkConfig.container.get(PersistenceConfiguration);
 
   // configure feature
   if (callback !== undefined && typeof callback === 'function') {
-    callback(persistenceUnit);
+    callback(persistenceConfiguration);
+  } else {
+    persistenceConfiguration.client = frameworkConfig.container.get(Config).getEndpoint();
   }
 }
 

@@ -1,27 +1,27 @@
-import DoneCallback = jest.DoneCallback;
-
 import { Container } from 'aurelia-framework';
-import { Config } from 'aurelia-api';
+import { Config, Rest } from 'aurelia-api';
 
 import { setupApi } from '../fixtures/api-helper';
+import { RestStub } from '../fixtures/rest.stub';
 import { Index } from 'application/faq/index';
+import { EntityManager } from '../../../src/resources/features/persistence/entity-manager';
 
 describe('the FAQ Index module', () => {
-  let container: Container;
+  let rest: RestStub;
   let sut: Index;
 
   beforeEach(() => {
-    container = new Container();
-    setupApi(container);
-    container.registerTransient(Index);
+    const container = new Container();
+    container.registerSingleton(Rest, RestStub);
+    rest = container.get(Rest);
     sut = container.get(Index);
   });
 
   it('contains an entity manager property', () => {
-    expect(sut.entityManager).toBeDefined();
+    expect(sut.entityManager).toBeTruthy();
   });
 
-  it('fetches faqs', (done: DoneCallback) => {
+  it('fetches faqs', (done: jest.DoneCallback) => {
     sut.activate()
       .then(() => {
         expect(sut.faqs).toBeDefined();
@@ -30,10 +30,10 @@ describe('the FAQ Index module', () => {
       .then(done);
   });
 
-  it('contains an empty list on api fail', done => {
-    let apiConfig = container.get(Config);
+  it('contains an empty list on api fail', (done: jest.DoneCallback) => {
+    const apiConfig = container.get(Config);
     apiConfig.setDefaultEndpoint('apiFail');
-    let sut = container.get(Index);
+    const sut = container.get(Index);
     sut.activate()
       .then(() => {
         expect(sut.faqs).toEqual([]);

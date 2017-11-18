@@ -1,8 +1,9 @@
 import {Container} from 'aurelia-framework';
 import {Rest, Config} from 'aurelia-api';
-import {PersistenceUnit} from '../../../../../src/resources/features/persistence/persistence-unit';
-import {EntityManager} from '../../../../../src/resources/features/persistence/entity-manager';
-import {Entity} from '../../../../../src/resources/features/persistence/entity';
+
+import {PersistenceUnit} from 'resources/features/persistence/persistence-unit';
+import {EntityManager} from 'resources/features/persistence/entity-manager';
+import {Entity} from 'resources/features/persistence/entity';
 import {BaseEntity} from './fixtures/base-entity';
 import {FooEntity} from './fixtures/foo-entity';
 import {NoResourceEntity} from './fixtures/no-resource-entity';

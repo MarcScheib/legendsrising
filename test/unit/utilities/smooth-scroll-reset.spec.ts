@@ -1,12 +1,12 @@
-import {smoothScrollReset} from '../../../src/utilities/smooth-scroll-reset';
+import { smoothScrollReset } from 'utilities/smooth-scroll-reset';
 
-function createMockDomElement(options) {
+function createMockDomElement(options): Element {
   options.attributes = options.attributes || {};
 
   return {
-    _listeners: {},
+    listeners: {},
 
-    getAttribute: function (name) {
+    getAttribute: function (name: string) {
       return options.attributes[name];
     },
     scrollTop: options.scrollTop || 0,
@@ -28,11 +28,11 @@ window.requestAnimationFrame = (function () {
 describe('the Smooth Scroll Reset utility', () => {
   it('should return silently with no input', () => {
     const elem = createMockDomElement({scrollTop: 1500});
-    smoothScrollReset();
+    smoothScrollReset(undefined);
     expect(elem.scrollTop).toBe(1500);
   });
 
-  it('should reset elements scroll top position', done => {
+  it('should reset elements scroll top position', (done: jest.DoneCallback) => {
     const elem = createMockDomElement({scrollTop: 1500});
     smoothScrollReset(elem);
 
