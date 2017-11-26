@@ -9,7 +9,7 @@ import { NewsEntity } from 'resources/entities/news-entity';
 export class Index implements RoutableComponentActivate {
   news: NewsEntity[] = [];
 
-  constructor(private entityManager: EntityManager) {
+  constructor(public entityManager: EntityManager) {
   }
 
   activate(): Promise<void> {

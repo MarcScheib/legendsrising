@@ -1,7 +1,9 @@
-export class NavModelStub {
-  private title: string;
+import { NavModel } from 'aurelia-router';
 
-  setTitle(title: string): void {
-    this.title = title;
+export class NavModelStub extends NavModel {
+  title: string;
+
+  constructor() {
+    super(undefined, undefined);
   }
 }

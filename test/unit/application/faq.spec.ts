@@ -2,7 +2,6 @@ import { Container } from 'aurelia-framework';
 
 import { RestStub } from '../fixtures/rest.stub';
 import { Index } from 'application/faq/index';
-import { getRestMock } from '../fixtures/api-helper';
 import { FaqEntity } from 'resources/entities/faq-entity';
 
 describe('the FAQ Index module', () => {
@@ -11,7 +10,7 @@ describe('the FAQ Index module', () => {
 
   beforeEach(() => {
     const container = new Container();
-    rest = getRestMock(container);
+    rest = RestStub.createMock(container);
     sut = container.get(Index);
   });
 
@@ -19,12 +18,15 @@ describe('the FAQ Index module', () => {
     expect(sut.entityManager).toBeTruthy();
   });
 
-  it('fetches faqs', (done: jest.DoneCallback) => {
+  it('fetches FAQs', (done: jest.DoneCallback) => {
     rest.requestDummy = [new FaqEntity()];
     sut.activate()
       .then(() => {
         expect(sut.faqs).toBeDefined();
         expect(sut.faqs.length).toBeGreaterThan(0);
+      })
+      .catch(() => {
+        expect(true).toBeFalsy();
       })
       .then(done);
   });
@@ -35,8 +37,8 @@ describe('the FAQ Index module', () => {
       .then(() => {
         expect(sut.faqs).toEqual([]);
       })
-      .catch(result => {
-        expect(result).not.toBe(result);
+      .catch(() => {
+        expect(true).toBeFalsy();
       })
       .then(done);
   });

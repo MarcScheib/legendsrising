@@ -20,11 +20,10 @@ export class View implements RoutableComponentActivate {
   comment: any;
   comments: any[] = [];
 
-
-  constructor(private entityManager: EntityManager,
-              private newsCommentsService: NewsCommentsService,
-              private notificationService: NotificationService,
-              private loggedInUser: LoggedInUser) {
+  constructor(public entityManager: EntityManager,
+              public newsCommentsService: NewsCommentsService,
+              public notificationService: NotificationService,
+              public loggedInUser: LoggedInUser) {
     this.dataListController = new DataListController((page: number) => this.loadMore(page));
   }
 
