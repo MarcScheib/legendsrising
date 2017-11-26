@@ -24,3 +24,4 @@ before_script:
 
 script:
   - npm run test:jest
+  - npm run coverage

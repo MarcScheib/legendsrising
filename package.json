@@ -19,10 +19,11 @@
   "scripts": {
     "api:start": "./node_modules/.bin/json-server --watch ./test/api/dev.json",
     "build:dev": "rimraf dist && webpack --progress -d",
+    "bump-version": "npm --no-git-tag-version version",
+    "coverage": "cat test/coverage-jest/lcov.info | coveralls",
     "server": "webpack-dev-server -d --inline --env.server",
     "test:jest": "rimraf test/coverage-jest && jest --config test/jest.config.json",
-    "test:jest:watch": "rimraf test/coverage-jest && jest --watchAll --config test/jest.config.json",
-    "bump-version": "npm --no-git-tag-version version"
+    "test:jest:watch": "rimraf test/coverage-jest && jest --watchAll --config test/jest.config.json"
   },
   "devDependencies": {
     "@types/jest": "20.0.4",
@@ -37,6 +38,7 @@
     "autoprefixer": "7.1.2",
     "awesome-typescript-loader": "3.2.1",
     "copy-webpack-plugin": "4.0.1",
+    "coveralls": "^3.0.0",
     "cross-env": "5.0.1",
     "css-loader": "0.28.4",
     "expose-loader": "0.7.3",
