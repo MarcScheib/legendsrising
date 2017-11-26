@@ -1,39 +1,44 @@
-export class FrameworkConfigurationStub {
-  constructor() {
+import { Aurelia, FrameworkConfiguration } from 'aurelia-framework';
+
+export class FrameworkConfigurationStub extends FrameworkConfiguration {
+  public info: string[];
+
+  constructor(aurelia: Aurelia) {
+    super(aurelia);
     this.info = [];
   }
 
-  defaultBindingLanguage() {
+  defaultBindingLanguage(): FrameworkConfigurationStub {
     return this.plugin('aurelia-templating-binding');
   }
 
-  defaultResources() {
+  defaultResources(): FrameworkConfigurationStub {
     return this.plugin('aurelia-templating-resources');
   }
 
-  history() {
+  history(): FrameworkConfigurationStub {
     return this.plugin('aurelia-history-browser');
   }
 
-  router() {
+  router(): FrameworkConfigurationStub {
     return this.plugin('aurelia-templating-router');
   }
 
-  eventAggregator() {
+  eventAggregator(): FrameworkConfigurationStub {
     return this.plugin('aurelia-event-aggregator');
   }
 
-  globalResources(resources) {
+  globalResources(resources: string): FrameworkConfigurationStub {
     this.info.concat(resources);
     return this;
   }
 
-  plugin(pluginName) {
+  plugin(pluginName: string): FrameworkConfigurationStub {
     this.info.push(pluginName);
     return this;
   }
 
-  feature(featureName) {
+  feature(featureName: string): FrameworkConfigurationStub {
     this.info.push(featureName);
     return this;
   }

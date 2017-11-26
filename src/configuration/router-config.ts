@@ -7,10 +7,10 @@ import { ScrollToTopStep } from './router/pipeline/scroll-to-top-step';
 
 @autoinject()
 export default class {
-  constructor(private router: Router) {
+  constructor(public router: Router) {
   }
 
-  configure(): void {
+  configure(): Promise<void> {
     const appRouterConfig = (config: RouterConfiguration) => {
       config.title = 'LegendsRising';
       config.addPipelineStep('postRender', ScrollToTopStep);
@@ -69,6 +69,6 @@ export default class {
       return config;
     };
 
-    this.router.configure(appRouterConfig);
+    return this.router.configure(appRouterConfig);
   }
 }

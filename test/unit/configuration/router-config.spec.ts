@@ -1,45 +1,67 @@
-import {AuthenticateStep} from 'aurelia-authentication';
-import AppRouterConfig from '../../../src/configuration/router-config';
-import {ScrollToTopStep} from '../../../src/configuration/router/pipeline/scroll-to-top-step';
-import {RouterStub} from '../fixtures/router.stub';
+import { AuthenticateStep } from 'aurelia-authentication';
+
+import AppRouterConfig from 'configuration/router-config';
+import { ScrollToTopStep } from 'configuration/router/pipeline/scroll-to-top-step';
+
+import { RouterStub } from '../fixtures/router.stub';
 
 describe('the router configuration', () => {
-  let sut;
+  let sut: AppRouterConfig;
   let mockedRouter;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
     sut = new AppRouterConfig(mockedRouter);
-    sut.configure();
   });
 
   it('contains a router property', () => {
-    expect(sut.router).toBeDefined();
+    sut.configure()
+      .then(() => {
+        expect(sut.router).toBeDefined();
+      });
   });
 
   it('configures the router title', () => {
-    expect(sut.router.title).toEqual('LegendsRising');
+    sut.configure()
+      .then(() => {
+        expect(sut.router.title).toEqual('LegendsRising');
+      });
   });
 
   it('configures no router push state', () => {
-    expect(sut.router.options.pushState).toBe(false);
+    sut.configure()
+      .then(() => {
+        expect(sut.router.options.pushState).toBe(false);
+      });
   });
 
   it('contains an authorize router pipeline step', () => {
-    expect(sut.router.pipelineSteps).toContain({name: 'authorize', step: AuthenticateStep});
+    sut.configure()
+      .then(() => {
+        expect(sut.router.pipelineProvider.steps).toContain({name: 'authorize', step: AuthenticateStep});
+      });
   });
 
   it('contains an ScrollToTopStep router pipeline step', () => {
-    expect(sut.router.pipelineSteps).toContain({name: 'postRender', step: ScrollToTopStep});
+    sut.configure()
+      .then(() => {
+        expect(sut.router.pipelineProvider.steps).toContain({name: 'postRender', step: ScrollToTopStep});
+      });
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain({
-      route: ['/', 'content', 'content/index'],
-      name: 'index',
-      moduleId: 'application/content/index',
-      title: 'Welcome'
-    });
+    sut.configure()
+      .then(() => {
+        expect(sut.router.routes).toContain({
+          route: ['/', 'content', 'content/index'],
+          name: 'index',
+          moduleId: 'application/content/index',
+          title: 'Welcome'
+        });
+      })
+      .catch(() => {
+        expect(true).toBeFalsy();
+      });
   });
 
   it('should have a news list route', () => {

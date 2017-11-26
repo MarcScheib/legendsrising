@@ -1,23 +1,7 @@
-export class RouterStub {
-  options = {
-    pushState: false
-  };
+import { Router } from 'aurelia-router';
 
-  pipelineSteps = [];
-
-  configure(handler) {
-    handler(this);
-  }
-
-  addPipelineStep(name, step) {
-    this.pipelineSteps.push({name, step})
-  }
-
-  mapUnknownRoutes(config) {
-    this.unknownRouteConfig = config;
-  }
-
-  map(routes) {
-    this.routes = routes;
+export class RouterStub extends Router {
+  constructor() {
+    super(undefined, undefined);
   }
 }

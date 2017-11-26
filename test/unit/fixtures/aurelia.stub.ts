@@ -1,13 +1,16 @@
+import { Aurelia } from 'aurelia-framework';
+
 import { FrameworkConfigurationStub } from './framework-configuration.stub';
 
-export class AureliaStub {
+export class AureliaStub extends Aurelia {
   use: FrameworkConfigurationStub;
 
   constructor() {
-    this.use = new FrameworkConfigurationStub();
+    super();
+    this.use = new FrameworkConfigurationStub(this);
   }
 
-  start(): Promise<void> {
-    return Promise.resolve();
+  start(): Promise<Aurelia> {
+    return Promise.resolve(this);
   }
 }
