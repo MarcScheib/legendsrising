@@ -1,29 +1,21 @@
-import {Container} from 'aurelia-framework';
-import {Rest, Config} from 'aurelia-api';
+import { Container } from 'aurelia-framework';
+import { Rest } from 'aurelia-api';
 
-import {PersistenceUnit} from 'resources/features/persistence/persistence-unit';
-import {EntityManager} from 'resources/features/persistence/entity-manager';
-import {Entity} from 'resources/features/persistence/entity';
-import {BaseEntity} from './fixtures/base-entity';
-import {FooEntity} from './fixtures/foo-entity';
-import {NoResourceEntity} from './fixtures/no-resource-entity';
-
-let baseUrls = {
-  api: 'https://api.github.com'
-};
+import { PersistenceUnit } from 'resources/features/persistence/persistence-unit';
+import { EntityManager } from 'resources/features/persistence/entity-manager';
+import { Entity } from 'resources/features/persistence/entity';
+import { BaseEntity } from './fixtures/base-entity';
+import { FooEntity } from './fixtures/foo-entity';
+import { NoResourceEntity } from './fixtures/no-resource-entity';
+import { RestStub } from '../../../fixtures/rest.stub';
 
 describe('PersistenceUnit', () => {
-  let sut;
+  let sut: PersistenceUnit;
 
   beforeEach(() => {
-    let container = new Container();
-    let config = new Config();
-    config.registerEndpoint('api', configure => {
-      configure.withBaseUrl(baseUrls.api);
-    });
-    config.setDefaultEndpoint('api');
-
-    sut = new PersistenceUnit(container, config);
+    const container = new Container();
+    RestStub.createMock(container);
+    sut = container.get(PersistenceUnit);
   });
 
   describe('.registerEntity()', () => {
@@ -33,21 +25,17 @@ describe('PersistenceUnit', () => {
     });
 
     it('Should throw an error when registering with a non-Entity', () => {
-      expect(() => {
-        sut.registerEntity({});
-      }).toThrowError(Error, `Can't register an entity of type object. Expected function.`);
+      expect(() => sut.registerEntity({})).toThrowError(`Can't register an entity of type object. Expected function.`);
     });
   });
 
   describe('.getEntityManager()', () => {
     it('Should throw an error when called without an entity.', () => {
-      expect(() => {
-        sut.getEntityManager();
-      }).toThrowError(Error, `Can't load an entity manager without an entity`);
+      expect(() => sut.getEntityManager(undefined)).toThrowError(`Can't load an entity manager without an entity`);
     });
 
     it('Should create and return the entity manager for an entity.', () => {
-      let em = sut.getEntityManager(BaseEntity);
+      const em: EntityManager = sut.getEntityManager(BaseEntity);
       expect(em).not.toBe(null);
       expect(em instanceof EntityManager).toBe(true);
       expect(em.api).not.toBe(null);
@@ -55,26 +43,24 @@ describe('PersistenceUnit', () => {
     });
 
     it('Should reuse entity managers for an entity.', () => {
-      let em = sut.getEntityManager(BaseEntity);
-      let baseEm = sut.getEntityManager(BaseEntity);
-      let fooEm = sut.getEntityManager(FooEntity);
+      const em = sut.getEntityManager(BaseEntity);
+      const baseEm = sut.getEntityManager(BaseEntity);
+      const fooEm = sut.getEntityManager(FooEntity);
       expect(baseEm).toBe(em);
       expect(fooEm).not.toBe(em);
       expect(fooEm).not.toBe(baseEm);
     });
 
     it('Should create default entity manager for string.', () => {
-      let em = sut.getEntityManager('test');
+      const em = sut.getEntityManager('test');
       expect(em).not.toBe(null);
       expect(em instanceof EntityManager).toBe(true);
       expect(sut.entityManagers).toEqual({'test': em});
     });
 
     it('Should throw an error if called with an entity without resource.', () => {
-      expect(() => {
-        sut.getEntityManager(NoResourceEntity);
-      }).toThrowError(Error, 'Unable to find resource for entity.');
-    })
+      expect(() => sut.getEntityManager(NoResourceEntity)).toThrowError('Unable to find resource for entity.');
+    });
   });
 
   describe('.resolveEntityReference()', () => {
@@ -87,9 +73,7 @@ describe('PersistenceUnit', () => {
     });
 
     it('Should throw an error on invalid input type.', () => {
-      expect(() => {
-        sut.resolveEntityReference({});
-      }).toThrowError(Error, 'Unable to resolve to entity reference. Expected string or function.');
+      expect(() => sut.resolveEntityReference({})).toThrowError('Unable to resolve to entity reference. Expected string or function.');
     });
   });
 });

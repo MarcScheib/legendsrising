@@ -13,10 +13,10 @@ export class EntityManager {
    * @param {Rest} api
    * @param {typeof Entity} entityClass
    */
-  constructor(private persistenceUnit: PersistenceUnit,
-              private container: Container,
-              private api: Rest,
-              private entityClass: typeof Entity) {
+  constructor(public persistenceUnit: PersistenceUnit,
+              public container: Container,
+              public api: Rest,
+              public entityClass: typeof Entity) {
   }
 
   /**
