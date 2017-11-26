@@ -24,4 +24,5 @@ before_script:
 
 script:
   - npm run test:jest
+  - cat ./test/coverage-jest/lcov.info
   - npm run coverage
