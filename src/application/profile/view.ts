@@ -8,7 +8,7 @@ import { UserEntity } from '../../resources/entities/user-entity';
 export class View implements RoutableComponentActivate {
   user: any;
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
   }
 
   activate(params: any, routeConfig: RouteConfig): Promise<void> {
