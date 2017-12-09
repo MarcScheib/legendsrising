@@ -8,11 +8,6 @@ export class UserService {
   constructor(public apiClient: Rest) {
   }
 
-  get(id: number): Promise<UserEntity> {
-    return this.apiClient
-      .find('users', id);
-  }
-
   signUp(user: any): Promise<any> {
     return this.apiClient
       .create('users', user);

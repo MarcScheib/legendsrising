@@ -43,11 +43,11 @@ export class EntityManager {
    * Performs a query for a single resource and populates an entity based on the returned data.
    *
    * @param {string} identifier - Identifier for the requested resource.
-   * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @param {{}|number|string} [criteria] - Criteria to add to the query. A plain string/number will be used as relative path.
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @returns {Promise<Entity|Entity[]>}
    */
-  findOne(identifier: string | number, criteria: {} | number | string, raw?: boolean): Promise<Entity | Entity[]> {
+  findOne(identifier: string | number, criteria?: {} | number | string, raw?: boolean): Promise<Entity | Entity[]> {
     if (typeof identifier === 'string' || typeof identifier === 'number') {
       return this.findResource(this.entityClass.getResource() + '/' + identifier, criteria, raw, true);
     }
