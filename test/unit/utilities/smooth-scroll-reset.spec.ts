@@ -1,40 +1,39 @@
-import { smoothScrollReset } from 'utilities/smooth-scroll-reset';
+import {smoothScrollReset} from 'utilities/smooth-scroll-reset';
 
-/* tslint:disable */
-function createMockDomElement(options): Element {
+function createMockDomElement(options: { attributes, scrollTop }): Element {
   options.attributes = options.attributes || {};
 
-  return {
+  return Object.assign({}, Object.create(Element), {
     listeners: {},
 
-    getAttribute: function (name: string) {
+    getAttribute: (name: string) => {
       return options.attributes[name];
     },
     scrollTop: options.scrollTop || 0,
-    addEventListener: function (event, cb) {
+    addEventListener: (event: any, cb: any) => {
       this._listeners[event] = cb;
     },
-    removeEventListener: function (event, cb) {
+    removeEventListener: (event: any, cb: any) => {
       delete this._listeners[event];
     }
-  };
+  });
 }
 
-window.requestAnimationFrame = (function () {
-  return function (callback) {
-    window.setTimeout(callback, 1000 / 60);
+window.requestAnimationFrame = (() => {
+  return function (callback: FrameRequestCallback): number {
+    return window.setTimeout(callback, 1000 / 60);
   };
 })();
 
 describe('the Smooth Scroll Reset utility', () => {
   it('should return silently with no input', () => {
-    const elem = createMockDomElement({scrollTop: 1500});
+    const elem = createMockDomElement({attributes: undefined, scrollTop: 1500});
     smoothScrollReset(undefined);
     expect(elem.scrollTop).toBe(1500);
   });
 
   it('should reset elements scroll top position', (done: jest.DoneCallback) => {
-    const elem = createMockDomElement({scrollTop: 1500});
+    const elem = createMockDomElement({attributes: undefined, scrollTop: 1500});
     smoothScrollReset(elem);
 
     setTimeout(() => {

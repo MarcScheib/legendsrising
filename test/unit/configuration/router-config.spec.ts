@@ -7,7 +7,7 @@ import { RouterStub } from '../fixtures/router.stub';
 
 describe('the router configuration', () => {
   let sut: AppRouterConfig;
-  let mockedRouter;
+  let mockedRouter: RouterStub;
 
   beforeEach(() => {
     mockedRouter = new RouterStub();
@@ -24,28 +24,28 @@ describe('the router configuration', () => {
   it('configures the router title', () => {
     sut.configure()
       .then(() => {
-        expect(sut.router.title).toEqual('LegendsRising');
+        expect(mockedRouter.title).toEqual('LegendsRising');
       });
   });
 
   it('configures no router push state', () => {
     sut.configure()
       .then(() => {
-        expect(sut.router.options.pushState).toBe(false);
+        expect(mockedRouter.options.pushState).toBe(false);
       });
   });
 
   it('contains an authorize router pipeline step', () => {
     sut.configure()
       .then(() => {
-        expect(sut.router.pipelineProvider.steps).toContain({name: 'authorize', step: AuthenticateStep});
+        expect(mockedRouter.pipelineProvider.steps).toContain({name: 'authorize', step: AuthenticateStep});
       });
   });
 
   it('contains an ScrollToTopStep router pipeline step', () => {
     sut.configure()
       .then(() => {
-        expect(sut.router.pipelineProvider.steps).toContain({name: 'postRender', step: ScrollToTopStep});
+        expect(mockedRouter.pipelineProvider.steps).toContain({name: 'postRender', step: ScrollToTopStep});
       });
   });
 
@@ -125,8 +125,8 @@ describe('the router configuration', () => {
   it('should have a unknown route config', () => {
     sut.configure()
       .then(() => {
-        expect(sut.router.unknownRouteConfig).toEqual(jasmine.any(String));
-        expect(sut.router.unknownRouteConfig).toEqual('application/error/error404');
+        expect(mockedRouter.unknownRouteConfig).toEqual(jasmine.any(String));
+        expect(mockedRouter.unknownRouteConfig).toEqual('application/error/error404');
       });
   });
 });
