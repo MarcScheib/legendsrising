@@ -22,7 +22,7 @@
     "bump-version": "npm --no-git-tag-version version",
     "coverage": "cat test/coverage-jest/lcov.info | coveralls",
     "server": "webpack-dev-server -d --inline --env.server",
-    "test:ci": "jest --config test/jest.config.json --coverage && cat ./test/coverage-jest/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:ci": "jest --config test/jest.config.json --coverage && cat ./test/coverage-jest/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v",
     "test:jest": "rimraf test/coverage-jest && jest --config test/jest.config.json",
     "test:jest:watch": "rimraf test/coverage-jest && jest --watchAll --config test/jest.config.json"
   },
