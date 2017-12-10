@@ -1,8 +1,9 @@
 {
   "verbose": true,
+  "rootDir": "../",
   "modulePaths": [
-    "<rootDir>/../src",
-    "<rootDir>/../node_modules"
+    "<rootDir>/src",
+    "<rootDir>/node_modules"
   ],
   "moduleFileExtensions": [
     "js",
@@ -10,15 +11,15 @@
     "ts"
   ],
   "transform": {
-    "^.+\\.(ts|tsx)$": "<rootDir>/../node_modules/ts-jest/preprocessor.js"
+    "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
   },
   "testRegex": "\\.spec\\.(ts|js)x?$",
   "setupFiles": [
-    "<rootDir>/jest-pretest.ts"
+    "<rootDir>/test/jest-pretest.ts"
   ],
   "testEnvironment": "node",
   "moduleNameMapper": {
-    "aurelia-(.*)": "<rootDir>/../node_modules/aurelia-$1"
+    "aurelia-(.*)": "<rootDir>/node_modules/aurelia-$1"
   },
   "collectCoverage": true,
   "collectCoverageFrom": [
@@ -27,7 +28,7 @@
     "!**/node_modules/**",
     "!**/test/**"
   ],
-  "coverageDirectory": "<rootDir>/../test/coverage-jest",
+  "coverageDirectory": "<rootDir>/test/coverage-jest",
   "coverageReporters": [
     "json",
     "lcov",
