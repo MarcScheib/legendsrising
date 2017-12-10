@@ -27,3 +27,5 @@ export { PersistenceUnit } from './persistence-unit';
 export { EntityManagerFactory } from './entity-manager-factory';
 export { EntityManager } from './entity-manager';
 export { Entity } from './entity';
+export { hasOne } from './decorator/has-one';
+export { resource } from './decorator/resource';

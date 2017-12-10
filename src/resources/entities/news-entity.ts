@@ -1,6 +1,4 @@
-import { resource } from '../features/persistence/decorator/resource';
-import { hasOne } from '../features/persistence/decorator/has-one';
-import { Entity } from '../features/persistence/entity';
+import { Entity, hasOne, resource } from '../features/persistence';
 import { UserEntity } from './user-entity';
 
 @resource('news')

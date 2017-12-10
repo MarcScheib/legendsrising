@@ -1,5 +1,4 @@
-import { Entity } from '../features/persistence/entity';
-import { resource } from '../features/persistence/decorator/resource';
+import { Entity, resource } from '../features/persistence';
 
 @resource('faqs')
 export class FaqEntity extends Entity {

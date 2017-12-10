@@ -1,6 +1,7 @@
 import { autoinject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { AuthService } from 'aurelia-authentication';
+
 import { UserEntity } from './user-entity';
 
 @autoinject()
