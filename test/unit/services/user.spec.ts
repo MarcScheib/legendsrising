@@ -1,7 +1,7 @@
-import { Container } from 'aurelia-framework';
+import {Container} from 'aurelia-framework';
 
-import { UserService } from 'services/users/user-service';
-import { RestStub } from '../fixtures/rest.stub';
+import {UserService} from 'services/users/user-service';
+import {RestStub} from '../fixtures/rest.stub';
 
 const userDummy = {
   user: 'Test'
@@ -25,43 +25,22 @@ describe('UserService', () => {
     expect(sut.apiClient).toBeTruthy();
   });
 
-  it('signs up new users', (done: jest.DoneCallback) => {
-    sut.signUp(userDummy)
-      .then((resp: any) => {
-        expect(restStub.path).toEqual('users');
-        expect(restStub.body).toEqual(userDummy);
-        expect(resp.data[0]).toEqual(userDummy);
-        done();
-      })
-      .catch((result: any) => {
-        expect(result).not.toBe(result);
-        done();
-      });
+  it('signs up new users', async () => {
+    const resp: any = await sut.signUp(userDummy);
+    expect(restStub.path).toEqual('users');
+    expect(restStub.body).toEqual(userDummy);
+    expect(resp.data[0]).toEqual(userDummy);
   });
 
-  it('returns user based on username', (done: jest.DoneCallback) => {
-    sut.isUsernameExisting('Test')
-      .then((response: boolean) => {
-        expect(restStub.path).toEqual('users?username=Test');
-        expect(response).toBe(true);
-        done();
-      })
-      .catch(() => {
-        expect(true).toBe(false);
-        done();
-      });
+  it('returns user based on username', async () => {
+    const response: boolean = await sut.isUsernameExisting('Test');
+    expect(restStub.path).toEqual('users?username=Test');
+    expect(response).toBe(true);
   });
 
-  it('returns user based on email', (done: jest.DoneCallback) => {
-    sut.isEmailExisting('Test@test.de')
-      .then((response: boolean) => {
-        expect(restStub.path).toEqual('users?email=Test%40test.de');
-        expect(response).toBeTruthy();
-        done();
-      })
-      .catch(() => {
-        expect(true).toBe(false);
-        done();
-      });
+  it('returns user based on email', async () => {
+    const response: boolean = await sut.isEmailExisting('Test@test.de');
+    expect(restStub.path).toEqual('users?email=Test%40test.de');
+    expect(response).toBeTruthy();
   });
 });

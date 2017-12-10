@@ -1,18 +1,18 @@
-import { Container } from 'aurelia-framework';
-import { NotificationService } from 'aurelia-notify';
-import { AuthService } from 'aurelia-authentication';
+import {Container} from 'aurelia-framework';
+import {NotificationService} from 'aurelia-notify';
+import {AuthService} from 'aurelia-authentication';
 
-import { LoggedInUser } from 'resources/entities/logged-in-user';
-import { NewsCommentsService } from 'services/news/news-comments-service';
-import { Index } from 'application/news/index';
-import { View } from 'application/news/view';
-import { NewsEntity } from 'resources/entities/news-entity';
+import {LoggedInUser} from 'resources/entities/logged-in-user';
+import {NewsCommentsService} from 'services/news/news-comments-service';
+import {Index} from 'application/news/index';
+import {View} from 'application/news/view';
+import {NewsEntity} from 'resources/entities/news-entity';
 
-import { NewsCommentsServiceStub } from '../fixtures/news-comments-service.stub';
-import { NotificationServiceStub } from '../fixtures/notification-service.stub';
-import { RestStub } from '../fixtures/rest.stub';
-import { AuthServiceStub } from '../fixtures/auth-service.stub';
-import { RouteConfigStub } from '../fixtures/route-config.stub';
+import {NewsCommentsServiceStub} from '../fixtures/news-comments-service.stub';
+import {NotificationServiceStub} from '../fixtures/notification-service.stub';
+import {RestStub} from '../fixtures/rest.stub';
+import {AuthServiceStub} from '../fixtures/auth-service.stub';
+import {RouteConfigStub} from '../fixtures/route-config.stub';
 
 describe('News', () => {
   describe('Index', () => {
@@ -31,29 +31,17 @@ describe('News', () => {
       expect(sut.entityManager).toBeDefined();
     });
 
-    it('sets fetch response to news', (done: jest.DoneCallback) => {
+    it('sets fetch response to news', async () => {
       rest.requestDummy = [new NewsEntity()];
-      sut.activate()
-        .then(() => {
-          expect(sut.news).toBeDefined();
-          expect(sut.news.length).toBe(1);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+      await sut.activate();
+      expect(sut.news).toBeDefined();
+      expect(sut.news.length).toBe(1);
     });
 
-    it('contains an empty list on API fail', (done: jest.DoneCallback) => {
+    it('contains an empty list on API fail', async () => {
       rest.reject = true;
-      sut.activate()
-        .then(() => {
-          expect(sut.news).toEqual([]);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+      await sut.activate();
+      expect(sut.news).toEqual([]);
     });
   });
 
@@ -89,52 +77,28 @@ describe('News', () => {
       expect(sut.notificationService).toBeDefined();
     });
 
-    it('stores the news id on activation', (done: jest.DoneCallback) => {
-      sut.activate({id: 1}, new RouteConfigStub())
-        .then(() => {
-          expect(sut.newsId).toBe(1);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+    it('stores the news id on activation', async () => {
+      await sut.activate({id: 1}, new RouteConfigStub());
+      expect(sut.newsId).toBe(1);
     });
 
-    it('sets fetch response to selected news', (done: jest.DoneCallback) => {
+    it('sets fetch response to selected news', async () => {
       const routeConfig = new RouteConfigStub();
-      sut.activate({id: 1}, routeConfig)
-        .then(() => {
-          expect(sut.news).toBeDefined();
-          expect(routeConfig.navModel.title).toEqual(sut.news.title);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+      await sut.activate({id: 1}, routeConfig);
+      expect(sut.news).toBeDefined();
+      expect(routeConfig.navModel.title).toEqual(sut.news.title);
     });
 
-    it('sets selected news to null on API fail', (done: jest.DoneCallback) => {
+    it('sets selected news to null on API fail', async () => {
       rest.reject = true;
-      sut.activate({id: 1}, new RouteConfigStub())
-        .then(() => {
-          expect(sut.news).toBe(null);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+      await sut.activate({id: 1}, new RouteConfigStub());
+      expect(sut.news).toBe(null);
     });
 
-    it('sets the comments to empty list on API fail', (done: jest.DoneCallback) => {
+    it('sets the comments to empty list on API fail', async () => {
       newsCommentsService.reject = true;
-      sut.activate({id: 1}, new RouteConfigStub())
-        .then(() => {
-          expect(sut.comments).toEqual([]);
-        })
-        .catch(() => {
-          expect(true).toBeFalsy();
-        })
-        .then(done);
+      await sut.activate({id: 1}, new RouteConfigStub());
+      expect(sut.comments).toEqual([]);
     });
   });
 });
