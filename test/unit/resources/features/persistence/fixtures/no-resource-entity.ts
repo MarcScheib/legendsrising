@@ -1,4 +1,4 @@
-import {Entity} from '../../../../../../src/resources/features/persistence/entity';
+import { Entity } from 'resources/features/persistence';
 
 export class NoResourceEntity extends Entity {
 

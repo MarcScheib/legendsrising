@@ -1,9 +1,8 @@
 import { Container } from 'aurelia-framework';
 import { Rest } from 'aurelia-api';
 
-import { PersistenceUnit } from 'resources/features/persistence/persistence-unit';
-import { EntityManager } from 'resources/features/persistence/entity-manager';
-import { Entity } from 'resources/features/persistence/entity';
+import { Entity, EntityManager, PersistenceUnit } from 'resources/features/persistence';
+
 import { BaseEntity } from './fixtures/base-entity';
 import { FooEntity } from './fixtures/foo-entity';
 import { NoResourceEntity } from './fixtures/no-resource-entity';
@@ -25,7 +24,7 @@ describe('PersistenceUnit', () => {
     });
 
     it('Should throw an error when registering with a non-Entity', () => {
-      expect(() => sut.registerEntity({})).toThrowError(`Can't register an entity of type object. Expected function.`);
+      expect(() => sut.registerEntity(null)).toThrowError(`Can't register an entity of type object. Expected function.`);
     });
   });
 
@@ -73,7 +72,7 @@ describe('PersistenceUnit', () => {
     });
 
     it('Should throw an error on invalid input type.', () => {
-      expect(() => sut.resolveEntityReference({})).toThrowError('Unable to resolve to entity reference. Expected string or function.');
+      expect(() => sut.resolveEntityReference(null)).toThrowError('Unable to resolve to entity reference. Expected string or function.');
     });
   });
 });

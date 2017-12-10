@@ -1,16 +1,15 @@
-import {Entity} from '../../../../../../src/resources/features/persistence/entity';
-import {resource} from '../../../../../../src/resources/features/persistence/decorator/resource';
-import {hasOne} from '../../../../../../src/resources/features/persistence/decorator/has-one';
-import {BaseEntity} from './base-entity';
+import { Entity, hasOne, resource } from 'resources/features/persistence';
+import { BaseEntity } from './base-entity';
+import { BarEntity } from './bar-entity';
 
 @resource()
 export class WithAssociationsEntity extends Entity {
   @hasOne(BaseEntity)
-  base = null;
+  base: BaseEntity = null;
 
   @hasOne()
-  bar = null;
+  bar: any = null;
 
   @hasOne('bar')
-  anotherBar = null;
+  anotherBar: BarEntity = null;
 }

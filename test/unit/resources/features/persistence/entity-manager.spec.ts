@@ -1,8 +1,6 @@
 import { Container } from 'aurelia-framework';
 
-import { PersistenceUnit } from 'resources/features/persistence/persistence-unit';
-import { EntityManager } from 'resources/features/persistence/entity-manager';
-import { Entity } from 'resources/features/persistence/entity';
+import { Entity, EntityManager, PersistenceUnit } from 'resources/features/persistence';
 
 import { BaseEntity } from './fixtures/base-entity';
 import { BarEntity } from './fixtures/bar-entity';
@@ -11,7 +9,7 @@ import { WithAssociationsEntity } from './fixtures/with-associations-entity';
 import { RestStub } from '../../../fixtures/rest.stub';
 
 describe('EntityManager', () => {
-  let container;
+  let container: Container;
   let rest: RestStub;
   let sut: EntityManager;
 
