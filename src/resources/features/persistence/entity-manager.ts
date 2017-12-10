@@ -1,8 +1,8 @@
-import { Container } from 'aurelia-framework';
-import { Rest } from 'aurelia-api';
+import {Container} from 'aurelia-framework';
+import {Rest} from 'aurelia-api';
 
-import { PersistenceUnit } from './persistence-unit';
-import { Entity } from './entity';
+import {PersistenceUnit} from './persistence-unit';
+import {Entity} from './entity';
 
 export class EntityManager {
   /**
@@ -23,7 +23,7 @@ export class EntityManager {
    * Returns a new entity.
    */
   getEntity(): Entity {
-    const instance = this.container.get(this.entityClass);
+    const instance: Entity = this.container.get(this.entityClass);
     instance.setResource(this.entityClass.getResource());
     return instance;
   }
@@ -36,7 +36,8 @@ export class EntityManager {
    * @return {Promise<Entity|[Entity]>}
    */
   find(criteria?: {} | number | string, raw?: boolean): Promise<Entity | Entity[]> {
-    return this.findResource(this.entityClass.getResource(), criteria, raw);
+    const resourcePath = this.getResourcePath(this.entityClass, criteria);
+    return this.findResource(resourcePath, criteria, raw);
   }
 
   /**
@@ -48,26 +49,25 @@ export class EntityManager {
    * @returns {Promise<Entity|Entity[]>}
    */
   findOne(identifier: string | number, criteria?: {} | number | string, raw?: boolean): Promise<Entity | Entity[] | any> {
-    if (typeof identifier === 'string' || typeof identifier === 'number') {
-      return this.findResource(this.entityClass.getResource() + '/' + identifier, criteria, raw, true);
-    }
+    const resourcePath = this.getResourcePath(this.entityClass, criteria);
+    return this.findResource(resourcePath + '/' + identifier, criteria, raw, true);
   }
 
   /**
    * Performs a query on `resource` and populates entities based on the returned data.
    *
-   * @param {string} resource - The resource to query
+   * @param {string} resourcePath - The resource to query
    * @param {{}|number|string} criteria - Criteria to add to the query. A plain string/number will be used as relative path.
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @param {boolean} [single] - Set to true to get a single entity instead of a collection.
    * @return {Promise<Entity|[Entity]>}
    */
-  findResource(resource: string, criteria: {} | number | string, raw?: boolean, single?: boolean): Promise<Entity | Entity[] | any> {
+  findResource(resourcePath: string, criteria: {} | number | string, raw?: boolean, single?: boolean): Promise<Entity | Entity[] | any> {
     let result;
     if (single && typeof criteria === 'number') {
-      result = this.api.findOne(resource, criteria);
+      result = this.api.findOne(resourcePath, criteria);
     } else {
-      result = this.api.find(resource, criteria);
+      result = this.api.find(resourcePath, criteria);
     }
 
     if (raw) {
@@ -75,9 +75,7 @@ export class EntityManager {
     }
 
     return result
-      .then((response: any) => {
-        return this.populateEntities(response);
-      });
+      .then((response: any) => this.populateEntities(response));
   }
 
   /**
@@ -128,5 +126,22 @@ export class EntityManager {
     }
     Object.assign(entity, entityData);
     return entity;
+  }
+
+  /**
+   * Creates the entities' resource path based on the resource name and path. If a path is specified,
+   * it is resolved using the given criteria. The used parameter is removed from the criteria. If no path
+   * is specified, the resource name is used.
+   *
+   * @param {typeof Entity} entityClass
+   * @param {{}} [criteria] - Criteria to add to the query. A plain string/number will be used as relative path.
+   * @returns {string}
+   */
+  getResourcePath(entityClass: typeof Entity, criteria?: {}): string {
+    let resourcePath = entityClass.getResource();
+    if (entityClass.getPath()) {
+      resourcePath = entityClass.getPath();
+    }
+    return resourcePath;
   }
 }
