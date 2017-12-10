@@ -6,6 +6,7 @@
 /build/reports
 /coverage
 /test/coverage-jest
+/test/coverage-karma
 /test/e2e/dist
 /.idea
 *.iml
