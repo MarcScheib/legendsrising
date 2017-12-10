@@ -47,7 +47,7 @@ export class EntityManager {
    * @param {boolean} [raw] - Set to true to get a plain object instead of entities.
    * @returns {Promise<Entity|Entity[]>}
    */
-  findOne(identifier: string | number, criteria?: {} | number | string, raw?: boolean): Promise<Entity | Entity[]> {
+  findOne(identifier: string | number, criteria?: {} | number | string, raw?: boolean): Promise<Entity | Entity[] | any> {
     if (typeof identifier === 'string' || typeof identifier === 'number') {
       return this.findResource(this.entityClass.getResource() + '/' + identifier, criteria, raw, true);
     }
@@ -62,7 +62,7 @@ export class EntityManager {
    * @param {boolean} [single] - Set to true to get a single entity instead of a collection.
    * @return {Promise<Entity|[Entity]>}
    */
-  findResource(resource: string, criteria: {} | number | string, raw?: boolean, single?: boolean): Promise<Entity | Entity[]> {
+  findResource(resource: string, criteria: {} | number | string, raw?: boolean, single?: boolean): Promise<Entity | Entity[] | any> {
     let result;
     if (single && typeof criteria === 'number') {
       result = this.api.findOne(resource, criteria);

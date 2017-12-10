@@ -28,38 +28,30 @@ describe('EntityManager', () => {
   });
 
   describe('.find()', () => {
-    it('Should create and return an array of `FaqEntity`.', (done: jest.DoneCallback) => {
+    it('Should create and return an array of `FaqEntity`.', async () => {
       rest.requestDummy = [{}, {}];
-      sut.find()
-        .then((entities: Entity[]) => {
-          expect(typeof entities).toBe('object');
-          for (const entity of entities) {
-            expect(entity instanceof FaqEntity).toBe(true);
-          }
-          done();
-        });
+      const entities: Entity[] = <Entity[]> await sut.find();
+      expect(typeof entities).toBe('object');
+      expect(entities.length).toBe(2);
+      for (const entity of entities) {
+        expect(entity instanceof FaqEntity).toBe(true);
+      }
     });
   });
 
   describe('.findOne()', () => {
-    it('Should create and return a `FaqEntity`.', (done: jest.DoneCallback) => {
+    it('Should create and return a `FaqEntity`.', async () => {
       rest.requestDummy = {};
-      sut.findOne(1, {})
-        .then((entity: Entity) => {
-          expect(typeof entity).toBe('object');
-          expect(entity instanceof FaqEntity).toBe(true);
-          done();
-        });
+      const entity: Entity = <Entity> await sut.findOne(1, {});
+      expect(typeof entity).toBe('object');
+      expect(entity instanceof FaqEntity).toBe(true);
     });
 
-    it('Should return a raw object.', (done: jest.DoneCallback) => {
+    it('Should return a raw object.', async () => {
       rest.requestDummy = {};
-      sut.findOne(1, {}, true)
-        .then((entity: Entity) => {
-          expect(typeof entity).toBe('object');
-          expect(entity instanceof FaqEntity).toBe(false);
-          done();
-        });
+      const entity: any = <any> await sut.findOne(1, {}, true);
+      expect(typeof entity).toBe('object');
+      expect(entity instanceof Entity).toBe(false);
     });
   });
 
