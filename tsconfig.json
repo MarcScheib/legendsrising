@@ -14,7 +14,6 @@
     ]
   },
   "exclude": [
-    "test",
     "node_modules",
     "dist",
     "static"
