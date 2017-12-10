@@ -1,7 +1,7 @@
 export class NotificationServiceStub {
-  message = '';
+  message: string = '';
 
-  danger(message) {
+  danger(message: string): void {
     this.message = message;
   }
 }

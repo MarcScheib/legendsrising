@@ -1,5 +1,6 @@
 import { smoothScrollReset } from 'utilities/smooth-scroll-reset';
 
+/* tslint:disable */
 function createMockDomElement(options): Element {
   options.attributes = options.attributes || {};
 

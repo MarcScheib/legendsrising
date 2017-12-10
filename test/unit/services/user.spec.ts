@@ -27,13 +27,13 @@ describe('UserService', () => {
 
   it('signs up new users', (done: jest.DoneCallback) => {
     sut.signUp(userDummy)
-      .then(resp => {
+      .then((resp: any) => {
         expect(restStub.path).toEqual('users');
         expect(restStub.body).toEqual(userDummy);
         expect(resp.data[0]).toEqual(userDummy);
         done();
       })
-      .catch(result => {
+      .catch((result: any) => {
         expect(result).not.toBe(result);
         done();
       });

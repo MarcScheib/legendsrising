@@ -1,10 +1,11 @@
 export class NewsCommentsServiceStub {
-  reject = false;
+  reject: boolean = false;
+  itemStub: any;
 
-  getAll(id) {
-    var response = this.itemStub;
-    return new Promise((resolve, reject) => {
-      if (this.reject == false) {
+  getAll(id: number): Promise<void> {
+    const response = this.itemStub;
+    return new Promise((resolve: (value?: PromiseLike<any> | any) => void, reject: (reason?: any) => void) => {
+      if (this.reject === false) {
         resolve(response);
       } else {
         reject();
