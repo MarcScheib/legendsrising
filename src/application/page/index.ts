@@ -1,4 +1,4 @@
-import { PLATFORM } from 'aurelia-pal';
+import {PLATFORM} from 'aurelia-pal';
 import {
   activationStrategy,
   RoutableComponentActivate,
@@ -6,7 +6,7 @@ import {
   RouteConfig
 } from 'aurelia-router';
 
-import { _hyphenate, _titlecase } from 'utilities/util';
+import {_hyphenate, _titlecase} from 'utilities/util';
 
 const pages = {
   'legal-notice': PLATFORM.moduleName('application/page/legal-notice.html'),

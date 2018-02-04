@@ -1,9 +1,9 @@
-import { inject } from 'aurelia-framework';
-import { RoutableComponentActivate } from 'aurelia-router';
+import {inject} from 'aurelia-framework';
+import {RoutableComponentActivate} from 'aurelia-router';
 
-import { EntityManagerFactory } from 'resources/features/persistence/index';
-import { FaqEntity } from 'resources/entities/faq-entity';
-import { EntityManager } from 'resources/features/persistence/entity-manager';
+import {EntityManagerFactory} from 'resources/features/persistence/index';
+import {FaqEntity} from 'resources/entities/faq-entity';
+import {EntityManager} from 'resources/features/persistence/entity-manager';
 
 @inject(EntityManagerFactory.of(FaqEntity))
 export class Index implements RoutableComponentActivate {

@@ -1,15 +1,15 @@
 import '../scss/style.scss';
 import 'font-awesome/css/font-awesome.css';
 
-import { Aurelia, LogManager } from 'aurelia-framework';
-import { PLATFORM } from 'aurelia-pal';
-import { ConsoleAppender } from 'aurelia-logging-console';
-import { Config } from 'aurelia-api';
-import { BaseConfig } from 'aurelia-authentication';
+import {Aurelia, LogManager} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
+import {ConsoleAppender} from 'aurelia-logging-console';
+import {Config} from 'aurelia-api';
+import {BaseConfig} from 'aurelia-authentication';
 
 import authConfig from './configuration/auth-config';
-import { NavigationSettings } from './resources/features/navigation/navigation-settings';
-import { PersistenceConfiguration } from './resources/features/persistence/persistence-configuration';
+import {NavigationSettings} from './resources/features/navigation/navigation-settings';
+import {PersistenceConfiguration} from './resources/features/persistence/persistence-configuration';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
   LogManager.addAppender(new ConsoleAppender());

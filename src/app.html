@@ -6,9 +6,7 @@
 
   <loading-indicator loading.bind="router.isNavigating || api.client.isRequesting"></loading-indicator>
 
-  <header>
-    <navigation-top router.bind="router"></navigation-top>
-  </header>
+  <navigation-top router.bind="router"></navigation-top>
 
   <navigation class="sidebar-nav navigation-pinned show-navigation">
     <navigation-side></navigation-side>

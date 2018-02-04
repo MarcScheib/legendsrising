@@ -1,7 +1,5 @@
-import { inject } from 'aurelia-framework';
-import { Endpoint, Rest } from 'aurelia-api';
-
-import { UserEntity } from 'resources/entities/user-entity';
+import {inject} from 'aurelia-framework';
+import {Endpoint, Rest} from 'aurelia-api';
 
 @inject(Endpoint.of(undefined)) // TODO required new aurelia-api version with optional param
 export class UserService {
@@ -18,9 +16,7 @@ export class UserService {
       .find('users', {
         'username': username
       })
-      .then((result: { data: any[] }) => {
-        return !!result.data.length;
-      });
+      .then((result: any[]) => !!result.length);
   }
 
   isEmailExisting(email: string): Promise<boolean> {
@@ -28,8 +24,6 @@ export class UserService {
       .find('users', {
         'email': email
       })
-      .then((result: { data: any[] }) => {
-        return !!result.data.length;
-      });
+      .then((result: any[]) => !!result.length);
   }
 }

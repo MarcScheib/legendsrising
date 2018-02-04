@@ -1,7 +1,7 @@
-import { autoinject } from 'aurelia-framework';
-import { RoutableComponentActivate } from 'aurelia-router';
-import { AuthService } from 'aurelia-authentication';
-import { NotificationService } from 'aurelia-notify';
+import {autoinject} from 'aurelia-framework';
+import {RoutableComponentActivate} from 'aurelia-router';
+import {AuthService} from 'aurelia-authentication';
+import {NotificationService} from 'aurelia-notify';
 
 @autoinject()
 export class SignOut implements RoutableComponentActivate {

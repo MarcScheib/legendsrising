@@ -1,9 +1,9 @@
 <template>
   <section class="au-animate">
-    <div class="row">
+    <div class="row mb-4">
       <div class="col-xl-3 col-lg-6 col-md-12">
-        <div class="card card-info">
-          <div class="card-block info-box">
+        <div class="card bg-info text-white">
+          <div class="card-body info-box">
             <i class="fa fa-smile-o"></i>
 
             <div class="count">2</div>
@@ -13,8 +13,8 @@
         </div>
       </div>
       <div class="col-xl-3 col-lg-6 col-md-12">
-        <div class="card card-warning">
-          <div class="card-block info-box">
+        <div class="card bg-warning text-white">
+          <div class="card-body info-box">
             <i class="fa fa-bars"></i>
 
             <div class="count">5</div>
@@ -24,8 +24,8 @@
         </div>
       </div>
       <div class="col-xl-3 col-lg-6 col-md-12">
-        <div class="card card-danger">
-          <div class="card-block info-box">
+        <div class="card bg-danger text-white">
+          <div class="card-body info-box">
             <i class="fa fa-dollar"></i>
 
             <div class="count">10k</div>
@@ -35,8 +35,8 @@
         </div>
       </div>
       <div class="col-xl-3 col-lg-6 col-md-12">
-        <div class="card card-success">
-          <div class="card-block info-box">
+        <div class="card bg-success text-white">
+          <div class="card-body info-box">
             <i class="fa fa-trophy"></i>
 
             <div class="count">0</div>
@@ -48,15 +48,18 @@
     </div>
     <div class="row">
       <div class="col-lg-8">
-        <div class="card card-block">
-          <h4 class="card-title">LegendsRising</h4>
+        <div class="card">
+          <div class="card-body">
 
-          <p class="card-text">Welcome to <strong>LegendsRising</strong>, a Massively
-            Multiplayer Online Role-Playing Game, forcing players into One-vs-Many battles.</p>
+            <h4 class="card-title">LegendsRising</h4>
 
-          <p class="card-text">Group up in big guilds to defeat mighty creatures from ancient times to become
-            the wealthiest among all or fight against other players to become a well known
-            and reverent emperor.</p>
+            <p class="card-text">Welcome to <strong>LegendsRising</strong>, a Massively
+              Multiplayer Online Role-Playing Game, forcing players into One-vs-Many battles.</p>
+
+            <p class="card-text">Group up in big guilds to defeat mighty creatures from ancient times to become
+              the wealthiest among all or fight against other players to become a well known
+              and reverent emperor.</p>
+          </div>
         </div>
       </div>
       <div class="col-lg-4">
@@ -69,12 +72,11 @@
             <p class="list-group-item-text">There are no news available currently.</p>
           </div>
 
-          <a repeat.for="item of news" class="list-group-item" href="#/news/view/${item.id}">
+          <a repeat.for="item of news" class="list-group-item list-group-item-action" href="#/news/view/${item.id}">
             <h6 class="list-group-item-heading"><strong>${item.title}</strong></h6>
 
-            <p class="list-group-item-text">
-              by ${item.user.username} on
-              <time>${item.created_at}</time>
+            <p class="list-group-item-text m-0">
+              by ${item.user.username} on <time>${item.created_at}</time>
             </p>
           </a>
         </div>

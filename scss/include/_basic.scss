@@ -22,8 +22,6 @@
 
 // Info Box
 .info-box {
-  color: $widget-info-box-text-color;
-
   i {
     border-right: 2px solid $widget-info-box-inner-border-color;
     display: block;
@@ -60,11 +58,11 @@
 }
 
 .has-success label {
-  color: $state-success-text;
+  color: green; // TODO
 }
 
 .has-warning label {
-  color: $state-warning-text;
+  color: yellow; // TODO
 }
 
 // colors

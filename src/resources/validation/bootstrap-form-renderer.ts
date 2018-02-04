@@ -15,32 +15,6 @@ export class BootstrapFormRenderer implements ValidationRenderer {
     }
   }
 
-  add(element: Element, result: ValidateResult): void {
-    const formGroup = element.closest('.form-group');
-    if (!formGroup) {
-      return;
-    }
-
-    if (result.valid) {
-      if (!formGroup.classList.contains('has-danger')) {
-        formGroup.classList.add('has-success');
-        element.classList.add('form-control-success');
-      }
-    } else {
-      formGroup.classList.remove('has-success');
-      element.classList.remove('form-control-success');
-      formGroup.classList.add('has-danger');
-      element.classList.add('form-control-danger');
-
-      // add help-block
-      const message = document.createElement('div');
-      message.className = 'form-control-feedback';
-      message.textContent = result.message;
-      message.id = `validation-message-${result.id}`;
-      formGroup.appendChild(message);
-    }
-  }
-
   remove(element: Element, result: ValidateResult): void {
     const formGroup = element.closest('.form-group');
     if (!formGroup) {
@@ -48,20 +22,39 @@ export class BootstrapFormRenderer implements ValidationRenderer {
     }
 
     if (result.valid) {
-      if (formGroup.classList.contains('has-success')) {
-        formGroup.classList.remove('has-success');
+      if (element.classList.contains('is-valid')) {
+        element.classList.remove('is-valid');
       }
     } else {
       // remove help-block
       const message = formGroup.querySelector(`#validation-message-${result.id}`);
       if (message) {
         formGroup.removeChild(message);
-
-        // remove the has-error class from the enclosing form-group div
-        if (formGroup.querySelectorAll('.form-control-feedback.validation-message').length === 0) {
-          formGroup.classList.remove('has-danger');
-        }
+        element.classList.remove('is-invalid');
       }
+    }
+  }
+
+  add(element: Element, result: ValidateResult): void {
+    const formGroup = element.closest('.form-group');
+    if (!formGroup) {
+      return;
+    }
+
+    if (result.valid) {
+      if (!element.classList.contains('is-invalid')) {
+        element.classList.add('is-valid');
+      }
+    } else {
+      element.classList.remove('is-valid');
+      element.classList.add('is-invalid');
+
+      // add help-block
+      const message = document.createElement('div');
+      message.className = 'invalid-feedback';
+      message.textContent = result.message;
+      message.id = `validation-message-${result.id}`;
+      formGroup.appendChild(message);
     }
   }
 }

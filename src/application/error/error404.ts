@@ -1,3 +1,2 @@
 export class Error404 {
-
 }

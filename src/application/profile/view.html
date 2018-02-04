@@ -2,19 +2,21 @@
   <section class="au-animate">
     <div class="row mb-1">
       <div class="col-lg-4">
-        <div class="card card-block">
-          <div class="profile-image">
-            <!-- Todo -->
-            <img src="http://lr.local/img/avatar/${user.avatar}">
-          </div>
-          <div class="profile-info">
-            <h2>
-              ${user.username}
-            </h2>
-            <h4 if.bind="user.guild_id">Member of Guild</h4>
-            <small>
-              Joined on ${user.created_at}, Last update on ${user.updated_at}
-            </small>
+        <div class="card">
+          <div class="card-body">
+            <div class="profile-image">
+              <!-- Todo -->
+              <img src="http://lr.local/img/avatar/${user.avatar}">
+            </div>
+            <div class="profile-info">
+              <h2>
+                ${user.username}
+              </h2>
+              <h4 if.bind="user.guild_id">Member of Guild</h4>
+              <small>
+                Joined on ${user.created_at}, Last update on ${user.updated_at}
+              </small>
+            </div>
           </div>
         </div>
       </div>
@@ -51,22 +53,24 @@
     </div>
     <div class="row">
       <div class="col-lg-3">
-        <div class="card card-block">
-          <h4 class="card-title">Private message</h4>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Private message</h4>
 
-          <p class="small">
-            Send a private message to ${user.username}
-          </p>
+            <p class="small">
+              Send a private message to ${user.username}
+            </p>
 
-          <div class="form-group">
-            <label>Subject</label>
-            <input type="email" class="form-control" placeholder="Message subject">
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="email" class="form-control" placeholder="Message subject">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" placeholder="Your message" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block">Send</button>
           </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea class="form-control" placeholder="Your message" rows="3"></textarea>
-          </div>
-          <button class="btn btn-primary btn-block">Send</button>
         </div>
       </div>
     </div>

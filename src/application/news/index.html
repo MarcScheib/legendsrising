@@ -4,17 +4,19 @@
       <div class="col-lg-12">
         <no-data message="There are no news available currently." visible.bind="news.length === 0"></no-data>
 
-        <div class="card card-block" repeat.for="item of news">
-          <div class="news-card-header">
-            <a href="#/profile/view/${item.user.id}" class="pull-left">
-              <!-- Todo -->
-              <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
-            </a>
-            <h4><a href="#/news/view/${item.id}">${item.title}</a></h4>
-            <strong><a href="#/profile/view/${item.user.id}">${item.user.username}</a></strong>
-            <small class="text-muted"><i class="fa fa-clock-o"></i> ${item.created_at}</small>
+        <div class="card mb-4" repeat.for="item of news">
+          <div class="card-body">
+            <div class="news-card-header">
+              <a href="#/profile/view/${item.user.id}" class="pull-left">
+                <!-- Todo -->
+                <img alt="${item.user.username}" src="http://lr.local/img/avatar/${item.user.avatar}">
+              </a>
+              <h4><a href="#/news/view/${item.id}">${item.title}</a></h4>
+              <strong><a href="#/profile/view/${item.user.id}">${item.user.username}</a></strong>
+              <small class="text-muted"><i class="fa fa-clock-o"></i> ${item.created_at}</small>
+            </div>
+            <div class="card-text pt-1">${item.text}</div>
           </div>
-          <div class="card-text pt-1">${item.text}</div>
         </div>
       </div>
     </div>

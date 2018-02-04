@@ -1,13 +1,13 @@
-import { inject } from 'aurelia-framework';
-import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
-import { NotificationService } from 'aurelia-notify';
+import {inject} from 'aurelia-framework';
+import {RoutableComponentActivate, RouteConfig} from 'aurelia-router';
+import {NotificationService} from 'aurelia-notify';
 
-import { EntityManager } from 'resources/features/persistence/entity-manager';
-import { NewsCommentsService } from 'services/news/news-comments-service';
-import { DataListController } from 'resources/features/data-list/index';
-import { LoggedInUser } from 'resources/entities/logged-in-user';
-import { EntityManagerFactory } from 'resources/features/persistence/index';
-import { NewsEntity } from 'resources/entities/news-entity';
+import {EntityManager} from 'resources/features/persistence/entity-manager';
+import {NewsCommentsService} from 'services/news/news-comments-service';
+import {DataListController} from 'resources/features/data-list/index';
+import {LoggedInUser} from 'resources/entities/logged-in-user';
+import {EntityManagerFactory} from 'resources/features/persistence/index';
+import {NewsEntity} from 'resources/entities/news-entity';
 
 const ENTER_KEY = 13;
 

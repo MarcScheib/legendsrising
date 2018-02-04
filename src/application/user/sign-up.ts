@@ -1,11 +1,11 @@
-import { inject, NewInstance } from 'aurelia-framework';
-import { NotificationService } from 'aurelia-notify';
-import { RoutableComponentActivate, RoutableComponentDeactivate, Router } from 'aurelia-router';
-import { ControllerValidateResult, validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
+import {inject, NewInstance} from 'aurelia-framework';
+import {NotificationService} from 'aurelia-notify';
+import {RoutableComponentActivate, RoutableComponentDeactivate, Router} from 'aurelia-router';
+import {ControllerValidateResult, validateTrigger, ValidationController, ValidationRules} from 'aurelia-validation';
 
-import { BootstrapFormRenderer } from 'resources/validation/bootstrap-form-renderer';
-import { UserService } from 'services/users/user-service';
-import { UserEntity } from '../../resources/entities/user-entity';
+import {BootstrapFormRenderer} from 'resources/validation/bootstrap-form-renderer';
+import {UserService} from 'services/users/user-service';
+import {UserEntity} from 'resources/entities/user-entity';
 
 @inject(Router, NewInstance.of(ValidationController), UserService, NotificationService)
 export class SignUp implements RoutableComponentActivate, RoutableComponentDeactivate {

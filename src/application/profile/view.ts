@@ -1,8 +1,8 @@
-import { inject } from 'aurelia-framework';
-import { RoutableComponentActivate, RouteConfig } from 'aurelia-router';
+import {inject} from 'aurelia-framework';
+import {RoutableComponentActivate, RouteConfig} from 'aurelia-router';
 
-import { UserEntity } from 'resources/entities/user-entity';
-import { EntityManager, EntityManagerFactory } from 'resources/features/persistence';
+import {UserEntity} from 'resources/entities/user-entity';
+import {EntityManager, EntityManagerFactory} from 'resources/features/persistence';
 
 @inject(EntityManagerFactory.of(UserEntity))
 export class View implements RoutableComponentActivate {

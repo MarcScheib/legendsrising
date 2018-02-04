@@ -1,8 +1,9 @@
-import { autoinject } from 'aurelia-framework';
-import { AuthService } from 'aurelia-authentication';
-import { NotificationService } from 'aurelia-notify';
-import { LoggedInUser } from '../../resources/entities/logged-in-user';
-import { UserEntity } from '../../resources/entities/user-entity';
+import {autoinject} from 'aurelia-framework';
+import {AuthService} from 'aurelia-authentication';
+import {NotificationService} from 'aurelia-notify';
+
+import {LoggedInUser} from 'resources/entities/logged-in-user';
+import {UserEntity} from 'resources/entities/user-entity';
 
 @autoinject()
 export class SignIn {
