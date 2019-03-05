@@ -8,10 +8,6 @@
 
 LegendsRising is a Massively Multiplayer Online Role-Playing Game, claiming player to One-vs-Many battles.
 
-## Official Page
-
-LegendsRising can be found on the [LegendsRising website](http://www.legendsrising.de/).
-
 ## Building The Code
 
 First of all, clone the complete repository to your local machine.
